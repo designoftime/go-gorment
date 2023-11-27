@@ -1,0 +1,246 @@
+/* Banner-section */
+
+.Banner-section{
+    width: 100%;
+    background: url('./images/bannerhome.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top:25px!important;
+  }
+.bannerimg{
+    width: 100%;
+}
+.banner-left{
+    width: 70%;
+}
+.banner-right{
+    width: 30%;
+    height: 100%
+}
+.product-component__rating{
+    margin-top: 200px!important;
+}
+.Bannerheader{
+    margin-top: 2%!important;
+    width: 100%;
+    line-height: 107px;
+    font-family:  bannerheaderfont;
+    font-size: 150px!important;
+}
+.Banner-content{
+    display: flex;
+    width: 100%!important;
+}
+.bannerpara{
+    font-size: 20px!important;
+    width: 50%;
+    font-weight: 900;
+}
+.shopbanner{
+    border: 3px solid!important;
+    font-family: Snacksgifheaderfont!important;
+    border-radius: 20px!important;
+    font-weight: bolder!important;
+    transition: 0.5s!important;
+    padding: 10px 30px!important;
+}
+.greatetaste{
+    height: 155px!important;
+    width: 155px!important;
+}
+.greatetasteimg{
+    height: 100%;
+    width: 100%;
+    margin-top: 340%!important;
+    margin-left: 177%!important;
+}
+.shopbanner:hover{
+    border-radius: 50%!important;
+    color:#4c4294!important;
+    
+}
+
+/* Carousel-section */
+
+.Carousel-section{
+    margin-top: 700px!important;
+    width: 100%!important;
+}
+
+.Carousel_logo{
+    margin-top: 15% !important;
+    padding : 4px 20px !important;
+    height:80% !important;
+    width: 80px !important;
+}
+.Carousel_logo1{
+    margin-top: 15% !important;
+    padding : 10px 20px !important;
+    height:100% !important;
+    width: 100px !important;
+}
+.Carousel_logo2{
+    margin-top: 15% !important;
+    padding : 10px 20px !important;
+    height:150% !important;
+    width: 230px !important;
+}
+.Carousel_logo3{
+    margin-top: 15% !important;
+    padding : 10px 20px !important;
+    height:180% !important;
+    width: 250px !important;
+}
+
+.Carousel_content{
+    margin-bottom:10%!important;
+    /* padding-left: 20%!important; */
+    font-size: 30px!important;
+    line-height: 42px!important;
+    width: 100% !important;
+    color:#4c4294!important;
+    font-weight: bolder!important;
+    
+}
+
+/* PrimaryProduct-Section */
+
+.PrimaryProduct-Section{
+    width: 100%;
+}
+.PPCmainComponent{
+    display: flex;
+    justify-content: center;
+}
+.imagediv{
+    overflow: hidden;
+    border-radius: 15px;
+}
+.priproductimg{
+    border-radius: 15px;
+    transition: 1s;
+}
+.ppcheader{
+    color:#4c4294!important;
+}
+.ppcheadertext{
+    margin: 3% 0!important;
+    font-weight: bolder!important;
+    font-size: 26px!important;
+    line-height: 22px;
+}
+.ppcctext{
+    color:#4c4294;
+    font-weight: bolder;  
+}
+.priproductimg:hover{
+    transform: scale(1.05);
+}
+
+/* SnacksGif-section */
+
+.content-leftsnacksgif{
+    width: 50%;
+    padding-bottom: 5%;
+    background-color: #e2c7d6;
+}
+.SnacksGifheader{
+    font-size: 90px!important;
+    color: #412f59;
+    font-weight: bolder;
+    letter-spacing: .66px!important;
+    line-height: 5.5rem;
+    font-family: Snacksgifheaderfont;
+}
+.good-smiley{
+    width: 400px!important;
+    height: 100px!important;
+    display: flex;
+    justify-content: space-between;  
+   
+}
+.smiley{
+    height: 150px!important;
+}
+.smileyimg{
+    height: 95%!important;
+    margin-bottom: 10px!important;
+    transition: 1s all!important;
+}
+
+.smileyimg:hover{
+    transform: rotate(360deg)!important;
+}
+.content-rightsnacksgif{
+    width: 50%;
+
+}
+.content-snacksgif{
+    width: 100%;
+    height: 100%;
+    background-image: url('./SnacksGif/gif/snacks.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.Lead{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: .12px;
+    color: #412f59;
+}
+.Sanacksgifbutton{
+    
+    color: #412f59!important;
+    font-size: 18px!important;
+    font-weight: bolder!important;
+    padding: 7px 30px!important;
+    border: 3px solid #412f59!important;
+    border-radius: 20px!important;
+    transition: 0.2s all!important;
+}
+.Sanacksgifbutton:hover{
+    border-radius: 50%!important;
+    background-color: #412f59!important;
+    color: #fff!important;
+}
+
+/* Product Overview Section */
+
+.Product-OverviewSection{
+    width: 100%;
+    background-color: #f5d0ba;
+    color: #412f59;
+    padding-bottom: 5%;
+}
+
+.product-overview-title h2{
+    font-size: 110px;
+    font-family: Snacksgifheaderfont;
+}
+.product-overview-item-content{
+    width: 100%;
+}
+.product-overview-item-logo{
+    width: 104px;
+}
+.pologoimg{
+    width: 100%;
+    transition: 1s;
+}
+.poheader{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.pocontent{
+    font-size: 15px;
+    font-weight: 500;
+    width: 90%;
+}
+.pologoimg:hover{
+    transform: rotate(360deg);
+}
+/* Reviewed Product Section */

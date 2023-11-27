@@ -1,0 +1,23 @@
+.ManageScard{
+    width: 40%!important;
+    background-color: white!important;
+}
+.ManageSheader{
+    border-bottom: none!important;
+    background: none!important;
+    opacity: 0.3;
+}
+.ManageSinput{
+    width: 87%;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.smsandemailbtn{
+    padding: 15px 35px!important;
+    background-color: #163840;
+    color: white;
+    font-family: bannerhomebtn;
+    font-weight: 600;
+    border-radius: 10px;
+}

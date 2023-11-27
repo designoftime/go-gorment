@@ -1,0 +1,35 @@
+* {
+    margin: 0 !important;
+}
+
+.Navheader{
+    font-family: sans-serif;
+    font-size: 18px !important;
+    background-color:  rgb(225, 191, 225)!important;
+    color: rgb(106, 34, 172)!important;
+    position: fixed;
+    z-index: 100;
+}
+.navigationbar2{
+    /* position: relative!important;
+    z-index: 100; */
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(158,155,158,1)!important;
+    -moz-box-shadow: 0px 6px 5px 0px rgba(158,155,158,1)!important;
+    box-shadow: 0px 6px 5px 0px rgba(158,155,158,1)!important;
+  }
+.nav2text{
+    font-size: 18px !important;
+    font-weight: bold !important; 
+    color: #4c4294!important;
+}
+.navlogo2{
+    margin-left: 330px !important;
+    height: 9vh;
+}
+.account2icon{
+    font-size: 40px !important;
+    font-weight: bolder  !important;
+    margin: 0 5px  !important;
+    color: #4c4294!important;;
+    
+}

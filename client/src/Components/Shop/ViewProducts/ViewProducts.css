@@ -1,0 +1,125 @@
+.VPCaursel{
+    /* background-color: blue; */
+    height: 90%!important;
+}
+.VpCarousel-content{
+    width: 90%;
+    height: 60%!important;
+    position: sticky;
+    /* background-color: yellow; */
+}
+.vpcarouselimages{
+    height: 100%!important;
+    width: 100%;
+}
+.carousel-indicators{
+    padding-top:750px!important;
+    width: 100%!important;
+}
+.vpintabbtn{
+    height: 6rem!important;
+    width: 6rem!important;
+}
+.vpindicimge{
+    height: 100%;
+    width: 100%;
+}
+.VPRight{
+    color: #4c4294;
+    width: 100%;
+    position: sticky;
+}
+.VPheader{
+    margin-top: 80px!important;
+    font-size: 90px;
+    line-height: 70px!important;
+    letter-spacing: 1px!important;
+    font-family: Snacksgifheaderfont;
+}
+.vpselect-size-box{
+    border: 3px solid #4c4294;
+    border-radius: 10px;
+    font-family: ReviewedProductHeaderfont;
+}
+.select-size-header{
+    font-size: 15px;
+    font-family: bannerhomebtn;
+}
+.notifymebtn{
+    width: 100%;
+    border: #4c4294;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #4c4294;
+    color: white;
+    font-weight: bolder!important;
+    transition: all .5s;
+}
+.notifymebtn:hover{
+    border-radius: 50%;
+}
+.AsSeenandImgLayer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+.inner-end-div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+
+}
+.AsSeenLayer{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+}
+.AsSeentext{
+    font-family: ReviewedProductHeaderfont;
+    font-size: 15px;
+}
+.collapsebutton{
+    transform: rotate(45deg)!important;
+    transition: all 500ms ease-in!important;
+}
+.Collapseborder{
+    background-color: #4c4294!important;
+    color: white!important;
+    border: 3px solid #4c4294;
+    border-radius: 30px;
+    transition: all .5s;
+}
+.Collapseborder2{
+    background-color: white!important;
+    color: #4c4294!important;
+    border: 3px solid #4c4294;
+    border-radius: 30px;
+}
+.Collapseborder:hover{
+    background-color: white!important;
+    color: #4c4294!important;
+}
+.linkTitle-content{
+    color: #4c4294;
+    text-decoration: none;
+}
+/* Icons Section */
+.ViewProductIconsSection{
+    background-color: #f5d0ba;
+    color: #4c4294;
+}
+.VPIcon{
+    width: 104px!important;
+}
+.vpiconsimge{
+    transition: all .5s ;
+}
+.vpiconsimge:hover{
+    transform: rotate(360deg);
+}

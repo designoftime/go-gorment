@@ -1,0 +1,128 @@
+.barcontenttext {
+    color: #4c4294 !important;
+    font-family: Snacksgifheaderfont;
+    font-weight: 500;
+}
+
+.Shop-banner {
+    width: 100%;
+    display: flex;
+}
+
+.Shopbanner-left {
+    width: 50%;
+    border-bottom: 3px solid #4c4294;
+
+}
+
+.Shopbanner-header {
+    font-size: 110px;
+    color: #4c4294;
+    font-weight: bold;
+    font-family: Snacksgifheaderfont;
+    text-transform: uppercase;
+}
+
+.Shopbanner-para {
+    width: 65%;
+    font-size: 20px;
+    color: #4c4294;
+    font-weight: 500;
+    font-family: bannerhomebtn;
+}
+
+.ShopBiconsmain {
+    width: 65% !important;
+}
+
+.SBicon {
+    width: 100%;
+    /* background-color: yellow; */
+}
+.OlivesSection{
+    background-color: #c8e0d4;
+    color: #412f59!important;
+}
+
+.Shopbanner-right {
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.shopbannerimge{
+    width: 100%;
+    height: 100%;
+}
+.SPTBimg {
+    width: 100%;
+}
+
+/* Shop Products */
+.ShopProducts-section {
+    color: #4c4294;
+    
+}
+
+.ShopProductsheader {
+    font-size: 28px;
+    font-family: Snacksgifheaderfont;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.ShopProducts-imge{
+    width: 100%;
+}
+.ShopProduct-img1{
+    width: 100%;
+    position: relative;
+}
+.ShopProduct-imghover {
+    width: 23vw;
+    position: absolute;
+    display: none;
+}
+
+
+.ShopProductbutton {
+    margin: 20px 0 !important;
+}
+
+.SVPbtn {
+
+    text-decoration: none;
+    color: #4c4294;
+    border: 3px solid #4c4294;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 20px !important;
+    font-family: Snacksgifheaderfont;
+    font-weight: bolder !important;
+    transition: all 0.5s;
+    letter-spacing: 1px;
+}
+
+.SVPbtn:hover {
+    background-color: #4c4294;
+    color: white!important;
+    border-radius: 50%;
+}
+/* Snacks-Bundle-section */
+.Snacks-Bundle-section{
+    width: 100%;
+    background-color: #e2c7d6;
+    padding-bottom: 80px;
+    color: #412f59;
+}
+.SnacksBundleheader{
+    font-size: 110px;
+    font-family: Snacksgifheaderfont;
+}
+/* Merch Section */
+.Merch-section{
+    color: #4c4294;
+}
+.Merchheader{
+    font-size: 110px;
+    font-family: Snacksgifheaderfont;
+}
+/* View Product Section */

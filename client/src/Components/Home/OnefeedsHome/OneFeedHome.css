@@ -1,0 +1,41 @@
+.OneFeeds-section{
+    margin-top: 80px!important;
+    background-color: #c6e3ee;
+}
+.cta-image{
+    background-image: url('./images/cta-shape.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.ctamain{
+    display: flex;
+}
+.ctaleft{
+    width: 490px;
+}
+.cta-text{
+    margin-top: 80px!important;
+    font-size: 45px;
+    color: #412f59;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: .27px;
+}
+.cta-btn{
+    margin: 20px 0!important;
+}
+.ctabutton{
+    font-size: 18px!important;
+    color: #412f59!important;
+    text-decoration: none;
+    font-weight: 800;
+}
+.ctaright{
+    width: 50%;
+}
+.ctaimages{
+    margin-left: 54px!important;
+    margin-top: 30px!important;
+    width: 90%;
+}

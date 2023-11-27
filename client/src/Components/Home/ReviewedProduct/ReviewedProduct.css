@@ -1,0 +1,92 @@
+.ReviewedProduct-Section{
+    scroll-behavior: smooth;
+}
+.RPSheadercontent1{
+    font-size: 60px;
+    width: 410px;
+    background-color: #7a65a5 !important;
+    padding: 10px 10px 3px!important;
+    font-weight: bolder;
+    letter-spacing: .66px;
+    font-family: ReviewedProductHeaderfont; 
+}
+.RPSheadercontent2{
+    font-size: 60px;
+    width: 480px;
+    background-color: #7a65a5 !important;
+    padding: 10px 10px 3px!important;
+    font-family: ReviewedProductHeaderfont;
+    transform: rotate(2deg);
+    animation-duration: 1s !important;
+}
+.ReviewedProducts{
+    width: 100%;
+    text-align: center;
+    color: #4c4294!important;
+    display: flex;
+    justify-content: space-between;
+}
+.AllRPCT{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .5rem;
+    line-height: 30px;
+}
+.btnuppercontent{
+    padding-bottom: 10px;
+}
+.RPCimage1{
+    height: 257px;
+    position: relative;
+}
+.RPCimage{
+    height: 100%;
+    /* opacity: 0; */
+}
+.RPCimage2{
+    height: 257px;
+    position : absolute;
+    top: 451vh;
+    opacity: 0;
+}
+.RPCimage{
+    height: 100%;
+}
+
+/* .RPCimage1:hover{
+    opacity: 0;
+} */
+.ReviewedProductscontentext{
+    text-align: center;
+    margin: 0 auto;
+    font-family: Snacksgifheaderfont;
+    font-weight: bolder;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.ReviewedProductscontentext a{
+    color: #4c4294!important;
+    font-size: 30px!important;
+}
+.RPCTinfo{
+    font-weight: 500;
+}
+.RPCTprice{
+    font-size: 20px;
+    font-weight: 500;
+}
+.RPCTbtn{
+    color: #4c4294;
+    border: 3px solid #4c4294;
+    padding: 5px 20px !important;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bolder;
+}
+.btnlowercontent{
+    padding-top: 8px;
+}
+

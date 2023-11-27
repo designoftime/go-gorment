@@ -1,0 +1,56 @@
+/* Full Caursel Section */
+.CustomerCaursel-Section{
+    background-color: #e2c7d6;
+}
+.CCaurselmain{
+    display: flex;
+    justify-content: space-between;
+}
+.CCaurselLeft{
+    width: 35%!important;
+}
+
+.CCaurselimage{
+    width: 100%!important;
+    padding: 80px 0;
+    margin: 0 5px 0 80px!important;
+}
+.CCaurselRight{
+    width: 60%;
+    text-align: center;
+}
+.CCaurselmessage{
+    margin: 150px 5px 0 30px!important;
+    width: 530px;
+    font-size: 80px;
+    color: #4c4294;
+    font-weight: bold;
+    line-height: 70px;
+}
+.leadname{
+    margin: 30px 120px 0 0px!important;
+}
+.lead{
+    color: #4c4294;
+    font-weight: bolder;
+}
+.carousel-control-prev-image{
+    transform: rotate(180deg);
+    
+}
+.carousel-control-next, .carousel-control-prev{
+    opacity: 1 !important;
+    transition: 2s all;
+}
+.carousel-control-next:hover{
+    padding-left: 50px!important;
+}
+.carousel-control-prev:hover{
+    padding-right: 50px;
+}
+/* Stockist Section */
+.Stockist-main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
