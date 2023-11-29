@@ -11,19 +11,21 @@ import { ForgotPassword } from './Components/Accounts/ForgotPassword/ForgotPassw
 import { ManageSubscription } from './Components/Accounts/ManageSubscription/ManageSubscription';
 import { Shop } from './Components/Shop/Shop';
 import { ViewProduct } from './Components/Shop/ViewProducts/ViewProduct';
+import EmailVerification from './Components/Accounts/EmailVerification/EmailVerification';
 function App() {
+
   return (
     <>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/shop' element={<Shop />}/>
           <Route path='/shop/viewproduct' element={<ViewProduct/>}/>
-        <Route path='/accounts' element={<Accounts />}/>
+          <Route path='/accounts' element={<Accounts />}/>
           <Route path='/accounts/login' element={<Login/>}/>
           <Route path='/accounts/register' element={<CreateAccount/>}/>
           <Route path='/accounts/forgotpassword' element={<ForgotPassword/>}/>
           <Route path='/accounts/managesubscription' element={<ManageSubscription/>}/>
-    
+          <Route path='/accounts/email-verification' element={<EmailVerification />}/>
       </Routes>
       <Footer />
     </>

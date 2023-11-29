@@ -53,3 +53,9 @@
     font-family: bannerhomebtn;
     font-weight: 700;
 }
+
+.googleSignUp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -3,6 +3,13 @@ import '../Ollys-Login/Login.css'
 import { Link } from 'react-router-dom'
 import { Navigation2 } from '../../Navigation/Navigation2'
 export const ForgotPassword = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.userEmail.value;
+    console.log(email);
+  }
+
   return (
     <div>
          <Navigation2/>
@@ -12,9 +19,9 @@ export const ForgotPassword = () => {
             <h1 className='text-center LoginHeading'>Recover</h1>
           </div>
           <div className="loginform container mx-auto">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="loginemail text-center">
-                <input type="email" name='useremail' className='logininput' placeholder='Email'  />
+                <input type="email" name='userEmail' className='logininput' placeholder='Email'  />
               </div>
               <div className="Signinbutton my-3 text-center">
                 <button className='signinbtn'>Reset</button>
