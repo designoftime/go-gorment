@@ -217,7 +217,7 @@ const forgetPasswordEmailBody = (option) => {
                               reset your password</p>
 
                             <a
-                            href=${process.env.STORE_URL}/user/forget-password/${option.token}
+                            href=${process.env.STORE_URL}/accounts/reset-password?token=${option.token}
                               style="background:#22c55e;color:white;border:1px solid #22c55e; padding: 10px 15px; border-radius: 4px; text-decoration:none;"
                             >Reset Password </a>
 
