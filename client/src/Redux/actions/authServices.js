@@ -98,7 +98,7 @@ export function resetPassword(userData, Navigate){
         try {
             const res = await axios.put(`/customer/reset-password`, userData);
             toast(res.data.message);
-            Navigate("/");
+            Navigate("/accounts/login");
         } catch (error) {
             console.log(error);
         }
