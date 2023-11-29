@@ -12,6 +12,7 @@ import { ManageSubscription } from './Components/Accounts/ManageSubscription/Man
 import { Shop } from './Components/Shop/Shop';
 import { ViewProduct } from './Components/Shop/ViewProducts/ViewProduct';
 import EmailVerification from './Components/Accounts/EmailVerification/EmailVerification';
+import ResetPassword from './Components/Accounts/ResetPassword/ResetPassword';
 function App() {
 
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/accounts/forgotpassword' element={<ForgotPassword/>}/>
           <Route path='/accounts/managesubscription' element={<ManageSubscription/>}/>
           <Route path='/accounts/email-verification' element={<EmailVerification />}/>
+          <Route path='/accounts/reset-password' element={<ResetPassword />}/>
       </Routes>
       <Footer />
     </>

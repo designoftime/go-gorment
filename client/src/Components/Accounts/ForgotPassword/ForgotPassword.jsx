@@ -1,13 +1,22 @@
 import React from 'react'
 import '../Ollys-Login/Login.css'
-import { Link } from 'react-router-dom'
-import { Navigation2 } from '../../Navigation/Navigation2'
+import { Link, useNavigate } from 'react-router-dom'
+import { Navigation2 } from '../../Navigation/Navigation2';
+import { useDispatch } from 'react-redux';
+import { forgotPassword } from '../../../Redux/actions/authServices';
+
 export const ForgotPassword = () => {
+
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const email = e.target.userEmail.value;
-    console.log(email);
+    const userData = {
+      verifyEmail : e.target.userEmail.value
+    }
+    
+    dispatch(forgotPassword(userData, Navigate));
   }
 
   return (

@@ -77,3 +77,31 @@ export function registerUserByGoogle(token, Navigate){
     }
     
 }
+
+export function forgotPassword(userData, Navigate){
+
+    return async function forgotPasswordThunk(dispatch, getState){
+        try {
+            const res = await axios.put(`/customer/forget-password`, userData);
+            toast(res.data.message);
+            Navigate("/");
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+}
+
+export function resetPassword(userData, Navigate){
+
+    return async function resetPasswordThunk(dispatch, getState){
+        try {
+            const res = await axios.put(`/customer/reset-password`, userData);
+            toast(res.data.message);
+            Navigate("/");
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+}
