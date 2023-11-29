@@ -32,6 +32,7 @@ router.post("/login", loginCustomer);
 router.post("/signup/:token", signUpWithProvider);
 
 //forget-password
+
 router.put("/forget-password", passwordVerificationLimit, forgetPassword);
 
 //reset-password

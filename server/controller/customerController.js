@@ -16,7 +16,7 @@ const verifyEmailAddress = async (req, res) => {
   if (isAdded) {
     return res.status(403).send({
       message: "This Email already Added!",
-    });
+    });     
   } else {
     const token = tokenForVerify(req.body);
     const option = {

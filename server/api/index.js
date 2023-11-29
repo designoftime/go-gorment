@@ -53,7 +53,7 @@ app.use("/api/language/", languageRoutes);
 
 //if you not use admin dashboard then these two route will not needed.
 app.use("/api/admin/", adminRoutes);
-app.use("/api/orders/", orderRoutes);
+app.use("/api/orders/", orderRoutes);    
 
 // app.get("/", async (req, res, next) => {
 //   try {
