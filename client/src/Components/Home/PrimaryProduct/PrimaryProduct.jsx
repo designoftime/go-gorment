@@ -21,7 +21,7 @@ export const PrimaryProduct = () => {
                                 </figure>
 
                             </Link>
-                            <div class="primary-product-component-content">
+                            <div className="primary-product-component-content">
                                 <Link to="/shop" className='ppcheader text-center text-decoration-none' >
                                     <h5 className="ppcheadertext">PRETZEL THINS</h5>
                                 </Link>
