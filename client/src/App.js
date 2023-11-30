@@ -13,6 +13,9 @@ import { Shop } from './Components/Shop/Shop';
 import { ViewProduct } from './Components/Shop/ViewProducts/ViewProduct';
 import EmailVerification from './Components/Accounts/EmailVerification/EmailVerification';
 import ResetPassword from './Components/Accounts/ResetPassword/ResetPassword';
+import Profile from './Components/Profile/Profile';
+import PrivateRoute from './PrivateRoute';
+
 function App() {
 
   return (
@@ -28,6 +31,9 @@ function App() {
           <Route path='/accounts/managesubscription' element={<ManageSubscription/>}/>
           <Route path='/accounts/email-verification' element={<EmailVerification />}/>
           <Route path='/accounts/reset-password' element={<ResetPassword />}/>
+          <Route path='/accounts' element={<PrivateRoute/>}>
+            <Route path='/accounts/profile' element={<Profile/>}/>
+          </Route>
       </Routes>
       <Footer />
     </>
