@@ -33,7 +33,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
       "image/*": [".jpeg", ".jpg", ".png", ".webp"],
     },
     multiple: product ? true : false,
-    maxSize: 500000,
+    maxSize: 5000000,
     maxFiles: globalSetting?.number_of_image_per_product || 2,
     onDrop: (acceptedFiles) => {
       setFiles(
@@ -111,6 +111,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
           data: formData,
         })
           .then((res) => {
+            // console.log(res.data)
             notifySuccess("Image Uploaded successfully!");
             setLoading(false);
             if (product) {
@@ -151,6 +152,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
 
   const handleRemoveImage = async (img) => {
     try {
+      console.log(public_id)
       // const url = img.substring(img.length - 25);
       // const url = img.split("/").pop().split(".")[0];
       // const public_id = `${folder}/${url}`;
