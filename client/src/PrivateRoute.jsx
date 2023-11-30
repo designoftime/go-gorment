@@ -4,10 +4,13 @@ import { Outlet ,Navigate } from 'react-router-dom';
 
 const PrivateRoute = () => {
 
-  const user = useSelector(store => store?.auth?.user);
+  const reduxUser = useSelector(store => store?.auth?.user);
+  const userToken = localStorage.getItem("userToken");
 
+  const checkUser = reduxUser || userToken;
+  
   return (
-    user ? <Outlet /> : <Navigate to="/accounts/login" />
+    checkUser ? <Outlet /> : <Navigate to="/accounts/login" />
   )
 }
 

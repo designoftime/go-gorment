@@ -26,8 +26,8 @@ export function registerUser(userData, Navigate){
     return async function registerUserThunk(dispatch, getState){
         try {
             
-            await axios.post("/customer/verify-email", userData);
-            toast('Email Verification Successfully !!');
+            const res = await axios.post("/customer/verify-email", userData);
+            toast(res.data.message);
             Navigate("/");
             
         } catch (error) {
