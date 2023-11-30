@@ -10,6 +10,7 @@ export function loginUser(userData, Navigate){
 
             const res = await axios.post("/customer/login", userData);
             dispatch(setUser(res.data));
+            localStorage.setItem("userToken", res.data.token);
             toast('User Login Successfully !!');
             Navigate("/");
             
@@ -51,6 +52,7 @@ export function verifyEmail(token){
                 email: res.data.email,
                 token: res.data.token
             }));
+            localStorage.setItem("userToken", res.data.token);
 
             toast('User Registration Successfully !!');
 
@@ -68,6 +70,7 @@ export function registerUserByGoogle(token, Navigate){
             
             const res = await axios.post(`/customer/signup/${token}`);
             dispatch(setUser(res.data));
+            localStorage.setItem("userToken", res.data.token);
             toast('User Login Successfully !!');
             Navigate("/");
             
