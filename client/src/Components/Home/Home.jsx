@@ -16,14 +16,14 @@ export const Home = () => {
     
     return (
         <div>
-            <Navigation1 />
-            <div>
+            {/* <Navigation1 /> */}
+            <div className='main-home'>
                 <link rel='stylesheet' href='.../Components/Navigation/Navigation.css' />
                 <div className="Banner-section">
                     <div className='Banner-content container mx-auto'>
                         <div className='banner-left'>
                             <div className="product-component__rating hero-rating mx-5">
-                                <span className="rating-count text-white bold">4.89</span> <span />
+                                <span className="rating-count text-white bold">489</span> <span />
                                 <span data-score="4.89" className="">
                                     <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />
                                     <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />

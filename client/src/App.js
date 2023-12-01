@@ -8,9 +8,12 @@ function App() {
 
   return (
     <>
-      <Navigation2/>
+    <div className='main-app'>
+      {/* <Navigation2/> */}
+      <Navigation1/>
       <Outlet />
       <Footer />
+    </div>
     </>
   );
 }
