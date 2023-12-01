@@ -2,14 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const storeSettigsSlice =  createSlice({
 
-    name: "storeSetting",
+    name: "storeSettings",
 
     initialState: {},
 
     reducers: {
 
         addStoreSetting: (state, action) => {
-            state = action.payload
+            return action.payload;
         }
 
     }
