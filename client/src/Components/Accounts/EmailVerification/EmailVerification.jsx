@@ -23,7 +23,7 @@ const EmailVerification = () => {
   
   return (
     <>
-        <Navigation2/>
+        {/* <Navigation2/> */}
         <div className='text-center email-verification-heading'> Email Verification Succesfully </div>
     </>
   )

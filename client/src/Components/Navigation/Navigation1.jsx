@@ -34,7 +34,7 @@ export const Navigation1 = () => {
             </ul>
             <div className=' col-sm-1  d-flex'>
               <div className="nav-item mx-4">
-                <Link to='/accounts/profile' className="nav-link active bolder" href="#">
+                <Link to='/accounts' className="nav-link active bolder" href="#">
                   <RiAccountCircleLine className='accounticon' />
                 </Link>
               </div>

@@ -7,8 +7,9 @@
     font-size: 18px !important;
     background-color:  rgb(225, 191, 225)!important;
     color: rgb(106, 34, 172)!important;
-    position: fixed;
+    position: absolute;
     z-index: 100;
+    width: 100%;
 }
 .bannerimagenav{
     position: relative!important;

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from "react-redux";
-import { Outlet ,Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
-const PrivateRoute = () => {
+const PrivateRoute = ({Component}) => {
 
   const reduxUser = useSelector(store => store?.auth?.user);
   const userToken = localStorage.getItem("userToken");
@@ -10,7 +10,7 @@ const PrivateRoute = () => {
   const checkUser = reduxUser || userToken;
   
   return (
-    checkUser ? <Outlet /> : <Navigate to="/accounts/login" />
+    checkUser ? <Component /> : <Navigate to="/accounts/login" />
   )
 }
 
