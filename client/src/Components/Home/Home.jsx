@@ -12,8 +12,8 @@ import { Productoverview } from './ProductOverview/Productoverview';
 import { CustomerCaursel } from './CustomerCaursel/CustomerCaursel';
 import { OneFeedsHome } from './OnefeedsHome/OneFeedsHome';
 import { ReviewedProduct } from './ReviewedProduct/ReviewedProduct';
+
 export const Home = () => {
-    
     return (
         <div>
             {/* <Navigation1 /> */}
