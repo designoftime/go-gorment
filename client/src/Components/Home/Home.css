@@ -14,114 +14,136 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     /* position: absolute;
-    top:25px!important; */
-    padding: 0px 80px;
-  }
+    top:25px; */
+
+}
 .bannerimg{
     width: 100%;
 }
 .banner-left{
-    width: 70%;
+    max-width: 1320px;
+    width: 100%;
     padding-top: 150px;
+    padding-left: -120px;
 }
 .banner-right{
     width: 30%;
-    height: 100%
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
 }
 
 .product-component__rating{
-    margin-top: 200px!important;
+    margin-top: 200px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 2px;
+
+    .stars{
+        display: flex;
+        gap: 1px;
+    }
 }
 
+
 .product-component__rating span{
-    font-size: 12px;
+    font-size: 13px;
     font-family: "Olly-normal";
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .Bannerheader{
-    margin-top: 2%!important;
+    margin-top: 2%;
     width: 100%;
-    line-height: 107px;
+    line-height: 127px;
     font-family:  bannerheaderfont;
-    font-size: 150px!important;
+    font-size: 11rem;
 }
 .Banner-content{
     display: flex;
-    width: 100%!important;
+    width: 100%;
+    height: 100vh;
+    max-width: 1320px;
+    align-items: center;
+    justify-content: center;
 }
 .bannerpara{
-    font-size: 20px!important;
-    width: 50%;
+    font-size: 20px;
+    font-family: "Olly-thin";
+    width: 40%;
     font-weight: 900;
+    margin-top: -20px ;
 }
 .shopbanner{
-    border: 3px solid!important;
-    font-family: Snacksgifheaderfont!important;
-    border-radius: 20px!important;
-    font-weight: bolder!important;
-    transition: 0.5s!important;
-    padding: 10px 30px!important;
+    border: 3px solid;
+    font-family: Snacksgifheaderfont;
+    border-radius: 20px;
+    font-weight: bolder;
+    transition: 0.5s;
+    font-size: 22px ; 
+    padding: 5px 30px;
 }
 .greatetaste{
-    height: 155px!important;
-    width: 155px!important;
+    max-width: 120px;
+    max-height: 120px;
+    margin-left: 150px !important;
 }
 .greatetasteimg{
     height: 100%;
     width: 100%;
-    margin-top: 340%!important;
-    margin-left: 177%!important;
 }
 .shopbanner:hover{
-    border-radius: 50%!important;
-    color:#4c4294!important;
-    
+    border-radius: 50%;
+    color:#4c4294;
 }
 
 /* Carousel-section */
 
 .Carousel-section{
-    margin-top: 700px!important;
-    width: 100%!important;
+    margin-top: 700px;
+    width: 100%;
 }
 
 .Carousel_logo{
-    margin-top: 15% !important;
-    padding : 4px 20px !important;
-    height:80% !important;
-    width: 80px !important;
+    margin-top: 15% ;
+    padding : 4px 20px ;
+    height:80% ;
+    width: 80px ;
 }
 .Carousel_logo1{
-    margin-top: 15% !important;
-    padding : 10px 20px !important;
-    height:100% !important;
-    width: 100px !important;
+    margin-top: 15% ;
+    padding : 10px 20px ;
+    height:100% ;
+    width: 100px ;
 }
 .Carousel_logo2{
-    margin-top: 15% !important;
-    padding : 10px 20px !important;
-    height:150% !important;
-    width: 230px !important;
+    margin-top: 15% ;
+    padding : 10px 20px ;
+    height:150% ;
+    width: 230px ;
 }
 .Carousel_logo3{
-    margin-top: 15% !important;
-    padding : 10px 20px !important;
-    height:180% !important;
-    width: 250px !important;
+    margin-top: 15% ;
+    padding : 10px 20px ;
+    height:180% ;
+    width: 250px ;
 }
 
 .Carousel_content{
-    margin-bottom:10%!important;
-    /* padding-left: 20%!important; */
-    font-size: 30px!important;
-    line-height: 42px!important;
-    width: 100% !important;
-    color:#4c4294!important;
-    font-weight: bolder!important;
+    margin-bottom:10%;
+    /* padding-left: 20%; */
+    font-size: 30px;
+    line-height: 42px;
+    width: 100% ;
+    color:#4c4294;
+    font-weight: bolder;
     
 }
 
@@ -143,12 +165,12 @@
     transition: 1s;
 }
 .ppcheader{
-    color:#4c4294!important;
+    color:#4c4294;
 }
 .ppcheadertext{
-    margin: 3% 0!important;
-    font-weight: bolder!important;
-    font-size: 26px!important;
+    margin: 3% 0;
+    font-weight: bolder;
+    font-size: 26px;
     line-height: 22px;
 }
 .ppcctext{
@@ -167,31 +189,31 @@
     background-color: #e2c7d6;
 }
 .SnacksGifheader{
-    font-size: 90px!important;
+    font-size: 90px;
     color: #412f59;
     font-weight: bolder;
-    letter-spacing: .66px!important;
+    letter-spacing: .66px;
     line-height: 5.5rem;
     font-family: Snacksgifheaderfont;
 }
 .good-smiley{
-    width: 400px!important;
-    height: 100px!important;
+    width: 400px;
+    height: 100px;
     display: flex;
     justify-content: space-between;  
    
 }
 .smiley{
-    height: 150px!important;
+    height: 150px;
 }
 .smileyimg{
-    height: 95%!important;
-    margin-bottom: 10px!important;
-    transition: 1s all!important;
+    height: 95%;
+    margin-bottom: 10px;
+    transition: 1s all;
 }
 
 .smileyimg:hover{
-    transform: rotate(360deg)!important;
+    transform: rotate(360deg);
 }
 .content-rightsnacksgif{
     width: 50%;
@@ -214,18 +236,18 @@
 }
 .Sanacksgifbutton{
     
-    color: #412f59!important;
-    font-size: 18px!important;
-    font-weight: bolder!important;
-    padding: 7px 30px!important;
-    border: 3px solid #412f59!important;
-    border-radius: 20px!important;
-    transition: 0.2s all!important;
+    color: #412f59;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 7px 30px;
+    border: 3px solid #412f59;
+    border-radius: 20px;
+    transition: 0.2s all;
 }
 .Sanacksgifbutton:hover{
-    border-radius: 50%!important;
-    background-color: #412f59!important;
-    color: #fff!important;
+    border-radius: 50%;
+    background-color: #412f59;
+    color: #fff;
 }
 
 /* Product Overview Section */

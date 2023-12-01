@@ -31,14 +31,14 @@ export const Navigation1 = () => {
                         </li>
                     </div>
                     <div className="icons">
-                        <div className="nav-item mx-4">
+                        <div className="nav-item ">
                             <Link to='/accounts' className="nav-link active bolder" href="#">
-                                <RiAccountCircleLine className='accounticon' />
+                                <RiAccountCircleLine className='accountIcon' />
                             </Link>
                         </div>
-                        <div className='nav-item mx-2'>
+                        <div className='nav-item '>
                             <a className='nav-link active bolder' href="">
-                                <MdOutlineShoppingBag className='accounticon' />
+                                <MdOutlineShoppingBag className='accountIcon' />
                             </a>
                         </div>
                     </div>
