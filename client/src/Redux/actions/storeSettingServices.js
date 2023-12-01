@@ -1,3 +1,4 @@
+import axios from "axios";
 import { addStoreSetting } from "../reducers/storeSettings";
 
 export function StoreData(){
@@ -5,10 +6,9 @@ export function StoreData(){
     return async function StoreDataThunk(dispatch, getState){
         try {
 
-            // api Call
-            dispatch(addStoreSetting({
-                name: "Gourmet"
-            }));
+            const res = await axios("/setting/store/customization/all");
+            console.log(res);
+            dispatch(addStoreSetting(res.data));
             
         } catch (error) {
             console.log(error);

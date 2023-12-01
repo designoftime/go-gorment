@@ -20,7 +20,7 @@ const appRouter = createBrowserRouter([
                 element: <Home /> 
             },
             {
-                path: "/shop",
+                path: "/collections/all",
                 element: <Shop />
             },
             {
