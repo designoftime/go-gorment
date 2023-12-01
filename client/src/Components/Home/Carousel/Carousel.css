@@ -1,0 +1,47 @@
+.main-swiper{
+    width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000 !important;
+    flex-direction: column;
+}
+.swiper{
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slide{
+    width: 100%;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-family: 'Olly-thin';
+    text-align: center;
+    color: #4c4294;
+    font-weight: 900;
+
+}
+
+.slide-logos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.slide-logos img{
+    max-width: 200px;
+    width: auto;
+    object-fit: cover;
+    aspect-ratio: 4/-4;
+    cursor: pointer;
+}
+
+.active-logo{
+    filter: grayscale(1);
+}

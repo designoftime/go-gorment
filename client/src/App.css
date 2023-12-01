@@ -3,3 +3,8 @@
 *{
   font-family: "Olly";
 }
+
+.container{
+  max-width: 1320px;
+  width: auto;
+}
