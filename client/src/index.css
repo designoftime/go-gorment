@@ -8,6 +8,10 @@ body {
   font-family: bannerhomebtn;
 }
 
+body > iframe {
+  display: none;
+}
+
 @font-face {
   font-family: bannerheaderfont;
   src: url('./Components/Fonts/compressextbold.otf');
