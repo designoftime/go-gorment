@@ -14,8 +14,11 @@ import { FaInstagram } from "react-icons/fa6"
 import { FaFacebook } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export const Footer = () => {
+    const footerData = useSelector(store=> store.storeSettings?.footer);
+    console.log(footerData);
     return (
         <div>
             <section className='Blog-sliding-section'>
@@ -73,7 +76,7 @@ export const Footer = () => {
                             </div>
                             <div className="footer-widget-wrap pl-5">
                                 <div className="footer-widget pl-5 mt-5">
-                                    <h6>SHOP</h6>
+                                    {/* <h6>{footerData}</h6> */}
                                     <ul className='list-unstyled'>
 
                                         <li className='mt-1'><Link to="/shop" className='fshopcategory text-decoration-none'>Shop All</Link></li>
