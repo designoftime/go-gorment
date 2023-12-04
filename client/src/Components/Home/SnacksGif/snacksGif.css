@@ -1,0 +1,57 @@
+.main-snack-banner {
+    width: 100%;
+    background-color: #e2c7d6;
+    max-height: 700px;
+    height: auto;
+    overflow: hidden;
+
+    .heading {
+        font-size: 7.4rem;
+        font-family: "Olly-Condensed-bold";
+        line-height: 6rem;
+        color: #412f59;
+
+    }
+
+    .desc {
+        font-family: "Olly-desc";
+        font-size: 20px;
+        margin-top: 20px;
+        color: #412f59 !important;
+        opacity: 0.9;
+    }
+
+    button {
+        text-decoration: none;
+        color: #4c4294;
+        border: 3px solid #4c4294;
+        border-radius: 20px;
+        padding: 10px 30px;
+        font-size: 20px !important;
+        font-family: Snacksgifheaderfont;
+        font-weight: bolder !important;
+        transition: all 0.5s;
+        letter-spacing: 1px;
+    }
+}
+
+.right-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.snake-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-container {
+    height: 100%;
+    padding-left: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 80px;
+}

@@ -4,13 +4,14 @@ import Olives from './images/Screenshot_Olivesimg.avif'
 import ChocoPretzel from './images/Screenshot_ChocoPretzelimg.avif'
 import Bundles from './images/Screenshot_Bundlesimg.avif'
 import { Link } from 'react-router-dom'
+import "./primaryProduct.css"
 export const PrimaryProduct = () => {
     return (
         <>
-            <div className='container-fluid g-0'>
-                <div className='PrimaryProduct-section my-5'>
-                    <div className='PPCmainComponent mx-auto'>
-                        <div className="primary-product-component mx-2">
+            <div className='main-primary-pro'>
+                <div className='PrimaryProduct-section my-5 '>
+                    <div className='PPCmainComponent'>
+                        <div className="primary-product-component mx-2 px-2">
                             <Link to='/shop' className="primary-product-component-content">
                                 <figure>
                                     <div className='imagediv'>
@@ -21,16 +22,13 @@ export const PrimaryProduct = () => {
                                 </figure>
 
                             </Link>
-                            <div className="primary-product-component-content">
+                            <div className="head-container">
                                 <Link to="/shop" className='ppcheader text-center text-decoration-none' >
-                                    <h5 className="ppcheadertext">PRETZEL THINS</h5>
+                                    <h5 className="heading">PRETZEL THINS</h5>
                                 </Link>
-                                <p className="ppcctext text-center">5 super seasonings</p>
+                                <p className="desc">5 super seasonings</p>
                             </div>
                         </div>
-
-
-
 
                         <div className="primary-product-component  mx-2">
                             <Link to="/shop" className="primary-product-component-thumb">
@@ -43,11 +41,11 @@ export const PrimaryProduct = () => {
                                 </figure>
 
                             </Link>
-                            <div className="primary-product-component-content">
+                            <div className="head-container">
                                 <Link className='ppcheader text-center text-decoration-none' to="/shop">
-                                    <h5 className="ppcheadertext">OLIVES</h5>
+                                    <h5 className="heading">OLIVES</h5>
                                 </Link>
-                                <p className="ppcctext text-center">3 magical marinades</p>
+                                <p className="desc">3 magical marinades</p>
 
                             </div>
                         </div>
@@ -65,11 +63,11 @@ export const PrimaryProduct = () => {
                                 </figure>
 
                             </Link>
-                            <div className="primary-product-component-content">
+                            <div className="head-container">
                                 <Link className='ppcheader text-center text-decoration-none' to="/shop">
-                                    <h5 className="ppcheadertext">CHOCO PRETZELS</h5>
+                                    <h5 className="heading">CHOCO PRETZELS</h5>
                                 </Link>
-                                <p className="ppcctext text-center">2 fantabulous flavours</p>
+                                <p className="desc">2 fantabulous flavours</p>
                             </div>
                         </div>
 
@@ -87,11 +85,11 @@ export const PrimaryProduct = () => {
                                 </figure>
 
                             </Link>
-                            <div className="primary-product-component-content">
+                            <div className="head-container">
                                 <Link className='ppcheader text-center text-decoration-none' to="/collections/all#bundles">
-                                    <h5 className="ppcheadertext">BUNDLES</h5>
+                                    <h5 className="heading">BUNDLES</h5>
                                 </Link>
-                                <p className="ppcctext text-center">Bundle up and save!</p>
+                                <p className="desc">Bundle up and save!</p>
                             </div>
                         </div>
                     </div>
