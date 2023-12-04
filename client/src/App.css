@@ -3,10 +3,16 @@
 *{
   font-family: "Olly";
 }
+.main-app{
+  max-width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
+}
 
 .container{
   max-width: 1320px;
   width: auto;
+  overflow: hidden;
 }
 
 .flex-container{

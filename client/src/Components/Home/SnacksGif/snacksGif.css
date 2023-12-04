@@ -14,7 +14,7 @@
     }
 
     .desc {
-        font-family: "Olly-desc";
+        font-family: "Olly-thin";
         font-size: 20px;
         margin-top: 20px;
         color: #412f59 !important;
@@ -35,9 +35,14 @@
     }
 }
 
+.right-container{
+    height: 100%;
+}
+
 .right-container img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .snake-banner {
