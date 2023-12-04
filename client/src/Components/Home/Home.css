@@ -1,5 +1,5 @@
 /* Banner-section */
-.main-home{
+.main-home {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,8 +7,9 @@
     justify-content: center;
 }
 
-.Banner-section{
-    width: 100%;
+.Banner-section {
+    max-width: 100%;
+    width: 100vw;
     height: 100vh;
     background: url('./images/bannerhome.jpg');
     background-position: center;
@@ -21,37 +22,48 @@
     top:25px; */
 
 }
-.bannerimg{
+
+.main-swiper-home{
+    max-width: 100% !important;
+    width: 100vw !important;
+    height: 100% !important;
+    min-height: auto;
+    max-height: auto;
+}
+
+.bannerimg {
     width: 100%;
 }
-.banner-left{
+
+.banner-left {
     max-width: 1320px;
     width: 100%;
     padding-top: 150px;
     padding-left: -120px;
 }
-.banner-right{
+
+.banner-right {
     width: 30%;
     height: 80vh;
     display: flex;
     align-items: flex-end;
 }
 
-.product-component__rating{
+.product-component__rating {
     margin-top: 200px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 2px;
 
-    .stars{
+    .stars {
         display: flex;
         gap: 1px;
     }
 }
 
 
-.product-component__rating span{
+.product-component__rating span {
     font-size: 13px;
     font-family: "Olly-normal";
     text-align: center;
@@ -59,14 +71,16 @@
     justify-content: center;
     align-items: center;
 }
-.Bannerheader{
+
+.Bannerheader {
     margin-top: 2%;
     width: 100%;
     line-height: 127px;
-    font-family:  bannerheaderfont;
+    font-family: bannerheaderfont;
     font-size: 11rem;
 }
-.Banner-content{
+
+.Banner-content {
     display: flex;
     width: 100%;
     height: 100vh;
@@ -74,215 +88,189 @@
     align-items: center;
     justify-content: center;
 }
-.bannerpara{
+
+.bannerpara {
     font-size: 20px;
     font-family: "Olly-thin";
     width: 40%;
     font-weight: 900;
-    margin-top: -20px ;
+    margin-top: -20px;
 }
-.shopbanner{
+
+.shopbanner {
     border: 3px solid;
     font-family: Snacksgifheaderfont;
     border-radius: 20px;
     font-weight: bolder;
     transition: 0.5s;
-    font-size: 22px ; 
+    font-size: 22px;
     padding: 5px 30px;
 }
-.greatetaste{
+
+.greatetaste {
     max-width: 120px;
     max-height: 120px;
     margin-left: 150px !important;
 }
-.greatetasteimg{
+
+.greatetasteimg {
     height: 100%;
     width: 100%;
 }
-.shopbanner:hover{
+
+.shopbanner:hover {
     border-radius: 50%;
-    color:#4c4294;
+    color: #4c4294;
 }
 
 /* Carousel-section */
 
-.Carousel-section{
+.Carousel-section {
     margin-top: 700px;
     width: 100%;
 }
 
-.Carousel_logo{
-    margin-top: 15% ;
-    padding : 4px 20px ;
-    height:80% ;
-    width: 80px ;
-}
-.Carousel_logo1{
-    margin-top: 15% ;
-    padding : 10px 20px ;
-    height:100% ;
-    width: 100px ;
-}
-.Carousel_logo2{
-    margin-top: 15% ;
-    padding : 10px 20px ;
-    height:150% ;
-    width: 230px ;
-}
-.Carousel_logo3{
-    margin-top: 15% ;
-    padding : 10px 20px ;
-    height:180% ;
-    width: 250px ;
+.Carousel_logo {
+    margin-top: 15%;
+    padding: 4px 20px;
+    height: 80%;
+    width: 80px;
 }
 
-.Carousel_content{
-    margin-bottom:10%;
+.Carousel_logo1 {
+    margin-top: 15%;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100px;
+}
+
+.Carousel_logo2 {
+    margin-top: 15%;
+    padding: 10px 20px;
+    height: 150%;
+    width: 230px;
+}
+
+.Carousel_logo3 {
+    margin-top: 15%;
+    padding: 10px 20px;
+    height: 180%;
+    width: 250px;
+}
+
+.Carousel_content {
+    margin-bottom: 10%;
     /* padding-left: 20%; */
     font-size: 30px;
     line-height: 42px;
-    width: 100% ;
-    color:#4c4294;
+    width: 100%;
+    color: #4c4294;
     font-weight: bolder;
-    
+
 }
 
 /* PrimaryProduct-Section */
 
-.PrimaryProduct-Section{
+.PrimaryProduct-Section {
     width: 100%;
 }
-.PPCmainComponent{
+
+.PPCmainComponent {
     display: flex;
     justify-content: center;
 }
-.imagediv{
+
+.imagediv {
     overflow: hidden;
     border-radius: 15px;
 }
-.priproductimg{
+
+.priproductimg {
     border-radius: 15px;
     transition: 1s;
 }
-.ppcheader{
-    color:#4c4294;
+
+.ppcheader {
+    color: #4c4294;
 }
-.ppcheadertext{
+
+.ppcheadertext {
     margin: 3% 0;
     font-weight: bolder;
     font-size: 26px;
     line-height: 22px;
 }
-.ppcctext{
-    color:#4c4294;
-    font-weight: bolder;  
+
+.ppcctext {
+    color: #4c4294;
+    font-weight: bolder;
 }
-.priproductimg:hover{
+
+.priproductimg:hover {
     transform: scale(1.05);
 }
 
 /* SnacksGif-section */
-
-.content-leftsnacksgif{
-    width: 50%;
-    padding-bottom: 5%;
-    background-color: #e2c7d6;
-}
-.SnacksGifheader{
-    font-size: 90px;
-    color: #412f59;
-    font-weight: bolder;
-    letter-spacing: .66px;
-    line-height: 5.5rem;
-    font-family: Snacksgifheaderfont;
-}
-.good-smiley{
-    width: 400px;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;  
-   
-}
-.smiley{
-    height: 150px;
-}
-.smileyimg{
-    height: 95%;
-    margin-bottom: 10px;
-    transition: 1s all;
-}
-
-.smileyimg:hover{
-    transform: rotate(360deg);
-}
-.content-rightsnacksgif{
-    width: 50%;
-
-}
-.content-snacksgif{
-    width: 100%;
-    height: 100%;
-    background-image: url('./SnacksGif/gif/snacks.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-.Lead{
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    letter-spacing: .12px;
-    color: #412f59;
-}
-.Sanacksgifbutton{
-    
-    color: #412f59;
-    font-size: 18px;
-    font-weight: bolder;
-    padding: 7px 30px;
-    border: 3px solid #412f59;
-    border-radius: 20px;
-    transition: 0.2s all;
-}
-.Sanacksgifbutton:hover{
-    border-radius: 50%;
-    background-color: #412f59;
-    color: #fff;
-}
-
 /* Product Overview Section */
 
-.Product-OverviewSection{
+.Product-OverviewSection {
     width: 100%;
     background-color: #f5d0ba;
     color: #412f59;
     padding-bottom: 5%;
 }
 
-.product-overview-title h2{
+.product-overview-title h2 {
     font-size: 110px;
     font-family: Snacksgifheaderfont;
 }
-.product-overview-item-content{
+
+.product-overview-item-content {
     width: 100%;
 }
-.product-overview-item-logo{
+
+.product-overview-item-logo {
     width: 104px;
 }
-.pologoimg{
+
+.pologoimg {
     width: 100%;
     transition: 1s;
 }
-.poheader{
+
+.poheader {
     font-weight: bolder;
     font-size: 20px;
 }
-.pocontent{
+
+.pocontent {
     font-size: 15px;
     font-weight: 500;
     width: 90%;
 }
-.pologoimg:hover{
+
+.pologoimg:hover {
     transform: rotate(360deg);
 }
+
 /* Reviewed Product Section */
+
+.olly-btn {
+    font-size: 18px !important;
+    font-family: "Olly-bold" !important;
+    text-decoration: none;
+    color: #412f59;
+    border: 3px solid #412f59;
+    border-radius: 20px;
+    padding: 7px 30px;
+    /* font-weight: bolder !important; */
+    transition: 0.3s all ease;
+    letter-spacing: 1px;
+    background-color: transparent;
+}
+
+.olly-btn:hover {
+    background-color: #412f59;
+    color: white !important;
+    border-radius: 50%;
+}
