@@ -136,6 +136,11 @@ const useStoreHomeSubmit = () => {
   const [bottomSliderImageFour, setBottomSliderImageFour] = useState("");
   const [bottomSliderImageFive, setBottomSliderImageFive] = useState("");
 
+  const [permotionBannerImg, setPermotionBannerImg] = useState("");
+
+  const [scrollingImage, setScrollingImage] = useState("");
+  const [scrollingBanner, setScrollingBanner] = useState(true);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { socket } = useNotification();
@@ -240,7 +245,7 @@ const useStoreHomeSubmit = () => {
               ...resData?.home?.discount_title,
               [language]: data.discount_title || "",
             },
-
+            permotion_banner_img: permotionBannerImg,
             promotion_title: {
               ...resData?.home?.promotion_title,
               [language]: data.promotion_title || "",
@@ -935,6 +940,10 @@ const useStoreHomeSubmit = () => {
               [language]: data.change_password || "",
             },
           },
+          scrolling: {
+            scrolling_banner_status: scrollingBanner,
+            scrolling_image: scrollingImage,
+          },
           footer: {
             promo_status: true,
             block1_status: footerBlock1,
@@ -1224,6 +1233,7 @@ const useStoreHomeSubmit = () => {
             "discount_title",
             res?.home?.discount_title[language || "en"]
           );
+          setPermotionBannerImg(res?.home?.permotion_banner_img);
           setValue(
             "promotion_title",
             res?.home?.promotion_title[language || "en"]
@@ -1371,27 +1381,42 @@ const useStoreHomeSubmit = () => {
           setBottomSliderImageFour(res?.bottom_slider?.four_img);
           setBottomSliderImageFive(res?.bottom_slider?.five_img);
 
-          setValue("bottom_slider_title", res?.bottom_slider?.first_title[language || "en"]);
+          setValue(
+            "bottom_slider_title",
+            res?.bottom_slider?.first_title[language || "en"]
+          );
           setValue(
             "bottom_slider_description",
             res?.bottom_slider?.first_description[language || "en"]
           );
-          setValue("bottom_slider_title_two", res?.bottom_slider?.second_title[language || "en"]);
+          setValue(
+            "bottom_slider_title_two",
+            res?.bottom_slider?.second_title[language || "en"]
+          );
           setValue(
             "bottom_slider_description_two",
             res?.bottom_slider?.second_description[language || "en"]
           );
-          setValue("bottom_slider_title_three", res?.bottom_slider?.third_title[language || "en"]);
+          setValue(
+            "bottom_slider_title_three",
+            res?.bottom_slider?.third_title[language || "en"]
+          );
           setValue(
             "bottom_slider_description_three",
             res?.bottom_slider?.third_description[language || "en"]
           );
-          setValue("bottom_slider_title_four", res?.bottom_slider?.four_title[language || "en"]);
+          setValue(
+            "bottom_slider_title_four",
+            res?.bottom_slider?.four_title[language || "en"]
+          );
           setValue(
             "bottom_slider_description_four",
             res?.bottom_slider?.four_description[language || "en"]
           );
-          setValue("bottom_slider_title_five", res?.bottom_slider?.five_title[language || "en"]);
+          setValue(
+            "bottom_slider_title_five",
+            res?.bottom_slider?.five_title[language || "en"]
+          );
           setValue(
             "bottom_slider_description_five",
             res?.bottom_slider?.five_description[language || "en"]
@@ -1517,6 +1542,9 @@ const useStoreHomeSubmit = () => {
             "change_password",
             res?.dashboard?.change_password[language || "en"]
           );
+          //
+          setScrollingBanner(res?.scrolling?.scrolling_banner_status);
+          setScrollingImage(res?.scrolling?.scrolling_image);
 
           //footer
           setFooterBlock1(res?.footer?.block1_status);
@@ -2207,6 +2235,12 @@ const useStoreHomeSubmit = () => {
     setBottomSliderImageFour,
     bottomSliderImageFive,
     setBottomSliderImageFive,
+    permotionBannerImg,
+    setPermotionBannerImg,
+    setScrollingBanner,
+    scrollingBanner,
+    scrollingImage,
+    setScrollingImage,
   };
 };
 

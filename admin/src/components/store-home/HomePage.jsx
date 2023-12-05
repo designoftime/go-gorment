@@ -119,6 +119,12 @@ const HomePage = ({
   setBottomSliderImageFour,
   bottomSliderImageFive,
   setBottomSliderImageFive,
+  permotionBannerImg,
+  setPermotionBannerImg,
+  scrollingImage,
+  setScrollingImage,
+  scrollingBanner,
+  setScrollingBanner
 }) => {
   const { t } = useTranslation();
   return (
@@ -1375,6 +1381,20 @@ const HomePage = ({
                 opacity: !allowPromotionBanner ? "0" : "1",
               }}
             >
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mt-4 md:mb-6 mb-3 pb-2">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("PromotionBanner")}
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    imageUrl={permotionBannerImg}
+                    setImageUrl={setPermotionBannerImg}
+                  />
+                  <div className="text-xs text-center text-gray-400">
+                    <em>( {t("ImagesResolution")} )</em>
+                  </div>
+                </div>
+              </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
                   {t("Title")}
@@ -1438,7 +1458,7 @@ const HomePage = ({
                     label="Button Link "
                     name="promotion_button_link"
                     type="text"
-                    placeholder="https://kachabazar-store.vercel.app/search?category=fruits-vegetable&_id=632aca2b4d87ff2494210be8"
+                    placeholder="Button Link"
                   />
                   <Error errorName={errors.promotion_button_link} />
                 </div>
@@ -2102,6 +2122,58 @@ const HomePage = ({
                     placeholder="Upto 20% Off"
                   />
                   <Error errorName={errors.promo_offer} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================scrolling Image================== */}
+
+        <div
+          className={`col-span-12 md:col-span-12 lg:col-span-12 ${
+            window.innerWidth < 400 ? "md:mt-0 mt-40" : "md:mt-0 mt-10"
+          }`}
+        >
+          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
+            <FiSettings className="mt-1 mr-2" /> Scrooling Image
+          </div>
+
+          <hr className="md:mb-12 mb-3" />
+
+          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
+            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                {t("EnableThisBlock")}
+              </label>
+              <div className="sm:col-span-4">
+                <SwitchToggle
+                  title=""
+                  handleProcess={setScrollingBanner}
+                  processOption={scrollingBanner}
+                  name={scrollingBanner}
+                />
+              </div>
+            </div>
+
+            <div
+              style={{
+                height: scrollingBanner ? "auto" : 0,
+                transition: "all 0.5s",
+                visibility: !scrollingBanner ? "hidden" : "visible",
+                opacity: !scrollingBanner ? "0" : "1",
+              }}
+            >
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Try multiple Image
+                </label>
+                <div className="sm:col-span-4">
+                 <Uploader
+                   imageUrl={scrollingImage}
+                   setImageUrl={setScrollingImage}
+                 />
                 </div>
               </div>
             </div>
