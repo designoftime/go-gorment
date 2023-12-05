@@ -1,0 +1,29 @@
+@font-face{
+    font-family: 'Olly-thin';
+    src: url('./homebannershop6.otf');
+}
+@font-face{
+    font-family: 'Olly-normal';
+    src: url('./homebannershop2.otf');
+}
+@font-face{
+    font-family: 'Olly-bold';
+    src: url('./homebannershop.otf');
+}
+@font-face{
+    font-family: 'Olly-bold-thin';
+    src: url('./Snacksgifheader.otf');
+}
+@font-face{
+    font-family: 'Olly-extrabold';
+    src: url('./rocgrotesk-extrabold.otf');
+}
+@font-face{
+    font-family: 'Olly-Condensed-bold';
+    src: url('./rocgroteskcond-extrabold.otf');
+}
+@font-face{
+    font-family: 'Olly-desc';
+    src: url('./rocgrotesk-bold.otf');
+}
+

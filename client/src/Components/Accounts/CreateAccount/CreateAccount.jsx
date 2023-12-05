@@ -30,7 +30,7 @@ export const CreateAccount = () => {
 
   return (
     <div>
-        <Navigation2/>
+        {/* <Navigation2/> */}
       <section className='CreateAccountPage mt-5'>
         <div className="container-fluid g-0">
           <div className="CreateAccountHeader mt-5">

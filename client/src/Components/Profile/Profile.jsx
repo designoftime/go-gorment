@@ -5,7 +5,7 @@ const Profile = () => {
   return (
     <>
         <Navigation2/>
-        <div>Profile</div>
+        <h1> Profile Page </h1>
     </>
   )
 }

@@ -1,35 +1,133 @@
-* {
-    margin: 0 !important;
+li{
+    list-style-type: none;
 }
 
-.Navheader{
-    font-family: sans-serif;
-    font-size: 18px !important;
-    background-color:  rgb(225, 191, 225)!important;
-    color: rgb(106, 34, 172)!important;
+.main-nav-2 {
+    width: 100%;
+    background-color: white;
+    color: rgb(106, 34, 172) !important;
+    max-height: 90px;
     position: fixed;
-    z-index: 100;
-}
-.navigationbar2{
-    /* position: relative!important;
-    z-index: 100; */
-    -webkit-box-shadow: 0px 6px 5px 0px rgba(158,155,158,1)!important;
-    -moz-box-shadow: 0px 6px 5px 0px rgba(158,155,158,1)!important;
-    box-shadow: 0px 6px 5px 0px rgba(158,155,158,1)!important;
-  }
-.nav2text{
-    font-size: 18px !important;
-    font-weight: bold !important; 
-    color: #4c4294!important;
-}
-.navlogo2{
-    margin-left: 330px !important;
-    height: 9vh;
-}
-.account2icon{
-    font-size: 40px !important;
-    font-weight: bolder  !important;
-    margin: 0 5px  !important;
-    color: #4c4294!important;;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 0.5s fadeElement alternate;
+    animation-fill-mode: both;
+    overflow: hidden;
+
+    .menu-icon{
+        fill: #000 !important;
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-offer-banner {
+        font-family: sans-serif;
+        font-size: 15px !important;
+        background-color: rgb(225, 191, 225) !important;
+        color: rgb(106, 34, 172) !important;
+        font-weight: 600;
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     
+    .navbar {
+        width: 100%;
+        max-width: 1320px;
+        padding: 10px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        
+    }
+    
+    .navbar .left {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 30px;
+    
+        .nav-link {
+            font-size: 18px;
+            font-family: "Olly-thin";
+            letter-spacing: 0px;
+            font-weight: 900;
+            color: #4c4294 !important;
+        }
+    }
+    
+    .navbar .center {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 0;
+
+        .logo2{
+            width: 100px !important;
+            height: 100px !important;
+        }
+    }
+    
+    .navbar .right {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+    
+        .icons {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px !important;
+            fill: #4c4294 !important;;
+    
+            .accountIcon {
+                font-size: 30px !important;
+                font-weight: bolder !important;
+                margin: 0 5px !important;
+                fill: #4c4294;
+                color: #4c4294;
+            }
+        }
+    
+        .nav-link {
+            font-size: 18px;
+            font-family: "Olly-thin";
+            letter-spacing: 0px;
+            font-weight: 900;
+            color: #4c4294 !important;
+        }
+    }
+    
+    li {
+        list-style: none;
+    }
 }
+
+@keyframes fadeElement {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+

@@ -4,49 +4,45 @@ import { RiAccountCircleLine } from 'react-icons/ri'
 import { MdOutlineShoppingBag } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import './Navigation2.css'
-export const Navigation2 = () => {
+export const Navigation2 = ({headerData}) => {
     return (
-        <div>
-            <h4 className='alert text-center bolder Navheader'><strong>Welcome to the oll-timate snacksy time! 💜</strong></h4>
-            <nav className="navbar navigationbar2 navbar-expand-sm bg-white navbar-light">
-                <div className="container-fluid">
-                    <div className='row container-fluid g-0'>
-                        <ul className="navbar-nav col-sm-2 mx-0">
-                            <li className="nav-item mx-auto">
-                                <Link to='/shop' className="nav-link active  bolder nav2text " href="#">Shop</Link>
-                            </li>
-                            <li className="nav-item mx-auto">
-                                <a className="nav-link active bolder nav2text " href="#">Our Story</a>
-                            </li>
-                        </ul>
-                        <div className='col-sm-5 '>
-                            <div className=' text-center'>
-                                <Link to="/"><img src={Logo} className='navlogo2 animate__animated animate__fadeInUp' alt="" /></Link>
-                            </div>
+        <div className='main-nav-2'>
+            {headerData?.help_text?.en ? <h4 className='nav-offer-banner'>{headerData.help_text.en}</h4> : null}
+            <div className="navbar">
+                <div className="left">
+                    <li>
+                        <Link className="nav-link active bolder navtext " to="/pages/ollys-story">{headerData?.categories?.en ? headerData.categories.en : "Categories"}</Link>
+                    </li>
+                    <li>
+                        <Link to='/collections/all' className="nav-link active  bolder navtext">{headerData?.about_us?.en ? headerData.about_us.en : "About Us"}</Link>
+                    </li>
+                </div>
+                <div className="center">
+                    <Link to="/"><img src={headerData?.logos ? headerData.logo : Logo} className='logo animate__animated animate__fadeInUp' alt="" /></Link>
+                </div>
+                <div className="right">
+                    <div className="links">
+                        <li>
+                            <a className="nav-link active bolder navtext" href="#">{headerData?.pages?.en ? headerData.pages.en : "Pages"}</a>
+                        </li>
+                        <li>
+                            <a className="nav-link active bolder navtext" href="#">{headerData?.contact_us?.en ? headerData.contact_us.en : "Contact Us"}</a>
+                        </li>
+                    </div>
+                    <div className="icons">
+                        <div className="nav-item ">
+                            <Link to='/accounts' className="nav-link active bolder" href="#">
+                                <RiAccountCircleLine className='accountIcon' />
+                            </Link>
                         </div>
-                        <ul className='navbar-nav col-sm-3'>
-                            <li className="nav-item  mx-auto ">
-                                <a className="nav-link active bolder nav2text" href="#">One Feeds Two</a>
-                            </li>
-                            <li className="nav-item mx-auto">
-                                <a className="nav-link active bolder nav2text" href="#">Find Olly's</a>
-                            </li>
-                        </ul>
-                        <div className=' col-sm-1  d-flex'>
-                            <div className="nav-item mx-4">
-                                <Link to='/accounts/profile' className="nav-link active bolder" href="#">
-                                    <RiAccountCircleLine className='account2icon' />
-                                </Link>
-                            </div>
-                            <div className='nav-item mx-2'>
-                                <Link to='/accounts' className='nav-link active bolder'>
-                                    <MdOutlineShoppingBag className='account2icon' />
-                                </Link>
-                            </div>
+                        <div className='nav-item '>
+                            <a className='nav-link active bolder' href="">
+                                <MdOutlineShoppingBag className='accountIcon' />
+                            </a>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
 
         </div>
     )

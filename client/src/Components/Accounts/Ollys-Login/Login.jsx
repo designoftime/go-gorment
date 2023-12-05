@@ -26,7 +26,7 @@ export const Login = () => {
 
   return (
     <div>
-      <Navigation2/>
+      {/* <Navigation2/> */}
       <section className='LoginPage mt-5'>
         <div className="container-fluid g-0">
           <div className="LoginHeader mt-5">
@@ -55,10 +55,10 @@ export const Login = () => {
               />
             </div>
             <div className="MStextd text-center">
-              <Link to="/accounts/managesubscription" className='mstext'>Manage subscription</Link>
+              <Link to="/accounts/manage-subscription" className='mstext'>Manage subscription</Link>
             </div>
             <div className="Forgotpassword&createaccount text-center my-3">
-              <Link to='/accounts/forgotpassword' className='text-decoration-none forgotpasswordtext'>Forgot your password?</Link> <Link to="/accounts/register" className='createacctext'>Create account</Link>
+              <Link to='/accounts/forgot-password' className='text-decoration-none forgotpasswordtext'>Forgot your password?</Link> <Link to="/accounts/register" className='createacctext'>Create account</Link>
             </div>
           </div>
         </div>
