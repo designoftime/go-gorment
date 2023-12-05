@@ -12,7 +12,7 @@
     width: 100vw;
     height: 100vh;
     background: url('./images/bannerhome.jpg');
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -276,4 +276,28 @@
     background-color: #412f59;
     color: white !important;
     border-radius: 50%;
+}
+@media screen and (max-width:767px) {
+    .Banner-section{
+        background-size: cover;
+        background-position: center;
+    }
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+        font-size: 20px !important;
+    }
+    .swiper-button-prev:after, .swiper-rtl .swiper-button-prev:after{
+        font-size: 20px !important;
+    }
+    .Bannerheader{
+        font-size: 9rem;
+        line-height: 110px;
+        margin: 0 1.5rem !important;
+    }
+    .product-component__rating{
+        margin-top: 0px;
+    }
+    .banner-left{
+        margin-left: 55px;
+        overflow: visible;
+    }
 }
