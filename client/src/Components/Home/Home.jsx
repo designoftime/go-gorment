@@ -38,7 +38,7 @@ export const Home = () => {
                     slidesPerView={1}
                     navigation = {true}
                     pagination={{
-                        type: 'progressbar',
+                        dynamicBullets: true,
                       }}
                     scrollbar={{ draggable: true }}
                     onSlideChange={console.log()}
@@ -49,7 +49,7 @@ export const Home = () => {
                         <div className="Banner-section">
                             <div className='Banner-content'>
                                 <div className='banner-left'>
-                                    <div className="product-component__rating hero-rating mx-5">
+                                    <div className="product-component__rating hero-rating ">
                                         <span className="rating-count text-white bold">489</span> <span />
                                         <span data-score="4.89" className="stars">
                                             <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />
@@ -62,11 +62,11 @@ export const Home = () => {
                                             2165 Reviews
                                         </span>
                                     </div>
-                                    <h1 className="animate__animated animate__fadeInUp Bannerheader text-white m-4">SNACKS <br />
+                                    <h1 className="animate__animated animate__fadeInUp Bannerheader text-white ">SNACKS <br />
                                         SOOO GOOD</h1>
-                                    <div className='text-white bannerpara m-4'>sdhjsdkj</div>
+                                    <div className='text-white bannerpara'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo officiis sequi quidem exercitationem</div>
                                     <div>
-                                        <button className='btn btn-outline-light m-4 fs-3 shopbanner '>Shop</button>
+                                        <button className='btn btn-outline-light shopbanner '>Shop now</button>
                                     </div>
                                 </div>
                                 <div className='banner-right'>
