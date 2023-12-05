@@ -27,7 +27,7 @@ const appRouter = createBrowserRouter([
                 path: "/accounts",
                 children: [
                     {
-                        path: "",
+                        path: "profile",
                         element: <PrivateRoute Component={Profile} />
                     },                    
                     {

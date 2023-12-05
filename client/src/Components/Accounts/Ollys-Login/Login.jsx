@@ -1,5 +1,6 @@
 import React from 'react'
 import './Login.css'
+import '../Accounts.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { Navigation2 } from '../../Navigation/Navigation2'
 import { loginUser, registerUserByGoogle } from '../../../Redux/actions/authServices'
