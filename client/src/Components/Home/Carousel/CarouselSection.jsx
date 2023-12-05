@@ -23,7 +23,7 @@ export const CarouselSection = () => {
                     onSlideChange={(e) => {
                         setActiveSlider(e.activeIndex)
                     }}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    // onSwiper={(swiper) => console.log(swiper)}
                 >
                     <SwiperSlide className='slide'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla laudantium ut nostrum atque,</SwiperSlide>
 
@@ -38,7 +38,7 @@ export const CarouselSection = () => {
 
                     {
                         allImage.map((img, idx) => {
-                            return (<img src={img} alt="" className={idx==activeSlider && "active-logo"}/>)
+                            return (<img key={idx} src={img} alt="" className={idx==activeSlider ? "active-logo" : null}/>)
                         })
                     }
                 </div>

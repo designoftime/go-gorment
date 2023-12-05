@@ -202,6 +202,16 @@ const StoreHome = () => {
     isSubmitting,
     // showChild,
     setTermsConditionsTextEdit,
+    bottomSliderImage,
+  setBottomSliderImage,
+  bottomSliderImageTwo,
+  setBottomSliderImageTwo,
+  bottomSliderImageThree,
+  setBottomSliderImageThree,
+  bottomSliderImageFour,
+  setBottomSliderImageFour,
+  bottomSliderImageFive,
+  setBottomSliderImageFive
   } = useStoreHomeSubmit();
 
   useEffect(() => {
@@ -545,6 +555,16 @@ const StoreHome = () => {
                 couponList={couponList}
                 setCouponList={setCouponList}
                 isSubmitting={isSubmitting}
+                bottomSliderImage=  {bottomSliderImage}
+                setBottomSliderImage= {setBottomSliderImage}
+                bottomSliderImageTwo={bottomSliderImageTwo}
+                setBottomSliderImageTwo={setBottomSliderImageTwo}
+                bottomSliderImageThree={bottomSliderImageThree}
+                setBottomSliderImageThree={setBottomSliderImageThree}
+                bottomSliderImageFour={bottomSliderImageFour}
+                setBottomSliderImageFour={setBottomSliderImageFour}
+                bottomSliderImageFive={bottomSliderImageFive}
+                setBottomSliderImageFive={setBottomSliderImageFive}
               />
             </form>
           </div>
