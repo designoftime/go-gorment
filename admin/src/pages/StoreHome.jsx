@@ -98,6 +98,8 @@ const StoreHome = () => {
     bottomDots,
     setBothSliderOption,
     bothSliderOption,
+    setStaticConetnt,
+    staticContent,
     getButton1image,
     setGetButton1image,
     getButton2image,
@@ -154,6 +156,12 @@ const StoreHome = () => {
     termsConditions,
     setTermsConditionsHeaderBg,
     termsConditionsHeaderBg,
+    setRefundPolicy,
+    refundPolicy,
+    refundPolicyImgBg,
+    setRefundPolicyImgBg,
+    setRefundPolicyTextEditor,
+    refundPolicyTextEditor,
     setFaqStatus,
     faqStatus,
     setFaqHeaderBg,
@@ -245,6 +253,25 @@ const StoreHome = () => {
   useEffect(() => {
     bothSliderOption && setBottomDots(false);
   }, [bothSliderOption, setBottomDots]);
+
+  useEffect(() => {
+    staticContent && setBothSliderOption(false);
+  }, [staticContent, setBothSliderOption]);
+  useEffect(() => {
+    staticContent && setBottomDots(false);
+  }, [staticContent, setBottomDots]);
+  useEffect(() => {
+    staticContent && setLeftRightArrow(false);
+  }, [staticContent, setLeftRightArrow]);
+  useEffect(() => {
+    bothSliderOption && setStaticConetnt(false);
+  }, [bothSliderOption, setStaticConetnt]);
+  useEffect(() => {
+    leftRightArrow && setStaticConetnt(false);
+  }, [leftRightArrow, setStaticConetnt]);
+  useEffect(() => {
+    bottomDots && setStaticConetnt(false);
+  }, [bottomDots, setStaticConetnt]);
 
   return (
     <>
@@ -492,6 +519,8 @@ const StoreHome = () => {
                 setBottomDots={setBottomDots}
                 bottomDots={bottomDots}
                 setBothSliderOption={setBothSliderOption}
+                setStaticConetnt={setStaticConetnt}
+                staticContent={staticContent}
                 bothSliderOption={bothSliderOption}
                 getButton1image={getButton1image}
                 setGetButton1image={setGetButton1image}
@@ -604,6 +633,12 @@ const StoreHome = () => {
                 termsConditionsHeaderBg={termsConditionsHeaderBg}
                 termsConditionsTextEdit={termsConditionsTextEdit}
                 setTermsConditionsTextEdit={setTermsConditionsTextEdit}
+                setRefundPolicy={setRefundPolicy}
+                refundPolicy={refundPolicy}
+                refundPolicyImgBg={refundPolicyImgBg}
+                setRefundPolicyImgBg={setRefundPolicyImgBg}
+                setRefundPolicyTextEditor={setRefundPolicyTextEditor}
+                refundPolicyTextEditor={refundPolicyTextEditor}
                 isSubmitting={isSubmitting}
               />
             </form>

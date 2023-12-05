@@ -82,7 +82,6 @@ const addStoreCustomizationSetting = async (req, res) => {
 };
 
 const getStoreCustomizationSetting = async (req, res) => {
-  console.log("getStoreCustomizationSetting");
   try {
     const storeCustomizationSetting = await Setting.findOne({
       name: "storeCustomizationSetting",

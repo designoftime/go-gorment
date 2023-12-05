@@ -84,6 +84,8 @@ const HomePage = ({
   setBottomDots,
   bottomDots,
   setBothSliderOption,
+  setStaticConetnt,
+  staticContent,
   bothSliderOption,
   getButton1image,
   setGetButton1image,
@@ -109,7 +111,6 @@ const HomePage = ({
   setCouponList,
 }) => {
   const { t } = useTranslation();
-
   return (
     <>
       <div className="grid grid-cols-12 font-sans pr-4">
@@ -922,6 +923,20 @@ const HomePage = ({
                         handleProcess={setBothSliderOption}
                         processOption={bothSliderOption}
                       />
+                      
+                    </div>
+                    <div>
+                      <div className="relative">
+                        <h4 className="font-medium md:text-base text-sm mb-2 dark:text-gray-400">
+                          Static
+                        </h4>
+                      </div>
+                      <SwitchToggle
+                        title={""}
+                        handleProcess={setStaticConetnt}
+                        processOption={staticContent}
+                      />
+                      
                     </div>
                   </div>
                 </TabPanel>

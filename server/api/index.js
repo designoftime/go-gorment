@@ -22,7 +22,6 @@ const {
   getGlobalSetting,
   getStoreCustomizationSetting,
 } = require("../lib/notification/setting");
-
 connectDB();
 const app = express();
 
