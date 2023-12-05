@@ -33,6 +33,7 @@ function App() {
         
         <Navigation1 />
         <Outlet />
+        <Footer />
       </div>
     // </ErrorBoundaries>
   );
