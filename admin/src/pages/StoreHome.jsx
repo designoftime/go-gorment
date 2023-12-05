@@ -203,15 +203,21 @@ const StoreHome = () => {
     // showChild,
     setTermsConditionsTextEdit,
     bottomSliderImage,
-  setBottomSliderImage,
-  bottomSliderImageTwo,
-  setBottomSliderImageTwo,
-  bottomSliderImageThree,
-  setBottomSliderImageThree,
-  bottomSliderImageFour,
-  setBottomSliderImageFour,
-  bottomSliderImageFive,
-  setBottomSliderImageFive
+    setBottomSliderImage,
+    bottomSliderImageTwo,
+    setBottomSliderImageTwo,
+    bottomSliderImageThree,
+    setBottomSliderImageThree,
+    bottomSliderImageFour,
+    setBottomSliderImageFour,
+    bottomSliderImageFive,
+    setBottomSliderImageFive,
+    permotionBannerImg,
+    setPermotionBannerImg,
+    scrollingImage,
+    setScrollingImage,
+    setScrollingBanner,
+    scrollingBanner
   } = useStoreHomeSubmit();
 
   useEffect(() => {
@@ -555,8 +561,8 @@ const StoreHome = () => {
                 couponList={couponList}
                 setCouponList={setCouponList}
                 isSubmitting={isSubmitting}
-                bottomSliderImage=  {bottomSliderImage}
-                setBottomSliderImage= {setBottomSliderImage}
+                bottomSliderImage={bottomSliderImage}
+                setBottomSliderImage={setBottomSliderImage}
                 bottomSliderImageTwo={bottomSliderImageTwo}
                 setBottomSliderImageTwo={setBottomSliderImageTwo}
                 bottomSliderImageThree={bottomSliderImageThree}
@@ -565,6 +571,12 @@ const StoreHome = () => {
                 setBottomSliderImageFour={setBottomSliderImageFour}
                 bottomSliderImageFive={bottomSliderImageFive}
                 setBottomSliderImageFive={setBottomSliderImageFive}
+                permotionBannerImg={permotionBannerImg}
+                setPermotionBannerImg={setPermotionBannerImg}
+                scrollingImage={scrollingImage}
+                setScrollingImage={setScrollingImage}
+                scrollingBanner={scrollingBanner}
+                setScrollingBanner={setScrollingBanner}
               />
             </form>
           </div>
