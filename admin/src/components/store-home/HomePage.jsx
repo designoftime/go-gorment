@@ -109,6 +109,16 @@ const HomePage = ({
   termsConditionsMenuLink,
   couponList,
   setCouponList,
+  bottomSliderImage,
+  setBottomSliderImage,
+  bottomSliderImageTwo,
+  setBottomSliderImageTwo,
+  bottomSliderImageThree,
+  setBottomSliderImageThree,
+  bottomSliderImageFour,
+  setBottomSliderImageFour,
+  bottomSliderImageFive,
+  setBottomSliderImageFive,
 }) => {
   const { t } = useTranslation();
   return (
@@ -923,7 +933,6 @@ const HomePage = ({
                         handleProcess={setBothSliderOption}
                         processOption={bothSliderOption}
                       />
-                      
                     </div>
                     <div>
                       <div className="relative">
@@ -936,7 +945,270 @@ const HomePage = ({
                         handleProcess={setStaticConetnt}
                         processOption={staticContent}
                       />
-                      
+                    </div>
+                  </div>
+                </TabPanel>
+              </Tabs>
+            </TabsComponent>
+          </div>
+        </div>
+        {/* =================bottom slider ============================ */}
+        <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-5">
+          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
+            <FiSettings className="mt-1 mr-2" /> Bottom Slider
+          </div>
+
+          <hr className="mb-3" />
+
+          <div className="flex-grow scrollbar-hide w-full max-h-full xl:px-10">
+            <TabsComponent>
+              <Tabs>
+                <TabList>
+                  <Tab>{t("Slider")} 1</Tab>
+                  <Tab>{t("Slider")} 2</Tab>
+                  <Tab>{t("Slider")} 3</Tab>
+                  <Tab>{t("Slider")} 4</Tab>
+                  <Tab>{t("Slider")} 5</Tab>
+                </TabList>
+
+                <TabPanel className="md:mt-10 mt-3">
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderImages")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <Uploader
+                        imageUrl={bottomSliderImage}
+                        setImageUrl={setBottomSliderImage}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1 ">
+                      {t("SliderTitle")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <InputAreaTwo
+                        required
+                        register={register}
+                        label={t("SliderTitle")}
+                        name="bottom_slider_title"
+                        type="text"
+                        placeholder={t("SliderTitle")}
+                      />
+                      <Error errorName={errors.bottom_slider_title} />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderDescription")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <TextAreaCom
+                        required
+                        register={register}
+                        label="Slider Description"
+                        name="bottom_slider_description"
+                        type="text"
+                        placeholder={t("SliderDescription")}
+                      />
+                      <Error errorName={errors.bottom_slider_description} />
+                    </div>
+                  </div>
+                </TabPanel>
+
+                <TabPanel>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderImages")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <Uploader
+                        imageUrl={bottomSliderImageTwo}
+                        setImageUrl={setBottomSliderImageTwo}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderTitle")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <InputAreaTwo
+                        required
+                        register={register}
+                        label="Slider Title"
+                        name="bottom_slider_title_two"
+                        type="text"
+                        placeholder={t("SliderTitle")}
+                      />
+                      <Error errorName={errors.bottom_slider_title_two} />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderDescription")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <TextAreaCom
+                        required
+                        register={register}
+                        label="Slider Description Two"
+                        name="bottom_slider_description_two"
+                        type="text"
+                        placeholder={t("SliderDescription")}
+                      />
+                      <Error errorName={errors.bottom_slider_description_two} />
+                    </div>
+                  </div>
+                </TabPanel>
+
+                <TabPanel>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm  md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderImages")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <Uploader
+                        imageUrl={bottomSliderImageThree}
+                        setImageUrl={setBottomSliderImageThree}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderTitle")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <InputAreaTwo
+                        required
+                        register={register}
+                        label=" Slider Title"
+                        name="bottom_slider_title_three"
+                        type="text"
+                        placeholder={t("SliderTitle")}
+                      />
+                      <Error errorName={errors.bottom_slider_title_three} />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderDescription")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <TextAreaCom
+                        required
+                        register={register}
+                        label="Slider Description"
+                        name="bottom_slider_description_three"
+                        type="text"
+                        placeholder={t("SliderDescription")}
+                      />
+
+                      <Error
+                        errorName={errors.bottom_slider_description_three}
+                      />
+                    </div>
+                  </div>
+                </TabPanel>
+
+                <TabPanel>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderImages")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <Uploader
+                        imageUrl={bottomSliderImageFour}
+                        setImageUrl={setBottomSliderImageFour}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderTitle")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <InputAreaTwo
+                        required
+                        register={register}
+                        label=" Slider Title"
+                        name="bottom_slider_title_four"
+                        type="text"
+                        placeholder={t("SliderTitle")}
+                      />
+                      <Error errorName={errors.bottom_slider_title_four} />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderDescription")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <TextAreaCom
+                        required
+                        register={register}
+                        label="Slider Description"
+                        name="bottom_slider_description_four"
+                        type="text"
+                        placeholder={t("SliderDescription")}
+                      />
+                      <Error
+                        errorName={errors.bottom_slider_description_four}
+                      />
+                    </div>
+                  </div>
+                </TabPanel>
+
+                <TabPanel>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderImages")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <Uploader
+                        imageUrl={bottomSliderImageFive}
+                        setImageUrl={setBottomSliderImageFive}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderTitle")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <InputAreaTwo
+                        required
+                        register={register}
+                        label=" Slider Title"
+                        name="bottom_slider_title_five"
+                        type="text"
+                        placeholder={t("SliderTitle")}
+                      />
+                      <Error errorName={errors.bottom_slider_title_five} />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+                    <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                      {t("SliderDescription")}
+                    </label>
+                    <div className="sm:col-span-4">
+                      <TextAreaCom
+                        required
+                        register={register}
+                        label="Slider Description"
+                        name="bottom_slider_description_five"
+                        type="text"
+                        placeholder={t("SliderDescription")}
+                      />
+                      <Error
+                        errorName={errors.bottom_slider_description_five}
+                      />
                     </div>
                   </div>
                 </TabPanel>
