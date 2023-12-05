@@ -1,56 +1,59 @@
-/* Full Caursel Section */
-.CustomerCaursel-Section{
-    background-color: #e2c7d6;
-}
-.CCaurselmain{
+.main-customer-review{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: #e2c7d6;
+    height: 80vh;
 }
-.CCaurselLeft{
-    width: 35%!important;
+.customer-slider{
+    max-width: 100vw;
+    width: 100%;
 }
 
-.CCaurselimage{
-    width: 100%!important;
-    padding: 80px 0;
-    margin: 0 5px 0 80px!important;
+.customer-slide{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0px 100px;
 }
-.CCaurselRight{
+.customer-slide .customer-image{
     width: 60%;
+}
+.active-animation{
+    transform: rotate(0deg) !important;
+}
+
+.customer-image img{
+    max-width: 550px;
+    width: 100%;
+    height: 100%;
+    transform: rotate(10deg);
+    transition: 0.5s transform ease;
+}
+
+@keyframes imgRotate {
+    0%{
+        transform: rotate(10deg) !important;
+    }
+    100%{
+        transform: rotate(0deg) !important;
+    }
+}
+
+.customer-slide .review{
+    width: 70%;
     text-align: center;
 }
-.CCaurselmessage{
-    margin: 150px 5px 0 30px!important;
-    width: 530px;
-    font-size: 80px;
-    color: #4c4294;
-    font-weight: bold;
-    line-height: 70px;
+.review p{
+    font-size: 4.5rem;
+    line-height: 60px;
+    font-family: "Olly-bold";
 }
-.leadname{
-    margin: 30px 120px 0 0px!important;
-}
-.lead{
-    color: #4c4294;
-    font-weight: bolder;
-}
-.carousel-control-prev-image{
-    transform: rotate(180deg);
-    
-}
-.carousel-control-next, .carousel-control-prev{
-    opacity: 1 !important;
-    transition: 2s all;
-}
-.carousel-control-next:hover{
-    padding-left: 50px!important;
-}
-.carousel-control-prev:hover{
-    padding-right: 50px;
-}
-/* Stockist Section */
-.Stockist-main{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+
+.customer-name{
+    font-size: 15px;
+    font-family: "Olly-normal";
+
 }
