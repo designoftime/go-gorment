@@ -121,7 +121,6 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
             }
           })
           .catch((err) => {
-            console.error("err", err);
             notifyError(err.Message);
             setLoading(false);
           });
@@ -152,7 +151,6 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
 
   const handleRemoveImage = async (img) => {
     try {
-      console.log(public_id)
       // const url = img.substring(img.length - 25);
       // const url = img.split("/").pop().split(".")[0];
       // const public_id = `${folder}/${url}`;

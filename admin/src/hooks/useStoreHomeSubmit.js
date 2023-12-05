@@ -57,6 +57,7 @@ const useStoreHomeSubmit = () => {
   const [leftRightArrow, setLeftRightArrow] = useState(false);
   const [bottomDots, setBottomDots] = useState(true);
   const [bothSliderOption, setBothSliderOption] = useState(true);
+  const [staticContent, setStaticConetnt] = useState(true);
 
   const [faqMenuLink, setFaqMenuLink] = useState(true);
   const [emailUsBox, setEmailUsBox] = useState(true);
@@ -80,6 +81,11 @@ const useStoreHomeSubmit = () => {
   const [aboutTopContentRight, setAboutTopContentRight] = useState(true);
   const [privacyPolicyMenuLink, setPrivacyPolicyMenuLink] = useState(true);
   const [termsConditionsMenuLink, setTermsConditionsMenuLink] = useState(true);
+
+  const [refundPolicy, setRefundPolicy] = useState(true);
+  const [refundPolicyImgBg, setRefundPolicyImgBg] = useState("");
+  const [refundPolicyTextEditor, setRefundPolicyTextEditor] = useState(createEditorState(""));
+
   const [contactMidLeftColStatus, setContactMidLeftColStatus] = useState(true);
   const [contactMidLeftColImage, setContactMidLeftColImage] = useState("");
   const [aboutMiddleContentSection, setAboutMiddleContentSection] =
@@ -181,7 +187,6 @@ const useStoreHomeSubmit = () => {
               ...resData?.navbar?.term_and_condition,
               [language]: data.term_and_condition || "",
             },
-
             pages: {
               ...resData?.navbar?.pages,
               [language]: data.pages || "",
@@ -531,6 +536,23 @@ const useStoreHomeSubmit = () => {
                 : "",
             },
           },
+          refund_policy: {
+            status: refundPolicy,
+            header_bg: refundPolicyImgBg,
+            title: {
+              ...resData?.refund_policy?.title,
+              [language]: data.refund_policy_title || "",
+            },
+
+            description: {
+              ...resData?.refund_policy?.description,
+              [language]: refundPolicyTextEditor
+                ? draftToHtml(
+                    convertToRaw(refundPolicyTextEditor.getCurrentContent())
+                  )
+                : "",
+            },
+          },
           faq: {
             page_status: faqStatus,
             header_bg: faqHeaderBg,
@@ -612,6 +634,7 @@ const useStoreHomeSubmit = () => {
             left_right_arrow: leftRightArrow,
             bottom_dots: bottomDots,
             both_slider: bothSliderOption,
+            static_content: staticContent,
 
             first_img: sliderImage,
             first_title: {
@@ -1079,6 +1102,7 @@ const useStoreHomeSubmit = () => {
     const getStoreCustomizationData = async () => {
       try {
         const res = await SettingServices.getStoreCustomizationSetting();
+
         // console.log("res", res);
         if (res) {
           setIsSave(false);
@@ -1214,6 +1238,7 @@ const useStoreHomeSubmit = () => {
           setLeftRightArrow(res?.slider?.left_right_arrow);
           setBottomDots(res?.slider?.bottom_dots);
           setBothSliderOption(res?.slider?.both_slider);
+          setStaticConetnt(res?.slider?.static_content);
 
           setValue("slider_title", res?.slider?.first_title[language || "en"]);
           setValue(
@@ -1803,6 +1828,19 @@ const useStoreHomeSubmit = () => {
             )
           );
 
+          //refund and plociy
+          setRefundPolicy(res?.refund_policy?.status);
+          setRefundPolicyImgBg(res?.refund_policy?.header_bg);
+          setValue(
+            "refund_policy_title",
+            res?.refund_policy?.title[language || "en"]
+          );
+
+          setRefundPolicyTextEditor(
+            createEditorState(
+              showingTranslateValue(res?.refund_policy?.description)
+            )
+          );
           //faq
           setFaqStatus(res?.faq?.page_status);
           setFaqHeaderBg(res?.faq?.header_bg);
@@ -1874,7 +1912,6 @@ const useStoreHomeSubmit = () => {
     // console.log("resData", resData);
     setLanguage(lang);
   };
-
   return {
     register,
     handleSubmit,
@@ -1962,6 +1999,8 @@ const useStoreHomeSubmit = () => {
     setBottomDots,
     bottomDots,
     setBothSliderOption,
+    setStaticConetnt,
+    staticContent,
     bothSliderOption,
     getButton1image,
     setGetButton1image,
@@ -2019,6 +2058,12 @@ const useStoreHomeSubmit = () => {
     termsConditions,
     setTermsConditionsHeaderBg,
     termsConditionsHeaderBg,
+    setRefundPolicy,
+    refundPolicy,
+    refundPolicyImgBg,
+    setRefundPolicyImgBg,
+    setRefundPolicyTextEditor,
+    refundPolicyTextEditor,
     setFaqStatus,
     faqStatus,
     setFaqLeftColStatus,
