@@ -7,13 +7,15 @@ import { MdOutlineShoppingBag } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MobileMenu from './mobileMenu';
+import { useSelector } from 'react-redux';
 
 
-export const Navigation1 = ({ headerData }) => {
+export const Navigation1 = () => {
     const midScreen = window.innerWidth < 997;
 
     const [showNavigation2, setShowNavigation2] = useState(false);
     const [toggleMenu, setToggleMenu ] = useState(false);
+    const headerData = useSelector(store => store?.storeSettings?.navbar);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -55,24 +57,36 @@ export const Navigation1 = ({ headerData }) => {
                         </svg> : ''
                 }
 
-                    <li>
-                        <Link className="nav-link active bolder navtext " to="/pages/ollys-story">{headerData?.categories?.en ? headerData.categories.en : "Categories"}</Link>
-                    </li>
-                    <li>
-                        <Link to='/collections/all' className="nav-link active  bolder navtext">{headerData?.about_us?.en ? headerData.about_us.en : "About Us"}</Link>
-                    </li>
+                    {
+                        headerData?.categories_menu_status &&
+                        <li>
+                            <Link className="nav-link active bolder navtext " to="/pages/ollys-story">{headerData?.categories?.en ? headerData.categories.en : "Categories"}</Link>
+                        </li>
+                    }
+                    {
+                        headerData?.about_menu_status &&
+                        <li>
+                            <Link to='/collections/all' className="nav-link active  bolder navtext">{headerData?.about_us?.en ? headerData.about_us.en : "About Us"}</Link>
+                        </li>
+                    }
                 </div>
                 <div className="center">
-                    <Link to="/"><img src={headerData?.logos ? headerData.logo : Logo} className={showNavigation2 || toggleMenu ? 'logo2 animate__animated animate__fadeInUp' : 'logo animate__animated animate__fadeInUp logo'} alt=""/></Link>
+                    <Link to="/"><img src={headerData?.logo ? headerData.logo : Logo} className={showNavigation2 || toggleMenu ? 'logo2 animate__animated animate__fadeInUp' : 'logo animate__animated animate__fadeInUp logo'} alt=""/></Link>
                 </div>
                 <div className="right">
                     <div className="links">
-                        <li>
-                            <a className="nav-link active bolder navtext" href="#">{headerData?.pages?.en ? headerData.pages.en : "Pages"}</a>
-                        </li>
-                        <li>
-                            <a className="nav-link active bolder navtext" href="#">{headerData?.contact_us?.en ? headerData.contact_us.en : "Contact Us"}</a>
-                        </li>
+                    {
+                        headerData?.offers_menu_status &&
+                            <li>
+                                <Link className="nav-link active bolder navtext" href="#">{headerData?.offers?.en ? headerData.offers.en : "Pages"}</Link>
+                            </li>
+                    }
+                    {
+                        headerData?.contact_menu_status &&
+                            <li>
+                                <Link className="nav-link active bolder navtext" href="#">{headerData?.contact_us?.en ? headerData.contact_us.en : "Contact Us"}</Link>
+                            </li>
+                    }
                     </div>
                     <div className="icons">
                         <div className="nav-item ">
