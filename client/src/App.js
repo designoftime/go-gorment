@@ -4,12 +4,11 @@ import { Footer } from './Components/Footer/Footer';
 import { Navigation1 } from './Components/Navigation/Navigation1';
 import ErrorBoundaries from "./Components/ErrorBoundaries/ErrorBoundaries"
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { StoreData } from './Redux/actions/storeSettingServices';
 function App() {
 
   const dispatch = useDispatch();
-  const headerData = useSelector(store => store.storeSettings?.navbar);
 
   useEffect(() => {
     dispatch(StoreData());
@@ -33,8 +32,9 @@ function App() {
     // <ErrorBoundaries>
       <div className='main-app'>
         
-        <Navigation1 headerData={headerData} />
+        <Navigation1 />
         <Outlet />
+        <Footer />
       </div>
     // </ErrorBoundaries>
   );

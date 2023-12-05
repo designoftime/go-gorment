@@ -10,6 +10,7 @@ import Profile from "./Components/Profile/Profile";
 import NotFound from "./Components/ErrorPage/404Page";
 import App from "./App";
 import PrivateRoute from "./PrivateRoute";
+import { Privacypolicy } from "./Components/PrivacyPolicy/Privacypolicy";
 
 const appRouter = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const appRouter = createBrowserRouter([
                         element: <ResetPassword />
                     }
                 ]
+            },
+            {
+                path: "/policies/privacy-policy",
+                element: <Privacypolicy />
             },
             {
                 path: "*",

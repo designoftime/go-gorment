@@ -84,7 +84,9 @@ const useStoreHomeSubmit = () => {
 
   const [refundPolicy, setRefundPolicy] = useState(true);
   const [refundPolicyImgBg, setRefundPolicyImgBg] = useState("");
-  const [refundPolicyTextEditor, setRefundPolicyTextEditor] = useState(createEditorState(""));
+  const [refundPolicyTextEditor, setRefundPolicyTextEditor] = useState(
+    createEditorState("")
+  );
 
   const [contactMidLeftColStatus, setContactMidLeftColStatus] = useState(true);
   const [contactMidLeftColImage, setContactMidLeftColImage] = useState("");
@@ -127,6 +129,17 @@ const useStoreHomeSubmit = () => {
   const [aboutTopContentRightImage, setAboutTopContentRightImage] =
     useState("");
   const [termsConditionsHeaderBg, setTermsConditionsHeaderBg] = useState("");
+
+  const [bottomSliderImage, setBottomSliderImage] = useState("");
+  const [bottomSliderImageTwo, setBottomSliderImageTwo] = useState("");
+  const [bottomSliderImageThree, setBottomSliderImageThree] = useState("");
+  const [bottomSliderImageFour, setBottomSliderImageFour] = useState("");
+  const [bottomSliderImageFive, setBottomSliderImageFive] = useState("");
+
+  const [permotionBannerImg, setPermotionBannerImg] = useState("");
+
+  const [scrollingImage, setScrollingImage] = useState("");
+  const [scrollingBanner, setScrollingBanner] = useState(true);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -232,7 +245,7 @@ const useStoreHomeSubmit = () => {
               ...resData?.home?.discount_title,
               [language]: data.discount_title || "",
             },
-
+            permotion_banner_img: permotionBannerImg,
             promotion_title: {
               ...resData?.home?.promotion_title,
               [language]: data.promotion_title || "",
@@ -712,6 +725,58 @@ const useStoreHomeSubmit = () => {
             five_link: data.slider_button_link_five,
           },
 
+          bottom_slider: {
+            first_img: bottomSliderImage,
+            first_title: {
+              ...resData?.bottom_slider?.first_title,
+              [language]: data.bottom_slider_title || "",
+            },
+            first_description: {
+              ...resData?.bottom_slider?.first_description,
+              [language]: data.bottom_slider_description || "",
+            },
+
+            second_img: bottomSliderImageTwo,
+            second_title: {
+              ...resData?.bottom_slider?.second_title,
+              [language]: data.bottom_slider_title_two || "",
+            },
+            second_description: {
+              ...resData?.bottom_slider?.second_description,
+              [language]: data.bottom_slider_description_two || "",
+            },
+
+            third_img: bottomSliderImageThree,
+            third_title: {
+              ...resData?.bottom_slider?.third_title,
+              [language]: data.bottom_slider_title_three || "",
+            },
+            third_description: {
+              ...resData?.bottom_slider?.third_description,
+              [language]: data.bottom_slider_description_three || "",
+            },
+
+            four_img: bottomSliderImageFour,
+            four_title: {
+              ...resData?.bottom_slider?.four_title,
+              [language]: data.bottom_slider_title_four || "",
+            },
+            four_description: {
+              ...resData?.bottom_slider?.four_description,
+              [language]: data.bottom_slider_description_four || "",
+            },
+
+            five_img: bottomSliderImageFive,
+            five_title: {
+              ...resData?.bottom_slider?.five_title,
+              [language]: data.bottom_slider_title_five || "",
+            },
+            five_description: {
+              ...resData?.bottom_slider?.five_description,
+              [language]: data.bottom_slider_description_five || "",
+            },
+          },
+
           checkout: {
             personal_details: {
               ...resData?.checkout?.personal_details,
@@ -874,6 +939,10 @@ const useStoreHomeSubmit = () => {
               ...resData?.dashboard?.change_password,
               [language]: data.change_password || "",
             },
+          },
+          scrolling: {
+            scrolling_banner_status: scrollingBanner,
+            scrolling_image: scrollingImage,
           },
           footer: {
             promo_status: true,
@@ -1164,6 +1233,7 @@ const useStoreHomeSubmit = () => {
             "discount_title",
             res?.home?.discount_title[language || "en"]
           );
+          setPermotionBannerImg(res?.home?.permotion_banner_img);
           setValue(
             "promotion_title",
             res?.home?.promotion_title[language || "en"]
@@ -1303,6 +1373,55 @@ const useStoreHomeSubmit = () => {
           );
           setValue("slider_button_link_five", res?.slider?.five_link);
 
+          //bottom Slider
+
+          setBottomSliderImage(res?.bottom_slider?.first_img);
+          setBottomSliderImageTwo(res?.bottom_slider?.second_img);
+          setBottomSliderImageThree(res?.bottom_slider?.third_img);
+          setBottomSliderImageFour(res?.bottom_slider?.four_img);
+          setBottomSliderImageFive(res?.bottom_slider?.five_img);
+
+          setValue(
+            "bottom_slider_title",
+            res?.bottom_slider?.first_title[language || "en"]
+          );
+          setValue(
+            "bottom_slider_description",
+            res?.bottom_slider?.first_description[language || "en"]
+          );
+          setValue(
+            "bottom_slider_title_two",
+            res?.bottom_slider?.second_title[language || "en"]
+          );
+          setValue(
+            "bottom_slider_description_two",
+            res?.bottom_slider?.second_description[language || "en"]
+          );
+          setValue(
+            "bottom_slider_title_three",
+            res?.bottom_slider?.third_title[language || "en"]
+          );
+          setValue(
+            "bottom_slider_description_three",
+            res?.bottom_slider?.third_description[language || "en"]
+          );
+          setValue(
+            "bottom_slider_title_four",
+            res?.bottom_slider?.four_title[language || "en"]
+          );
+          setValue(
+            "bottom_slider_description_four",
+            res?.bottom_slider?.four_description[language || "en"]
+          );
+          setValue(
+            "bottom_slider_title_five",
+            res?.bottom_slider?.five_title[language || "en"]
+          );
+          setValue(
+            "bottom_slider_description_five",
+            res?.bottom_slider?.five_description[language || "en"]
+          );
+
           //checkout
           setValue(
             "personal_details",
@@ -1423,6 +1542,9 @@ const useStoreHomeSubmit = () => {
             "change_password",
             res?.dashboard?.change_password[language || "en"]
           );
+          //
+          setScrollingBanner(res?.scrolling?.scrolling_banner_status);
+          setScrollingImage(res?.scrolling?.scrolling_image);
 
           //footer
           setFooterBlock1(res?.footer?.block1_status);
@@ -2103,6 +2225,22 @@ const useStoreHomeSubmit = () => {
     termsConditionsTextEdit,
     setTermsConditionsTextEdit,
     isSubmitting,
+    bottomSliderImage,
+    setBottomSliderImage,
+    bottomSliderImageTwo,
+    setBottomSliderImageTwo,
+    bottomSliderImageThree,
+    setBottomSliderImageThree,
+    bottomSliderImageFour,
+    setBottomSliderImageFour,
+    bottomSliderImageFive,
+    setBottomSliderImageFive,
+    permotionBannerImg,
+    setPermotionBannerImg,
+    setScrollingBanner,
+    scrollingBanner,
+    scrollingImage,
+    setScrollingImage,
   };
 };
 
