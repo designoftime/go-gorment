@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CustomerCaursel.css'
 import CCImage1 from './images/CustomereCaurselimg1.png'
 import CCImage2 from './images/CustomerCaurselimg2.png'
@@ -10,71 +10,89 @@ import Stockistimg2 from './images/stockist-2.svg'
 import Stockistimg3 from './images/stockist-3.svg'
 import Stockistimg4 from './images/stockist-4.svg'
 import Stockistimg5 from './images/stockist-5.svg'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export const CustomerCaursel = () => {
+    const [toggleAni, setToggleAni ] = useState(false);
+    const handleAni =() =>{
+        if(toggleAni){
+            setToggleAni(false)
+        }
+        else{
+            setToggleAni(true)
+        }
+    }
+
     return (
         <div>
-            <section className='CustomerCaursel-Section'>
-                <div className="container-fluid g-0">
-                    <div id="demo" className="carousel slide" data-interval="false">
+            <section className='main-customer-review'>
+                <div className="container">
+                <Swiper
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    navigation={true}
+                    onSlideChange={(e) => {
+                        handleAni()
+                    }}
+                    className='customer-slider'
+                    modules={[Navigation]}
+                >
+                    <SwiperSlide className='customer-slide'>
 
-                        <div className="carousel-inner container g-0 mx-auto">
-                            <div className="carousel-item active">
-                                <div className="CCaurselmain py-4">
-                                    <div className="CCaurselLeft">
-                                        <img className='CCaurselimage' src={CCImage1} alt="" />
-                                    </div>
-                                    <div className="CCaurselRight">
-                                        <h3 className='CCaurselmessage'>"Pretzels reinvented! Crunch crunch yum!"</h3>
-                                        <div className='leadname'><span className="lead">Selena - Verified Customer</span></div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                            <div className="CCaurselmain py-4">
-                                    <div className="CCaurselLeft">
-                                        <img className='CCaurselimage' src={CCImage2} alt="" />
-                                    </div>
-                                    <div className="CCaurselRight">
-                                        <h3 className='CCaurselmessage'>"Best thing I've ever put in my mouth. Fact."</h3>
-                                        <div className='leadname'><span className="lead">Emmanuel - Verified Customer</span></div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                            <div className="CCaurselmain py-4">
-                                    <div className="CCaurselLeft">
-                                        <img className='CCaurselimage' src={CCImage3} alt="" />
-                                    </div>
-                                    <div className="CCaurselRight">
-                                        <h3 className='CCaurselmessage'>“I had to fight my children for these."</h3>
-                                        <div className='leadname'><span className="lead">Shirley - Verified Customer</span></div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                            <div className="carousel-item">
-                            <div className="CCaurselmain py-4">
-                                    <div className="CCaurselLeft">
-                                        <img className='CCaurselimage' src={CCImage4} alt="" />
-                                    </div>
-                                    <div className="CCaurselRight">
-                                        <h3 className='CCaurselmessage'>"Taste good, feels good, does good."</h3>
-                                        <div className='leadname'><span className="lead">Benji - Verified Customer</span></div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="customer-image">
+                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
                         </div>
-                        <button className="carousel-control-prev"  data-bs-target="#demo" data-bs-slide="prev">
-                            <img src={SliderArrow} className="carousel-control-prev-image"/>
-                        </button>
-                        <button className="carousel-control-next"  data-bs-target="#demo" data-bs-slide="next">
-                            <img src={SliderArrow} className="carousel-control-next-image"/>
-                        </button>
+                        <div className="review ">
+                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
+                            <span className='customer-name'>John Wick</span>
+                        </div>
+
+                    </SwiperSlide>
+                    <SwiperSlide className='customer-slide'>
+
+                        <div className="customer-image">
+                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
+                        </div>
+                        <div className="review ">
+                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
+                            <span className='customer-name'>John Wick</span>
+                        </div>
+
+                    </SwiperSlide>
+                    <SwiperSlide className='customer-slide'>
+
+                        <div className="customer-image">
+                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
+                        </div>
+                        <div className="review ">
+                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
+                            <span className='customer-name'>John Wick</span>
+                        </div>
+
+                    </SwiperSlide>
+                    <SwiperSlide className='customer-slide'>
+
+                        <div className="customer-image">
+                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
+                        </div>
+                        <div className="review ">
+                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
+                            <span className='customer-name'>John Wick</span>
+                        </div>
+
+                    </SwiperSlide>
+
+
+                </Swiper>
+
+
                     </div>
-                </div>
             </section>
             <div className="container-fluid g-0">
                 <div className="Stockist-section container py-4  mx-auto">
