@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import { Privacypolicy } from "./Components/PrivacyPolicy/Privacypolicy";
 import Refundpolicy from "./Components/RefundPolicy/Refundpolicy";
 import TermsofServices from "./Components/TermsofServices/TermsofServices";
+import { ViewProduct } from "./Components/Shop/ViewProducts/ViewProduct";
 
 const appRouter = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ const appRouter = createBrowserRouter([
                         element: <Refundpolicy />
                     }
                 ]
+            },
+            {
+                path: "/products",
+                element: <ViewProduct />
             },
             {
                 path: "*",

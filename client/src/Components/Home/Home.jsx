@@ -25,18 +25,17 @@ import { useSelector } from 'react-redux';
 export const Home = () => {
 
 
-    const homeData = useSelector(store => store.storeSettings);
-    const slider = homeData.slider;
-    console.log(slider)
+    const homeSliderData = useSelector(store => store.storeSettings?.slider);
+    console.log(homeSliderData);
+
     return (
         <div>
             <div className='main-home'>
-                <link rel='stylesheet' href='.../Components/Navigation/Navigation.css' />
                 <Swiper
                     className='main-swiper-home'
                     spaceBetween={50}
                     slidesPerView={1}
-                    navigation = {true}
+                    navigation = {!homeSliderData?.static_content}
                     pagination={{
                         dynamicBullets: true,
                       }}
@@ -45,7 +44,50 @@ export const Home = () => {
                     onSwiper={console.log()}
                     modules={[Pagination, Navigation]}
                 >
-                    <SwiperSlide>
+                {
+                    ["first", "second","third", "four", "five"].map((val) => {
+
+                        if(homeSliderData?.static_content && val!="first"){
+                            return;
+                        }
+
+                        return <SwiperSlide key={val}>
+                        <div className="Banner-section" style={{
+                            backgroundImage: `url(${homeSliderData && (homeSliderData[`${val}_img`] ? homeSliderData[`${val}_img`] : bannerimage)})`
+                            }
+                            }>
+                            <div className='Banner-content'>
+                                <div className='banner-left'>
+                                    <div className="product-component__rating hero-rating ">
+                                        <span className="rating-count text-white bold">489</span> <span />
+                                        <span data-score="4.89" className="stars">
+                                            <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />
+                                            <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />
+                                            <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />
+                                            <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />
+                                            <span className="jdgm-star jdgm--on text-white bold"><BsFillStarFill /></span> <span />
+                                        </span>
+                                        <span className='text-white bold'>
+                                            2165 Reviews
+                                        </span>
+                                    </div>
+                                    <h1 className="animate__animated animate__fadeInUp Bannerheader text-white ">{homeSliderData && homeSliderData[`${val}_title`]?.en}</h1>
+                                    <div className='text-white bannerpara'>{homeSliderData && homeSliderData[`${val}_description`]?.en}</div>
+                                    <div>
+                                        <button className='btn btn-outline-light shopbanner '>Shop now</button>
+                                    </div>
+                                </div>
+                                <div className='banner-right'>
+                                    <div className='greatetaste'>
+                                        <img src={Greatetaste} className='greatetasteimg' alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    })
+                }
+                    {/* <SwiperSlide>
                         <div className="Banner-section">
                             <div className='Banner-content'>
                                 <div className='banner-left'>
@@ -108,7 +150,7 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                    </SwiperSlide>
+                    </SwiperSlide> */}
                 </Swiper>
                 {/* <div className="Banner-section">
                     <div className='Banner-content'>
