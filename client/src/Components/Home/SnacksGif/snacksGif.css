@@ -19,6 +19,7 @@
         margin-top: 20px;
         color: #412f59 !important;
         opacity: 0.9;
+        text-align: left;
     }
 
     button {
@@ -59,4 +60,48 @@
     justify-content: flex-start;
     flex-direction: column;
     padding-top: 80px;
+}
+
+@media screen and (max-width:767px) {
+    .snake-banner{
+        flex-direction: column;
+    }
+    .main-snack-banner{
+        overflow: visible;
+        max-height: 100%;
+    }
+    .left-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding: 50px 30px !important;
+    }
+    .left-container .heading {
+        font-size: 5rem !important;
+        font-family: "Olly-Condensed-bold";
+        line-height: 6rem;
+        color: #412f59;
+        line-height: 65px;
+    }
+    .left-container .desc{
+        text-align: left;
+        padding-bottom: 0;
+    }
+    .right-container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .left-container .mobile-image{
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    .olly-btn{
+        width: 100%;
+    }
 }
