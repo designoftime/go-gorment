@@ -15,7 +15,7 @@ export const CarouselSection = () => {
     const allImage = [img1,img2,img3,img4]
     return (
         <>
-            <div className="main-swiper">
+            <div className="main-swiper-carousel">
                 <Swiper
                     className='swiper'
                     spaceBetween={0}

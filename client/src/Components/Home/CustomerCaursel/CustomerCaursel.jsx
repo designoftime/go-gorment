@@ -20,14 +20,6 @@ import 'swiper/css/navigation';
 
 export const CustomerCaursel = () => {
     const [toggleAni, setToggleAni ] = useState(false);
-    const handleAni =() =>{
-        if(toggleAni){
-            setToggleAni(false)
-        }
-        else{
-            setToggleAni(true)
-        }
-    }
 
     return (
         <div>
@@ -38,7 +30,7 @@ export const CustomerCaursel = () => {
                     slidesPerView={1}
                     navigation={true}
                     onSlideChange={(e) => {
-                        handleAni()
+                        setToggleAni(!toggleAni)
                     }}
                     className='customer-slider'
                     modules={[Navigation]}
