@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './CreateAccount.css'
+import '../Accounts.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { Navigation2 } from '../../Navigation/Navigation2'
 import { useDispatch } from 'react-redux';
@@ -34,7 +35,7 @@ export const CreateAccount = () => {
       <section className='CreateAccountPage mt-5'>
         <div className="container-fluid g-0">
           <div className="CreateAccountHeader mt-5">
-            <h1 className='text-center CreateAccountHeading'>Register</h1>
+            <h1 className='text-center AccountsHeading'>Register</h1>
           </div>
           <div className="createaccountform container text-center  mx-auto">
             <form onSubmit={handleSubmit}>

@@ -4,14 +4,7 @@
 .LoginHeader{
     width: 100%;
 }
-.LoginHeading{
-    color: #4c4294!important;
-    font-size: 170px;
-    line-height: 127px;
-    margin: 100px auto!important;
-    text-transform: uppercase;
-    font-family: bannerheaderfont;
-}
+
 .loginform{
     margin: 50px 0 80px 0!important;
 }
