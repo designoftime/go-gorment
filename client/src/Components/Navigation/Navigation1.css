@@ -226,3 +226,12 @@
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width:767px) {
+    .logo{
+        width: 100px;
+    }
+    .navbar{
+        padding-top: 20px !important;
+    }
+}

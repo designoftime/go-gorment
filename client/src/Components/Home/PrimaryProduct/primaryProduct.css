@@ -26,5 +26,32 @@
     color: #4c4294!important;
     margin-top: -15px;
     font-weight: 900;
+    text-align: center;
+}
+
+@media screen and (max-width:767px) {
+    .PPCmainComponent{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        padding: 20px 0px;
+    }
+    .img-fluid{
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+        object-fit: cover;
+    }
+    .imagediv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .heading{
+        font-size: 22px;
+    }
+    .desc{
+        font-size: 12px;
+        padding-bottom: 50px;
+    }
 }
 
