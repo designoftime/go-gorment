@@ -15,10 +15,11 @@ import { FaFacebook } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { footerVal } from "../../utils/Constants";
 
 export const Footer = () => {
   const footerData = useSelector((store) => store.storeSettings?.footer);
-  // console.log(footerData);
+ 
   return (
     <div>
       <section className="Blog-sliding-section">
@@ -79,7 +80,7 @@ export const Footer = () => {
               </div>
               <div className="footer-widget-wrap pl-5">
                 {footerData &&
-                  [1, 2, 3, 4].map((val) => {
+                  footerVal.map((val) => {
                     const blockStatus = footerData[`block${val}_status`];
 
                     if (blockStatus !== undefined && blockStatus) {
@@ -92,7 +93,7 @@ export const Footer = () => {
                             <h6>{footerData?.[`block${val}_title`]?.en}</h6>
                           )}
                           <ul className="list-unstyled">
-                            {[1, 2, 3, 4].map((idx) => {
+                            {footerVal.map((idx) => {
                               return (
                                 footerData?.[`block${val}_sub_title${idx}`]
                                   ?.en && (
@@ -123,33 +124,7 @@ export const Footer = () => {
                     // If blockStatus is falsy or undefined, return null
                     return null;
                   })}
-                {/* <div className="footer-widget pl-5 mt-5">
-                                    <h6>{footerData?.block1_title?.en ? footerData.block1_title.en : "SHOP"}</h6>
-                                    <ul className='list-unstyled'>
-                                        <li className='mt-1'><Link to="/shop" className='fshopcategory text-decoration-none'>{footerData?.block1_sub_title1?.en ? footerData.block1_sub_title1.en : "Shop All"}</Link></li>
-                                        <li className='mt-1'><Link to="/shop" className='fshopcategory text-decoration-none'>{footerData?.block1_sub_title2?.en ? footerData.block1_sub_title2.en : "Pretzel Thins"}</Link></li>
-                                        <li className='mt-1'><Link to="/shop" className='fshopcategory text-decoration-none'>{footerData?.block1_sub_title3?.en ? footerData.block1_sub_title3.en : "Olives"}</Link></li>
-                                        <li className='mt-1'><Link to="/shop" className='fshopcategory text-decoration-none'>{footerData?.block1_sub_title4?.en ? footerData.block1_sub_title4.en : "Choco Pretzels"}</Link></li>
-                                    </ul>
-                                </div>
-                                <div className="footer-widget mt-5 mx-4">
-                                <h6>{footerData?.block2_title?.en ? footerData.block2_title.en : "COMPANY"}</h6>
-                                    <ul className='list-unstyled'>
-                                        <li className='mt-1'><a href="/pages/ollys-story" className='fshopcategory text-decoration-none'>{footerData?.block2_sub_title1?.en ? footerData.block2_sub_title1.en : "Our Story"}</a></li>
-                                        <li className='mt-1'><a href="/pages/ollys-story" className='fshopcategory text-decoration-none'>{footerData?.block2_sub_title2?.en ? footerData.block2_sub_title2.en : "One Feeds Two"}</a></li>
-                                        <li className='mt-1'><a href="/pages/ollys-story" className='fshopcategory text-decoration-none'>{footerData?.block2_sub_title3?.en ? footerData.block2_sub_title3.en : null}</a></li>
-                                        <li className='mt-1'><a href="/pages/ollys-story" className='fshopcategory text-decoration-none'>{footerData?.block2_sub_title4?.en ? footerData.block2_sub_title4.en : null}</a></li>
-                                    </ul>
-                                </div>
-                                <div className="footer-widget mt-5 mx-4 contact-widget">
-                                <h6>{footerData?.block3_title?.en ? footerData.block3_title.en : "CONTACT"}</h6>
-                                    <div className="contact-widget-item">
-                                        <p>{footerData?.block3_sub_title1?.en ? footerData.block3_sub_title1.en : "Questions? Email us on"}</p>
-                                        <a className='fshopcategory text-decoration-none' href="mailto:yum@ollys-ollys.com">{footerData?.block3_sub_title2?.en ? footerData.block3_sub_title2.en : "yum@ollys-ollys.com"}</a>
-                                        <p>{footerData?.block3_sub_title3?.en ? footerData.block3_sub_title3.en : null}</p>
-                                        <p>{footerData?.block3_sub_title4?.en ? footerData.block3_sub_title4.en : null}</p>
-                                    </div>
-                                </div> */}
+                
                 <div className="footer-widget mt-5 newsletter-widget">
                   <p className="fw-bold pb-3">Sign up</p>
                   <div className="footer-newsletter-wrap">
