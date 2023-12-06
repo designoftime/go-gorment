@@ -11,18 +11,44 @@
     font-family: bannerhomebtn;
     font-weight: bold;
 }
+.ProfileInputblock{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 .ProfileInput {
-    width: 35%;
+    width: 30rem;
     font-family: bannerhomebtn;
     border: 3px solid #4c4294;
+    border-radius: .8rem;
     color: #4c4294;
     font-weight: bold;
+}
+.Profiledropselect{
+    width: 30rem;
+    font-family: bannerhomebtn;
+    border: 3px solid #4c4294;
+    border-radius: .8rem;
+    color: #4c4294;
+    font-weight: bold;
+    /* -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; */
+
+}
+.Profiledroption{
+    font-family: bannerhomebtn;
+    border: 3px solid #4c4294;
+    border-radius: .8rem;
+    color: #4c4294;
+    font-weight: bold;
+    /* height: 20rem; */
 }
 .Profilebtn{
     border: 3px solid #4c4294;
     color: #4c4294;
-    width: 12%;
+    width: 30%;
     border-radius: 2rem;
     font-family: bannerhomebtn;
     font-weight: bold;
@@ -33,4 +59,18 @@
     border-radius: 50%;
     color: white;
     background-color: #4c4294;
+}
+@media (max-width:500px){
+    .ProfileInput {
+        width: 100%;
+    }
+    .Profiledropselect{
+        width: 100%;
+    }
+    .ProfilesubHeading{
+        font-size: 8vw;
+    }
+    .Profilebtn{
+        width: 35vw;
+    }
 }
