@@ -124,7 +124,7 @@ const HomePage = ({
   scrollingImage,
   setScrollingImage,
   scrollingBanner,
-  setScrollingBanner
+  setScrollingBanner,
 }) => {
   const { t } = useTranslation();
   return (
@@ -2127,6 +2127,123 @@ const HomePage = ({
             </div>
           </div>
         </div>
+        {/* bottom permotion banner  */}
+
+        <div className="col-span-12 md:col-span-12 lg:col-span-12">
+          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3 md:mt-0 mt-10">
+            <FiSettings className="mt-1 mr-2" />Bottom Permotion Banner
+          </div>
+
+          <hr className="md:mb-12 mb-3" />
+
+          <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full pb-0">
+            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                {t("EnableThisBlock")}
+              </label>
+              <div className="sm:col-span-4">
+                <SwitchToggle
+                  title=""
+                  handleProcess={setAllowPromotionBanner}
+                  processOption={allowPromotionBanner}
+                  name={allowPromotionBanner}
+                />
+              </div>
+            </div>
+
+            <div
+              style={{
+                height: allowPromotionBanner ? "auto" : 0,
+                transition: "all 0.4s",
+                visibility: !allowPromotionBanner ? "hidden" : "visible",
+                opacity: !allowPromotionBanner ? "0" : "1",
+              }}
+            >
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mt-4 md:mb-6 mb-3 pb-2">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("PromotionBanner")}
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    imageUrl={permotionBannerImg}
+                    setImageUrl={setPermotionBannerImg}
+                  />
+                  <div className="text-xs text-center text-gray-400">
+                    <em>( {t("ImagesResolution")} )</em>
+                  </div>
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("Title")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Title"
+                    name="promotion_title"
+                    type="text"
+                    placeholder={t("Title")}
+                  />
+                  <Error errorName={errors.promotion_title} />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("Description")}
+                </label>
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Promotion Description"
+                    name="promotion_description"
+                    type="text"
+                    placeholder={t("PromotionDescription")}
+                  />
+
+                  <Error errorName={errors.promotion_description} />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonName")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Name"
+                    name="promotion_button_name"
+                    type="text"
+                    placeholder={t("ButtonName")}
+                  />
+                  <Error errorName={errors.promotion_button_name} />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonLink")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Link "
+                    name="promotion_button_link"
+                    type="text"
+                    placeholder="Button Link"
+                  />
+                  <Error errorName={errors.promotion_button_link} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* ================scrolling Image================== */}
 
@@ -2164,16 +2281,15 @@ const HomePage = ({
                 opacity: !scrollingBanner ? "0" : "1",
               }}
             >
-
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                  Try multiple Image
+                  Image
                 </label>
                 <div className="sm:col-span-4">
-                 <Uploader
-                   imageUrl={scrollingImage}
-                   setImageUrl={setScrollingImage}
-                 />
+                  <Uploader
+                    imageUrl={scrollingImage}
+                    setImageUrl={setScrollingImage}
+                  />
                 </div>
               </div>
             </div>

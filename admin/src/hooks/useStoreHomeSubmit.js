@@ -1125,10 +1125,6 @@ const useStoreHomeSubmit = () => {
         },
       };
 
-      console.log(
-        "storeCustomizationSettingData submit",
-        storeCustomizationSettingData
-      );
       // setIsSubmitting(false);
       // return;
 

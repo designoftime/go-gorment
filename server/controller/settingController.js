@@ -157,6 +157,9 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.home.place_holder_img": setting.home.place_holder_img,
 
           "setting.home.discount_title": setting.home.discount_title,
+
+          "setting.home.permotion_banner_img":
+            setting.home.permotion_banner_img,
           "setting.home.promotion_title": setting.home.promotion_title,
           "setting.home.promotion_description":
             setting.home.promotion_description,
@@ -204,6 +207,7 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.slider.left_right_arrow": setting.slider.left_right_arrow,
           "setting.slider.bottom_dots": setting.slider.bottom_dots,
           "setting.slider.both_slider": setting.slider.both_slider,
+          "setting.slider.static_content": setting.slider.static_content,
           "setting.slider.first_img": setting.slider.first_img,
           "setting.slider.first_title": setting.slider.first_title,
           "setting.slider.first_description": setting.slider.first_description,
@@ -230,6 +234,48 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.slider.five_description": setting.slider.five_description,
           "setting.slider.five_button": setting.slider.five_button,
           "setting.slider.five_link": setting.slider.five_link,
+
+          //bottom slider
+
+          "setting.bottom_slider.first_img": setting.bottom_slider.first_img,
+          "setting.bottom_slider.first_title":
+            setting.bottom_slider.first_title,
+          "setting.bottom_slider.first_description":
+            setting.bottom_slider.first_description,
+          "setting.bottom_slider.first_button":
+            setting.bottom_slider.first_button,
+          "setting.bottom_slider.first_link": setting.bottom_slider.first_link,
+          "setting.bottom_slider.second_img": setting.bottom_slider.second_img,
+          "setting.bottom_slider.second_title":
+            setting.bottom_slider.second_title,
+          "setting.bottom_slider.second_description":
+            setting.bottom_slider.second_description,
+          "setting.bottom_slider.second_button":
+            setting.bottom_slider.second_button,
+          "setting.bottom_slider.second_link":
+            setting.bottom_slider.second_link,
+          "setting.bottom_slider.third_img": setting.bottom_slider.third_img,
+          "setting.bottom_slider.third_title":
+            setting.bottom_slider.third_title,
+          "setting.bottom_slider.third_description":
+            setting.bottom_slider.third_description,
+          "setting.bottom_slider.third_button":
+            setting.bottom_slider.third_button,
+          "setting.bottom_slider.third_link": setting.bottom_slider.third_link,
+          "setting.bottom_slider.four_img": setting.bottom_slider.four_img,
+          "setting.bottom_slider.four_title": setting.bottom_slider.four_title,
+          "setting.bottom_slider.four_description":
+            setting.bottom_slider.four_description,
+          "setting.bottom_slider.four_button":
+            setting.bottom_slider.four_button,
+          "setting.bottom_slider.four_link": setting.bottom_slider.four_link,
+          "setting.bottom_slider.five_img": setting.bottom_slider.five_img,
+          "setting.bottom_slider.five_title": setting.bottom_slider.five_title,
+          "setting.bottom_slider.five_description":
+            setting.bottom_slider.five_description,
+          "setting.bottom_slider.five_button":
+            setting.bottom_slider.five_button,
+          "setting.bottom_slider.five_link": setting.bottom_slider.five_link,
 
           //checkout
           "setting.checkout.personal_details":
@@ -401,6 +447,13 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.term_and_condition.title": setting.term_and_condition.title,
           "setting.term_and_condition.description":
             setting.term_and_condition.description,
+          //refund policy
+
+          "setting.refund_policy.status": setting.refund_policy.status,
+          "setting.refund_policy.header_bg": setting.refund_policy.header_bg,
+          "setting.refund_policy.title": setting.refund_policy.title,
+          "setting.refund_policy.description":
+            setting.refund_policy.description,
 
           // faq
           "setting.faq.page_status": setting.faq.page_status,
@@ -431,7 +484,11 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.offers.header_bg": setting.offers.header_bg,
           "setting.offers.title": setting.offers.title,
           "setting.offers.coupon_code": setting.offers.coupon_code,
-
+          // scrolling image
+          "setting.scrolling.scrolling_banner_status":
+            setting.scrolling.scrolling_banner_status,
+          "setting.scrolling.scrolling_image":
+            setting.scrolling.scrolling_image,
           //footer
           "setting.footer.promo_status": setting.footer.promo_status,
           "setting.footer.block1_status": setting.footer.block1_status,
