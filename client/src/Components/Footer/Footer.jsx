@@ -18,7 +18,7 @@ import { useSelector } from "react-redux";
 
 export const Footer = () => {
   const footerData = useSelector((store) => store.storeSettings?.footer);
-  console.log(footerData);
+  // console.log(footerData);
   return (
     <div>
       <section className="Blog-sliding-section">

@@ -11,6 +11,8 @@ import NotFound from "./Components/ErrorPage/404Page";
 import App from "./App";
 import PrivateRoute from "./PrivateRoute";
 import { Privacypolicy } from "./Components/PrivacyPolicy/Privacypolicy";
+import Refundpolicy from "./Components/RefundPolicy/Refundpolicy";
+import TermsofServices from "./Components/TermsofServices/TermsofServices";
 
 const appRouter = createBrowserRouter([
     {
@@ -58,8 +60,21 @@ const appRouter = createBrowserRouter([
                 ]
             },
             {
-                path: "/policies/privacy-policy",
-                element: <Privacypolicy />
+                path: "/policies",
+                children: [
+                    {
+                        path: "privacy-policy",
+                        element: <Privacypolicy />
+                    },
+                    {
+                        path: "terms-of-service",
+                        element: <TermsofServices />
+                    },
+                    {
+                        path: "refund-policy",
+                        element: <Refundpolicy />
+                    }
+                ]
             },
             {
                 path: "*",

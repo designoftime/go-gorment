@@ -4,12 +4,16 @@ export const Privacypolicy = () => {
 
   const privacyPolicyData = useSelector(store => store?.storeSettings?.privacy_policy);
 
-  console.log(privacyPolicyData);
-
   return (
     <div className='Container'>
-        <h1 className='m-5 p-5'> Privacy Policy </h1>
-        {privacyPolicyData?.description?.en}
+        {
+          privacyPolicyData?.status ? 
+          <>
+            <h1 className='m-5 p-5'> {privacyPolicyData?.title?.en} </h1>
+            <div dangerouslySetInnerHTML={{__html: privacyPolicyData?.description?.en}}></div>
+          </> :
+          <h1> Data Not Available </h1>
+        }
     </div>
   )
 }
