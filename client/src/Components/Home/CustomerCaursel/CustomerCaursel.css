@@ -62,3 +62,9 @@
     font-family: "Olly-normal";
 
 }
+
+.Stockist-main{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
