@@ -91,7 +91,7 @@ export const Navigation1 = () => {
                     </div>
                     <div className="icons">
                         <div className="nav-item ">
-                            <Link to={user ? "/accounts/profile" : "/accounts/login"} className="nav-link active bolder" href="#">
+                            <Link to={(user?.token) ? "/accounts/profile" : "/accounts/login"} className="nav-link active bolder" href="#">
                                 <RiAccountCircleLine className='accountIcon' />
                             </Link>
                         </div>

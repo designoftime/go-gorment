@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { setUser } from "../reducers/authSlice";
+import { jwtDecode } from "jwt-decode"
 import axios from 'axios';
-
 
 export function loginUser(userData, Navigate){
 
@@ -10,7 +10,7 @@ export function loginUser(userData, Navigate){
 
             const res = await axios.post("/customer/login", userData);
             dispatch(setUser(res.data));
-            localStorage.setItem("userToken", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data));
             toast('User Login Successfully !!');
             Navigate("/");
             
@@ -52,7 +52,12 @@ export function verifyEmail(token){
                 email: res.data.email,
                 token: res.data.token
             }));
-            localStorage.setItem("userToken", res.data.token);
+            localStorage.setItem("user", JSON.stringify({
+                _id: res.data._id,
+                name: res.data.name,
+                email: res.data.email,
+                token: res.data.token
+            }));
 
             toast('User Registration Successfully !!');
 
@@ -70,7 +75,7 @@ export function registerUserByGoogle(token, Navigate){
             
             const res = await axios.post(`/customer/signup/${token}`);
             dispatch(setUser(res.data));
-            localStorage.setItem("userToken", res.data.token);
+            localStorage.setItem("user", JSON.stringify(res.data));
             toast('User Login Successfully !!');
             Navigate("/");
             
@@ -108,3 +113,17 @@ export function resetPassword(userData, Navigate){
     }
     
 }
+export function updateCustomer(userInfo,Navigate){
+    return async function updateCustomerThunk(dispatch,getstate){
+        try{
+            const res = await axios.put(`/customer/${userId}`,userInfo);
+            dispatch(setUser(res.data));
+            localStorage.removeItem("user");
+            localStorage.setItem("user", JSON.stringify(res.data));
+            toast("user Update Successfully");
+        } catch(error){
+            console.log(error);
+        }
+    }
+}
+
