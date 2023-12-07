@@ -3,6 +3,14 @@ import { setUser } from "../reducers/authSlice";
 import { jwtDecode } from "jwt-decode"
 import axios from 'axios';
 
+const getUserId =()=>{
+    const Data = JSON.parse(localStorage.getItem("user")) || {};
+    return Data._id || {};    
+}
+const userId = getUserId();
+// const userId = customerData._id;
+console.log("Id",userId);
+
 export function loginUser(userData, Navigate){
 
     return async function loginUserThunk(dispatch, getState){

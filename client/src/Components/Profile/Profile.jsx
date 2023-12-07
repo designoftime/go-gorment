@@ -8,6 +8,12 @@ import { updateCustomer } from '../../Redux/actions/authServices';
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
+  const getData =()=>{
+    const Data = JSON.parse(localStorage.getItem("user")) || {};
+    return Data.name || {};    
+}
+const getName = getData();
+console.log(getName);
   // const [userInfo, setUserInfo] = useState("");
   const dispatch = useDispatch();
   const Navigate = useNavigate();
