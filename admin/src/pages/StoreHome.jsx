@@ -217,7 +217,11 @@ const StoreHome = () => {
     scrollingImage,
     setScrollingImage,
     setScrollingBanner,
-    scrollingBanner
+    scrollingBanner,
+    setBottomPermotionBanner,
+    bottomPermotionBanner,
+    bottomPermotionBannerImg,
+    setBottomPermotionBannerImg,
   } = useStoreHomeSubmit();
 
   useEffect(() => {
@@ -577,6 +581,10 @@ const StoreHome = () => {
                 setScrollingImage={setScrollingImage}
                 scrollingBanner={scrollingBanner}
                 setScrollingBanner={setScrollingBanner}
+                setBottomPermotionBanner={setBottomPermotionBanner}
+                bottomPermotionBanner={bottomPermotionBanner}
+                bottomPermotionBannerImg={bottomPermotionBannerImg}
+                setBottomPermotionBannerImg={setBottomPermotionBannerImg}
               />
             </form>
           </div>
