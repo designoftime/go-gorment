@@ -13,20 +13,23 @@ import HomeCarousel from "./HomeCarousel/HomeCarousel";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useSelector } from "react-redux";
 
 export const Home = () => {
 
+  const dynamicStoreData = useSelector(store => store?.storeSettings);
+
   return (
     <div>
-      <HomeCarousel />
+      <HomeCarousel homeSliderData={dynamicStoreData?.slider} />
       <div className="container-fluid g-0">
         <CarouselSection />
         <PrimaryProduct />
-        <SnacksGif />
+        <SnacksGif promotionBannarData={dynamicStoreData?.home} />
         <Productoverview />
         <ReviewedProduct />
-        <OneFeedsHome />
-        <CustomerCaursel />
+        <OneFeedsHome bottomPromotionData={dynamicStoreData?.home} />
+        <CustomerCaursel bottomSliderData={dynamicStoreData?.bottom_slider} />
       </div>
     </div>
   );

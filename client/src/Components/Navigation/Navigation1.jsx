@@ -16,7 +16,7 @@ export const Navigation1 = () => {
     const [showNavigation2, setShowNavigation2] = useState(false);
     const [toggleMenu, setToggleMenu ] = useState(false);
     const headerData = useSelector(store => store?.storeSettings?.navbar);
-    const user = localStorage.getItem("userToken");
+    const user = localStorage.getItem("user");
 
     useEffect(() => {
         const handleScroll = () => {

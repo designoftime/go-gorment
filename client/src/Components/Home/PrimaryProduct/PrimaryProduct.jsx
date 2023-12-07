@@ -9,7 +9,6 @@ import CategoriesMobile from './categoriesMobile'
 
 export const PrimaryProduct = () => {
 
-
     return (
         <>
             {

@@ -13,13 +13,11 @@ import { useSelector } from "react-redux";
 import { sliderVal } from "../../../utils/Constants";
 import { Link } from "react-router-dom";
 
-const HomeCarousel = () => {
+const HomeCarousel = ({homeSliderData}) => {
 
-    const homeSliderData = useSelector((store) => store.storeSettings?.slider);
-
-    if (!homeSliderData) {
-        return;
-    }
+  if (!homeSliderData) {
+      return;
+  }
 
   return (
     (!homeSliderData.static_content && !homeSliderData.both_slider && !homeSliderData.bottom_dots && !homeSliderData.left_right_arrow) ? null : <div className="main-home">

@@ -4,8 +4,7 @@ import Image1 from "./images/pretzel-dark.png";
 import { BsArrowRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-export const OneFeedsHome = () => {
-  const bottomPromotionData = useSelector((store) => store.storeSettings?.home);
+export const OneFeedsHome = ({bottomPromotionData}) => {
 
   if (!bottomPromotionData) {
     return;

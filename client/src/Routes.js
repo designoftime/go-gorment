@@ -14,6 +14,7 @@ import { Privacypolicy } from "./Components/PrivacyPolicy/Privacypolicy";
 import Refundpolicy from "./Components/RefundPolicy/Refundpolicy";
 import TermsofServices from "./Components/TermsofServices/TermsofServices";
 import { ViewProduct } from "./Components/Shop/ViewProducts/ViewProduct";
+import EmailVerification from "./Components/Accounts/EmailVerification/EmailVerification";
 
 const appRouter = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ const appRouter = createBrowserRouter([
                     },
                     {
                         path: "email-verification",
-                        element: <ManageSubscription />
+                        element: <EmailVerification />
                     },
                     {
                         path: "manage-subscription",
