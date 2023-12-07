@@ -16,6 +16,7 @@ export const Navigation1 = () => {
     const [showNavigation2, setShowNavigation2] = useState(false);
     const [toggleMenu, setToggleMenu ] = useState(false);
     const headerData = useSelector(store => store?.storeSettings?.navbar);
+    const user = localStorage.getItem("userToken");
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,7 +41,7 @@ export const Navigation1 = () => {
     return (
         <div className={showNavigation2 || toggleMenu  ? 'main-nav-2' : "main-nav"}>
             {
-                showNavigation2 || toggleMenu ? "" : (headerData?.help_text?.en) ? <h4 className='nav-offer-banner'>{headerData.help_text.en}</h4> : <h4 className='nav-offer-banner'>Coming Soon!</h4>
+                showNavigation2 || toggleMenu ? null : (headerData?.help_text?.en) && <h4 className='nav-offer-banner'>{headerData.help_text.en}</h4> 
             }
             
             <div className="navbar">
@@ -60,37 +61,37 @@ export const Navigation1 = () => {
                     {
                         headerData?.categories_menu_status &&
                         <li>
-                            <Link className="nav-link active bolder navtext " to="/pages/ollys-story">{headerData?.categories?.en ? headerData.categories.en : "Categories"}</Link>
+                            <Link className="nav-link active bolder navtext " to="/pages/ollys-story">{headerData.categories.en}</Link>
                         </li>
                     }
                     {
                         headerData?.about_menu_status &&
                         <li>
-                            <Link to='/collections/all' className="nav-link active  bolder navtext">{headerData?.about_us?.en ? headerData.about_us.en : "About Us"}</Link>
+                            <Link to='/collections/all' className="nav-link active  bolder navtext">{headerData.about_us.en}</Link>
                         </li>
                     }
                 </div>
-                <div className="center">
-                    <Link to="/"><img src={headerData?.logo ? headerData.logo : Logo} className={showNavigation2 || toggleMenu ? 'logo2 animate__animated animate__fadeInUp' : 'logo animate__animated animate__fadeInUp logo'} alt=""/></Link>
-                </div>
+                {headerData?.logo && <div className="center">
+                    <Link to="/"><img src={headerData.logo} className={showNavigation2 || toggleMenu ? 'logo2 animate__animated animate__fadeInUp' : 'logo animate__animated animate__fadeInUp logo'} alt=""/></Link>
+                </div>}
                 <div className="right">
                     <div className="links">
                     {
                         headerData?.offers_menu_status &&
                             <li>
-                                <Link className="nav-link active bolder navtext" href="#">{headerData?.offers?.en ? headerData.offers.en : "Pages"}</Link>
+                                <Link className="nav-link active bolder navtext" href="#">{headerData.offers.en}</Link>
                             </li>
                     }
                     {
                         headerData?.contact_menu_status &&
                             <li>
-                                <Link className="nav-link active bolder navtext" href="#">{headerData?.contact_us?.en ? headerData.contact_us.en : "Contact Us"}</Link>
+                                <Link className="nav-link active bolder navtext" href="#">{headerData.contact_us.en}</Link>
                             </li>
                     }
                     </div>
                     <div className="icons">
                         <div className="nav-item ">
-                            <Link to='/accounts' className="nav-link active bolder" href="#">
+                            <Link to={user ? "/accounts/profile" : "/accounts/login"} className="nav-link active bolder" href="#">
                                 <RiAccountCircleLine className='accountIcon' />
                             </Link>
                         </div>

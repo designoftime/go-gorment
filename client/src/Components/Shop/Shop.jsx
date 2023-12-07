@@ -147,7 +147,6 @@ export const Shop = () => {
 
   return (
     <div>
-      <Navigation2 />
       <div className='my-5'>
         <h1 className='LoginHeading text-center'>Shop Snacks</h1>
         <div>

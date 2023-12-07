@@ -37,7 +37,7 @@ const ResetPassword = () => {
         {/* <div> ResetPassword </div>
         <button onClick={handleSubmitPassword} > Change Password </button> */}
         <div>
-      <Navigation2/>
+      {/* <Navigation2/> */}
       <section className='LoginPage mt-5'>
         <div className="container-fluid g-0">
           <div className="LoginHeader mt-5">
