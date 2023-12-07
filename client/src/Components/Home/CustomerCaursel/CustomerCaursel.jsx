@@ -28,6 +28,8 @@ export const CustomerCaursel = () => {
     }
 
     return (
+        <>
+        {
         (customerCaurselData?.first_img) ? (
         <div>
             <section className='main-customer-review'>
@@ -65,7 +67,9 @@ export const CustomerCaursel = () => {
 
                     </div>
             </section>
-            <div className="container-fluid g-0">
+        </div> ) : null
+        }
+        <div className="container-fluid g-0">
                 <div className="Stockist-section container py-4  mx-auto">
                     <div className="Stockist-main">
                         <div className="Stockist-content">
@@ -86,6 +90,6 @@ export const CustomerCaursel = () => {
                     </div>
                 </div>
             </div>
-        </div> ) : null
+        </>
     )
 }

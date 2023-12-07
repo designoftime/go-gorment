@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useSelector } from "react-redux";
 import { sliderVal } from "../../../utils/Constants";
+import { Link } from "react-router-dom";
 
 const HomeCarousel = () => {
 
@@ -21,7 +22,7 @@ const HomeCarousel = () => {
     }
 
   return (
-    <div className="main-home">
+    (!homeSliderData.static_content && !homeSliderData.both_slider && !homeSliderData.bottom_dots && !homeSliderData.left_right_arrow) ? null : <div className="main-home">
         <Swiper
           className="main-swiper-home"
           spaceBetween={50}
@@ -46,10 +47,7 @@ const HomeCarousel = () => {
                   className="Banner-section"
                   style={{
                     backgroundImage: `url(${
-                      homeSliderData[`${val}_img`]
-                        ? homeSliderData[`${val}_img`]
-                        : bannerimage
-                    })`,
+                      homeSliderData[`${val}_img`]})`,
                   }}
                 >
                   <div className="Banner-content">
@@ -93,11 +91,11 @@ const HomeCarousel = () => {
                           {homeSliderData[`${val}_description`]?.en}
                         </div>
                       )}
-                      <div>
-                        <button className="btn btn-outline-light shopbanner ">
-                          Shop now
-                        </button>
-                      </div>
+                      {homeSliderData[`${val}_button`]?.en && <div>
+                        <Link to={homeSliderData[`${val}_link`]} className="btn btn-outline-light shopbanner ">
+                          {homeSliderData[`${val}_button`].en}
+                        </Link>
+                      </div>}
                     </div>
                     <div className="banner-right">
                       <div className="greatetaste">
@@ -114,7 +112,7 @@ const HomeCarousel = () => {
             );
           })}
         </Swiper>
-      </div>
+      </div>  
   )
 }
 
