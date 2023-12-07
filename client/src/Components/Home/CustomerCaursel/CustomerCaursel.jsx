@@ -28,6 +28,7 @@ export const CustomerCaursel = () => {
     }
 
     return (
+        (customerCaurselData?.first_img) ? (
         <div>
             <section className='main-customer-review'>
                 <div className="container">
@@ -85,6 +86,6 @@ export const CustomerCaursel = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> ) : null
     )
 }

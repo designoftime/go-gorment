@@ -36,7 +36,7 @@ const HomeCarousel = () => {
           modules={[Pagination, Navigation]}
         >
           {sliderVal.map((val) => {
-            if ((homeSliderData?.static_content && val != "first") || !homeSliderData[`${val}_img`]) {
+            if ((homeSliderData?.static_content && val != "first") || (!homeSliderData[`${val}_img`] && val != "first")) {
               return;
             }
 

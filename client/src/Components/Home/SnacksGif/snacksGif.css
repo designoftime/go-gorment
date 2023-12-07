@@ -54,7 +54,7 @@
 
 .left-container {
     height: 100%;
-    padding-left: 300px;
+    padding-left: 100px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
