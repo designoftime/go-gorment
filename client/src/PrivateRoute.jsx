@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 const PrivateRoute = ({Component}) => {
 
   const reduxUser = useSelector(store => store?.auth?.user);
-  const userToken = localStorage.getItem("userToken");
+  const userToken = localStorage.getItem("user");
 
   const checkUser = reduxUser || userToken;
   
