@@ -3,6 +3,7 @@ import '../Accounts/Ollys-Login/Login.css'
 import './Shop.css'
 import { BsFillStarFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import NewMobileProduct from './NewMobileProduct'
 
 export const Products = ({ShopPretezelProducts,ShopOlivesProducts,ShopChocoPretzelProducts,ShopSnacksBundleProducts, MerchProducts,BestSellerProducts }) => { 
   const [btnHover,setBtnHover] = useState(true);
@@ -20,7 +21,7 @@ export const Products = ({ShopPretezelProducts,ShopOlivesProducts,ShopChocoPretz
       
         <div className="ShopProducts-section container-fluid row justify-content-around g-0 mt-5 pb-5">
               {
-                
+                window.innerWidth <= 767 ? null :
                 shopProductsdata.map((items) => {
                   return (
                     

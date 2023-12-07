@@ -57,7 +57,7 @@ li{
         align-items: center;
         justify-content: flex-start;
         gap: 30px;
-    
+        text-transform: uppercase;
         .nav-link {
             font-size: 18px;
             font-family: "Olly-thin";
@@ -85,7 +85,7 @@ li{
         display: flex;
         align-items: center;
         justify-content: flex-end;
-    
+        text-transform: uppercase;
         .links {
             display: flex;
             gap: 20px;

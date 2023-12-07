@@ -3,21 +3,33 @@
 }
 .RPSheadercontent1{
     font-size: 60px;
-    width: 410px;
     background-color: #7a65a5 !important;
-    padding: 10px 10px 3px!important;
     font-weight: bolder;
     letter-spacing: .66px;
-    font-family: ReviewedProductHeaderfont; 
+    font-family: "Olly-bold"; 
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.RPSheadercontent1 strong{
+    font-family: "Olly-bold"; 
+}
+.RPSheadercontent2 strong{
+    font-family: "Olly-bold";
 }
 .RPSheadercontent2{
     font-size: 60px;
-    width: 480px;
     background-color: #7a65a5 !important;
-    padding: 10px 10px 3px!important;
-    font-family: ReviewedProductHeaderfont;
-    transform: rotate(2deg);
-    animation-duration: 1s !important;
+    font-weight: bolder;
+    letter-spacing: .66px;
+    font-family: "Olly-bold-thin"; 
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(2deg) translateX(-10px);
+    margin-top: -5px;
 }
 .ReviewedProducts{
     width: 100%;
