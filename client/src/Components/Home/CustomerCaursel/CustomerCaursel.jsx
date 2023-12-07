@@ -17,9 +17,15 @@ import { Navigation } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { sliderVal } from '../../../utils/Constants'
+import { useSelector } from 'react-redux'
 
 export const CustomerCaursel = () => {
     const [toggleAni, setToggleAni ] = useState(false);
+    const customerCaurselData = useSelector(store => store.storeSettings?.bottom_slider);
+    if (!customerCaurselData) {
+        return;
+    }
 
     return (
         <div>
@@ -35,52 +41,24 @@ export const CustomerCaursel = () => {
                     className='customer-slider'
                     modules={[Navigation]}
                 >
-                    <SwiperSlide className='customer-slide'>
+                {
+                    sliderVal.map((val) => {
+                        if (!customerCaurselData[`${val}_img`]) {
+                            return;
+                        }
 
-                        <div className="customer-image">
-                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
-                        </div>
-                        <div className="review ">
-                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
-                            <span className='customer-name'>John Wick</span>
-                        </div>
+                        return <SwiperSlide key={val} className='customer-slide'>
+                            <div className="customer-image">
+                                <img src={customerCaurselData[`${val}_img`] ? customerCaurselData[`${val}_img`] : CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
+                            </div>
+                            <div className="review ">
+                                <p>{customerCaurselData[`${val}_title`]?.en}</p>
+                                <span className='customer-name'>{customerCaurselData[`${val}_description`]?.en}</span>
+                            </div>
 
-                    </SwiperSlide>
-                    <SwiperSlide className='customer-slide'>
-
-                        <div className="customer-image">
-                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
-                        </div>
-                        <div className="review ">
-                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
-                            <span className='customer-name'>John Wick</span>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide className='customer-slide'>
-
-                        <div className="customer-image">
-                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
-                        </div>
-                        <div className="review ">
-                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
-                            <span className='customer-name'>John Wick</span>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide className='customer-slide'>
-
-                        <div className="customer-image">
-                            <img src={CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
-                        </div>
-                        <div className="review ">
-                            <p>"Pretzels reinvented! Crunch crunch yum!"</p>
-                            <span className='customer-name'>John Wick</span>
-                        </div>
-
-                    </SwiperSlide>
-
-
+                            </SwiperSlide>
+                    })
+                }
                 </Swiper>
 
 

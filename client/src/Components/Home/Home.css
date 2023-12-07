@@ -11,7 +11,7 @@
     max-width: 100%;
     width: 100vw;
     height: 100vh;
-    background: url('./images/bannerhome.jpg');
+    /* background: url('./images/bannerhome.jpg'); */
     background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,7 +23,7 @@
 
 }
 
-.main-swiper-home{
+.main-swiper-home {
     max-width: 100% !important;
     width: 100vw !important;
     height: 100% !important;
@@ -223,17 +223,36 @@
     padding-bottom: 5%;
 }
 
+.product-overview-item-wrap {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-overview-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
 .product-overview-title h2 {
     font-size: 110px;
     font-family: Snacksgifheaderfont;
+    padding: 0px 30px;
 }
 
 .product-overview-item-content {
-    width: 100%;
+    width: 80%;
 }
 
 .product-overview-item-logo {
-    width: 104px;
+    max-width: 100px;
+    width: auto;
+    margin-bottom: 20px;
 }
 
 .pologoimg {
@@ -244,12 +263,14 @@
 .poheader {
     font-weight: bolder;
     font-size: 20px;
+    font-family: 'Olly-bold-thin';
+    letter-spacing: 0.5px;
 }
 
 .pocontent {
     font-size: 15px;
-    font-weight: 500;
-    width: 90%;
+    font-weight: 900;
+    font-family: 'Olly-thin';
 }
 
 .pologoimg:hover {
@@ -277,49 +298,79 @@
     color: white !important;
     border-radius: 50%;
 }
+
 @media screen and (max-width:767px) {
-    .Banner-section{
+    .Banner-section {
         background-size: cover;
         background-position: center;
     }
-    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after {
         font-size: 20px !important;
     }
-    .swiper-button-prev:after, .swiper-rtl .swiper-button-prev:after{
+
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-prev:after {
         font-size: 20px !important;
     }
-    .Bannerheader{
+
+    .Bannerheader {
         font-size: 9rem;
         line-height: 110px;
     }
-    .product-component__rating{
+
+    .product-component__rating {
         margin-top: 0px;
     }
-    .banner-left{
+
+    .banner-left {
         overflow: visible;
         padding: 100px 0px 18px 60px;
     }
-    .swiper-button-prev, .swiper-button-next{
+
+    .swiper-button-prev,
+    .swiper-button-next {
         bottom: 30px !important;
-        top:91% !important;
-        
+        top: 91% !important;
+
     }
-    .bannerpara{
+
+    .bannerpara {
         width: 80%;
     }
+
+    .product-overview-title h2 {
+        font-size: 50px;
+    }
+
+    .product-overview-item-wrap {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-overview-item {
+        width: 80%;
+    }
+
+
 }
 
 @media screen and (max-width:467px) {
-    .Bannerheader{
+    .Bannerheader {
         font-size: 5rem;
         line-height: 60px;
     }
-    .banner-left{
+
+    .banner-left {
         padding-top: 120px;
         padding-left: 20px;
     }
-    .bannerpara{
+
+    .bannerpara {
         font-size: 14px;
     }
-    
+
 }

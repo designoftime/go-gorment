@@ -15,33 +15,31 @@ export const Productoverview = () => {
                             </div>
                             <div className="product-overview-item-wrap container g-0 mx-auto d-flex">
 
-                                <div className="product-overview-item mx-2">
-                                    <div className=" mx-auto mb-4  product-overview-item-logo">
+                                <div className="product-overview-item">
+                                    <div className="product-overview-item-logo">
                                         <img className='pologoimg' src={productoverviewimg1} alt="product-overview-logo" />
                                     </div>
                                     <div className="product-overview-item-content">
                                        <h6 className = "poheader">HEALTHIER DELICIOUS</h6>
-                                        <p className = "pocontent mt-3" >All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.</p>
+                                        <p className = "pocontent" >All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.</p>
                                     </div>
                                 </div>
-
-                                <div className="product-overview-item mx-2 flex">
-                                    <div className="mx-auto mb-4  product-overview-item-logo">
-                                        <img className='pologoimg' src={productoverviewimg2} alt="product-overview-logo" />
+                                <div className="product-overview-item">
+                                    <div className="product-overview-item-logo">
+                                        <img className='pologoimg' src={productoverviewimg1} alt="product-overview-logo" />
                                     </div>
                                     <div className="product-overview-item-content">
-                                       <h6 className = "poheader">PLANT POWERED</h6>
-                                        <p className = "pocontent mt-3" >All of our savoury Pretzel Thins &amp; Olives are vegan friendly, plant powered by some of Mumma nature's finest natural ingredients.</p>
+                                       <h6 className = "poheader">HEALTHIER DELICIOUS</h6>
+                                        <p className = "pocontent" >All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.</p>
                                     </div>
                                 </div>
-
-                                <div className="product-overview-item mx-2 flex">
-                                    <div className=" mx-auto mb-4 product-overview-item-logo">
-                                        <img className='pologoimg' src={productoverviewimg3} alt="product-overview-logo"/>
+                                <div className="product-overview-item">
+                                    <div className="product-overview-item-logo">
+                                        <img className='pologoimg' src={productoverviewimg1} alt="product-overview-logo" />
                                     </div>
                                     <div className="product-overview-item-content">
-                                       <h6 className = "poheader">CHARITY FOCUSSED</h6>
-                                        <p className = "pocontent mt-3" >We donate a school meal, on your behalf, to a child in need with every order placed on our website - with the help of our friends, One Feeds Two.</p>
+                                       <h6 className = "poheader">HEALTHIER DELICIOUS</h6>
+                                        <p className = "pocontent" >All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.</p>
                                     </div>
                                 </div>
 
