@@ -264,7 +264,6 @@ const getCustomerById = async (req, res) => {
 };
 
 const updateCustomer = async (req, res) => {
-  console.log("updateCustomer");
   try {
     const customer = await Customer.findById(req.params.id);
     if (customer) {

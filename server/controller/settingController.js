@@ -202,6 +202,19 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.home.daily_need_img_right,
           "setting.home.button1_img": setting.home.button1_img,
           "setting.home.button2_img": setting.home.button2_img,
+          //bottom permotion banner
+          "setting.home.bottom_permotion_banner_status":
+            setting.home.bottom_permotion_banner_status,
+          "setting.home.bottom_permotion_banner_img":
+            setting.home.bottom_permotion_banner_img,
+          "setting.home.bottom_promotion_title":
+            setting.home.bottom_promotion_title,
+          "setting.home.bottom_promotion_description":
+            setting.home.bottom_promotion_description,
+          "setting.home.bottom_promotion_button_name":
+            setting.home.bottom_promotion_button_name,
+          "setting.home.bottom_promotion_button_link":
+            setting.home.bottom_promotion_button_link,
 
           //slider
           "setting.slider.left_right_arrow": setting.slider.left_right_arrow,

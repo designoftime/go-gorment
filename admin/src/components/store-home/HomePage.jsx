@@ -125,6 +125,11 @@ const HomePage = ({
   setScrollingImage,
   scrollingBanner,
   setScrollingBanner,
+  setBottomPermotionBanner,
+  bottomPermotionBanner,
+  bottomPermotionBannerImg,
+  setBottomPermotionBannerImg
+  
 }) => {
   const { t } = useTranslation();
   return (
@@ -2127,6 +2132,7 @@ const HomePage = ({
             </div>
           </div>
         </div>
+
         {/* bottom permotion banner  */}
 
         <div className="col-span-12 md:col-span-12 lg:col-span-12">
@@ -2144,19 +2150,19 @@ const HomePage = ({
               <div className="sm:col-span-4">
                 <SwitchToggle
                   title=""
-                  handleProcess={setAllowPromotionBanner}
-                  processOption={allowPromotionBanner}
-                  name={allowPromotionBanner}
+                  handleProcess={setBottomPermotionBanner}
+                  processOption={bottomPermotionBanner}
+                  name={bottomPermotionBanner}
                 />
               </div>
             </div>
 
             <div
               style={{
-                height: allowPromotionBanner ? "auto" : 0,
+                height: bottomPermotionBanner ? "auto" : 0,
                 transition: "all 0.4s",
-                visibility: !allowPromotionBanner ? "hidden" : "visible",
-                opacity: !allowPromotionBanner ? "0" : "1",
+                visibility: !bottomPermotionBanner ? "hidden" : "visible",
+                opacity: !bottomPermotionBanner ? "0" : "1",
               }}
             >
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mt-4 md:mb-6 mb-3 pb-2">
@@ -2165,8 +2171,8 @@ const HomePage = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
-                    imageUrl={permotionBannerImg}
-                    setImageUrl={setPermotionBannerImg}
+                    imageUrl={bottomPermotionBannerImg}
+                    setImageUrl={setBottomPermotionBannerImg}
                   />
                   <div className="text-xs text-center text-gray-400">
                     <em>( {t("ImagesResolution")} )</em>
@@ -2182,11 +2188,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Title"
-                    name="promotion_title"
+                    name="bottom_promotion_title"
                     type="text"
                     placeholder={t("Title")}
                   />
-                  <Error errorName={errors.promotion_title} />
+                  <Error errorName={errors.bottom_promotion_title} />
                 </div>
               </div>
 
@@ -2199,12 +2205,12 @@ const HomePage = ({
                     required
                     register={register}
                     label="Promotion Description"
-                    name="promotion_description"
+                    name="bottom_promotion_description"
                     type="text"
-                    placeholder={t("PromotionDescription")}
+                    placeholder={"Permotion Description"}
                   />
 
-                  <Error errorName={errors.promotion_description} />
+                  <Error errorName={errors.bottom_promotion_description} />
                 </div>
               </div>
 
@@ -2217,11 +2223,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Button Name"
-                    name="promotion_button_name"
+                    name="bottom_promotion_button_name"
                     type="text"
                     placeholder={t("ButtonName")}
                   />
-                  <Error errorName={errors.promotion_button_name} />
+                  <Error errorName={errors.bottom_promotion_button_name} />
                 </div>
               </div>
 
@@ -2234,11 +2240,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Button Link "
-                    name="promotion_button_link"
+                    name="bottom_promotion_button_link"
                     type="text"
                     placeholder="Button Link"
                   />
-                  <Error errorName={errors.promotion_button_link} />
+                  <Error errorName={errors.bottom_promotion_button_link} />
                 </div>
               </div>
             </div>
