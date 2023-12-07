@@ -141,6 +141,9 @@ const useStoreHomeSubmit = () => {
   const [scrollingImage, setScrollingImage] = useState("");
   const [scrollingBanner, setScrollingBanner] = useState(true);
 
+  const [bottomPermotionBanner, setBottomPermotionBanner] = useState(true);
+  const [bottomPermotionBannerImg, setBottomPermotionBannerImg] = useState("");
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { socket } = useNotification();
@@ -314,6 +317,23 @@ const useStoreHomeSubmit = () => {
             daily_need_description: {
               ...resData?.home?.daily_need_description,
               [language]: data.daily_need_description || "",
+            },
+            bottom_permotion_banner_img: bottomPermotionBannerImg,
+            bottom_promotion_title: {
+              ...resData?.home?.bottom_promotion_title,
+              [language]: data.bottom_promotion_title || "",
+            },
+            bottom_promotion_description: {
+              ...resData?.home?.bottom_promotion_description,
+              [language]: data.bottom_promotion_description || "",
+            },
+            bottom_promotion_button_name: {
+              ...resData?.home?.bottom_promotion_button_name,
+              [language]: data.bottom_promotion_button_name || "",
+            },
+            bottom_promotion_button_link: {
+              ...resData?.home?.bottom_promotion_button_link,
+              [language]: data.bottom_promotion_button_link || "",
             },
             daily_need_app_link: data.daily_need_app_link,
             daily_need_google_link: data.daily_need_google_link,
@@ -1294,7 +1314,20 @@ const useStoreHomeSubmit = () => {
           );
           setValue("daily_need_app_link", res?.home?.daily_need_app_link);
           setValue("daily_need_google_link", res?.home?.daily_need_google_link);
-
+          // bottom permotion banner
+          setValue("bottom_promotion_title", res?.home?.bottom_promotion_title);
+          setValue(
+            "bottom_promotion_description",
+            res?.home?.bottom_promotion_description
+          );
+          setValue(
+            "bottom_promotion_button_name",
+            res?.home?.bottom_promotion_button_name
+          );
+          setValue(
+            "bottom_promotion_button_link",
+            res?.home?.bottom_promotion_button_link
+          );
           //slider
           setSliderImage(res?.slider?.first_img);
           setSliderImageTwo(res?.slider?.second_img);
@@ -2237,6 +2270,10 @@ const useStoreHomeSubmit = () => {
     scrollingBanner,
     scrollingImage,
     setScrollingImage,
+    setBottomPermotionBanner,
+    bottomPermotionBanner,
+    bottomPermotionBannerImg,
+    setBottomPermotionBannerImg,
   };
 };
 
