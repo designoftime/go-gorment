@@ -318,6 +318,7 @@ const useStoreHomeSubmit = () => {
               ...resData?.home?.daily_need_description,
               [language]: data.daily_need_description || "",
             },
+            bottom_permotion_banner_status: bottomPermotionBanner,
             bottom_permotion_banner_img: bottomPermotionBannerImg,
             bottom_promotion_title: {
               ...resData?.home?.bottom_promotion_title,
@@ -1315,18 +1316,24 @@ const useStoreHomeSubmit = () => {
           setValue("daily_need_app_link", res?.home?.daily_need_app_link);
           setValue("daily_need_google_link", res?.home?.daily_need_google_link);
           // bottom permotion banner
-          setValue("bottom_promotion_title", res?.home?.bottom_promotion_title);
+
+          setBottomPermotionBanner(res?.home?.bottom_permotion_banner_status);
+          setBottomPermotionBannerImg(res?.home?.bottom_permotion_banner_img);
+          setValue(
+            "bottom_promotion_title",
+            res?.home?.bottom_promotion_title[language || "en"]
+          );
           setValue(
             "bottom_promotion_description",
-            res?.home?.bottom_promotion_description
+            res?.home?.bottom_promotion_description[language || "en"]
           );
           setValue(
             "bottom_promotion_button_name",
-            res?.home?.bottom_promotion_button_name
+            res?.home?.bottom_promotion_button_name[language || "en"]
           );
           setValue(
             "bottom_promotion_button_link",
-            res?.home?.bottom_promotion_button_link
+            res?.home?.bottom_promotion_button_link[language || "en"]
           );
           //slider
           setSliderImage(res?.slider?.first_img);

@@ -2132,6 +2132,7 @@ const HomePage = ({
             </div>
           </div>
         </div>
+
         {/* bottom permotion banner  */}
 
         <div className="col-span-12 md:col-span-12 lg:col-span-12">
@@ -2206,10 +2207,10 @@ const HomePage = ({
                     label="Promotion Description"
                     name="bottom_promotion_description"
                     type="text"
-                    placeholder={t("bottom_promotion_description")}
+                    placeholder={"Permotion Description"}
                   />
 
-                  <Error errorName={errors.promotion_description} />
+                  <Error errorName={errors.bottom_promotion_description} />
                 </div>
               </div>
 
