@@ -19,7 +19,7 @@ import { footerVal } from "../../utils/Constants";
 
 export const Footer = () => {
   const footerData = useSelector((store) => store.storeSettings?.footer);
- 
+
   return (
     <div>
       <section className="Blog-sliding-section">
@@ -64,69 +64,71 @@ export const Footer = () => {
       </section>
       {/* Footer Section */}
 
-      <section className="Footer-Section">
+      <section className="footer-Section">
         <footer className="Footer-main container-fluid-g-0">
-          <div className="common-wrap  g-0">
-            <div className="footer-inner mx-auto">
-              <div className="footer-top py-5">
+          <div className="common-wrap">
+            <div className="footer-inner container">
+              <div className="footer-top">
                 <div className="footer-logo ">
                   <Link to="/">
                     <img src={FooterLogo} alt="footer-logo" />
                   </Link>
                 </div>
-                <div className="footer-top-text mx-5">
+                <div className="footer-top-text">
                   <img src={Footertext1} alt="footer-text" />
                 </div>
               </div>
-              <div className="footer-widget-wrap pl-5">
-                {footerData &&
-                  footerVal.map((val) => {
-                    const blockStatus = footerData[`block${val}_status`];
+              <div className="footer-widget-wrap ">
+                <div className="links-wrapper">
+                  {footerData &&
+                    footerVal.map((val) => {
+                      const blockStatus = footerData[`block${val}_status`];
 
-                    if (blockStatus !== undefined && blockStatus) {
-                      return (
-                        <div
-                          key={val}
-                          className="footer-widget pl-5 mt-5"
-                        >
-                          {footerData?.[`block${val}_title`]?.en && (
-                            <h6>{footerData?.[`block${val}_title`]?.en}</h6>
-                          )}
-                          <ul className="list-unstyled">
-                            {footerVal.map((idx) => {
-                              return (
-                                footerData?.[`block${val}_sub_title${idx}`]
-                                  ?.en && (
-                                  <li key={idx} className="mt-1">
-                                    <Link
-                                      to={
-                                        footerData?.[
+                      if (blockStatus !== undefined && blockStatus) {
+                        return (
+                          <div
+                            key={val}
+                            className="footer-widget-items"
+                          >
+                            {footerData?.[`block${val}_title`]?.en && (
+                              <h6>{footerData?.[`block${val}_title`]?.en}</h6>
+                            )}
+                            <ul className="list-unstyled">
+                              {footerVal.map((idx) => {
+                                return (
+                                  footerData?.[`block${val}_sub_title${idx}`]
+                                    ?.en && (
+                                    <li key={idx} className="">
+                                      <Link
+                                        to={
+                                          footerData?.[
                                           `block${val}_sub_link${idx}`
-                                        ]
-                                      }
-                                      className="fshopcategory text-decoration-none"
-                                    >
-                                      {
-                                        footerData?.[
-                                          `block${val}_sub_title${idx}`
-                                        ]?.en
-                                      }
-                                    </Link>
-                                  </li>
-                                )
-                              );
-                            })}
-                          </ul>
-                        </div>
-                      );
-                    }
+                                          ]
+                                        }
+                                        className="fshopcategory text-decoration-none"
+                                      >
+                                        {
+                                          footerData?.[
+                                            `block${val}_sub_title${idx}`
+                                          ]?.en
+                                        }
+                                      </Link>
+                                    </li>
+                                  )
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        );
+                      }
 
-                    // If blockStatus is falsy or undefined, return null
-                    return null;
-                  })}
-                
-                <div className="footer-widget mt-5 newsletter-widget">
-                  <p className="fw-bold pb-3">Sign up</p>
+                      // If blockStatus is falsy or undefined, return null
+                      return null;
+                    })}
+                </div>
+
+                <div className="footer-widget newsletter-widget">
+                  <p className="sign-up">Sign up</p>
                   <div className="footer-newsletter-wrap">
                     <form
                       id="email_signup"
@@ -140,25 +142,18 @@ export const Footer = () => {
                       <input type="hidden" name="g" />
                       <input type="hidden" name="$fields" />
                       <input type="hidden" name="$list_fields" />
-                      <div className="d-flex fw-bold">
-                        <div className="klaviyo_field_group footer-newsletter-input-row Finputdiv px-5">
-                          <input
-                            className="footermailinput"
-                            type="email"
-                            name="email"
-                            id="k_id_email"
-                            placeholder="Your email"
-                          />
-                        </div>
-
-                        <div className="klaviyo_form_actions footer-newsletter-input-row FSignupbtn submit-row">
-                          <button className="btn text-dark fw-bold">
-                            Signup{" "}
-                            <span>
-                              <IoIosArrowRoundForward className="fs-3" />
-                            </span>
-                          </button>
-                        </div>
+                      <div className="sign-up-input">
+                        <input
+                          className="sign-up-input-field"
+                          type="email"
+                          name="email"
+                          id="k_id_email"
+                          placeholder="Your email"
+                        />
+                        <span className="input-field-icon">
+                          Sign Up
+                          <IoIosArrowRoundForward className="fs-3" />
+                        </span>
                       </div>
                       {/* {<div className="klaviyo_messages">
                                                 <div className="success_message" >
@@ -169,46 +164,39 @@ export const Footer = () => {
                     </form>
                   </div>
                   {footerData?.social_links_status && (
-                    <div className="footer-social d-flex justify-content-around">
-                      <ul className="SocialIcons">
-                        {footerData?.social_twitter && (
-                          <li>
-                            <a
-                              className="text-decoration-none"
-                              href={footerData?.social_twitter}
-                              target="_blank"
-                            >
-                              <FaTwitter className="icon" />
-                            </a>
-                          </li>
-                        )}
-                        {footerData?.social_facebook && (
-                          <li>
-                            <a
-                              className="text-decoration-none"
-                              href={footerData?.social_facebook}
-                              target="_blank"
-                            >
-                              <FaFacebook className="icon" />
-                            </a>
-                          </li>
-                        )}
+                    <div className="socialIcon">
+                      {footerData?.social_twitter && (
+                        <a
+                          className="text-decoration-none"
+                          href={footerData?.social_twitter}
+                          target="_blank"
+                        >
+                          <FaTwitter className="icon" />
+                        </a>
+                      )}
+                      {footerData?.social_facebook && (
+                        <a
+                          className="text-decoration-none"
+                          href={footerData?.social_facebook}
+                          target="_blank"
+                        >
+                          <FaFacebook className="icon" />
+                        </a>
+                      )}
 
-                        {footerData?.social_pinterest && (
-                          <li>
-                            <a
-                              className="text-decoration-none"
-                              href={footerData?.social_pinterest}
-                              target="_blank"
-                            >
-                              <FaInstagram className="icon" />
-                            </a>
-                          </li>
-                        )}
-                      </ul>
+                      {footerData?.social_pinterest && (
+                        <a
+                          className="text-decoration-none"
+                          href={footerData?.social_pinterest}
+                          target="_blank"
+                        >
+                          <FaInstagram className="icon" />
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>
+
               </div>
               <div className="footer-bottom d-flex">
                 <nav className="footer-nav mt-5">
@@ -241,8 +229,13 @@ export const Footer = () => {
                     </li>
                   </ul>
                 </nav>
-                <div className="footer-bottom-text mt-3 desk d-flex">
-                  <div className="footer-smileys d-flex justify-content-evenly">
+                <div className="footer-bottom-text">
+                  <img
+                    className="Footertext2"
+                    src={Footertext2}
+                    alt="footer-text"
+                  />
+                  <div className="footer-smileys">
                     <div className="fsmiley">
                       <img src={Footersmiley} alt="smiley" />
                     </div>
@@ -250,12 +243,9 @@ export const Footer = () => {
                       <img src={Footersmiley} alt="smiley" />
                     </div>
                   </div>
-                  <img
-                    className="Footertext2"
-                    src={Footertext2}
-                    alt="footer-text"
-                  />
                 </div>
+
+
               </div>
             </div>
           </div>
