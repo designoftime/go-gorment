@@ -9,6 +9,7 @@ import FooterLogo from "./images/footer-logo.svg";
 import Footertext1 from "./images/footer-text-1.svg";
 import Footertext2 from "./images/footer-text-2.svg";
 import Footersmiley from "./images/f-smile.svg";
+import FeelGood from "./images/feel-good.svg";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
@@ -77,6 +78,79 @@ export const Footer = () => {
                 <div className="footer-top-text">
                   <img src={Footertext1} alt="footer-text" />
                 </div>
+                {
+                  window.innerWidth <= 767 ?
+                    <>
+                      <div className="footer-bottom-text">
+                        <img
+                          className="feel-good"
+                          src={FeelGood}
+                          alt="footer-text"
+                        />
+                      </div>
+                      <div className="footer-widget-mobile newsletter-widget">
+                        <p className="sign-up">Sign up</p>
+                        <div className="footer-newsletter-wrap">
+                          <form
+                            id="email_signup"
+                            className="klaviyo_gdpr_embed_WbhN5R mobile-form-signup"
+                            action=""
+                            data-ajax-submit=""
+                            method="GET"
+                            target="_blank"
+                            noValidate="noValidate"
+                          >
+                            <input type="hidden" name="g" />
+                            <input type="hidden" name="$fields" />
+                            <input type="hidden" name="$list_fields" />
+                            <div className="sign-up-input">
+                              <input
+                                className="sign-up-input-field"
+                                type="email"
+                                name="email"
+                                id="k_id_email"
+                                placeholder="Your email"
+                              />
+                            </div>
+                              <button className="sign-up-btn">Sign Up</button>
+                          </form>
+                        </div>
+                        {footerData?.social_links_status && (
+                          <div className="socialIcon">
+                            {footerData?.social_twitter && (
+                              <a
+                                className="text-decoration-none"
+                                href={footerData?.social_twitter}
+                                target="_blank"
+                              >
+                                <FaTwitter className="icon" />
+                              </a>
+                            )}
+                            {footerData?.social_facebook && (
+                              <a
+                                className="text-decoration-none"
+                                href={footerData?.social_facebook}
+                                target="_blank"
+                              >
+                                <FaFacebook className="icon" />
+                              </a>
+                            )}
+
+                            {footerData?.social_pinterest && (
+                              <a
+                                className="text-decoration-none"
+                                href={footerData?.social_pinterest}
+                                target="_blank"
+                              >
+                                <FaInstagram className="icon" />
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </>
+                    : null
+                }
               </div>
               <div className="footer-widget-wrap ">
                 <div className="links-wrapper">
@@ -126,76 +200,72 @@ export const Footer = () => {
                       return null;
                     })}
                 </div>
-
-                <div className="footer-widget newsletter-widget">
-                  <p className="sign-up">Sign up</p>
-                  <div className="footer-newsletter-wrap">
-                    <form
-                      id="email_signup"
-                      className="klaviyo_gdpr_embed_WbhN5R"
-                      action=""
-                      data-ajax-submit=""
-                      method="GET"
-                      target="_blank"
-                      noValidate="noValidate"
-                    >
-                      <input type="hidden" name="g" />
-                      <input type="hidden" name="$fields" />
-                      <input type="hidden" name="$list_fields" />
-                      <div className="sign-up-input">
-                        <input
-                          className="sign-up-input-field"
-                          type="email"
-                          name="email"
-                          id="k_id_email"
-                          placeholder="Your email"
-                        />
-                        <span className="input-field-icon">
-                          Sign Up
-                          <IoIosArrowRoundForward className="fs-3" />
-                        </span>
+                    {
+                      window.innerWidth >= 767 ? <div className="footer-widget newsletter-widget">
+                      <p className="sign-up">Sign up</p>
+                      <div className="footer-newsletter-wrap">
+                        <form
+                          id="email_signup"
+                          className="klaviyo_gdpr_embed_WbhN5R"
+                          action=""
+                          data-ajax-submit=""
+                          method="GET"
+                          target="_blank"
+                          noValidate="noValidate"
+                        >
+                          <input type="hidden" name="g" />
+                          <input type="hidden" name="$fields" />
+                          <input type="hidden" name="$list_fields" />
+                          <div className="sign-up-input">
+                            <input
+                              className="sign-up-input-field"
+                              type="email"
+                              name="email"
+                              id="k_id_email"
+                              placeholder="Your email"
+                            />
+                            <span className="input-field-icon">
+                              Sign Up
+                              <IoIosArrowRoundForward className="fs-3" />
+                            </span>
+                          </div>
+                        </form>
                       </div>
-                      {/* {<div className="klaviyo_messages">
-                                                <div className="success_message" >
-                                                    <div className="klaviyo_header">Thank you for signing up!</div>
-                                                </div>
-                                                <div className="error_message"></div>
-                                            </div>} */}
-                    </form>
-                  </div>
-                  {footerData?.social_links_status && (
-                    <div className="socialIcon">
-                      {footerData?.social_twitter && (
-                        <a
-                          className="text-decoration-none"
-                          href={footerData?.social_twitter}
-                          target="_blank"
-                        >
-                          <FaTwitter className="icon" />
-                        </a>
+                      {footerData?.social_links_status && (
+                        <div className="socialIcon">
+                          {footerData?.social_twitter && (
+                            <a
+                              className="text-decoration-none"
+                              href={footerData?.social_twitter}
+                              target="_blank"
+                            >
+                              <FaTwitter className="icon" />
+                            </a>
+                          )}
+                          {footerData?.social_facebook && (
+                            <a
+                              className="text-decoration-none"
+                              href={footerData?.social_facebook}
+                              target="_blank"
+                            >
+                              <FaFacebook className="icon" />
+                            </a>
+                          )}
+    
+                          {footerData?.social_pinterest && (
+                            <a
+                              className="text-decoration-none"
+                              href={footerData?.social_pinterest}
+                              target="_blank"
+                            >
+                              <FaInstagram className="icon" />
+                            </a>
+                          )}
+                        </div>
                       )}
-                      {footerData?.social_facebook && (
-                        <a
-                          className="text-decoration-none"
-                          href={footerData?.social_facebook}
-                          target="_blank"
-                        >
-                          <FaFacebook className="icon" />
-                        </a>
-                      )}
-
-                      {footerData?.social_pinterest && (
-                        <a
-                          className="text-decoration-none"
-                          href={footerData?.social_pinterest}
-                          target="_blank"
-                        >
-                          <FaInstagram className="icon" />
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </div>
+                    </div> : null
+                    }
+                
 
               </div>
               <div className="footer-bottom d-flex">
@@ -229,21 +299,24 @@ export const Footer = () => {
                     </li>
                   </ul>
                 </nav>
-                <div className="footer-bottom-text">
-                  <img
-                    className="Footertext2"
-                    src={Footertext2}
-                    alt="footer-text"
-                  />
-                  <div className="footer-smileys">
-                    <div className="fsmiley">
-                      <img src={Footersmiley} alt="smiley" />
+                {
+                  window.innerWidth >= 767 ? <div className="footer-bottom-text">
+                    <img
+                      className="Footertext2"
+                      src={Footertext2}
+                      alt="footer-text"
+                    />
+                    <div className="footer-smileys">
+                      <div className="fsmiley">
+                        <img src={Footersmiley} alt="smiley" />
+                      </div>
+                      <div className="fsmiley">
+                        <img src={Footersmiley} alt="smiley" />
+                      </div>
                     </div>
-                    <div className="fsmiley">
-                      <img src={Footersmiley} alt="smiley" />
-                    </div>
-                  </div>
-                </div>
+                  </div> : null
+                }
+
 
 
               </div>
