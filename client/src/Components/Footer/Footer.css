@@ -212,3 +212,94 @@
 .fsmiley:hover {
     transform: rotate(360deg);
 }
+
+@media screen and (max-width:767px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .footer-logo img {
+        width: 130px;
+    }
+
+    .footer-top-text img {
+        max-width: 400px;
+        min-width: 180px;
+    }
+
+    .footer-bottom-text .feel-good {
+        width: 400px;
+    }
+
+    .footer-widget-mobile {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .sign-up-btn {
+        width: 100%;
+        border: 3px solid #fff;
+        border-radius: 20px;
+        outline: none;
+        padding: 15px 10px;
+        font-family: "Olly-thin";
+        background-color: transparent;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: #fff;
+    }
+
+    .mobile-form-signup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sign-up {
+        font-family: "Olly-thin";
+
+    }
+    .links-wrapper{
+        width: 100%;
+    }
+    .footer-widget-items{
+        width: 33%;
+        min-width: 30%;
+        line-height: 20px;
+    }
+    .footer-nav{
+        margin-top: 0 !important;
+    }
+    .sign-up-input-field{
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width:480px) {
+    .links-wrapper{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .footer-widget-items{
+        width: 100%;
+        min-width: 90%;
+        
+    }
+    .footer-top-text img {
+        max-width: 300px;
+        min-width: 180px;
+    }
+
+    .footer-bottom-text .feel-good {
+        width: 300px;
+    }
+    .footer-logo img {
+        width: 70px;
+    }
+}
