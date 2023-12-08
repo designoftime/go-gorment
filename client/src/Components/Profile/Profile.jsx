@@ -44,7 +44,7 @@ const splitNames = fullName.split(' ');
     })
   },[])
   return (
-    <>
+    <> 
     <SubHeader/>
       <div className="container-fluid">
         <section className='Profile-section'>
