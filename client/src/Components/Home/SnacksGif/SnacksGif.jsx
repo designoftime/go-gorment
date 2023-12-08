@@ -5,9 +5,7 @@ import './snacksGif.css';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-export const SnacksGif = () => {
-
-    const promotionBannarData = useSelector(store => store.storeSettings?.home);
+export const SnacksGif = ({promotionBannarData}) => {
 
     if(!promotionBannarData){
         return;

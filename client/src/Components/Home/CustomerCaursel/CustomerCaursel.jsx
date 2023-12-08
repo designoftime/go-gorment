@@ -20,17 +20,17 @@ import 'swiper/css/navigation';
 import { sliderVal } from '../../../utils/Constants'
 import { useSelector } from 'react-redux'
 
-export const CustomerCaursel = () => {
+export const CustomerCaursel = ({bottomSliderData}) => {
     const [toggleAni, setToggleAni ] = useState(false);
-    const customerCaurselData = useSelector(store => store.storeSettings?.bottom_slider);
-    if (!customerCaurselData) {
+    
+    if (!bottomSliderData) {
         return;
     }
 
     return (
         <>
         {
-        (customerCaurselData?.first_img) ? (
+        (bottomSliderData?.first_img) ? (
         <div>
             <section className='main-customer-review'>
                 <div className="container">
@@ -46,17 +46,17 @@ export const CustomerCaursel = () => {
                 >
                 {
                     sliderVal.map((val) => {
-                        if (!customerCaurselData[`${val}_img`]) {
+                        if (!bottomSliderData[`${val}_img`]) {
                             return;
                         }
 
                         return <SwiperSlide key={val} className='customer-slide'>
                             <div className="customer-image">
-                                <img src={customerCaurselData[`${val}_img`] ? customerCaurselData[`${val}_img`] : CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
+                                <img src={bottomSliderData[`${val}_img`] ? bottomSliderData[`${val}_img`] : CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
                             </div>
                             <div className="review ">
-                                <p>{customerCaurselData[`${val}_title`]?.en}</p>
-                                <span className='customer-name'>{customerCaurselData[`${val}_description`]?.en}</span>
+                                <p>{bottomSliderData[`${val}_title`]?.en}</p>
+                                <span className='customer-name'>{bottomSliderData[`${val}_description`]?.en}</span>
                             </div>
 
                             </SwiperSlide>
