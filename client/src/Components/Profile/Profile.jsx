@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navigation2 } from '../Navigation/Navigation2';
 import '../Accounts/Accounts.css'
 import './Profile.css'
@@ -10,22 +10,39 @@ import { useNavigate } from 'react-router-dom';
 const Profile = () => {
   const getData =()=>{
     const Data = JSON.parse(localStorage.getItem("user")) || {};
-    return Data.name || {};    
+    return Data;   
 }
-const getName = getData();
-console.log(getName);
-  // const [userInfo, setUserInfo] = useState("");
+const mainData = getData();
+const fullName = mainData.name;
+const splitNames = fullName.split(' ');
+
+
+//  const [userInfo, setUserInfo] = useState("");
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+  const [fulName,setFulName] = useState({
+    name: "",
+    lastName: ""
+  });
+  const nameHandler = (event)=>{
+    setFulName({...fulName,[event.target.name]: event.target.value});
+  }
   const HandleOnSubmit =(event)=>{
     event.preventDefault();
     let userInfo = {
       name: event.target.name.value +" "+ event.target.lastName.value,
       phone: event.target.phone.value, 
+      email: event.target.email.value,
     }
     console.log(userInfo);
     dispatch(updateCustomer(userInfo,Navigate));
   }
+  useEffect(()=>{
+    setFulName({
+      name: splitNames[0],
+      lastName: splitNames[1],
+    })
+  },[])
   return (
     <>
     <SubHeader/>
@@ -38,11 +55,11 @@ console.log(getName);
                 <h4 className=' fw-bolder ProfilesubHeading'>Personal information</h4>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>First Name</label>
-                  <input type="text" name='name' className='ProfileInput rounded py-2 px-4' />
+                  <input type="text" onChange={nameHandler} value={fulName.name} name='name' className='ProfileInput rounded py-2 px-4' />
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>Last Name</label>
-                  <input type="text" name='lastName' className='ProfileInput rounded py-2 px-4' />
+                  <input type="text" onChange={nameHandler} value={fulName.lastName} name='lastName' className='ProfileInput rounded py-2 px-4' />
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>Phone Number</label>
@@ -50,7 +67,7 @@ console.log(getName);
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>E-mail</label>
-                  <input type="text" name='email' className='ProfileInput rounded py-2 px-4' disabled  />
+                  <input type="text" name='email' value={mainData.email} className='ProfileInput rounded py-2 px-4' disabled  />
                 </div>
                 {/* Shiiping Address Block */}
                 <h4 className=' fw-bolder my-3 ProfilesubHeading'>Shipping</h4>
