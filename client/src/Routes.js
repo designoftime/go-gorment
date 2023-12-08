@@ -90,6 +90,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/ourstory",
                 element: <Ourstory />
+            },
+            {
+                path: "/onefeedstwo",
+                element: <OneFeedsTwo />
             }
         ]
     }
