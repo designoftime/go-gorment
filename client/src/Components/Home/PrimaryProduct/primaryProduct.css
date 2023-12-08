@@ -1,57 +1,63 @@
-.main-primary-pro{
+.main-primary-pro {
     max-width: 1320px !important;
     width: 100%;
     margin: 0 auto !important;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.head-container{
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-}
-.heading{
-    font-family: "Olly-extrabold";
-    font-size: 28px;
-}
-.desc{
-    font-family: "Olly-thin";
-    font-size: 15px;
-    font-weight: 0;
-    color: #4c4294!important;
-    margin-top: -15px;
-    font-weight: 900;
-    text-align: center;
+
+    .head-container {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .heading {
+        font-family: "Olly-extrabold";
+        font-size: 28px;
+    }
+
+    .desc {
+        font-family: "Olly-thin";
+        font-size: 15px;
+        font-weight: 0;
+        color: #4c4294 !important;
+        margin-top: -15px;
+        font-weight: 900;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width:767px) {
-    .PPCmainComponent{
+    .PPCmainComponent {
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         padding: 20px 0px;
     }
-    .img-fluid{
+
+    .img-fluid {
         width: 100%;
         max-width: 400px;
         height: 250px;
         object-fit: cover;
     }
-    .imagediv{
+
+    .imagediv {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .heading{
+
+    .heading {
         font-size: 22px;
     }
-    .desc{
+
+    .desc {
         font-size: 12px;
         padding-bottom: 50px;
     }
 }
-

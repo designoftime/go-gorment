@@ -1,7 +1,10 @@
 import React from 'react'
+import MainHero from './MultipleComponents/MainHero'
 
 export const Ourstory = () => {
   return (
-    <div>Ourstory</div>
+    <div className="main-our-story">
+      <MainHero/>
+    </div>
   )
 }

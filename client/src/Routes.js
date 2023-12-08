@@ -15,6 +15,7 @@ import Refundpolicy from "./Components/RefundPolicy/Refundpolicy";
 import TermsofServices from "./Components/TermsofServices/TermsofServices";
 import { ViewProduct } from "./Components/Shop/ViewProducts/ViewProduct";
 import EmailVerification from "./Components/Accounts/EmailVerification/EmailVerification";
+import { Ourstory } from "./Components/OurStory/Ourstory";
 
 const appRouter = createBrowserRouter([
     {
@@ -85,6 +86,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "*",
                 element: <NotFound />
+            },
+            {
+                path: "/ourstory",
+                element: <Ourstory />
             }
         ]
     }
