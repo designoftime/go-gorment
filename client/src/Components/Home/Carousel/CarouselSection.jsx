@@ -27,7 +27,6 @@ export const CarouselSection = () => {
                     slidesPerView={1}
                     onSlideChange={(e) => {
                         setActiveSlider(e.activeIndex)
-                        console.log(e);
                     }}
                     // onSwiper={(swiper) => swiper.slideTo}
                 >
@@ -45,6 +44,7 @@ export const CarouselSection = () => {
                         allImage.map((img, idx) => {
                             return (<img key={idx} src={img} alt="" className={idx == activeSlider ? "active-logo" : null} onClick={(e) => {
                                 setActiveSlider(idx)
+                                first.current.swiper.slideTo(idx);
                             }} />)
                         })
                     }
