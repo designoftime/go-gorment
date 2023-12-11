@@ -1,13 +1,13 @@
 import { Button } from "@windmill/react-ui";
 import { useTranslation } from "react-i18next";
 import { FiSettings } from "react-icons/fi";
-import {
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs,
-  Tabs as TabsComponent,
-} from "react-tabs";
+// import {
+//   Tab,
+//   TabList,
+//   TabPanel,
+//   Tabs,
+//   Tabs as TabsComponent,
+// } from "react-tabs";
 
 //internal import
 
@@ -22,34 +22,58 @@ const AboutUs = ({
   isSave,
   register,
   errors,
-  setAboutHeaderBg,
-  aboutHeaderBg,
-  setAboutPageHeader,
-  aboutPageHeader,
-  setAboutTopContentLeft,
-  aboutTopContentLeft,
-  setAboutTopContentRight,
-  aboutTopContentRight,
-  setAboutTopContentRightImage,
-  aboutTopContentRightImage,
-  setAboutMiddleContentSection,
-  aboutMiddleContentSection,
-  setAboutMiddleContentImage,
-  aboutMiddleContentImage,
-  setOurFounderSection,
-  ourFounderSection,
-  setOurFounderOneImage,
-  ourFounderOneImage,
-  setOurFounderTwoImage,
-  ourFounderTwoImage,
-  setOurFounderThreeImage,
-  ourFounderThreeImage,
-  setOurFounderFourImage,
-  ourFounderFourImage,
-  setOurFounderFiveImage,
-  ourFounderFiveImage,
-  setOurFounderSixImage,
-  ourFounderSixImage,
+  setSectionOne,
+  sectionOne,
+  leftSideImg,
+  setLeftSideImg,
+  rightSideImg,
+  setRightSideImg,
+  setSectionSecond,
+  sectionSecond,
+  sectionSecondImg,
+  setSectionSecondImg,
+  setSectionThird,
+  sectionThird,
+  sectionThirdImg,
+  setSectionThirdImg,
+  setSectionFrour,
+  sectionFour,
+  sectionFourImg,
+  setSectionFrourImg,
+  setSectionFive,
+  sectionFive,
+  sectionFiveImg,
+  setSectionFiveImg,
+
+  // setAboutHeaderBg,
+  // aboutHeaderBg,
+  // setAboutPageHeader,
+  // aboutPageHeader,
+
+  // setAboutTopContentLeft,
+  // aboutTopContentLeft,
+  // setAboutTopContentRight,
+  // aboutTopContentRight,
+  // setAboutTopContentRightImage,
+  // aboutTopContentRightImage,
+  // setAboutMiddleContentSection,
+  // aboutMiddleContentSection,
+  // setAboutMiddleContentImage,
+  // aboutMiddleContentImage,
+  // setOurFounderSection,
+  // ourFounderSection,
+  // setOurFounderOneImage,
+  // ourFounderOneImage,
+  // setOurFounderTwoImage,
+  // ourFounderTwoImage,
+  // setOurFounderThreeImage,
+  // ourFounderThreeImage,
+  // setOurFounderFourImage,
+  // ourFounderFourImage,
+  // setOurFounderFiveImage,
+  // ourFounderFiveImage,
+  // setOurFounderSixImage,
+  // ourFounderSixImage,
   isSubmitting,
 }) => {
   const { t } = useTranslation();
@@ -91,7 +115,7 @@ const AboutUs = ({
 
           <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full">
             <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400">
-              <strong>{t("PageHeader")}</strong>
+              <strong>Section one</strong>
             </div>
             <hr className="md:mb-12 mb-3" />
 
@@ -102,9 +126,9 @@ const AboutUs = ({
               <div className="sm:col-span-4">
                 <SwitchToggle
                   title=""
-                  handleProcess={setAboutPageHeader}
-                  processOption={aboutPageHeader}
-                  name={aboutPageHeader}
+                  handleProcess={setSectionOne}
+                  processOption={sectionOne}
+                  name={sectionOne}
                 />
               </div>
             </div>
@@ -112,20 +136,31 @@ const AboutUs = ({
             <div
               className="mb-height-0"
               style={{
-                height: aboutPageHeader ? "auto" : 0,
+                height: sectionOne ? "auto" : 0,
                 transition: "all 0.5s",
-                visibility: !aboutPageHeader ? "hidden" : "visible",
-                opacity: !aboutPageHeader ? "0" : "1",
+                visibility: !sectionOne ? "hidden" : "visible",
+                opacity: !sectionOne ? "0" : "1",
               }}
             >
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
-                  {t("PageHeaderBg")}
+                  Left Image
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
-                    imageUrl={aboutHeaderBg}
-                    setImageUrl={setAboutHeaderBg}
+                    imageUrl={leftSideImg}
+                    setImageUrl={setLeftSideImg}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Right Image
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    imageUrl={rightSideImg}
+                    setImageUrl={setRightSideImg}
                   />
                 </div>
               </div>
@@ -139,21 +174,493 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Page Title"
-                    name="about_page_title"
+                    name="section_one_page_title"
                     type="text"
                     placeholder={t("PageTitle")}
                   />
-                  <Error errorName={errors.about_page_title} />
+                  <Error errorName={errors.section_one_page_title} />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("TopDescription")}
+                </label>
+
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_one_top_description"
+                    type="text"
+                    placeholder="Top Description"
+                  />
+                  <Error
+                    errorName={(errors.name = "section_one_top_description")}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonName")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Name"
+                    name="section_one_botton_img"
+                    type="text"
+                    placeholder={t("ButtonName")}
+                  />
+                  <Error errorName={errors.section_one_botton_img} />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonLink")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Link "
+                    name="section_one_botton_link"
+                    type="text"
+                    placeholder="Button Link"
+                  />
+                  <Error errorName={errors.section_one_botton_link} />
                 </div>
               </div>
             </div>
 
-            <div className="inline-flex md:text-base text-sm mb-3 mt-5 text-gray-500 dark:text-gray-400">
-              <strong>{t("AboutPageTopContentLeft")}</strong>
+            <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
+              <FiSettings className="mt-1 mr-2" />
+              Section Second
             </div>
+
             <hr className="md:mb-12 mb-3" />
 
             <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                {t("EnableThisBlock")}
+              </label>
+              <div className="sm:col-span-4">
+                <SwitchToggle
+                  title=""
+                  handleProcess={setSectionSecond}
+                  processOption={sectionSecond}
+                  name={sectionSecond}
+                />
+              </div>
+            </div>
+
+            <div
+              className="mb-height-0"
+              style={{
+                height: sectionSecond ? "auto" : 0,
+                transition: "all 0.5s",
+                visibility: !sectionSecond ? "hidden" : "visible",
+                opacity: !sectionSecond ? "0" : "1",
+              }}
+            >
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Image
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    imageUrl={sectionSecondImg}
+                    setImageUrl={setSectionSecondImg}
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("PageTitle")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Page Title"
+                    name="section_second_page_title"
+                    type="text"
+                    placeholder={t("PageTitle")}
+                  />
+                  <Error errorName={errors.section_second_page_title} />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("TopDescription")}
+                </label>
+
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_second_top_description"
+                    type="text"
+                    placeholder="Top Description"
+                  />
+                  <Error
+                    errorName={(errors.name = "section_second_top_description")}
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("TopDescription")}
+                </label>
+
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_second_top_description_1"
+                    type="text"
+                    placeholder="Top Description"
+                  />
+                  <Error
+                    errorName={
+                      (errors.name = "section_second_top_description_1")
+                    }
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonName")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Name"
+                    name="section_second_button_name"
+                    type="text"
+                    placeholder={t("ButtonName")}
+                  />
+                  <Error errorName={errors.section_second_button_name} />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonLink")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Link "
+                    name="section_second_button_link"
+                    type="text"
+                    placeholder="Button Link"
+                  />
+                  <Error errorName={errors.section_second_button_link} />
+                </div>
+              </div>
+            </div>
+
+            <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
+              Section Third
+            </div>
+
+            <hr className="md:mb-12 mb-3" />
+
+            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                {t("EnableThisBlock")}
+              </label>
+              <div className="sm:col-span-4">
+                <SwitchToggle
+                  title=""
+                  handleProcess={setSectionThird}
+                  processOption={sectionThird}
+                  name={sectionThird}
+                />
+              </div>
+            </div>
+
+            <div
+              className="mb-height-0"
+              style={{
+                height: sectionThird ? "auto" : 0,
+                transition: "all 0.5s",
+                visibility: !sectionThird ? "hidden" : "visible",
+                opacity: !sectionThird ? "0" : "1",
+              }}
+            >
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Image
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    imageUrl={sectionThirdImg}
+                    setImageUrl={setSectionThirdImg}
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("PageTitle")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Page Title"
+                    name="section_third_page_title"
+                    type="text"
+                    placeholder={t("PageTitle")}
+                  />
+                  <Error errorName={errors.section_third_page_title} />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("TopDescription")}
+                </label>
+
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_third_top_description"
+                    type="text"
+                    placeholder="Top Description"
+                  />
+                  <Error
+                    errorName={(errors.name = "section_third_top_description")}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
+              Section Four
+            </div>
+
+            <hr className="md:mb-12 mb-3" />
+
+            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                {t("EnableThisBlock")}
+              </label>
+              <div className="sm:col-span-4">
+                <SwitchToggle
+                  title=""
+                  handleProcess={setSectionFrour}
+                  processOption={sectionFour}
+                  name={sectionFour}
+                />
+              </div>
+            </div>
+
+            <div
+              className="mb-height-0"
+              style={{
+                height: sectionFour ? "auto" : 0,
+                transition: "all 0.5s",
+                visibility: !sectionFour ? "hidden" : "visible",
+                opacity: !sectionFour ? "0" : "1",
+              }}
+            >
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Image
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    imageUrl={sectionFourImg}
+                    setImageUrl={setSectionFrourImg}
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("PageTitle")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Page Title"
+                    name="section_four_page_title"
+                    type="text"
+                    placeholder={t("PageTitle")}
+                  />
+                  <Error errorName={errors.section_four_page_title} />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("TopDescription")}
+                </label>
+
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_four_top_description"
+                    type="text"
+                    placeholder="About Us Top Description"
+                  />
+                  <Error
+                    errorName={(errors.name = "section_four_top_description")}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("TopDescription")}
+                </label>
+
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_four_top_description"
+                    type="text"
+                    placeholder="Top Description"
+                  />
+                  <Error
+                    errorName={(errors.name = "section_four_top_description")}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
+              Section Five
+            </div>
+
+            <hr className="md:mb-12 mb-3" />
+
+            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+              <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                {t("EnableThisBlock")}
+              </label>
+              <div className="sm:col-span-4">
+                <SwitchToggle
+                  title=""
+                  handleProcess={setSectionFive}
+                  processOption={sectionFive}
+                  name={sectionFive}
+                />
+              </div>
+            </div>
+
+            <div
+              className="mb-height-0"
+              style={{
+                height: sectionFive ? "auto" : 0,
+                transition: "all 0.5s",
+                visibility: !sectionFive ? "hidden" : "visible",
+                opacity: !sectionFive ? "0" : "1",
+              }}
+            >
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Image
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    imageUrl={sectionFiveImg}
+                    setImageUrl={setSectionFiveImg}
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  {t("PageTitle")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Page Title"
+                    name="section_five_page_title"
+                    type="text"
+                    placeholder={t("PageTitle")}
+                  />
+                  <Error errorName={errors.section_five_page_title} />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Section Five
+                </label>
+
+                <div className="sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_five_top_description"
+                    type="text"
+                    placeholder="Top Description"
+                  />
+                  <Error
+                    errorName={(errors.name = "section_five_top_description")}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonName")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Name"
+                    name="section_five_button_name"
+                    type="text"
+                    placeholder={t("ButtonName")}
+                  />
+                  <Error errorName={errors.section_five_button_name} />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  {t("ButtonLink")}
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Button Link "
+                    name="section_five_button_link"
+                    type="text"
+                    placeholder="Button Link"
+                  />
+                  <Error errorName={errors.section_five_button_link} />
+                </div>
+              </div>
+            </div>
+
+            {/* <div className="inline-flex md:text-base text-sm mb-3 mt-5 text-gray-500 dark:text-gray-400">
+              <strong>{t("AboutPageTopContentLeft")}</strong>
+             </div>
+             <hr className="md:mb-12 mb-3" />
+
+             <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
               <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
                 {t("EnableThisBlock")}
               </label>
@@ -165,9 +672,9 @@ const AboutUs = ({
                   name={aboutTopContentLeft}
                 />
               </div>
-            </div>
+             </div>
 
-            <div
+             <div
               className="mb-height-0"
               style={{
                 height: aboutTopContentLeft ? "auto" : 0,
@@ -175,7 +682,7 @@ const AboutUs = ({
                 visibility: !aboutTopContentLeft ? "hidden" : "visible",
                 opacity: !aboutTopContentLeft ? "0" : "1",
               }}
-            >
+             >
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
                   {t("TopTitle")}
@@ -332,13 +839,13 @@ const AboutUs = ({
                   />
                 </div>
               </div>
-            </div>
+             </div>
 
-            <div className="inline-flex md:text-base text-sm mb-3 md:mt-5 text-gray-500 dark:text-gray-400 ">
+             <div className="inline-flex md:text-base text-sm mb-3 md:mt-5 text-gray-500 dark:text-gray-400 ">
               <strong>{t("PageTopContentRight")}</strong>
-            </div>
-            <hr className="md:mb-12 mb-3" />
-            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
+             </div>
+             <hr className="md:mb-12 mb-3" />
+             <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
               <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
                 {t("EnableThisBlock")}
               </label>
@@ -350,7 +857,7 @@ const AboutUs = ({
                   name={aboutTopContentRight}
                 />
               </div>
-            </div>
+             </div>
 
             <div
               style={{
@@ -520,11 +1027,11 @@ const AboutUs = ({
                     }
                   />
                 </div>
-              </div>
+              </div> */}
 
-              {/*  ====================================================== Our Team Tabs ====================================================== */}
+            {/*  ====================================================== Our Team Tabs ====================================================== */}
 
-              <TabsComponent>
+            {/* <TabsComponent>
                 <Tabs>
                   <TabList>
                     <Tab>{t("OurTeam")} 1</Tab>
@@ -846,8 +1353,8 @@ const AboutUs = ({
                     </div>
                   </TabPanel>
                 </Tabs>
-              </TabsComponent>
-            </div>
+              </TabsComponent> */}
+            {/* </div> */}
           </div>
         </div>
       </div>
