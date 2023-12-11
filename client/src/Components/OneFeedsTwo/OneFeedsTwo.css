@@ -2,27 +2,7 @@
     width: 100%;
     height: 100%;
 
-    .Banner-section {
-        background-color: #412f59;
-        color: #c8e0d4;
-    }
-
-    .Banner-Heading {
-        font-size: 110px;
-        font-family: Snacksgifheaderfont;
-        line-height: 88px;    
-    }
-    .Banner-subHeading {
-        font-family: Snacksgifheaderfont;
-        letter-spacing: 2px;
-        margin-top: 30%;
-    }
-
-    .Banner-content {
-        font-family: bannerhomebtn;
-        font-size: 20px;
-        padding-bottom: 650px;
-    }
+    
 }
 
 .HerO-section {
@@ -59,4 +39,75 @@
     right: 17rem;
 }
 
-@media(max-width:1000px) {}
+/* Banner Section */
+.BannerO-section {
+    background-color: #412f59;
+    color: #c8e0d4;
+    
+}
+.BannerO-Heading {
+    font-size: 110px;
+    font-family: Snacksgifheaderfont;
+    line-height: 88px;
+  
+}
+.BannerO-feeds{
+    position: absolute;
+    top: 170%;
+    left: 38%;
+    display: none;
+}
+.BannerO-subHeading {
+    font-family: Snacksgifheaderfont;
+    letter-spacing: 2px;
+    margin-top: 25%;
+}
+.BannerO-left{
+    width: 40%;
+    margin-left: 6vw;
+}
+.BannerO-right{
+    width: 40%;
+    margin-left: 8vw;
+}
+.BannerO-content {
+    font-family: bannerhomebtn;
+    font-size: 20px;
+    padding-bottom: 200px;
+}
+@media(max-width:1000px) {
+    /* Hero-Section */
+    .HerO-Heading {  
+        font-size: 15vh;
+        line-height: 12vh;
+    }
+    .HerOimage1 {
+        width: 20rem;
+        align-items: center;
+        position: static;
+    }
+    .HerOimage2 {
+       display: none;
+    }
+    .HerO-section p {
+        width: 75vw;
+    }
+    /* Banner Section */
+    .BannerO-Heading {
+        font-size: 5rem;
+        width: 100%;
+        line-height: 4rem;
+        
+    }
+    .BannerO-left{
+        width: 100%;
+        margin-left: 0;
+    }
+    .BannerO-right{
+        width: 100%;
+        margin-left: 0;
+    }
+    
+ 
+
+}
