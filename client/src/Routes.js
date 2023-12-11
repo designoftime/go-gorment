@@ -16,6 +16,7 @@ import TermsofServices from "./Components/TermsofServices/TermsofServices";
 import { ViewProduct } from "./Components/Shop/ViewProducts/ViewProduct";
 import EmailVerification from "./Components/Accounts/EmailVerification/EmailVerification";
 import { Ourstory } from "./Components/OurStory/Ourstory";
+import { OneFeedsTwo } from "./Components/OneFeedsTwo/OneFeedsTwo";
 
 const appRouter = createBrowserRouter([
     {
@@ -92,7 +93,7 @@ const appRouter = createBrowserRouter([
                 element: <Ourstory />
             },
             {
-                path: "/onefeedstwo",
+                path: "/one-feeds-two",
                 element: <OneFeedsTwo />
             }
         ]
