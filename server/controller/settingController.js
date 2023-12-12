@@ -156,6 +156,9 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.home.feature_promo_four_img":
             setting.home.feature_promo_four_img,
 
+          "setting.home.feature_promo_five_img":
+            setting.home.feature_promo_five_img,
+
           "setting.home.slider_width_status": setting.home.slider_width_status,
           "setting.home.promotion_banner_status":
             setting.home.promotion_banner_status,
@@ -167,6 +170,28 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.home.discount_coupon_code":
             setting.home.discount_coupon_code,
           "setting.home.place_holder_img": setting.home.place_holder_img,
+
+          "setting.home.testimonial_status": setting.home.testimonial_status,
+          "setting.home.testimonial_banner_img":
+            setting.home.testimonial_banner_img,
+          "setting.home.testimonial_banner_img_two":
+            setting.home.testimonial_banner_img_two,
+          "setting.home.testimonial_banner_img_three":
+            setting.home.testimonial_banner_img_three,
+          "setting.home.testimonial_title_header":
+            setting.home.testimonial_title_header,
+          "setting.home.testimonial_title_one":
+            setting.home.testimonial_title_one,
+          "setting.home.testimonial_description_one":
+            setting.home.testimonial_description_one,
+          "setting.home.testimonial_title_two":
+            setting.home.testimonial_title_two,
+          "setting.home.testimonial_description_two":
+            setting.home.testimonial_description_two,
+          "setting.home.testimonial_title_three":
+            setting.home.testimonial_title_three,
+          "setting.home.testimonial_description_three":
+            setting.home.testimonial_description_three,
 
           "setting.home.discount_title": setting.home.discount_title,
 
@@ -260,8 +285,54 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.slider.five_button": setting.slider.five_button,
           "setting.slider.five_link": setting.slider.five_link,
 
+          // second slider
+
+          "setting.second_slider.second_slider_status":
+            setting.second_slider.second_slider_status,
+          "setting.second_slider.first_img": setting.second_slider.first_img,
+          "setting.second_slider.first_title":
+            setting.second_slider.first_title,
+          "setting.second_slider.first_description":
+            setting.second_slider.first_description,
+          "setting.second_slider.first_button":
+            setting.second_slider.first_button,
+          "setting.second_slider.first_link": setting.second_slider.first_link,
+          "setting.second_slider.second_img": setting.second_slider.second_img,
+          "setting.second_slider.second_title":
+            setting.second_slider.second_title,
+          "setting.second_slider.second_description":
+            setting.second_slider.second_description,
+          "setting.second_slider.second_button":
+            setting.second_slider.second_button,
+          "setting.second_slider.second_link":
+            setting.second_slider.second_link,
+          "setting.second_slider.third_img": setting.second_slider.third_img,
+          "setting.second_slider.third_title":
+            setting.second_slider.third_title,
+          "setting.second_slider.third_description":
+            setting.second_slider.third_description,
+          "setting.second_slider.third_button":
+            setting.second_slider.third_button,
+          "setting.second_slider.third_link": setting.second_slider.third_link,
+          "setting.second_slider.four_img": setting.second_slider.four_img,
+          "setting.second_slider.four_title": setting.second_slider.four_title,
+          "setting.second_slider.four_description":
+            setting.second_slider.four_description,
+          "setting.second_slider.four_button":
+            setting.second_slider.four_button,
+          "setting.second_slider.four_link": setting.second_slider.four_link,
+          "setting.second_slider.five_img": setting.second_slider.five_img,
+          "setting.second_slider.five_title": setting.second_slider.five_title,
+          "setting.second_slider.five_description":
+            setting.second_slider.five_description,
+          "setting.second_slider.five_button":
+            setting.second_slider.five_button,
+          "setting.second_slider.five_link": setting.second_slider.five_link,
+
           //bottom slider
 
+          "setting.bottom_slider.bottom_slider_status":
+            setting.bottom_slider.bottom_slider_status,
           "setting.bottom_slider.first_img": setting.bottom_slider.first_img,
           "setting.bottom_slider.first_title":
             setting.bottom_slider.first_title,
