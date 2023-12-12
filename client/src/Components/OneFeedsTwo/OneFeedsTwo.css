@@ -101,7 +101,9 @@
     }
     .BannerO-left{
         width: 100%;
-        margin-left: 0;
+        margin: 0 auto!important;
+        justify-content: space-evenly;
+        
     }
     .BannerO-right{
         width: 100%;
