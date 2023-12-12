@@ -282,7 +282,7 @@ const useStoreHomeSubmit = () => {
             quick_delivery_link: data.quick_delivery_link,
             quick_delivery_img: quickSectionImage,
             testimonial_status:testimonial,
-            testimonial_banner_img:testimonialBannerImg,
+            testimonial_banner_img_one:testimonialBannerImg,
             testimonial_banner_img_two:testimonialBannerImgTwo,
             testimonial_banner_img_three:testimonialBannerImgThree,
             
@@ -1484,7 +1484,7 @@ const useStoreHomeSubmit = () => {
           setFeaturePromoFiveImg(res?.home?.feature_promo_five_img);
 
           setTestimonial(res?.home?.testimonial_status);
-          setTestimonialBannerImg(res?.home?.testimonial_banner_img)
+          setTestimonialBannerImg(res?.home?.testimonial_banner_img_one)
           setTestimonialBannerImgTwo(res?.home?.testimonial_banner_img_two)
           setTestimonialBannerImgThree(res?.home?.testimonial_banner_img_three)
 

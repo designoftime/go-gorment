@@ -172,8 +172,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.home.place_holder_img": setting.home.place_holder_img,
 
           "setting.home.testimonial_status": setting.home.testimonial_status,
-          "setting.home.testimonial_banner_img":
-            setting.home.testimonial_banner_img,
+          "setting.home.testimonial_banner_img_one":
+            setting.home.testimonial_banner_img_one,
           "setting.home.testimonial_banner_img_two":
             setting.home.testimonial_banner_img_two,
           "setting.home.testimonial_banner_img_three":
