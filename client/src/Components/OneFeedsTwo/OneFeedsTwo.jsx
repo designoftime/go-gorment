@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./OneFeedsTwo.css"
 import pretzelimge from './images/pretzel-dark-220613_3_3x_copy_540x.webp'
 import pretzelheroimge from './images/pretzel-dark-220613_3_3x_aeba7887-06db-475b-bb89-1b2880c82413_360x.avif'
@@ -17,7 +17,6 @@ export const OneFeedsTwo = () => {
             window.removeEventListener('resize', handleWidth);
         }
     }, [])
-
     return (
         <>
         <div className='sec'>
