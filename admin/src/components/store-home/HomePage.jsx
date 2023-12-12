@@ -35,33 +35,33 @@ const HomePage = ({
   setSliderImageFour,
   sliderImageFive,
   setSliderImageFive,
-  placeholderImage,
-  setPlaceHolderImage,
-  quickSectionImage,
-  setQuickSectionImage,
-  getYourDailyNeedImageLeft,
-  setGetYourDailyNeedImageLeft,
-  getYourDailyNeedImageRight,
-  setGetYourDailyNeedImageRight,
+  // placeholderImage,
+  // setPlaceHolderImage,
+  // quickSectionImage,
+  // setQuickSectionImage,
+  // getYourDailyNeedImageLeft,
+  // setGetYourDailyNeedImageLeft,
+  // getYourDailyNeedImageRight,
+  // setGetYourDailyNeedImageRight,
   footerLogo,
   setFooterLogo,
   paymentImage,
   setPaymentImage,
   isSave,
-  isCoupon,
-  isSliderFullWidth,
-  setIsCoupon,
-  setIsSliderFullWidth,
-  featuredCategories,
-  setFeaturedCategories,
+  // isCoupon,
+  // isSliderFullWidth,
+  // setIsCoupon,
+  // setIsSliderFullWidth,
+  // featuredCategories,
+  // setFeaturedCategories,
   popularProducts,
   setPopularProducts,
-  setQuickDelivery,
-  quickDelivery,
-  setLatestDiscounted,
-  latestDiscounted,
-  setDailyNeeds,
-  dailyNeeds,
+  // setQuickDelivery,
+  // quickDelivery,
+  // setLatestDiscounted,
+  // latestDiscounted,
+  // setDailyNeeds,
+  // dailyNeeds,
   setFeaturePromo,
   featurePromo,
   setFooterBlock1,
@@ -87,10 +87,10 @@ const HomePage = ({
   setStaticConetnt,
   staticContent,
   bothSliderOption,
-  getButton1image,
-  setGetButton1image,
-  getButton2image,
-  setGetButton2image,
+  // getButton1image,
+  // setGetButton1image,
+  // getButton2image,
+  // setGetButton2image,
   setFooterBottomContact,
   footerBottomContact,
   setCategoriesMenuLink,
@@ -101,14 +101,14 @@ const HomePage = ({
   contactUsMenuLink,
   setOffersMenuLink,
   offersMenuLink,
-  setFaqMenuLink,
-  faqMenuLink,
-  setPrivacyPolicyMenuLink,
-  privacyPolicyMenuLink,
-  setTermsConditionsMenuLink,
-  termsConditionsMenuLink,
-  couponList,
-  setCouponList,
+  // setFaqMenuLink,
+  // faqMenuLink,
+  // setPrivacyPolicyMenuLink,
+  // privacyPolicyMenuLink,
+  // setTermsConditionsMenuLink,
+  // termsConditionsMenuLink,
+  // couponList,
+  // setCouponList,
   bottomSliderImage,
   setBottomSliderImage,
   bottomSliderImageTwo,
@@ -128,8 +128,18 @@ const HomePage = ({
   setBottomPermotionBanner,
   bottomPermotionBanner,
   bottomPermotionBannerImg,
-  setBottomPermotionBannerImg
+  setBottomPermotionBannerImg,
+
+
   
+  featurePromoOneImg,
+  setFeaturePromoOneImg,
+  featurePromoTwoImg,
+  setFeaturePromoTwoImg,
+  featurePromoThreeImg,
+  setFeaturePromoThreeImg,
+  featurePromoFourImg,
+  setFeaturePromoFourImg,
 }) => {
   const { t } = useTranslation();
   return (
@@ -284,7 +294,7 @@ const HomePage = ({
                   />
                   <Error errorName={errors.offers} />
                 </div>
-                <div className="col-span-4">
+                {/* <div className="col-span-4">
                   <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
                     {t("FAQ")}
                   </label>
@@ -395,7 +405,7 @@ const HomePage = ({
                     placeholder={t("CheckOut")}
                   />
                   <Error errorName={errors.checkout} />
-                </div>
+                </div> */}
               </div>
 
               <div className="grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
@@ -443,7 +453,7 @@ const HomePage = ({
                     processOption={offersMenuLink}
                   />
                 </div>
-                <div>
+                {/* <div>
                   <h4 className="font-medium font-serif md:text-base text-sm mb-2 dark:text-gray-300">
                     {t("FAQ")}
                   </h4>
@@ -475,7 +485,7 @@ const HomePage = ({
                     handleProcess={setTermsConditionsMenuLink}
                     processOption={termsConditionsMenuLink}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -1229,7 +1239,7 @@ const HomePage = ({
         </div>
 
         {/*  ======================================================Discount Coupon Code Box ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-5">
+        {/* <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-5">
           <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
             <FiSettings className="mt-1 mr-2" />
             {t("DiscountCouponTitle1")}
@@ -1353,7 +1363,7 @@ const HomePage = ({
               )}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/*  ====================================================== Promotion Banner ===================================================== */}
         <div className="col-span-12 md:col-span-12 lg:col-span-12">
@@ -1473,7 +1483,7 @@ const HomePage = ({
         </div>
 
         {/*  ====================================================== Featured Categories ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-15">
+        {/* <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-15">
           <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3 relative">
             <FiSettings className="mt-1 mr-2" /> {t("FeaturedCategories")}
           </div>
@@ -1554,13 +1564,13 @@ const HomePage = ({
               </div>
             </div>
 
-            {/* <div className="flex flex-row-reverse pb-6">
+            <div className="flex flex-row-reverse pb-6">
                   <Button type="submit" className="h-10 px-6">
                     Save
                   </Button>
-                </div> */}
+                </div>
           </div>
-        </div>
+        </div> */}
 
         {/*  ====================================================== Popular Products ====================================================== */}
         <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-15">
@@ -1653,7 +1663,7 @@ const HomePage = ({
         </div>
 
         {/*  ====================================================== Quick Delivery Section ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-15">
+        {/* <div className="col-span-12 md:col-span-12 lg:col-span-12 mt-15">
           <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
             <FiSettings className="mt-1 mr-2" />{" "}
             {t("QuickDeliverySectionTitle")}
@@ -1781,10 +1791,10 @@ const HomePage = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/*  ====================================================== Latest Discounted Products ====================================================== */}
-        <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-10">
+        {/* <div className="col-span-12 md:col-span-12 lg:col-span-12 md:mt-0 mt-10">
           <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
             <FiSettings className="mt-1 mr-2" />{" "}
             {t("LatestDiscountedProductsTitle")}
@@ -1865,16 +1875,16 @@ const HomePage = ({
               </div>
             </div>
 
-            {/* <div className="flex flex-row-reverse pb-6">
+            <div className="flex flex-row-reverse pb-6">
                   <Button type="submit" className="h-10 px-6">
                     Save
                   </Button>
-                </div> */}
+                </div>
           </div>
-        </div>
+        </div> */}
 
         {/*  ====================================================== Get Your Daily Needs Banner Section ====================================================== */}
-        <div
+        {/* <div
           className={`col-span-12 md:col-span-12 lg:col-span-12 ${
             window.innerWidth < 400 ? "md:my-0 my-24" : "md:my-0 my-24"
           }`}
@@ -2025,7 +2035,7 @@ const HomePage = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/*  ====================================================== Feature Promo Section ====================================================== */}
         <div
@@ -2063,81 +2073,62 @@ const HomePage = ({
               }}
             >
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                  {t("FreeShipping")}
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  One Image
                 </label>
                 <div className="sm:col-span-4">
-                  <InputAreaTwo
-                    required
-                    register={register}
-                    label="Title"
-                    name="promo_free_shipping"
-                    type="text"
-                    placeholder="From $500.00"
+                  <Uploader
+                    imageUrl={featurePromoOneImg}
+                    setImageUrl={setFeaturePromoOneImg}
                   />
-                  <Error errorName={errors.promo_free_shipping} />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                  {t("Support")}
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Two Image
                 </label>
                 <div className="sm:col-span-4">
-                  <InputAreaTwo
-                    required
-                    register={register}
-                    label="Title"
-                    name="promo_support"
-                    type="text"
-                    placeholder="24/7 At Anytime"
+                  <Uploader
+                    imageUrl={featurePromoTwoImg}
+                    setImageUrl={setFeaturePromoTwoImg}
                   />
-                  <Error errorName={errors.promo_support} />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                  {t("SecurePayment")}
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Three Image
                 </label>
                 <div className="sm:col-span-4">
-                  <InputAreaTwo
-                    required
-                    register={register}
-                    label="Title"
-                    name="promo_payment"
-                    type="text"
-                    placeholder={t("SecurePayment")}
+                  <Uploader
+                    imageUrl={featurePromoThreeImg}
+                    setImageUrl={setFeaturePromoThreeImg}
                   />
-                  <Error errorName={errors.promo_payment} />
                 </div>
               </div>
 
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
-                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                  {t("LatestOffer")}
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
+                  Four Image
                 </label>
                 <div className="sm:col-span-4">
-                  <InputAreaTwo
-                    required
-                    register={register}
-                    label="Title"
-                    name="promo_offer"
-                    type="text"
-                    placeholder="Upto 20% Off"
+                  <Uploader
+                    imageUrl={featurePromoFourImg}
+                    setImageUrl={setFeaturePromoFourImg}
                   />
-                  <Error errorName={errors.promo_offer} />
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* bottom permotion banner  */}
+        {/* =======bottom permotion banner ========  */}
 
         <div className="col-span-12 md:col-span-12 lg:col-span-12">
           <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3 md:mt-0 mt-10">
-            <FiSettings className="mt-1 mr-2" />Bottom Permotion Banner
+            <FiSettings className="mt-1 mr-2" />
+            Bottom Permotion Banner
           </div>
 
           <hr className="md:mb-12 mb-3" />

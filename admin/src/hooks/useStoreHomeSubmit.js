@@ -156,6 +156,11 @@ const useStoreHomeSubmit = () => {
   const [sectionFive, setSectionFive] = useState(true);
   const [sectionFiveImg, setSectionFiveImg] = useState("");
 
+  const [featurePromoOneImg, setFeaturePromoOneImg] = useState("");
+  const [featurePromoTwoImg, setFeaturePromoTwoImg] = useState("");
+  const [featurePromoThreeImg, setFeaturePromoThreeImg] = useState("");
+  const [featurePromoFourImg, setFeaturePromoFourImg] = useState("");
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { socket } = useNotification();
@@ -251,7 +256,12 @@ const useStoreHomeSubmit = () => {
             discount_product_status: latestDiscounted,
             discount_coupon_code: couponList,
             place_holder_img: placeholderImage,
+
             feature_promo_status: featurePromo,
+            feature_promo_one_img: featurePromoOneImg,
+            feature_promo_two_img: featurePromoTwoImg,
+            feature_promo_three_img: featurePromoThreeImg,
+            feature_promo_four_img: featurePromoFourImg,
 
             quick_delivery_link: data.quick_delivery_link,
             quick_delivery_img: quickSectionImage,
@@ -386,37 +396,37 @@ const useStoreHomeSubmit = () => {
 
             section_one_title: {
               ...resData?.about_us?.section_one_title,
-              [language]: data.section_one_page_title || "",
+              [language]: data.section_one_title || "",
             },
 
             section_one_description: {
               ...resData?.about_us?.section_one_description,
-              [language]: data.section_one_top_description || "",
+              [language]: data.section_one_description || "",
             },
 
             section_one_button_name: {
               ...resData?.about_us?.section_one_button_name,
-              [language]: data.section_one_botton_name || "",
+              [language]: data.section_one_button_name || "",
             },
-            
+
             section_one_button_link: {
               ...resData?.about_us?.section_one_button_link,
-              [language]: data.section_one_botton_link || "",
+              [language]: data.section_one_button_link || "",
             },
 
             section_second_title: {
               ...resData?.about_us?.section_second_title,
-              [language]: data.section_second_page_title || "",
+              [language]: data.section_second_title || "",
             },
 
             section_second_description: {
               ...resData?.about_us?.section_second_description,
-              [language]: data.section_second_top_description || "",
+              [language]: data.section_second_description || "",
             },
 
             section_second_description_1: {
               ...resData?.about_us?.section_second_description_1,
-              [language]: data.section_second_top_description_1 || "",
+              [language]: data.section_second_description_1 || "",
             },
 
             section_second_button_name: {
@@ -431,37 +441,37 @@ const useStoreHomeSubmit = () => {
 
             section_third_title: {
               ...resData?.about_us?.section_third_title,
-              [language]: data.section_third_page_title || "",
+              [language]: data.section_third_title || "",
             },
 
             section_third_description: {
               ...resData?.about_us?.section_third_description,
-              [language]: data.section_third_top_description || "",
+              [language]: data.section_third_description || "",
             },
 
             section_four_title: {
               ...resData?.about_us?.section_four_title,
-              [language]: data.section_four_page_title || "",
+              [language]: data.section_four_title || "",
             },
 
             section_four_description: {
               ...resData?.about_us?.section_four_description,
-              [language]: data.section_four_top_description || "",
+              [language]: data.section_four_description || "",
             },
 
             section_four_description_1: {
               ...resData?.about_us?.section_four_description_1,
-              [language]: data.section_four_top_description_1 || "",
+              [language]: data.section_four_description_1 || "",
             },
 
             section_five_title: {
               ...resData?.about_us?.section_five_title,
-              [language]: data.section_five_page_title || "",
+              [language]: data.section_five_title || "",
             },
 
             section_five_description: {
               ...resData?.about_us?.section_five_description,
-              [language]: data.section_five_top_description || "",
+              [language]: data.section_five_description || "",
             },
 
             section_five_button_name: {
@@ -1361,7 +1371,10 @@ const useStoreHomeSubmit = () => {
           setDailyNeeds(res?.home?.daily_needs_status);
           setFeaturePromo(res?.home?.feature_promo_status);
           setCouponList(res?.home?.discount_coupon_code);
-
+          setFeaturePromoOneImg(res?.home?.feature_promo_one_img);
+          setFeaturePromoTwoImg(res?.home?.feature_promo_two_img);
+          setFeaturePromoThreeImg(res?.home?.feature_promo_three_img);
+          setFeaturePromoFourImg(res?.home?.feature_promo_four_img);
           setValue(
             "discount_title",
             res?.home?.discount_title[language || "en"]
@@ -1928,34 +1941,34 @@ const useStoreHomeSubmit = () => {
           setOurFounderSixImage(res?.about_us?.founder_six_img);
 
           setValue(
-            "section_one_page_title",
+            "section_one_title",
             res?.about_us?.section_one_title[language || "en"]
           );
 
           setValue(
-            "section_one_top_description",
+            "section_one_description",
             res?.about_us?.section_one_description[language || "en"]
           );
           setValue(
-            "section_one_botton_name",
+            "section_one_button_name",
             res?.about_us?.section_one_button_name[language || "en"]
           );
           setValue(
-            "section_one_botton_link",
-            res?.about_us?.section_one_botton_link[language || "en"]
+            "section_one_button_link",
+            res?.about_us?.section_one_button_link[language || "en"]
           );
 
           setValue(
-            "section_second_page_title",
+            "section_second_title",
             res?.about_us?.section_second_title[language || "en"]
           );
 
           setValue(
-            "section_second_top_description",
+            "section_second_description",
             res?.about_us?.section_second_description[language || "en"]
           );
           setValue(
-            "section_second_top_description_1",
+            "section_second_description_1",
             res?.about_us?.section_second_description_1[language || "en"]
           );
           setValue(
@@ -1969,35 +1982,35 @@ const useStoreHomeSubmit = () => {
           );
 
           setValue(
-            "section_third_page_title",
+            "section_third_title",
             res?.about_us?.section_third_title[language || "en"]
           );
           setValue(
-            "section_third_top_description",
+            "section_third_description",
             res?.about_us?.section_third_description[language || "en"]
           );
 
           setValue(
-            "section_four_page_title",
+            "section_four_title",
             res?.about_us?.section_four_title[language || "en"]
           );
           setValue(
-            "section_four_top_description",
+            "section_four_description",
             res?.about_us?.section_four_description[language || "en"]
           );
 
           setValue(
-            "section_four_top_description_1",
+            "section_four_description_1",
             res?.about_us?.section_four_description_1[language || "en"]
           );
 
           setValue(
-            "section_five_page_title",
+            "section_five_title",
             res?.about_us?.section_five_title[language || "en"]
           );
 
           setValue(
-            "section_five_top_description",
+            "section_five_description",
             res?.about_us?.section_five_description[language || "en"]
           );
           setValue(
@@ -2515,6 +2528,15 @@ const useStoreHomeSubmit = () => {
     sectionFive,
     sectionFiveImg,
     setSectionFiveImg,
+
+    featurePromoOneImg,
+    setFeaturePromoOneImg,
+    featurePromoTwoImg,
+    setFeaturePromoTwoImg,
+    featurePromoThreeImg,
+    setFeaturePromoThreeImg,
+    featurePromoFourImg,
+    setFeaturePromoFourImg,
   };
 };
 
