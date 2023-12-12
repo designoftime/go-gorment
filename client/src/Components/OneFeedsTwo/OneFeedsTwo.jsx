@@ -5,6 +5,7 @@ import pretzelheroimge from './images/pretzel-dark-220613_3_3x_aeba7887-06db-475
 import oneFeedsBannerimge from './images/Rectangle_118_3x_ca62faef-cdf9-4da3-953d-0a0e8a63a1b2_720x.webp'
 import Feeds from './images/feed_180x.avif'
 import { Link } from 'react-router-dom'
+import { Productoverview } from '../Home/ProductOverview/Productoverview'
 export const OneFeedsTwo = () => {
     const [showValue, setShowValue] = useState(window.innerWidth);
     useEffect(() => {
@@ -16,37 +17,9 @@ export const OneFeedsTwo = () => {
             window.removeEventListener('resize', handleWidth);
         }
     }, [])
-    const oneFeddHeader = [
-        {
-          id : 1,
-          title: "HOW OLLY’S SNACKS UP",
-          background : "#f5d0ba",
-          color: "#412f59",
-          
-        }
-      ]
-      const productOverviewContent=[
-        {
-        id : 1,
-        subtitle:"HEALTHIER DELICIOUS",
-        subcontent:"All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.",
-        subimage:{productoverviewimg1},
-        },
-        {
-        id : 2,
-        subtitle:"HEALTHIER DELICIOUS",
-        subcontent:"All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.",
-        subimage:{productoverviewimg2},
-        },
-        {
-        id : 1,
-        subtitle:"HEALTHIER DELICIOUS",
-        subcontent:"All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.",
-        subimage:{productoverviewimg3},
-        },
-        
-    ]    
+
     return (
+        <>
         <div className='sec'>
             <div className="container-fluid g-0">
                 <div className="HerO-section py-5 ">
@@ -102,7 +75,10 @@ export const OneFeedsTwo = () => {
                     </div>
                 </div>
             </div>
+           
         </div>
+         <Productoverview/>
+         </>
     )
 }
 
