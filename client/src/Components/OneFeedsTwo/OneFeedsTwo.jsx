@@ -38,7 +38,7 @@ export const OneFeedsTwo = () => {
                                     {showValue <= 1000 ? <div className="BannerO-Heading wow animate__animated animate__fadeInUp my-5 fw-bolder">FIGHTING HUNGER<br />WITH EVERY ORDER</div>:""}
                             </div>
                             
-                            <div className="col-md-7 col-sm-12 g-0 BannerO-right">
+                            <div className={showValue > 1000?"col-md-7 BannerO-right":"col-12 BannerO-Right"}>
                                 <div >
                                     <div className="BannerO-subHeading fs-1 wow animate__animated animate__fadeInUp fw-bolder ">Did you know?</div>
                                     <p className="BannerO-content wow animate__animated animate__fadeInUp">
