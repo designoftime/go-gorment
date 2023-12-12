@@ -244,6 +244,15 @@ const StoreHome = () => {
     sectionFive,
     sectionFiveImg,
     setSectionFiveImg,
+
+    featurePromoOneImg,
+    setFeaturePromoOneImg,
+    featurePromoTwoImg,
+    setFeaturePromoTwoImg,
+    featurePromoThreeImg,
+    setFeaturePromoThreeImg,
+    featurePromoFourImg,
+    setFeaturePromoFourImg,
   } = useStoreHomeSubmit();
 
   useEffect(() => {
@@ -607,6 +616,14 @@ const StoreHome = () => {
                 bottomPermotionBanner={bottomPermotionBanner}
                 bottomPermotionBannerImg={bottomPermotionBannerImg}
                 setBottomPermotionBannerImg={setBottomPermotionBannerImg}
+                featurePromoOneImg={featurePromoOneImg}
+                setFeaturePromoOneImg={setFeaturePromoOneImg}
+                featurePromoTwoImg={featurePromoTwoImg}
+                setFeaturePromoTwoImg={setFeaturePromoTwoImg}
+                featurePromoThreeImg={featurePromoThreeImg}
+                setFeaturePromoThreeImg={setFeaturePromoThreeImg}
+                featurePromoFourImg={featurePromoFourImg}
+                setFeaturePromoFourImg={setFeaturePromoFourImg}
               />
             </form>
           </div>

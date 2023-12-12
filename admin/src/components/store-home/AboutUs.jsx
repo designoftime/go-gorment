@@ -114,7 +114,7 @@ const AboutUs = ({
           <hr className="md:mb-12 mb-3" />
 
           <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
+            <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
               Section One
             </div>
 
@@ -149,6 +149,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={leftSideImg}
                     setImageUrl={setLeftSideImg}
                   />
@@ -160,6 +161,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={rightSideImg}
                     setImageUrl={setRightSideImg}
                   />
@@ -175,11 +177,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Page Title"
-                    name="section_one_page_title"
+                    name="section_one_title"
                     type="text"
                     placeholder={t("PageTitle")}
                   />
-                  <Error errorName={errors.section_one_page_title} />
+                  <Error errorName={errors.section_one_title} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -192,12 +194,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_one_top_description"
+                    name="section_one_description"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_one_top_description")}
+                    errorName={(errors.name = "section_one_description")}
                   />
                 </div>
               </div>
@@ -210,11 +212,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Button Name"
-                    name="section_one_botton_name"
+                    name="section_one_button_name"
                     type="text"
                     placeholder={t("ButtonName")}
                   />
-                  <Error errorName={errors.section_one_botton_name} />
+                  <Error errorName={errors.section_one_button_name} />
                 </div>
               </div>
 
@@ -227,11 +229,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Button Link "
-                    name="section_one_botton_link"
+                    name="section_one_button_link"
                     type="text"
                     placeholder="Button Link"
                   />
-                  <Error errorName={errors.section_one_botton_link} />
+                  <Error errorName={errors.section_one_button_link} />
                 </div>
               </div>
             </div>
@@ -271,6 +273,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionSecondImg}
                     setImageUrl={setSectionSecondImg}
                   />
@@ -286,11 +289,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Page Title"
-                    name="section_second_page_title"
+                    name="section_second_title"
                     type="text"
                     placeholder={t("PageTitle")}
                   />
-                  <Error errorName={errors.section_second_page_title} />
+                  <Error errorName={errors.section_second_title} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -303,12 +306,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_second_top_description"
+                    name="section_second_description"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_second_top_description")}
+                    errorName={(errors.name = "section_second_description")}
                   />
                 </div>
               </div>
@@ -323,14 +326,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_second_top_description_1"
+                    name="section_second_description_1"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={
-                      (errors.name = "section_second_top_description_1")
-                    }
+                    errorName={(errors.name = "section_second_description_1")}
                   />
                 </div>
               </div>
@@ -404,6 +405,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionThirdImg}
                     setImageUrl={setSectionThirdImg}
                   />
@@ -412,18 +414,18 @@ const AboutUs = ({
 
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
-                  {t("PageTitle")}
+                  Page Title
                 </label>
                 <div className="sm:col-span-4">
                   <InputAreaTwo
                     required
                     register={register}
                     label="Page Title"
-                    name="section_third_page_title"
+                    name="section_third_title"
                     type="text"
                     placeholder={t("PageTitle")}
                   />
-                  <Error errorName={errors.section_third_page_title} />
+                  <Error errorName={errors.section_third_title} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -436,12 +438,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_third_top_description"
+                    name="section_third_description"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_third_top_description")}
+                    errorName={(errors.name = "section_third_description")}
                   />
                 </div>
               </div>
@@ -482,6 +484,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionFourImg}
                     setImageUrl={setSectionFrourImg}
                   />
@@ -497,11 +500,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Page Title"
-                    name="section_four_page_title"
+                    name="section_four_title"
                     type="text"
                     placeholder={t("PageTitle")}
                   />
-                  <Error errorName={errors.section_four_page_title} />
+                  <Error errorName={errors.section_four_title} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -514,12 +517,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_four_top_description"
+                    name="section_four_description"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_four_top_description")}
+                    errorName={(errors.name = "section_four_description")}
                   />
                 </div>
               </div>
@@ -533,12 +536,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_four_top_description_1"
+                    name="section_four_description_1"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_four_top_description_1")}
+                    errorName={(errors.name = "section_four_description_1")}
                   />
                 </div>
               </div>
@@ -579,6 +582,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionFiveImg}
                     setImageUrl={setSectionFiveImg}
                   />
@@ -594,11 +598,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Page Title"
-                    name="section_five_page_title"
+                    name="section_five_title"
                     type="text"
                     placeholder={t("PageTitle")}
                   />
-                  <Error errorName={errors.section_five_page_title} />
+                  <Error errorName={errors.section_five_title} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -611,12 +615,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_five_top_description"
+                    name="section_five_description"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_five_top_description")}
+                    errorName={(errors.name = "section_five_description")}
                   />
                 </div>
               </div>
@@ -873,6 +877,7 @@ const AboutUs = ({
               </label>
               <div className="sm:col-span-4">
                 <Uploader
+                folder="about_us"
                   imageUrl={aboutTopContentRightImage}
                   setImageUrl={setAboutTopContentRightImage}
                 />
@@ -956,6 +961,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                  folder="about_us"
                     imageUrl={aboutMiddleContentImage}
                     setImageUrl={setAboutMiddleContentImage}
                   />
@@ -1049,6 +1055,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderOneImage}
                           setImageUrl={setOurFounderOneImage}
                         />
@@ -1100,6 +1107,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderTwoImage}
                           setImageUrl={setOurFounderTwoImage}
                         />
@@ -1151,6 +1159,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderThreeImage}
                           setImageUrl={setOurFounderThreeImage}
                         />
@@ -1204,6 +1213,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderFourImage}
                           setImageUrl={setOurFounderFourImage}
                         />
@@ -1257,6 +1267,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderFiveImage}
                           setImageUrl={setOurFounderFiveImage}
                         />
@@ -1309,6 +1320,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderSixImage}
                           setImageUrl={setOurFounderSixImage}
                         />
