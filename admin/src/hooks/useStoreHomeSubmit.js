@@ -144,6 +144,18 @@ const useStoreHomeSubmit = () => {
   const [bottomPermotionBanner, setBottomPermotionBanner] = useState(true);
   const [bottomPermotionBannerImg, setBottomPermotionBannerImg] = useState("");
 
+  const [sectionOne, setSectionOne] = useState(true);
+  const [leftSideImg, setLeftSideImg] = useState("");
+  const [rightSideImg, setRightSideImg] = useState("");
+  const [sectionSecond, setSectionSecond] = useState(true);
+  const [sectionSecondImg, setSectionSecondImg] = useState("");
+  const [sectionThird, setSectionThird] = useState(true);
+  const [sectionThirdImg, setSectionThirdImg] = useState("");
+  const [sectionFour, setSectionFrour] = useState(true);
+  const [sectionFourImg, setSectionFrourImg] = useState("");
+  const [sectionFive, setSectionFive] = useState(true);
+  const [sectionFiveImg, setSectionFiveImg] = useState("");
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { socket } = useNotification();
@@ -344,6 +356,19 @@ const useStoreHomeSubmit = () => {
             button2_img: getButton2image,
           },
           about_us: {
+            section_one_status: sectionOne,
+            section_second_status: sectionSecond,
+            section_third_status: sectionThird,
+            section_four_status: sectionFour,
+            section_five_status: sectionFive,
+
+            section_one_left_img: leftSideImg,
+            section_one_right_img: rightSideImg,
+            section_second_img: sectionSecondImg,
+            section_third_img: sectionThirdImg,
+            section_four_img: sectionFourImg,
+            section_five_img: sectionFiveImg,
+
             header_status: aboutPageHeader,
             content_left_status: aboutTopContentLeft,
             content_right_status: aboutTopContentRight,
@@ -358,6 +383,97 @@ const useStoreHomeSubmit = () => {
             founder_four_img: ourFounderFourImage,
             founder_five_img: ourFounderFiveImage,
             founder_six_img: ourFounderSixImage,
+
+            section_one_title: {
+              ...resData?.about_us?.section_one_title,
+              [language]: data.section_one_page_title || "",
+            },
+
+            section_one_description: {
+              ...resData?.about_us?.section_one_description,
+              [language]: data.section_one_top_description || "",
+            },
+
+            section_one_button_name: {
+              ...resData?.about_us?.section_one_button_name,
+              [language]: data.section_one_botton_name || "",
+            },
+            
+            section_one_button_link: {
+              ...resData?.about_us?.section_one_button_link,
+              [language]: data.section_one_botton_link || "",
+            },
+
+            section_second_title: {
+              ...resData?.about_us?.section_second_title,
+              [language]: data.section_second_page_title || "",
+            },
+
+            section_second_description: {
+              ...resData?.about_us?.section_second_description,
+              [language]: data.section_second_top_description || "",
+            },
+
+            section_second_description_1: {
+              ...resData?.about_us?.section_second_description_1,
+              [language]: data.section_second_top_description_1 || "",
+            },
+
+            section_second_button_name: {
+              ...resData?.about_us?.section_second_button_name,
+              [language]: data.section_second_button_name || "",
+            },
+
+            section_second_button_link: {
+              ...resData?.about_us?.section_second_button_link,
+              [language]: data.section_second_button_link || "",
+            },
+
+            section_third_title: {
+              ...resData?.about_us?.section_third_title,
+              [language]: data.section_third_page_title || "",
+            },
+
+            section_third_description: {
+              ...resData?.about_us?.section_third_description,
+              [language]: data.section_third_top_description || "",
+            },
+
+            section_four_title: {
+              ...resData?.about_us?.section_four_title,
+              [language]: data.section_four_page_title || "",
+            },
+
+            section_four_description: {
+              ...resData?.about_us?.section_four_description,
+              [language]: data.section_four_top_description || "",
+            },
+
+            section_four_description_1: {
+              ...resData?.about_us?.section_four_description_1,
+              [language]: data.section_four_top_description_1 || "",
+            },
+
+            section_five_title: {
+              ...resData?.about_us?.section_five_title,
+              [language]: data.section_five_page_title || "",
+            },
+
+            section_five_description: {
+              ...resData?.about_us?.section_five_description,
+              [language]: data.section_five_top_description || "",
+            },
+
+            section_five_button_name: {
+              ...resData?.about_us?.section_five_button_name,
+              [language]: data.section_five_button_name || "",
+            },
+
+            section_five_button_link: {
+              ...resData?.about_us?.section_five_button_link,
+              [language]: data.section_five_button_link || "",
+            },
+
             title: {
               ...resData?.about_us?.title,
               [language]: data.about_page_title || "",
@@ -1784,6 +1900,18 @@ const useStoreHomeSubmit = () => {
 
           // about us
 
+          setSectionOne(res?.about_us?.section_one_status);
+          setLeftSideImg(res?.about_us?.section_one_left_img);
+          setRightSideImg(res?.about_us?.section_one_right_img);
+          setSectionSecond(res?.about_us?.section_second_status);
+          setSectionSecondImg(res?.about_us?.section_second_img);
+          setSectionThird(res?.about_us?.section_third_status);
+          setSectionThirdImg(res?.about_us?.section_third_img);
+          setSectionFrour(res?.about_us?.section_four_status);
+          setSectionFrourImg(res?.about_us?.section_four_img);
+          setSectionFive(res?.about_us?.section_five_status);
+          setSectionFiveImg(res?.about_us?.section_five_img);
+
           setAboutPageHeader(res?.about_us?.header_status);
           setAboutHeaderBg(res?.about_us?.header_bg);
           setAboutTopContentLeft(res?.about_us?.content_left_status);
@@ -1798,11 +1926,95 @@ const useStoreHomeSubmit = () => {
           setOurFounderFourImage(res?.about_us?.founder_four_img);
           setOurFounderFiveImage(res?.about_us?.founder_five_img);
           setOurFounderSixImage(res?.about_us?.founder_six_img);
-          setValue("about_page_title", res?.about_us?.title[language || "en"]);
+
+          setValue(
+            "section_one_page_title",
+            res?.about_us?.section_one_title[language || "en"]
+          );
+
+          setValue(
+            "section_one_top_description",
+            res?.about_us?.section_one_description[language || "en"]
+          );
+          setValue(
+            "section_one_botton_name",
+            res?.about_us?.section_one_button_name[language || "en"]
+          );
+          setValue(
+            "section_one_botton_link",
+            res?.about_us?.section_one_botton_link[language || "en"]
+          );
+
+          setValue(
+            "section_second_page_title",
+            res?.about_us?.section_second_title[language || "en"]
+          );
+
+          setValue(
+            "section_second_top_description",
+            res?.about_us?.section_second_description[language || "en"]
+          );
+          setValue(
+            "section_second_top_description_1",
+            res?.about_us?.section_second_description_1[language || "en"]
+          );
+          setValue(
+            "section_second_button_name",
+            res?.about_us?.section_second_button_name[language || "en"]
+          );
+
+          setValue(
+            "section_second_button_link",
+            res?.about_us?.section_second_button_link[language || "en"]
+          );
+
+          setValue(
+            "section_third_page_title",
+            res?.about_us?.section_third_title[language || "en"]
+          );
+          setValue(
+            "section_third_top_description",
+            res?.about_us?.section_third_description[language || "en"]
+          );
+
+          setValue(
+            "section_four_page_title",
+            res?.about_us?.section_four_title[language || "en"]
+          );
+          setValue(
+            "section_four_top_description",
+            res?.about_us?.section_four_description[language || "en"]
+          );
+
+          setValue(
+            "section_four_top_description_1",
+            res?.about_us?.section_four_description_1[language || "en"]
+          );
+
+          setValue(
+            "section_five_page_title",
+            res?.about_us?.section_five_title[language || "en"]
+          );
+
+          setValue(
+            "section_five_top_description",
+            res?.about_us?.section_five_description[language || "en"]
+          );
+          setValue(
+            "section_five_button_name",
+            res?.about_us?.section_five_button_name[language || "en"]
+          );
+
+          setValue(
+            "section_five_button_link",
+            res?.about_us?.section_five_button_link[language || "en"]
+          );
+
           setValue(
             "about_page_Top_title",
             res?.about_us?.top_title[language || "en"]
           );
+
           setValue(
             "about_us_top_description",
             res?.about_us?.top_description[language || "en"]
@@ -2281,6 +2493,28 @@ const useStoreHomeSubmit = () => {
     bottomPermotionBanner,
     bottomPermotionBannerImg,
     setBottomPermotionBannerImg,
+    setSectionOne,
+    sectionOne,
+    leftSideImg,
+    setLeftSideImg,
+    rightSideImg,
+    setRightSideImg,
+    setSectionSecond,
+    sectionSecond,
+    sectionSecondImg,
+    setSectionSecondImg,
+    setSectionThird,
+    sectionThird,
+    sectionThirdImg,
+    setSectionThirdImg,
+    setSectionFrour,
+    sectionFour,
+    sectionFourImg,
+    setSectionFrourImg,
+    setSectionFive,
+    sectionFive,
+    sectionFiveImg,
+    setSectionFiveImg,
   };
 };
 

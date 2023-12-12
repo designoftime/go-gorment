@@ -114,9 +114,10 @@ const AboutUs = ({
           <hr className="md:mb-12 mb-3" />
 
           <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full">
-            <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400">
-              <strong>Section one</strong>
+          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
+              Section One
             </div>
+
             <hr className="md:mb-12 mb-3" />
 
             <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
@@ -209,11 +210,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Button Name"
-                    name="section_one_botton_img"
+                    name="section_one_botton_name"
                     type="text"
                     placeholder={t("ButtonName")}
                   />
-                  <Error errorName={errors.section_one_botton_img} />
+                  <Error errorName={errors.section_one_botton_name} />
                 </div>
               </div>
 
@@ -236,7 +237,6 @@ const AboutUs = ({
             </div>
 
             <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
-              <FiSettings className="mt-1 mr-2" />
               Section Second
             </div>
 
@@ -516,7 +516,7 @@ const AboutUs = ({
                     label="Top Description"
                     name="section_four_top_description"
                     type="text"
-                    placeholder="About Us Top Description"
+                    placeholder="Top Description"
                   />
                   <Error
                     errorName={(errors.name = "section_four_top_description")}
@@ -533,12 +533,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_four_top_description"
+                    name="section_four_top_description_1"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_four_top_description")}
+                    errorName={(errors.name = "section_four_top_description_1")}
                   />
                 </div>
               </div>
