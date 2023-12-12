@@ -75,6 +75,42 @@
     font-size: 20px;
     padding-bottom: 200px;
 }
+/* Info Section */
+.Info-section{
+    background-image: url('./images/Hero_3x_ed02426a-bac4-46c7-a51f-150e7b903aca.webp');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    color: #412f59;
+}
+.Info-card{
+    width: 28rem;
+    margin: 50vh 1vw 10vw;
+}
+.Info-header{
+    font-family: Snacksgifheaderfont;
+    letter-spacing: 1px;
+    color: #412f59;
+}
+.Info-content{
+    color: #412f59;
+    font-family: bannerhomebtn;
+    width: 98%;
+}
+.Info-button{
+    border: 3px solid #412f59;
+    color: #412f59;
+    padding: 10px 8.5rem;
+    text-decoration: none;
+    font-family: bannerhomebtn;
+    transition: all 0.5s;
+}
+.Info-button:hover{
+    border-radius: 50%!important;
+    color: white;
+    background-color: #412f59;
+}
 @media(max-width:1000px) {
     /* Hero-Section */
     .HerO-Heading {  
@@ -102,7 +138,7 @@
     .BannerO-left{
         width: 100%;
         margin: 0 auto!important;
-        padding: 3rem auto !important; 
+        padding: 2rem auto !important; 
         text-align: center;
         display: block;
     }
@@ -111,6 +147,13 @@
         margin-left: 0;
     }
     
- 
-
+}
+@media(max-width:475px){
+    .Info-card{
+        width: 95%;
+    }
+    .Info-button{
+        padding: 2vh 23%;
+        margin: 0 auto;
+    }
 }
