@@ -9,7 +9,7 @@ const getUserId =()=>{
 }
 const userId = getUserId();
 // const userId = customerData._id;
-console.log("Id",userId);
+// console.log("Id",userId);
 
 export function loginUser(userData, Navigate){
 
