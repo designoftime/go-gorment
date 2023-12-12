@@ -237,6 +237,7 @@ const AboutUs = ({
                 </div>
               </div>
             </div>
+            
 
             <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
               Section Second

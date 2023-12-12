@@ -202,6 +202,8 @@ const StoreHome = () => {
     isSubmitting,
     // showChild,
     setTermsConditionsTextEdit,
+    setBottomSlider,
+    bottomSlider,
     bottomSliderImage,
     setBottomSliderImage,
     bottomSliderImageTwo,
@@ -253,6 +255,30 @@ const StoreHome = () => {
     setFeaturePromoThreeImg,
     featurePromoFourImg,
     setFeaturePromoFourImg,
+    featurePromoFiveImg,
+    setFeaturePromoFiveImg,
+
+    setSecondSlider,
+    secondSlider,
+    secondSliderImage,
+    setSecondSliderImage,
+    secondSliderImageTwo,
+    setSecondSliderImageTwo,
+    secondSliderImageThree,
+    setSecondSliderImageThree,
+    secondSliderImageFour,
+    setSecondSliderImageFour,
+    secondSliderImageFive,
+    setSecondSliderImageFive,
+
+    testimonial,
+    setTestimonial,
+    testimonialBannerImg,
+    setTestimonialBannerImg,
+    testimonialBannerImgTwo,
+    setTestimonialBannerImgTwo,
+    testimonialBannerImgThree,
+    setTestimonialBannerImgThree,
   } = useStoreHomeSubmit();
 
   useEffect(() => {
@@ -596,6 +622,8 @@ const StoreHome = () => {
                 couponList={couponList}
                 setCouponList={setCouponList}
                 isSubmitting={isSubmitting}
+                setBottomSlider={setBottomSlider}
+                bottomSlider={bottomSlider}
                 bottomSliderImage={bottomSliderImage}
                 setBottomSliderImage={setBottomSliderImage}
                 bottomSliderImageTwo={bottomSliderImageTwo}
@@ -624,6 +652,28 @@ const StoreHome = () => {
                 setFeaturePromoThreeImg={setFeaturePromoThreeImg}
                 featurePromoFourImg={featurePromoFourImg}
                 setFeaturePromoFourImg={setFeaturePromoFourImg}
+                featurePromoFiveImg={featurePromoFiveImg}
+                setFeaturePromoFiveImg={setFeaturePromoFiveImg}
+                setSecondSlider={setSecondSlider}
+                secondSlider={secondSlider}
+                secondSliderImage={secondSliderImage}
+                setSecondSliderImage={setSecondSliderImage}
+                secondSliderImageTwo={secondSliderImageTwo}
+                setSecondSliderImageTwo={setSecondSliderImageTwo}
+                secondSliderImageThree={secondSliderImageThree}
+                setSecondSliderImageThree={setSecondSliderImageThree}
+                secondSliderImageFour={secondSliderImageFour}
+                setSecondSliderImageFour={setSecondSliderImageFour}
+                secondSliderImageFive={secondSliderImageFive}
+                setSecondSliderImageFive={setSecondSliderImageFive}
+                testimonial={testimonial}
+                setTestimonial={setTestimonial}
+                testimonialBannerImg={testimonialBannerImg}
+                setTestimonialBannerImg={setTestimonialBannerImg}
+                testimonialBannerImgTwo={testimonialBannerImgTwo}
+                setTestimonialBannerImgTwo={setTestimonialBannerImgTwo}
+                testimonialBannerImgThree={testimonialBannerImgThree}
+                setTestimonialBannerImgThree={setTestimonialBannerImgThree}
               />
             </form>
           </div>

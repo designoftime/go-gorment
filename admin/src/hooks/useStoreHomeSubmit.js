@@ -130,6 +130,7 @@ const useStoreHomeSubmit = () => {
     useState("");
   const [termsConditionsHeaderBg, setTermsConditionsHeaderBg] = useState("");
 
+  const [bottomSlider, setBottomSlider] = useState(true);
   const [bottomSliderImage, setBottomSliderImage] = useState("");
   const [bottomSliderImageTwo, setBottomSliderImageTwo] = useState("");
   const [bottomSliderImageThree, setBottomSliderImageThree] = useState("");
@@ -160,6 +161,20 @@ const useStoreHomeSubmit = () => {
   const [featurePromoTwoImg, setFeaturePromoTwoImg] = useState("");
   const [featurePromoThreeImg, setFeaturePromoThreeImg] = useState("");
   const [featurePromoFourImg, setFeaturePromoFourImg] = useState("");
+  const [featurePromoFiveImg, setFeaturePromoFiveImg] = useState("");
+
+  const [secondSlider, setSecondSlider] = useState(true);
+  const [secondSliderImage, setSecondSliderImage] = useState("");
+  const [secondSliderImageTwo, setSecondSliderImageTwo] = useState("");
+  const [secondSliderImageThree, setSecondSliderImageThree] = useState("");
+  const [secondSliderImageFour, setSecondSliderImageFour] = useState("");
+  const [secondSliderImageFive, setSecondSliderImageFive] = useState("");
+
+  const [testimonial, setTestimonial] = useState(true);
+  const [testimonialBannerImg, setTestimonialBannerImg] = useState("");
+  const [testimonialBannerImgTwo, setTestimonialBannerImgTwo] = useState("");
+  const [testimonialBannerImgThree, setTestimonialBannerImgThree] =
+    useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -262,9 +277,46 @@ const useStoreHomeSubmit = () => {
             feature_promo_two_img: featurePromoTwoImg,
             feature_promo_three_img: featurePromoThreeImg,
             feature_promo_four_img: featurePromoFourImg,
+            feature_promo_five_img: featurePromoFiveImg,
 
             quick_delivery_link: data.quick_delivery_link,
             quick_delivery_img: quickSectionImage,
+            testimonial_status:testimonial,
+            testimonial_banner_img_one:testimonialBannerImg,
+            testimonial_banner_img_two:testimonialBannerImgTwo,
+            testimonial_banner_img_three:testimonialBannerImgThree,
+            
+            testimonial_title_header:{
+              ...resData?.home?.testimonial_title_header,
+              [language]:data.testimonial_title_header||""
+            },
+            testimonial_title_one:{
+              ...resData?.home?.testimonial_title_one,
+              [language]:data.testimonial_title_one||""
+            },
+            testimonial_description_one:{
+              ...resData?.home?.testimonial_description_one,
+              [language]:data.testimonial_description_one||""
+            },
+            testimonial_title_two:{
+              ...resData?.home?.testimonial_title_two,
+              [language]:data.testimonial_title_two||""
+            },
+            testimonial_description_two:{
+              ...resData?.home?.testimonial_description_two,
+              [language]:data.testimonial_description_two||""
+            },
+            testimonial_title_three:{
+              ...resData?.home?.testimonial_title_three,
+              [language]:data.testimonial_title_three||""
+            },
+            testimonial_description_three:{
+              ...resData?.home?.testimonial_description_three,
+              [language]:data.testimonial_description_three||""
+            },
+
+
+
 
             discount_title: {
               ...resData?.home?.discount_title,
@@ -790,6 +842,59 @@ const useStoreHomeSubmit = () => {
             },
           },
 
+          second_slider: {
+            second_slider_status: secondSlider,
+            first_img: secondSliderImage,
+            first_title: {
+              ...resData?.second_slider?.first_title,
+              [language]: data.second_slider_title || "",
+            },
+            first_description: {
+              ...resData?.second_slider?.first_description,
+              [language]: data.second_slider_description || "",
+            },
+
+            second_img: secondSliderImageTwo,
+            second_title: {
+              ...resData?.second_slider?.second_title,
+              [language]: data.second_slider_title_two || "",
+            },
+            second_description: {
+              ...resData?.second_slider?.second_description,
+              [language]: data.second_slider_description_two || "",
+            },
+
+            third_img: secondSliderImageThree,
+            third_title: {
+              ...resData?.second_slider?.third_title,
+              [language]: data.second_slider_title_three || "",
+            },
+            third_description: {
+              ...resData?.second_slider?.third_description,
+              [language]: data.second_slider_description_three || "",
+            },
+
+            four_img: secondSliderImageFour,
+            four_title: {
+              ...resData?.second_slider?.four_title,
+              [language]: data.second_slider_title_four || "",
+            },
+            four_description: {
+              ...resData?.second_slider?.four_description,
+              [language]: data.second_slider_description_four || "",
+            },
+
+            five_img: secondSliderImageFive,
+            five_title: {
+              ...resData?.second_slider?.five_title,
+              [language]: data.second_slider_title_five || "",
+            },
+            five_description: {
+              ...resData?.second_slider?.five_description,
+              [language]: data.second_slider_description_five || "",
+            },
+          },
+
           slider: {
             left_right_arrow: leftRightArrow,
             bottom_dots: bottomDots,
@@ -873,6 +978,7 @@ const useStoreHomeSubmit = () => {
           },
 
           bottom_slider: {
+            bottom_slider_status: bottomSlider,
             first_img: bottomSliderImage,
             first_title: {
               ...resData?.bottom_slider?.first_title,
@@ -1375,6 +1481,39 @@ const useStoreHomeSubmit = () => {
           setFeaturePromoTwoImg(res?.home?.feature_promo_two_img);
           setFeaturePromoThreeImg(res?.home?.feature_promo_three_img);
           setFeaturePromoFourImg(res?.home?.feature_promo_four_img);
+          setFeaturePromoFiveImg(res?.home?.feature_promo_five_img);
+
+          setTestimonial(res?.home?.testimonial_status);
+          setTestimonialBannerImg(res?.home?.testimonial_banner_img_one)
+          setTestimonialBannerImgTwo(res?.home?.testimonial_banner_img_two)
+          setTestimonialBannerImgThree(res?.home?.testimonial_banner_img_three)
+
+          setValue(
+            "testimonial_title_header",
+            res?.home?.testimonial_title_header[language || "en"]
+          ); setValue(
+            "testimonial_title_one",
+            res?.home?.testimonial_title_one[language || "en"]
+          ); setValue(
+            "testimonial_description_one",
+            res?.home?.testimonial_description_one[language || "en"]
+          ); setValue(
+            "testimonial_title_two",
+            res?.home?.testimonial_title_two[language || "en"]
+          ); setValue(
+            "testimonial_description_two",
+            res?.home?.testimonial_description_two[language || "en"]
+          ); setValue(
+            "testimonial_title_three",
+            res?.home?.testimonial_title_three[language || "en"]
+          ); setValue(
+            "testimonial_description_three",
+            res?.home?.testimonial_description_three[language || "en"]
+          );
+
+
+
+
           setValue(
             "discount_title",
             res?.home?.discount_title[language || "en"]
@@ -1537,9 +1676,58 @@ const useStoreHomeSubmit = () => {
             res?.slider?.five_button[language || "en"]
           );
           setValue("slider_button_link_five", res?.slider?.five_link);
+          //  second slider
+
+          setSecondSlider(res?.second_slider?.second_slider_status);
+          setSecondSliderImage(res?.second_slider?.first_img);
+          setSecondSliderImageTwo(res?.second_slider?.second_img);
+          setSecondSliderImageThree(res?.second_slider?.third_img);
+          setSecondSliderImageFour(res?.second_slider?.four_img);
+          setSecondSliderImageFive(res?.second_slider?.five_img);
+
+          setValue(
+            "second_slider_title",
+            res?.second_slider?.first_title[language || "en"]
+          );
+          setValue(
+            "second_slider_description",
+            res?.second_slider?.first_description[language || "en"]
+          );
+          setValue(
+            "second_slider_title_two",
+            res?.second_slider?.second_title[language || "en"]
+          );
+          setValue(
+            "second_slider_description_two",
+            res?.second_slider?.second_description[language || "en"]
+          );
+          setValue(
+            "second_slider_title_three",
+            res?.second_slider?.third_title[language || "en"]
+          );
+          setValue(
+            "second_slider_description_three",
+            res?.second_slider?.third_description[language || "en"]
+          );
+          setValue(
+            "second_slider_title_four",
+            res?.second_slider?.four_title[language || "en"]
+          );
+          setValue(
+            "second_slider_description_four",
+            res?.second_slider?.four_description[language || "en"]
+          );
+          setValue(
+            "second_slider_title_five",
+            res?.second_slider?.five_title[language || "en"]
+          );
+          setValue(
+            "second_slider_description_five",
+            res?.second_slider?.five_description[language || "en"]
+          );
 
           //bottom Slider
-
+          setBottomSlider(res?.bottom_slider?.bottom_slider_status);
           setBottomSliderImage(res?.bottom_slider?.first_img);
           setBottomSliderImageTwo(res?.bottom_slider?.second_img);
           setBottomSliderImageThree(res?.bottom_slider?.third_img);
@@ -2486,6 +2674,8 @@ const useStoreHomeSubmit = () => {
     termsConditionsTextEdit,
     setTermsConditionsTextEdit,
     isSubmitting,
+    setBottomSlider,
+    bottomSlider,
     bottomSliderImage,
     setBottomSliderImage,
     bottomSliderImageTwo,
@@ -2537,6 +2727,32 @@ const useStoreHomeSubmit = () => {
     setFeaturePromoThreeImg,
     featurePromoFourImg,
     setFeaturePromoFourImg,
+    featurePromoFiveImg,
+    setFeaturePromoFiveImg,
+
+    setSecondSlider,
+    secondSlider,
+    secondSliderImage,
+    setSecondSliderImage,
+    secondSliderImageTwo,
+    setSecondSliderImageTwo,
+    secondSliderImageThree,
+    setSecondSliderImageThree,
+    secondSliderImageFour,
+    setSecondSliderImageFour,
+    secondSliderImageFive,
+    setSecondSliderImageFive,
+
+
+
+    testimonial,
+    setTestimonial,
+    testimonialBannerImg,
+    setTestimonialBannerImg,
+    testimonialBannerImgTwo,
+    setTestimonialBannerImgTwo,
+    testimonialBannerImgThree,
+    setTestimonialBannerImgThree,
   };
 };
 
