@@ -106,6 +106,7 @@ const PrivacyPolicy = ({
               </label>
               <div className="sm:col-span-4">
                 <Uploader
+                folder={"Privacy_Policy"}
                   imageUrl={privacyPolicyHeaderBg}
                   setImageUrl={setPrivacyPolicyHeaderBg}
                 />
@@ -186,6 +187,7 @@ const PrivacyPolicy = ({
               </label>
               <div className="sm:col-span-4">
                 <Uploader
+                folder={"Privacy_Policy"}
                   imageUrl={termsConditionsHeaderBg}
                   setImageUrl={setTermsConditionsHeaderBg}
                 />
@@ -268,6 +270,7 @@ const PrivacyPolicy = ({
               </label>
               <div className="sm:col-span-4">
                 <Uploader
+                folder={"Privacy_Policy"}
                   imageUrl={refundPolicyImgBg}
                   setImageUrl={setRefundPolicyImgBg}
                 />

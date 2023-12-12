@@ -114,7 +114,7 @@ const AboutUs = ({
           <hr className="md:mb-12 mb-3" />
 
           <div className="xl:px-10 flex-grow scrollbar-hide w-full max-h-full">
-          <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
+            <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
               Section One
             </div>
 
@@ -149,6 +149,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={leftSideImg}
                     setImageUrl={setLeftSideImg}
                   />
@@ -160,6 +161,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={rightSideImg}
                     setImageUrl={setRightSideImg}
                   />
@@ -271,6 +273,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionSecondImg}
                     setImageUrl={setSectionSecondImg}
                   />
@@ -328,9 +331,7 @@ const AboutUs = ({
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={
-                      (errors.name = "section_second_description_1")
-                    }
+                    errorName={(errors.name = "section_second_description_1")}
                   />
                 </div>
               </div>
@@ -404,6 +405,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionThirdImg}
                     setImageUrl={setSectionThirdImg}
                   />
@@ -412,7 +414,7 @@ const AboutUs = ({
 
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
-                Page Title
+                  Page Title
                 </label>
                 <div className="sm:col-span-4">
                   <InputAreaTwo
@@ -482,6 +484,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionFourImg}
                     setImageUrl={setSectionFrourImg}
                   />
@@ -579,6 +582,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                    folder="about_us"
                     imageUrl={sectionFiveImg}
                     setImageUrl={setSectionFiveImg}
                   />
@@ -873,6 +877,7 @@ const AboutUs = ({
               </label>
               <div className="sm:col-span-4">
                 <Uploader
+                folder="about_us"
                   imageUrl={aboutTopContentRightImage}
                   setImageUrl={setAboutTopContentRightImage}
                 />
@@ -956,6 +961,7 @@ const AboutUs = ({
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
+                  folder="about_us"
                     imageUrl={aboutMiddleContentImage}
                     setImageUrl={setAboutMiddleContentImage}
                   />
@@ -1049,6 +1055,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderOneImage}
                           setImageUrl={setOurFounderOneImage}
                         />
@@ -1100,6 +1107,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderTwoImage}
                           setImageUrl={setOurFounderTwoImage}
                         />
@@ -1151,6 +1159,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderThreeImage}
                           setImageUrl={setOurFounderThreeImage}
                         />
@@ -1204,6 +1213,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderFourImage}
                           setImageUrl={setOurFounderFourImage}
                         />
@@ -1257,6 +1267,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderFiveImage}
                           setImageUrl={setOurFounderFiveImage}
                         />
@@ -1309,6 +1320,7 @@ const AboutUs = ({
                       </label>
                       <div className="sm:col-span-4">
                         <Uploader
+                        folder="about_us"
                           imageUrl={ourFounderSixImage}
                           setImageUrl={setOurFounderSixImage}
                         />

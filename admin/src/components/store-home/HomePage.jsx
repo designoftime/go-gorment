@@ -130,8 +130,6 @@ const HomePage = ({
   bottomPermotionBannerImg,
   setBottomPermotionBannerImg,
 
-
-  
   featurePromoOneImg,
   setFeaturePromoOneImg,
   featurePromoTwoImg,
@@ -198,7 +196,7 @@ const HomePage = ({
                 {t("HeaderLogo")}
               </label>
               <div className="sm:col-span-4">
-                <Uploader imageUrl={headerLogo} setImageUrl={setHeaderLogo} />
+                <Uploader folder="home" imageUrl={headerLogo} setImageUrl={setHeaderLogo}  />
               </div>
             </div>
           </div>
@@ -519,7 +517,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={sliderImage}
                         setImageUrl={setSliderImage}
                       />
@@ -600,7 +598,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={sliderImageTwo}
                         setImageUrl={setSliderImageTwo}
                       />
@@ -681,7 +679,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={sliderImageThree}
                         setImageUrl={setSliderImageThree}
                       />
@@ -762,7 +760,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={sliderImageFour}
                         setImageUrl={setSliderImageFour}
                       />
@@ -842,7 +840,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={sliderImageFive}
                         setImageUrl={setSliderImageFive}
                       />
@@ -998,7 +996,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={bottomSliderImage}
                         setImageUrl={setBottomSliderImage}
                       />
@@ -1045,7 +1043,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={bottomSliderImageTwo}
                         setImageUrl={setBottomSliderImageTwo}
                       />
@@ -1092,7 +1090,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={bottomSliderImageThree}
                         setImageUrl={setBottomSliderImageThree}
                       />
@@ -1142,7 +1140,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={bottomSliderImageFour}
                         setImageUrl={setBottomSliderImageFour}
                       />
@@ -1191,7 +1189,7 @@ const HomePage = ({
                       {t("SliderImages")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={bottomSliderImageFive}
                         setImageUrl={setBottomSliderImageFive}
                       />
@@ -1350,7 +1348,7 @@ const HomePage = ({
                       {t("PlaceHolderImage")}
                     </label>
                     <div className="sm:col-span-4">
-                      <Uploader
+                      <Uploader folder="home"
                         imageUrl={placeholderImage}
                         setImageUrl={setPlaceHolderImage}
                       />
@@ -1401,7 +1399,7 @@ const HomePage = ({
                   {t("PromotionBanner")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={permotionBannerImg}
                     setImageUrl={setPermotionBannerImg}
                   />
@@ -1783,7 +1781,7 @@ const HomePage = ({
                   {t("Image")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={quickSectionImage}
                     setImageUrl={setQuickSectionImage}
                   />
@@ -1957,7 +1955,7 @@ const HomePage = ({
                   {t("ImageLeft")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={getYourDailyNeedImageLeft}
                     setImageUrl={setGetYourDailyNeedImageLeft}
                   />
@@ -1969,7 +1967,7 @@ const HomePage = ({
                   {t("ImageRight")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={getYourDailyNeedImageRight}
                     setImageUrl={setGetYourDailyNeedImageRight}
                   />
@@ -1981,7 +1979,7 @@ const HomePage = ({
                   {t("Button1image")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={getButton1image}
                     setImageUrl={setGetButton1image}
                   />
@@ -2010,7 +2008,7 @@ const HomePage = ({
                   {t("Button2image")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={getButton2image}
                     setImageUrl={setGetButton2image}
                   />
@@ -2077,7 +2075,7 @@ const HomePage = ({
                   One Image
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={featurePromoOneImg}
                     setImageUrl={setFeaturePromoOneImg}
                   />
@@ -2089,7 +2087,7 @@ const HomePage = ({
                   Two Image
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={featurePromoTwoImg}
                     setImageUrl={setFeaturePromoTwoImg}
                   />
@@ -2101,7 +2099,7 @@ const HomePage = ({
                   Three Image
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={featurePromoThreeImg}
                     setImageUrl={setFeaturePromoThreeImg}
                   />
@@ -2113,7 +2111,7 @@ const HomePage = ({
                   Four Image
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={featurePromoFourImg}
                     setImageUrl={setFeaturePromoFourImg}
                   />
@@ -2161,7 +2159,7 @@ const HomePage = ({
                   {t("PromotionBanner")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={bottomPermotionBannerImg}
                     setImageUrl={setBottomPermotionBannerImg}
                   />
@@ -2283,7 +2281,7 @@ const HomePage = ({
                   Image
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={scrollingImage}
                     setImageUrl={setScrollingImage}
                   />
@@ -2820,7 +2818,7 @@ const HomePage = ({
                   {t("FooterLogo")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader imageUrl={footerLogo} setImageUrl={setFooterLogo} />
+                  <Uploader folder="home" imageUrl={footerLogo} setImageUrl={setFooterLogo} />
                 </div>
               </div>
 
@@ -3019,7 +3017,7 @@ const HomePage = ({
                   {t("PaymentMethod")}
                 </label>
                 <div className="sm:col-span-4">
-                  <Uploader
+                  <Uploader folder="home"
                     imageUrl={paymentImage}
                     setImageUrl={setPaymentImage}
                   />
