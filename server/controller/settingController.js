@@ -294,40 +294,27 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.second_slider.first_title,
           "setting.second_slider.first_description":
             setting.second_slider.first_description,
-          "setting.second_slider.first_button":
-            setting.second_slider.first_button,
-          "setting.second_slider.first_link": setting.second_slider.first_link,
+
           "setting.second_slider.second_img": setting.second_slider.second_img,
           "setting.second_slider.second_title":
             setting.second_slider.second_title,
           "setting.second_slider.second_description":
             setting.second_slider.second_description,
-          "setting.second_slider.second_button":
-            setting.second_slider.second_button,
-          "setting.second_slider.second_link":
-            setting.second_slider.second_link,
+
           "setting.second_slider.third_img": setting.second_slider.third_img,
           "setting.second_slider.third_title":
             setting.second_slider.third_title,
           "setting.second_slider.third_description":
             setting.second_slider.third_description,
-          "setting.second_slider.third_button":
-            setting.second_slider.third_button,
-          "setting.second_slider.third_link": setting.second_slider.third_link,
           "setting.second_slider.four_img": setting.second_slider.four_img,
           "setting.second_slider.four_title": setting.second_slider.four_title,
           "setting.second_slider.four_description":
             setting.second_slider.four_description,
-          "setting.second_slider.four_button":
-            setting.second_slider.four_button,
-          "setting.second_slider.four_link": setting.second_slider.four_link,
+
           "setting.second_slider.five_img": setting.second_slider.five_img,
           "setting.second_slider.five_title": setting.second_slider.five_title,
           "setting.second_slider.five_description":
             setting.second_slider.five_description,
-          "setting.second_slider.five_button":
-            setting.second_slider.five_button,
-          "setting.second_slider.five_link": setting.second_slider.five_link,
 
           //bottom slider
 

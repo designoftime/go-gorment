@@ -1678,12 +1678,12 @@ const useStoreHomeSubmit = () => {
           setValue("slider_button_link_five", res?.slider?.five_link);
           //  second slider
 
-          setBottomSlider(res?.second?.second_status);
-          setBottomSliderImage(res?.second?.first_img);
-          setBottomSliderImageTwo(res?.second?.second_img);
-          setBottomSliderImageThree(res?.second?.third_img);
-          setBottomSliderImageFour(res?.second?.four_img);
-          setBottomSliderImageFive(res?.second?.five_img);
+          setSecondSlider(res?.second_slider?.second_slider_status);
+          setSecondSliderImage(res?.second_slider?.first_img);
+          setSecondSliderImageTwo(res?.second_slider?.second_img);
+          setSecondSliderImageThree(res?.second_slider?.third_img);
+          setSecondSliderImageFour(res?.second_slider?.four_img);
+          setSecondSliderImageFive(res?.second_slider?.five_img);
 
           setValue(
             "second_slider_title",
