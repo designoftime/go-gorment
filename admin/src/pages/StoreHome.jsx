@@ -222,6 +222,28 @@ const StoreHome = () => {
     bottomPermotionBanner,
     bottomPermotionBannerImg,
     setBottomPermotionBannerImg,
+    setSectionOne,
+    sectionOne,
+    leftSideImg,
+    setLeftSideImg,
+    rightSideImg,
+    setRightSideImg,
+    setSectionSecond,
+    sectionSecond,
+    sectionSecondImg,
+    setSectionSecondImg,
+    setSectionThird,
+    sectionThird,
+    sectionThirdImg,
+    setSectionThirdImg,
+    setSectionFrour,
+    sectionFour,
+    sectionFourImg,
+    setSectionFrourImg,
+    setSectionFive,
+    sectionFive,
+    sectionFiveImg,
+    setSectionFiveImg,
   } = useStoreHomeSubmit();
 
   useEffect(() => {
@@ -647,6 +669,28 @@ const StoreHome = () => {
                 setOurFounderSixImage={setOurFounderSixImage}
                 ourFounderSixImage={ourFounderSixImage}
                 isSubmitting={isSubmitting}
+                setSectionOne={setSectionOne}
+                sectionOne={sectionOne}
+                leftSideImg={leftSideImg}
+                setLeftSideImg={setLeftSideImg}
+                rightSideImg={rightSideImg}
+                setRightSideImg={setRightSideImg}
+                setSectionSecond={setSectionSecond}
+                sectionSecond={sectionSecond}
+                sectionSecondImg={sectionSecondImg}
+                setSectionSecondImg={setSectionSecondImg}
+                setSectionThird={setSectionThird}
+                sectionThird={sectionThird}
+                sectionThirdImg={sectionThirdImg}
+                setSectionThirdImg={setSectionThirdImg}
+                setSectionFrour={setSectionFrour}
+                sectionFour={sectionFour}
+                sectionFourImg={sectionFourImg}
+                setSectionFrourImg={setSectionFrourImg}
+                setSectionFive={setSectionFive}
+                sectionFive={sectionFive}
+                sectionFiveImg={sectionFiveImg}
+                setSectionFiveImg={setSectionFiveImg}
               />
             </form>
           </div>
