@@ -7,8 +7,13 @@ import Feeds from './images/feed_180x.avif'
 export const OneFeedsTwo = () => {
     const [showValue, setShowValue]= useState(window.innerWidth);
     useEffect(()=>{
-        setShowValue(window.innerWidth);
-        console.log(showValue);
+        const handleWidth =()=>{
+            setShowValue(window.innerWidth);
+        };
+        window.addEventListener('resize',handleWidth);
+        return ()=>{
+            window.removeEventListener('resize',handleWidth);
+    }
     },[])
     return (
         <div className='sec'>
@@ -22,18 +27,18 @@ export const OneFeedsTwo = () => {
                     </div>
                 </div>
                 <div className="BannerO-section">
-                    <div className="container ">
+                    <div className="container">
                         {showValue > 1000?<div className="BannerO-Heading wow animate__animated animate__fadeInUp my-5 text-center fw-bolder">FIGHTING HUNGER<br />WITH EVERY ORDER</div>:""}
-                        <div className="row">
+                        <div className={showValue > 1000? 'row' : ''}>
                             
-                            <div className="col-md-5 col-sm-12 BannerO-left mt-5">
-                                <div className='w-100 box1'>
-                                    <img src={oneFeedsBannerimge} className='img-fluid rounded wow animate__animated BannerO-imge animate__fadeInUp' alt={oneFeedsBannerimge} />
+                            <div className="col-md-5 g-0 BannerO-left mt-5">
+                                <div className={showValue > 1000? 'w-full':'w-full col-12 g-0 align-items-center'}>
+                                    <img src={oneFeedsBannerimge} className='img-fluid rounded wow animate__animated animate__fadeInUp BannerO-imge' alt={oneFeedsBannerimge} />
                                     <img src={Feeds} alt={Feeds} className='BannerO-feeds' /></div>
-                                    {showValue <= 1000 ? <div className="BannerO-Heading wow animate__animated animate__fadeInUp my-5 text-center fw-bolder">FIGHTING HUNGER<br />WITH EVERY ORDER</div>:""}
+                                    {showValue <= 1000 ? <div className="BannerO-Heading wow animate__animated animate__fadeInUp my-5 fw-bolder">FIGHTING HUNGER<br />WITH EVERY ORDER</div>:""}
                             </div>
                             
-                            <div className="col-md-7 col-sm-12 BannerO-right">
+                            <div className="col-md-7 col-sm-12 g-0 BannerO-right">
                                 <div >
                                     <div className="BannerO-subHeading fs-1 wow animate__animated animate__fadeInUp fw-bolder ">Did you know?</div>
                                     <p className="BannerO-content wow animate__animated animate__fadeInUp">
