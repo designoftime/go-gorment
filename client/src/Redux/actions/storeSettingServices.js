@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addStoreSetting } from "../reducers/storeSettings";
+import { addCategories, addStoreSetting } from "../reducers/storeSettings";
 
 export function StoreData(){
 
@@ -15,4 +15,19 @@ export function StoreData(){
         }
     }
     
+}
+
+export function StoreCategoriesData(){
+
+return async function StoreCategoriesDataThunk(dispatch, getState){
+    try {
+
+        const res = await axios("/category/show");
+        dispatch(addCategories(res.data[0].children));
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 }

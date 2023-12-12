@@ -60,13 +60,13 @@ export const Navigation1 = () => {
                     {
                         headerData?.categories_menu_status &&
                         <li>
-                            <Link className="nav-link active bolder navtext " to="/pages/ollys-story">{headerData.categories.en}</Link>
+                            <Link className="nav-link active bolder navtext " to="/collections/all">{headerData.categories.en}</Link>
                         </li>
                     }
                     {
                         headerData?.about_menu_status &&
                         <li>
-                            <Link to='/collections/all' className="nav-link active  bolder navtext">{headerData.about_us.en}</Link>
+                            <Link to='/pages/ollys-story' className="nav-link active  bolder navtext">{headerData.about_us.en}</Link>
                         </li>
                     }
                 </div>
@@ -78,13 +78,13 @@ export const Navigation1 = () => {
                     {
                         headerData?.offers_menu_status &&
                             <li>
-                                <Link className="nav-link active bolder navtext" href="#">{headerData.offers.en}</Link>
+                                <Link className="nav-link active bolder navtext" to="/pages/one-feeds-two">{headerData.offers.en}</Link>
                             </li>
                     }
                     {
                         headerData?.contact_menu_status &&
                             <li>
-                                <Link className="nav-link active bolder navtext" href="#">{headerData.contact_us.en}</Link>
+                                <Link className="nav-link active bolder navtext" to="/pages/store-locator">{headerData.contact_us.en}</Link>
                             </li>
                     }
                     </div>

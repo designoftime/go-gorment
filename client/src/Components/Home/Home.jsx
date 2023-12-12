@@ -24,7 +24,7 @@ export const Home = () => {
       <HomeCarousel homeSliderData={dynamicStoreData?.slider} />
       <div className="container-fluid g-0">
         <CarouselSection />
-        <PrimaryProduct />
+        <PrimaryProduct categoriesData={dynamicStoreData?.categories} />
         <SnacksGif promotionBannarData={dynamicStoreData?.home} />
         <Productoverview />
         <ReviewedProduct />

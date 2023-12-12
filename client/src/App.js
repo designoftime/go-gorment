@@ -5,13 +5,14 @@ import { Navigation1 } from './Components/Navigation/Navigation1';
 import ErrorBoundaries from "./Components/ErrorBoundaries/ErrorBoundaries"
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { StoreData } from './Redux/actions/storeSettingServices';
+import { StoreCategoriesData, StoreData } from './Redux/actions/storeSettingServices';
 function App() {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(StoreData());
+    dispatch(StoreCategoriesData());
   }, []);
 
   const [showNavigation2, setShowNavigation2] = useState(false);

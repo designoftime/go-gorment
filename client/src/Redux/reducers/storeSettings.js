@@ -10,11 +10,15 @@ const storeSettigsSlice =  createSlice({
 
         addStoreSetting: (state, action) => {
             return action.payload;
+        },
+
+        addCategories: (state, action) => {
+            state.categories = action.payload;
         }
 
     }
 
 });
 
-export const { addStoreSetting } = storeSettigsSlice.actions;
+export const { addStoreSetting, addCategories } = storeSettigsSlice.actions;
 export default storeSettigsSlice.reducer;

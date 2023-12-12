@@ -7,20 +7,21 @@ import { Link } from 'react-router-dom';
 
 export const SnacksGif = ({promotionBannarData}) => {
     
-    if(!promotionBannarData){
-        return;
-    }
     const [showValue,setShowValue]= useState(window.innerWidth);
     useEffect(()=>{
         const handleWidth =()=>{
             setShowValue(window.innerWidth);
         };
         window.addEventListener('resize',handleWidth);
-
+        
         return ()=>{
             window.removeEventListener('resize',handleWidth);
         }
-    },[])
+    },[]);
+    
+    if(!promotionBannarData){
+        return;
+    }
     return (
         (promotionBannarData?.promotion_banner_status) ? (
         <div className=''>

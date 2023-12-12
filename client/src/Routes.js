@@ -85,16 +85,21 @@ const appRouter = createBrowserRouter([
                 element: <ViewProduct />
             },
             {
+                path: "/pages",
+                children: [
+                    {
+                        path: "ourstory",
+                        element: <Ourstory />
+                    },
+                    {
+                        path: "one-feeds-two",
+                        element: <OneFeedsTwo />
+                    }
+                ]
+            },
+            {
                 path: "*",
                 element: <NotFound />
-            },
-            {
-                path: "/ourstory",
-                element: <Ourstory />
-            },
-            {
-                path: "/one-feeds-two",
-                element: <OneFeedsTwo />
             }
         ]
     }
