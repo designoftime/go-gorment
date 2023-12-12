@@ -14,7 +14,7 @@ export const PrimaryProduct = ({categoriesData}) => {
     const [showValue ,setShowValue]= useState(window.innerWidth);
     
     useEffect(()=>{
-        console.log(showValue);
+        
         const handleWidth =()=>{
             setShowValue(window.innerWidth);
         }

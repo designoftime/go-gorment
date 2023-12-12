@@ -14,6 +14,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useSelector } from "react-redux";
+import FeaturePromo from "./FeaturePromo/Featurepromo";
 
 export const Home = () => {
 
@@ -23,13 +24,14 @@ export const Home = () => {
     <div>
       <HomeCarousel homeSliderData={dynamicStoreData?.slider} />
       <div className="container-fluid g-0">
-        <CarouselSection />
+        <CarouselSection secondSliderData={dynamicStoreData?.second_slider} />
         <PrimaryProduct categoriesData={dynamicStoreData?.categories} />
         <SnacksGif promotionBannarData={dynamicStoreData?.home} />
-        <Productoverview />
+        <Productoverview testimonialData={dynamicStoreData?.home} />
         <ReviewedProduct />
         <OneFeedsHome bottomPromotionData={dynamicStoreData?.home} />
         <CustomerCaursel bottomSliderData={dynamicStoreData?.bottom_slider} />
+        <FeaturePromo featurePromoData={dynamicStoreData?.home} />
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ const appRouter = createBrowserRouter([
                 path: "/pages",
                 children: [
                     {
-                        path: "ourstory",
+                        path: "our-story",
                         element: <Ourstory />
                     },
                     {

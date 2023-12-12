@@ -1,16 +1,5 @@
 import React, { useState } from 'react'
 import './CustomerCaursel.css'
-import CCImage1 from './images/CustomereCaurselimg1.png'
-import CCImage2 from './images/CustomerCaurselimg2.png'
-import CCImage3 from './images/CustomerCaurselimg3.png'
-import CCImage4 from './images/CustomerCaurselimg4.png'
-import SliderArrow from './images/slider-rightarrow.svg'
-import Stockistimg1 from './images/stockist-1.svg'
-import Stockistimg2 from './images/stockist-2.svg'
-import Stockistimg3 from './images/stockist-3.svg'
-import Stockistimg4 from './images/stockist-4.svg'
-import Stockistimg5 from './images/stockist-5.svg'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
@@ -18,7 +7,6 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { sliderVal } from '../../../utils/Constants'
-import { useSelector } from 'react-redux'
 
 export const CustomerCaursel = ({bottomSliderData}) => {
     const [toggleAni, setToggleAni ] = useState(false);
@@ -52,7 +40,7 @@ export const CustomerCaursel = ({bottomSliderData}) => {
 
                         return <SwiperSlide key={val} className='customer-slide'>
                             <div className="customer-image">
-                                <img src={bottomSliderData[`${val}_img`] ? bottomSliderData[`${val}_img`] : CCImage1} alt="" className={!toggleAni ? "active-animation" : ""} />
+                                <img src={bottomSliderData[`${val}_img`]} alt="" className={!toggleAni ? "active-animation" : ""} />
                             </div>
                             <div className="review ">
                                 <p>{bottomSliderData[`${val}_title`]?.en}</p>
@@ -69,27 +57,6 @@ export const CustomerCaursel = ({bottomSliderData}) => {
             </section>
         </div> ) : null
         }
-        <div className="container-fluid g-0">
-                <div className="Stockist-section container py-4  mx-auto">
-                    <div className="Stockist-main">
-                        <div className="Stockist-content">
-                            <img src={Stockistimg1} alt="" />
-                        </div>
-                        <div className="Stockist-content">
-                            <img src={Stockistimg2} alt="" />
-                        </div>
-                        <div className="Stockist-content">
-                            <img src={Stockistimg3} alt="" />
-                        </div>
-                        <div className="Stockist-content">
-                            <img src={Stockistimg4} alt="" />
-                        </div>
-                        <div className="Stockist-content">
-                            <img src={Stockistimg5} alt="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
         </>
     )
 }

@@ -1,0 +1,51 @@
+.theme-3{
+    background-color: #c8e0d4;
+    width: 100%;
+    display: flex;
+}
+
+.theme3-img{
+    width: 50%;
+    height: 100%;
+}
+
+.theme3-img img{
+    width: 100%;
+    object-fit: cover;
+} 
+
+.theme-3-content{
+    margin: 20px;
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly
+}
+
+.theme3-heading{
+    font-family: Snacksgifheaderfont;
+    font-size: 80px;
+    line-height: 78px;
+    color: #412f59;
+    text-align: left;
+    padding: 30px;
+}
+
+.theme3-desc{
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    letter-spacing: .12px;
+    padding: 0 50px;
+}
+
+.theme3-btn{
+    margin: 0px 40px;
+    padding: 10px 30px;
+    border: 2px solid white;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+}

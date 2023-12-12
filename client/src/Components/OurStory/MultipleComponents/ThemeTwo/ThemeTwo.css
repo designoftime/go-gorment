@@ -1,0 +1,51 @@
+.theme2-hero{
+    background-color: #f5d0ba;
+    padding: 98px 0 104px;;
+}
+.main-heading{
+    font-family: Snacksgifheaderfont;
+    font-size: 90px;
+    line-height: 78px;
+    color: #412f59;
+    text-align: center;
+    padding: 30px;
+}
+.theme2-img img{
+    width: 30rem;
+}
+
+.theme2-container{
+    margin: 10px;
+    padding: 10px;
+    max-width: 40rem;
+}
+
+.theme2-desc{
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+    letter-spacing: .12px;
+}
+
+.theme2-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 85px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.theme2-desc{
+    margin: 10px;
+    padding: 10px;
+}
+
+.theme2-btn{
+    margin: 20px;
+    padding: 10px 30px;
+    background-color: #412f59;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+}

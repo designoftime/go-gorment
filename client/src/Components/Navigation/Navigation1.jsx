@@ -66,7 +66,7 @@ export const Navigation1 = () => {
                     {
                         headerData?.about_menu_status &&
                         <li>
-                            <Link to='/pages/ollys-story' className="nav-link active  bolder navtext">{headerData.about_us.en}</Link>
+                            <Link to='/pages/our-story' className="nav-link active  bolder navtext">{headerData.about_us.en}</Link>
                         </li>
                     }
                 </div>

@@ -1,22 +1,18 @@
 import { React, useRef } from 'react';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import './Carousel.css';
 import 'swiper/css';
-import demo from '../../../assets/demo.png';
-import img1 from './images/img1.svg';
-import img2 from './images/img2.svg';
-import img3 from './images/img3.svg';
-import img4 from './images/img4.svg';
 import { useState } from 'react';
+import { sliderVal } from '../../../utils/Constants';
 
-export const CarouselSection = () => {
+export const CarouselSection = ({secondSliderData}) => {
 
     const first = useRef();
-
-
     const [activeSlider, setActiveSlider] = useState(0);
 
-    const allImage = [img1, img2, img3, img4]
+    if(!secondSliderData){
+        return;
+    }
     return (
         <>
             <div className="main-swiper-carousel">
@@ -28,21 +24,20 @@ export const CarouselSection = () => {
                     onSlideChange={(e) => {
                         setActiveSlider(e.activeIndex)
                     }}
-                    // onSwiper={(swiper) => swiper.slideTo}
                 >
-                    <SwiperSlide className='slide'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla laudantium ut nostrum atque,</SwiperSlide>
-
-                    <SwiperSlide className='slide'> sit, amet consectetur adipisicing elit. Nulla laudantium ut nostrum atque, consequatur corporis </SwiperSlide>
-
-                    <SwiperSlide className='slide'>ipsum dolor sit, amet consectetur adipisicing elit. Nulla laudantium ut nostrum atque, consequatur corporis </SwiperSlide>
-
-                    <SwiperSlide className='slide'>amet consectetur adipisicing elit. Nulla laudantium ut nostrum atque, consequatur corporis </SwiperSlide>
+                    {
+                        sliderVal.map((val) => {
+                            return (
+                                <SwiperSlide key={val} className='slide'> { secondSliderData[`${val}_description`].en} </SwiperSlide>
+                            )
+                        })
+                    }
                 </Swiper>
 
                 <div className="slide-logos mt-4">
                     {
-                        allImage.map((img, idx) => {
-                            return (<img key={idx} src={img} alt="" className={idx == activeSlider ? "active-logo" : null} onClick={(e) => {
+                        sliderVal.map((val, idx) => {
+                            return (<img key={idx} src={secondSliderData[`${val}_img`]} alt="" className={idx == activeSlider ? "active-logo" : null} onClick={(e) => {
                                 setActiveSlider(idx)
                                 first.current.swiper.slideTo(idx);
                             }} />)

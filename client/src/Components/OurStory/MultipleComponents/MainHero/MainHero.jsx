@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import HeroImgOne from './images/hero-img.webp';
-import HeroImgTwo from './images/hero-img-2.webp';
-import "./style.css"
+import HeroImgOne from '../images/hero-img.webp';
+import HeroImgTwo from '../images/hero-img-2.webp';
+import "../style.css"
 import { TiMediaPlay } from "react-icons/ti";
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const MainHero = () => {
