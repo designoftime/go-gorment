@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./OneFeedsTwo.css"
 import pretzelimge from './images/pretzel-dark-220613_3_3x_copy_540x.webp'
 import pretzelheroimge from './images/pretzel-dark-220613_3_3x_aeba7887-06db-475b-bb89-1b2880c82413_360x.avif'
@@ -16,36 +16,6 @@ export const OneFeedsTwo = () => {
             window.removeEventListener('resize', handleWidth);
         }
     }, [])
-    const oneFeddHeader = [
-        {
-          id : 1,
-          title: "HOW OLLY’S SNACKS UP",
-          background : "#f5d0ba",
-          color: "#412f59",
-          
-        }
-      ]
-      const productOverviewContent=[
-        {
-        id : 1,
-        subtitle:"HEALTHIER DELICIOUS",
-        subcontent:"All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.",
-        subimage:{productoverviewimg1},
-        },
-        {
-        id : 2,
-        subtitle:"HEALTHIER DELICIOUS",
-        subcontent:"All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.",
-        subimage:{productoverviewimg2},
-        },
-        {
-        id : 1,
-        subtitle:"HEALTHIER DELICIOUS",
-        subcontent:"All our creations have health at the heart and we have a no compromise mentality on the quality of our snack taste experience. We only deal in DELICIOUS.",
-        subimage:{productoverviewimg3},
-        },
-        
-    ]    
     return (
         <div className='sec'>
             <div className="container-fluid g-0">
