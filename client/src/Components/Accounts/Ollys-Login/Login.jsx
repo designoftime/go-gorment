@@ -33,8 +33,8 @@ export const Login = () => {
           <div className="LoginHeader mt-5">
             <h1 className='text-center LoginHeading'>Login</h1>
           </div>
-          <div className="loginform container mx-auto">
-            <form onSubmit={handleSubmit}>
+          <div className="loginform container mx-auto ">
+            <form onSubmit={handleSubmit}> 
               <div className="loginemail text-center">
                 <input type="email" name='userEmail' className='logininput' placeholder='Email'  />
               </div>

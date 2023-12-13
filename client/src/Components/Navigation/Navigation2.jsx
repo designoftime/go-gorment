@@ -18,7 +18,7 @@ export const Navigation2 = ({headerData}) => {
                     </li>
                 </div>
                 <div className="center">
-                    <Link to="/"><img src={headerData?.logos ? headerData.logo : Logo} className='logo animate__animated animate__fadeInUp' alt="" /></Link>
+                    <Link to="/"><img src={headerData?.logos ? headerData.logo : Logo} className='logo animate__animated animate__fadeInUp' alt="logo" /></Link>
                 </div>
                 <div className="right">
                     <div className="links">
@@ -31,12 +31,12 @@ export const Navigation2 = ({headerData}) => {
                     </div>
                     <div className="icons">
                         <div className="nav-item ">
-                            <Link to='/accounts' className="nav-link active bolder" href="#">
+                            <Link to='/accounts' className="nav-link active bolder">
                                 <RiAccountCircleLine className='accountIcon' />
                             </Link>
                         </div>
                         <div className='nav-item '>
-                            <a className='nav-link active bolder' href="">
+                            <a className='nav-link active bolder'>
                                 <MdOutlineShoppingBag className='accountIcon' />
                             </a>
                         </div>

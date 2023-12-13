@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Accounts/Ollys-Login/Login.css'
 import './Shop.css'
 export const ShopBanner = ({ShopPretzelBanner,ShopOlivesBanner,ShopChocoPretzelBanner}) => {
   const shopBannerData = ShopPretzelBanner?ShopPretzelBanner:ShopOlivesBanner?ShopOlivesBanner:ShopChocoPretzelBanner;
   const olivColor =ShopOlivesBanner?{color:"#412f59"}:{color:"#4c4294"} 
   
- 
+ const [showValue,setShowValue]= useState();
   return (
     <div>
       <section className='Shop-section container-fluid g-0 mx-auto'>

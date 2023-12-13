@@ -4,9 +4,15 @@
 .LoginHeader{
     width: 100%;
 }
-
+.LoginHeading{
+    margin-top: 11rem;
+    font-family:  Snacksgifheaderfont;
+    font-size: 170px;
+    color: #4c4294;
+    text-transform: uppercase;
+}
 .loginform{
-    margin: 50px 0 80px 0!important;
+    margin: 50px auto 80px !important;
 }
 .logininput{
     margin: 10px 0!important;
@@ -16,6 +22,7 @@
     border-radius: 10px;
     padding: 0 20px;
     font-size: 18px;
+    font-family: bannerhomebtn;
     font-weight: 600;
 }
 .signinbtn{

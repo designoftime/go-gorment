@@ -30,6 +30,11 @@ body > iframe {
   src: url('./Components/Fonts/ReviewedProductheader2.otf');
   src: url('./Components/Fonts/ReviewedProductheader2.otf');
 }
+@font-face {
+  font-family: barcontenttext;
+  src: url('./Components/Fonts/Demo_Fonts/Fontspring-DEMO-rocgroteskcomp-medium.otf');
+  
+}
 .ReactCollapse--collapse {
   transition: height 500ms;
 }
