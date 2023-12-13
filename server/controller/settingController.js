@@ -509,6 +509,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.about_us.section_one_button_name,
           "setting.about_us.section_one_button_link":
             setting.about_us.section_one_button_link,
+          "setting.about_us.section_one_background_color":
+            setting.about_us.section_one_background_color,
+          "setting.about_us.section_one_text_color":
+            setting.about_us.section_one_text_color,
           "setting.about_us.section_second_title":
             setting.about_us.section_second_title,
           "setting.about_us.section_second_description":
@@ -519,16 +523,28 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.about_us.section_second_button_name,
           "setting.about_us.section_second_button_link":
             setting.about_us.section_second_button_link,
+          "setting.about_us.section_second_background_color":
+            setting.about_us.section_second_background_color,
+          "setting.about_us.section_second_text_color":
+            setting.about_us.section_second_text_color,
           "setting.about_us.section_third_title":
             setting.about_us.section_third_title,
           "setting.about_us.section_third_description":
             setting.about_us.section_third_description,
+          "setting.about_us.section_third_background_color":
+            setting.about_us.section_third_background_color,
+          "setting.about_us.section_third_text_color":
+            setting.about_us.section_third_text_color,
           "setting.about_us.section_four_title":
             setting.about_us.section_four_title,
           "setting.about_us.section_four_description":
             setting.about_us.section_four_description,
           "setting.about_us.section_four_description_1":
             setting.about_us.section_four_description_1,
+          "setting.about_us.section_four_background_color":
+            setting.about_us.section_four_background_color,
+          "setting.about_us.section_four_text_color":
+            setting.about_us.section_four_text_color,
           "setting.about_us.section_five_title":
             setting.about_us.section_five_title,
           "setting.about_us.section_five_description":
@@ -537,6 +553,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.about_us.section_five_button_name,
           "setting.about_us.section_five_button_link":
             setting.about_us.section_five_button_link,
+          "setting.about_us.section_five_background_color":
+            setting.about_us.section_five_background_color,
+          "setting.about_us.section_five_text_color":
+            setting.about_us.section_five_text_color,
 
           //contact us
           "setting.contact_us.header_status": setting.contact_us.header_status,
