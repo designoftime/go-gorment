@@ -466,6 +466,15 @@ const useStoreHomeSubmit = () => {
               [language]: data.section_one_button_link || "",
             },
 
+            section_one_background_color: {
+              ...resData?.about_us?.section_one_background_color,
+              [language]: data.section_one_background_color || "",
+            },
+            section_one_text_color: {
+              ...resData?.about_us?.section_one_text_color,
+              [language]: data.section_one_text_color || "",
+            },
+
             section_second_title: {
               ...resData?.about_us?.section_second_title,
               [language]: data.section_second_title || "",
@@ -490,6 +499,14 @@ const useStoreHomeSubmit = () => {
               ...resData?.about_us?.section_second_button_link,
               [language]: data.section_second_button_link || "",
             },
+            section_second_background_color: {
+              ...resData?.about_us?.section_second_background_color,
+              [language]: data.section_second_background_color || "",
+            },
+            section_second_text_color: {
+              ...resData?.about_us?.section_second_text_color,
+              [language]: data.section_second_text_color || "",
+            },
 
             section_third_title: {
               ...resData?.about_us?.section_third_title,
@@ -500,7 +517,14 @@ const useStoreHomeSubmit = () => {
               ...resData?.about_us?.section_third_description,
               [language]: data.section_third_description || "",
             },
-
+            section_third_background_color: {
+              ...resData?.about_us?.section_third_background_color,
+              [language]: data.section_third_background_color || "",
+            },    
+            section_third_text_color: {
+              ...resData?.about_us?.section_third_text_color,
+              [language]: data.section_third_text_color || "",
+            },
             section_four_title: {
               ...resData?.about_us?.section_four_title,
               [language]: data.section_four_title || "",
@@ -514,6 +538,14 @@ const useStoreHomeSubmit = () => {
             section_four_description_1: {
               ...resData?.about_us?.section_four_description_1,
               [language]: data.section_four_description_1 || "",
+            },
+            section_four_background_color: {
+              ...resData?.about_us?.section_four_background_color,
+              [language]: data.section_four_background_color || "",
+            },
+            section_four_text_color: {
+              ...resData?.about_us?.section_four_text_color,
+              [language]: data.section_four_text_color || "",
             },
 
             section_five_title: {
@@ -536,6 +568,14 @@ const useStoreHomeSubmit = () => {
               [language]: data.section_five_button_link || "",
             },
 
+            section_five_background_color: {
+              ...resData?.about_us?.section_five_background_color,
+              [language]: data.section_five_background_color || "",
+            },
+            section_five_text_color: {
+              ...resData?.about_us?.section_five_text_color,
+              [language]: data.section_five_text_color || "",
+            },
             title: {
               ...resData?.about_us?.title,
               [language]: data.about_page_title || "",
@@ -2145,6 +2185,14 @@ const useStoreHomeSubmit = () => {
             "section_one_button_link",
             res?.about_us?.section_one_button_link[language || "en"]
           );
+          setValue(
+            "section_one_background_color",
+            res?.about_us?.section_one_background_color[language || "en"]
+          );
+          setValue(
+            "section_one_text_color",
+            res?.about_us?.section_one_text_color[language || "en"]
+          );
 
           setValue(
             "section_second_title",
@@ -2168,6 +2216,16 @@ const useStoreHomeSubmit = () => {
             "section_second_button_link",
             res?.about_us?.section_second_button_link[language || "en"]
           );
+          setValue(
+            "section_second_background_color",
+            res?.about_us?.section_second_background_color[language || "en"]
+          );
+
+          setValue(
+            "section_second_text_color",
+            res?.about_us?.section_second_text_color[language || "en"]
+          );
+
 
           setValue(
             "section_third_title",
@@ -2178,6 +2236,14 @@ const useStoreHomeSubmit = () => {
             res?.about_us?.section_third_description[language || "en"]
           );
 
+          setValue(
+            "section_third_background_color",
+            res?.about_us?.section_third_background_color[language || "en"]
+          );
+          setValue(
+            "section_third_text_color",
+            res?.about_us?.section_third_text_color[language || "en"]
+          );
           setValue(
             "section_four_title",
             res?.about_us?.section_four_title[language || "en"]
@@ -2191,7 +2257,14 @@ const useStoreHomeSubmit = () => {
             "section_four_description_1",
             res?.about_us?.section_four_description_1[language || "en"]
           );
-
+          setValue(
+            "section_four_background_color",
+            res?.about_us?.section_four_background_color[language || "en"]
+          );
+          setValue(
+            "section_four_text_color",
+            res?.about_us?.section_four_text_color[language || "en"]
+          );
           setValue(
             "section_five_title",
             res?.about_us?.section_five_title[language || "en"]
@@ -2209,6 +2282,14 @@ const useStoreHomeSubmit = () => {
           setValue(
             "section_five_button_link",
             res?.about_us?.section_five_button_link[language || "en"]
+          );
+          setValue(
+            "section_five_background_color",
+            res?.about_us?.section_five_background_color[language || "en"]
+          );
+          setValue(
+            "section_five_text_color",
+            res?.about_us?.section_five_text_color[language || "en"]
           );
 
           setValue(

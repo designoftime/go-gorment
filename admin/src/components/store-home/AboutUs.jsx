@@ -167,7 +167,6 @@ const AboutUs = ({
                   />
                 </div>
               </div>
-
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
                   {t("PageTitle")}
@@ -219,7 +218,6 @@ const AboutUs = ({
                   <Error errorName={errors.section_one_button_name} />
                 </div>
               </div>
-
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
                   {t("ButtonLink")}
@@ -236,8 +234,39 @@ const AboutUs = ({
                   <Error errorName={errors.section_one_button_link} />
                 </div>
               </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="section_one_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.section_one_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="section_one_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.section_one_text_color} />
+                </div>
+              </div>
             </div>
-            
 
             <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
               Section Second
@@ -369,6 +398,38 @@ const AboutUs = ({
                   <Error errorName={errors.section_second_button_link} />
                 </div>
               </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="section_second_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.section_second_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="section_second_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.section_second_text_color} />
+                </div>
+              </div>
             </div>
 
             <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 md:mb-3 mb-1">
@@ -446,6 +507,38 @@ const AboutUs = ({
                   <Error
                     errorName={(errors.name = "section_third_description")}
                   />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="section_third_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.section_third_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="section_third_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.section_third_text_color} />
                 </div>
               </div>
             </div>
@@ -544,6 +637,38 @@ const AboutUs = ({
                   <Error
                     errorName={(errors.name = "section_four_description_1")}
                   />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="section_four_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.section_four_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="section_four_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.section_four_text_color} />
                 </div>
               </div>
             </div>
@@ -656,6 +781,38 @@ const AboutUs = ({
                     placeholder="Button Link"
                   />
                   <Error errorName={errors.section_five_button_link} />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="section_five_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.section_five_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="section_five_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.section_five_text_color} />
                 </div>
               </div>
             </div>
