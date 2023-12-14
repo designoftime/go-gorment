@@ -862,12 +862,6 @@ const StoreHome = () => {
                 couponList1={couponList1}
                 setCouponList1={setCouponList1}
                 isSubmitting={isSubmitting}
-                setSectionOne={setSectionOne}
-                sectionOne={sectionOne}
-                leftSideImg={leftSideImg}
-                setLeftSideImg={setLeftSideImg}
-                rightSideImg={rightSideImg}
-                setRightSideImg={setRightSideImg}
                 setOfferSectionFirst={setOfferSectionFirst}
                 setOfferLeftSideImg={setOfferLeftSideImg}
                 offerSectionFirst={offerSectionFirst}
