@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navigation2 } from '../Navigation/Navigation2'
 import '../Accounts/Ollys-Login/Login.css'
 import './Shop.css'
@@ -35,10 +35,28 @@ import { ShopBanner } from './ShopBanner'
 import { ShopSnacksBundle } from './ShopSnacksBundle'
 import { Merch } from './Merch'
 import { OneFeedsHome } from '../Home/OnefeedsHome/OneFeedsHome'
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
 
 
 
 export const Shop = () => {
+  const [showValue, setShowValue] = useState(window.innerWidth);
+  const [dropdownOpen, setDropDownOpen] = useState(false);
+  const toggleOpen = () => {
+    setDropDownOpen(!dropdownOpen);
+  }
+
+  useEffect(() => {
+    const handleWidth = () => {
+      setShowValue(window.innerWidth);
+    }
+    window.addEventListener('resize', handleWidth);
+    return () => {
+      window.removeEventListener('resize', handleWidth);
+    }
+  })
   const ShopPretzelBanner = [
     {
       "id": 1,
@@ -151,24 +169,39 @@ export const Shop = () => {
       <div className='my-5'>
         <h1 className='LoginHeading text-center '>Shop Snacks</h1>
         <div>
-          <div className="Shopmenu-bar container g-0 mx-auto">
+          <div className="Shopmenu-bar py-5 container g-0 mx-auto">
             <div className="Shopmenubar-content mx-auto">
               <div className="mainbar container mx-auto text-center my-5">
-                <div className="barcontent mx-auto d-flex justify-content-evenly">
+                {showValue > 1000 ? <div className="barcontent mx-auto d-flex justify-content-evenly">
                   <h3><button className='barbutton text-decoration-none'>ALL</button></h3>
                   <h3><button className='barbutton text-decoration-none'>PRETZEL THINS</button></h3>
                   <h3><button className='barbutton text-decoration-none'>OLIVES</button></h3>
                   <h3><button className='barbutton text-decoration-none'>CHOCO PRETZEL</button></h3>
                   <h3><button className='barbutton text-decoration-none'>BUNDLES</button></h3>
                   <h3><button className='barbutton text-decoration-none'>MERCH</button></h3>
+                </div> : <div class="Dropdown">
+                  <div className="maindropdown">
+                    <button class="barbutton dropdown-toggle" onClick={toggleOpen} type="button" >
+                      All
+                    </button>
+                  </div>
+                    <ul class="Dropmenubox py-2" >
+                      <li><button class="barbutton" href="#">Action</button></li>
+                      <li><button class="barbutton" href="#">Another action</button></li>
+                      <li><button class="barbutton" href="#">Something else here</button></li>
+                    </ul>
+
                 </div>
+
+                }
+
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className="pretzelThins">
-        <ShopBanner ShopPretzelBanner={ShopPretzelBanner} /> 
+        <ShopBanner ShopPretzelBanner={ShopPretzelBanner} />
         <Products ShopPretezelProducts={ShopPretezelProducts} />
       </div>
       <div className='OlivesSection'>

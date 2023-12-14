@@ -2,6 +2,7 @@
     color: #4c4294 !important;
     font-family: barcontenttext;
     font-weight: 500;
+    font-size: larger;
     background-color: white;
     padding: 8px 15px;
     border: 3px solid white;
@@ -22,7 +23,6 @@
 .Shopbanner-left {
     width: 50%;
     border-bottom: 3px solid #4c4294;
-
 }
 
 .Shopbanner-header {
@@ -30,6 +30,7 @@
     color: #4c4294;
     font-weight: bold;
     font-family: Snacksgifheaderfont;
+    line-height: 5.5rem;
     text-transform: uppercase;
 }
 
@@ -137,8 +138,42 @@
     font-family: Snacksgifheaderfont;
 }
 /* View Product Section */
-@media(max-width=1000px){
+@media(max-width:1000px){
     .Shop-banner{
-        flex-direction: column!important;
+       flex-direction: column;
     }
+    .Shopbanner-left{
+        width: 100%;
+        margin: 3rem auto!important;
+    }
+    .Shopbanner-header{
+        margin: 3rem auto!important;
+        text-align: center;
+        line-height: 5.5rem;
+        font-size: 95px;
+    }
+    .Shopbanner-para {
+        width: 90%;
+        margin: 2rem auto!important;
+    }
+    .ShopBiconsmain{
+        margin: 3rem auto!important
+    }
+    .maindropdown{
+        overflow: hidden;
+        position: relative;
+    }
+    .Dropmenubox{
+        width: 100%;
+        text-align: center;
+        border: 3px solid #412f59;
+        position: absolute;  
+        margin: 0 auto;
+    }
+    .barbutton{
+        width: 80%;
+        font-size: larger;
+        border-radius: 0!important;
+    }
+    
 }
