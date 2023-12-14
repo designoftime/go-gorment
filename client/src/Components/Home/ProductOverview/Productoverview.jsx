@@ -17,7 +17,7 @@ export const Productoverview = ({testimonialData}) => {
                     <div className="common-wrap container g-0 mx-auto clear mx-auto">
                         <div className="product-overview-inner flex">
                             <div className="product-overview-title ">
-                                <h2 className="text-center pt-5 pb-3 wow animate__animated animate__fadeInUp" >{testimonialData.testimonial_title_header.en}</h2>
+                            {testimonialData.testimonial_title_header.en && <h2 className="text-center pt-5 pb-3 wow animate__animated animate__fadeInUp" >{testimonialData.testimonial_title_header.en}</h2>}
 
                             </div>
                             <div className="product-overview-item-wrap container g-0 mx-auto d-flex">
@@ -32,8 +32,8 @@ export const Productoverview = ({testimonialData}) => {
                                                 <img className='pologoimg' src={testimonialData[`testimonial_banner_img_${val}`]} alt="product-overview-logo" />
                                             </div>
                                             <div className="product-overview-item-content">
-                                            <h6 className = "poheader"> {testimonialData[`testimonial_title_${val}`]?.en} </h6>
-                                                <p className = "pocontent" >{testimonialData[`testimonial_description_${val}`]?.en}</p>
+                                            {testimonialData[`testimonial_title_${val}`]?.en && <h6 className = "poheader">{testimonialData[`testimonial_title_${val}`]?.en} </h6>}
+                                                {testimonialData[`testimonial_description_${val}`]?.en && <p className = "pocontent" >{testimonialData[`testimonial_description_${val}`]?.en}</p>}
                                             </div>
                                         </div>
                                         )
