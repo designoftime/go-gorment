@@ -176,6 +176,19 @@ const useStoreHomeSubmit = () => {
   const [testimonialBannerImgThree, setTestimonialBannerImgThree] =
     useState("");
 
+  const [offerSectionFirst, setOfferSectionFirst] = useState(true);
+  const [offerLeftSideImg, setOfferLeftSideImg] = useState("");
+  const [offerRightSideImg, setOfferRightSideImg] = useState("");
+  const [offerSectionSecond, setOfferSectionSecond] = useState(true);
+  const [offferParentImg, setOfferParentImg] = useState("");
+  const [offerChildImg, setOfferChildImg] = useState("");
+  const [offerBackgroundImg, setOfferBackgroundImg] = useState("");
+  const [offerSectionThird, setOfferSectionThird] = useState(true);
+  const [offerTestimonial, setOfferTestimonial] = useState(true);
+  const [offerTestimonilaImgFirst, setOfferTestimonilaImgFirst] = useState("");
+  const [offTestimonialImgSecond, setOfferTestimonialImgSecond] = useState("");
+  const [offerTestimonialImgThird, setTestimonialImgThird] = useState("");
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { socket } = useNotification();
@@ -281,42 +294,39 @@ const useStoreHomeSubmit = () => {
 
             quick_delivery_link: data.quick_delivery_link,
             quick_delivery_img: quickSectionImage,
-            testimonial_status:testimonial,
-            testimonial_banner_img_one:testimonialBannerImg,
-            testimonial_banner_img_two:testimonialBannerImgTwo,
-            testimonial_banner_img_three:testimonialBannerImgThree,
-            
-            testimonial_title_header:{
+            testimonial_status: testimonial,
+            testimonial_banner_img_one: testimonialBannerImg,
+            testimonial_banner_img_two: testimonialBannerImgTwo,
+            testimonial_banner_img_three: testimonialBannerImgThree,
+
+            testimonial_title_header: {
               ...resData?.home?.testimonial_title_header,
-              [language]:data.testimonial_title_header||""
+              [language]: data.testimonial_title_header || "",
             },
-            testimonial_title_one:{
+            testimonial_title_one: {
               ...resData?.home?.testimonial_title_one,
-              [language]:data.testimonial_title_one||""
+              [language]: data.testimonial_title_one || "",
             },
-            testimonial_description_one:{
+            testimonial_description_one: {
               ...resData?.home?.testimonial_description_one,
-              [language]:data.testimonial_description_one||""
+              [language]: data.testimonial_description_one || "",
             },
-            testimonial_title_two:{
+            testimonial_title_two: {
               ...resData?.home?.testimonial_title_two,
-              [language]:data.testimonial_title_two||""
+              [language]: data.testimonial_title_two || "",
             },
-            testimonial_description_two:{
+            testimonial_description_two: {
               ...resData?.home?.testimonial_description_two,
-              [language]:data.testimonial_description_two||""
+              [language]: data.testimonial_description_two || "",
             },
-            testimonial_title_three:{
+            testimonial_title_three: {
               ...resData?.home?.testimonial_title_three,
-              [language]:data.testimonial_title_three||""
+              [language]: data.testimonial_title_three || "",
             },
-            testimonial_description_three:{
+            testimonial_description_three: {
               ...resData?.home?.testimonial_description_three,
-              [language]:data.testimonial_description_three||""
+              [language]: data.testimonial_description_three || "",
             },
-
-
-
 
             discount_title: {
               ...resData?.home?.discount_title,
@@ -446,33 +456,33 @@ const useStoreHomeSubmit = () => {
             founder_five_img: ourFounderFiveImage,
             founder_six_img: ourFounderSixImage,
 
-            section_one_title: {
-              ...resData?.about_us?.section_one_title,
-              [language]: data.section_one_title || "",
+            section_first_title: {
+              ...resData?.about_us?.section_first_title,
+              [language]: data.section_first_title || "",
             },
 
-            section_one_description: {
-              ...resData?.about_us?.section_one_description,
-              [language]: data.section_one_description || "",
+            section_first_description: {
+              ...resData?.about_us?.section_first_description,
+              [language]: data.section_first_description || "",
             },
 
-            section_one_button_name: {
-              ...resData?.about_us?.section_one_button_name,
-              [language]: data.section_one_button_name || "",
+            section_first_button_name: {
+              ...resData?.about_us?.section_first_button_name,
+              [language]: data.section_first_button_name || "",
             },
 
-            section_one_button_link: {
-              ...resData?.about_us?.section_one_button_link,
-              [language]: data.section_one_button_link || "",
+            section_first_button_link: {
+              ...resData?.about_us?.section_first_button_link,
+              [language]: data.section_first_button_link || "",
             },
 
-            section_one_background_color: {
-              ...resData?.about_us?.section_one_background_color,
-              [language]: data.section_one_background_color || "",
+            section_first_background_color: {
+              ...resData?.about_us?.section_first_background_color,
+              [language]: data.section_first_background_color || "",
             },
-            section_one_text_color: {
-              ...resData?.about_us?.section_one_text_color,
-              [language]: data.section_one_text_color || "",
+            section_first_text_color: {
+              ...resData?.about_us?.section_first_text_color,
+              [language]: data.section_first_text_color || "",
             },
 
             section_second_title: {
@@ -520,7 +530,7 @@ const useStoreHomeSubmit = () => {
             section_third_background_color: {
               ...resData?.about_us?.section_third_background_color,
               [language]: data.section_third_background_color || "",
-            },    
+            },
             section_third_text_color: {
               ...resData?.about_us?.section_third_text_color,
               [language]: data.section_third_text_color || "",
@@ -755,6 +765,124 @@ const useStoreHomeSubmit = () => {
               [language]: data.offers_page_title || "",
             },
             coupon_code: couponList1,
+
+            section_first_status:offerSectionFirst,
+            section_second_status:offerSectionSecond,
+            section_third_status:offerSectionThird,
+            section_four_status:offerTestimonial,
+            section_first_left_side_img:offerLeftSideImg,
+            section_first_right_side_img:offerRightSideImg,
+            section_second_parent_img:offferParentImg,
+            section_second_child_img:offerChildImg,
+            section_third_background_img:offerBackgroundImg,
+            section_four_img_one:offerTestimonilaImgFirst,
+            section_four_img_two:offTestimonialImgSecond,
+            section_four_img_three:offerTestimonialImgThird,
+
+            offer_section_first_title: {
+              ...resData?.offers?.offer_section_first_title,
+              [language]: data.offer_section_first_title || "",
+            },
+            offer_section_first_description: {
+              ...resData?.offers?.offer_section_first_description,
+              [language]: data.offer_section_first_description || "",
+            },
+            offer_section_first_button_name: {
+              ...resData?.offers?.offer_section_first_button_name,
+              [language]: data.offer_section_first_button_name || "",
+            },
+            offer_section_first_button_link: {
+              ...resData?.offers?.offer_section_first_button_link,
+              [language]: data.offer_section_first_button_link || "",
+            },
+            offer_section_first_background_color: {
+              ...resData?.offers?.offer_section_first_background_color,
+              [language]: data.offer_section_first_background_color || "",
+            },
+            offer_section_first_text_color: {
+              ...resData?.offers?.offer_section_first_text_color,
+              [language]: data.offer_section_first_text_color || "",
+            },
+            offer_section_second_title: {
+              ...resData?.offers?.offer_section_second_title,
+              [language]: data.offer_section_second_title || "",
+            },
+            offer_section_second_title_1: {
+              ...resData?.offers?.offer_section_second_title_1,
+              [language]: data.offer_section_second_title_1 || "",
+            },
+            offer_section_second_description: {
+              ...resData?.offers?.offer_section_second_description,
+              [language]: data.offer_section_second_description || "",
+            },
+            offer_section_second_description_1: {
+              ...resData?.offers?.offer_section_second_description_1,
+              [language]: data.offer_section_second_description_1 || "",
+            },
+            offer_section_second_background_color: {
+              ...resData?.offers?.offer_section_second_background_color,
+              [language]: data.offer_section_second_background_color || "",
+            },
+            offer_section_second_text_color: {
+              ...resData?.offers?.offer_section_second_text_color,
+              [language]: data.offer_section_second_text_color || "",
+            },
+            offer_section_third_title: {
+              ...resData?.offers?.offer_section_third_title,
+              [language]: data.offer_section_third_title || "",
+            },
+            offer_section_third_description: {
+              ...resData?.offers?.offer_section_third_description,
+              [language]: data.offer_section_third_description || "",
+            },
+          
+            offer_section_third_background_color: {
+              ...resData?.offers?.offer_section_third_background_color,
+              [language]: data.offer_section_third_background_color || "",
+            },
+            offer_section_third_text_color: {
+              ...resData?.offers?.offer_section_third_text_color,
+              [language]: data.offer_section_third_text_color || "",
+            },
+            offer_testimonial_title_header: {
+              ...resData?.offers?.offer_testimonial_title_header,
+              [language]: data.offer_testimonial_title_header || "",
+            },
+            offer_testimonial_title_one: {
+              ...resData?.offers?.offer_testimonial_title_one,
+              [language]: data.offer_testimonial_title_one || "",
+            },
+            offer_testimonial_description_one: {
+              ...resData?.offers?.offer_testimonial_description_one,
+              [language]: data.offer_testimonial_description_one || "",
+            },
+            offer_testimonial_title_two: {
+              ...resData?.offers?.offer_testimonial_title_two,
+              [language]: data.offer_testimonial_title_two || "",
+            },
+            offer_testimonial_description_two: {
+              ...resData?.offers?.offer_testimonial_description_two,
+              [language]: data.offer_testimonial_description_two || "",
+            },
+            offer_testimonial_title_three: {
+              ...resData?.offers?.offer_testimonial_title_three,
+              [language]: data.offer_testimonial_title_three || "",
+            },
+            offer_testimonial_description_three: {
+              ...resData?.offers?.offer_testimonial_description_three,
+              [language]: data.offer_testimonial_description_three || "",
+            },
+            offer_testimonial_background_color: {
+              ...resData?.offers?.offer_testimonial_background_color,
+              [language]: data.offer_testimonial_background_color || "",
+            },
+            offer_testimonial_text_color: {
+              ...resData?.offers?.offer_testimonial_text_color,
+              [language]: data.offer_testimonial_text_color || "",
+            },
+
+
+
           },
           privacy_policy: {
             status: privacyPolicy,
@@ -1524,35 +1652,38 @@ const useStoreHomeSubmit = () => {
           setFeaturePromoFiveImg(res?.home?.feature_promo_five_img);
 
           setTestimonial(res?.home?.testimonial_status);
-          setTestimonialBannerImg(res?.home?.testimonial_banner_img_one)
-          setTestimonialBannerImgTwo(res?.home?.testimonial_banner_img_two)
-          setTestimonialBannerImgThree(res?.home?.testimonial_banner_img_three)
+          setTestimonialBannerImg(res?.home?.testimonial_banner_img_one);
+          setTestimonialBannerImgTwo(res?.home?.testimonial_banner_img_two);
+          setTestimonialBannerImgThree(res?.home?.testimonial_banner_img_three);
 
           setValue(
             "testimonial_title_header",
             res?.home?.testimonial_title_header[language || "en"]
-          ); setValue(
+          );
+          setValue(
             "testimonial_title_one",
             res?.home?.testimonial_title_one[language || "en"]
-          ); setValue(
+          );
+          setValue(
             "testimonial_description_one",
             res?.home?.testimonial_description_one[language || "en"]
-          ); setValue(
+          );
+          setValue(
             "testimonial_title_two",
             res?.home?.testimonial_title_two[language || "en"]
-          ); setValue(
+          );
+          setValue(
             "testimonial_description_two",
             res?.home?.testimonial_description_two[language || "en"]
-          ); setValue(
+          );
+          setValue(
             "testimonial_title_three",
             res?.home?.testimonial_title_three[language || "en"]
-          ); setValue(
+          );
+          setValue(
             "testimonial_description_three",
             res?.home?.testimonial_description_three[language || "en"]
           );
-
-
-
 
           setValue(
             "discount_title",
@@ -2141,9 +2272,9 @@ const useStoreHomeSubmit = () => {
 
           // about us
 
-          setSectionOne(res?.about_us?.section_one_status);
-          setLeftSideImg(res?.about_us?.section_one_left_img);
-          setRightSideImg(res?.about_us?.section_one_right_img);
+          setSectionOne(res?.about_us?.section_first_status);
+          setLeftSideImg(res?.about_us?.section_first_left_img);
+          setRightSideImg(res?.about_us?.section_first_right_img);
           setSectionSecond(res?.about_us?.section_second_status);
           setSectionSecondImg(res?.about_us?.section_second_img);
           setSectionThird(res?.about_us?.section_third_status);
@@ -2169,29 +2300,29 @@ const useStoreHomeSubmit = () => {
           setOurFounderSixImage(res?.about_us?.founder_six_img);
 
           setValue(
-            "section_one_title",
-            res?.about_us?.section_one_title[language || "en"]
+            "section_first_title",
+            res?.about_us?.section_first_title[language || "en"]
           );
 
           setValue(
-            "section_one_description",
-            res?.about_us?.section_one_description[language || "en"]
+            "section_first_description",
+            res?.about_us?.section_first_description[language || "en"]
           );
           setValue(
-            "section_one_button_name",
-            res?.about_us?.section_one_button_name[language || "en"]
+            "section_first_button_name",
+            res?.about_us?.section_first_button_name[language || "en"]
           );
           setValue(
-            "section_one_button_link",
-            res?.about_us?.section_one_button_link[language || "en"]
+            "section_first_button_link",
+            res?.about_us?.section_first_button_link[language || "en"]
           );
           setValue(
-            "section_one_background_color",
-            res?.about_us?.section_one_background_color[language || "en"]
+            "section_first_background_color",
+            res?.about_us?.section_first_background_color[language || "en"]
           );
           setValue(
-            "section_one_text_color",
-            res?.about_us?.section_one_text_color[language || "en"]
+            "section_first_text_color",
+            res?.about_us?.section_first_text_color[language || "en"]
           );
 
           setValue(
@@ -2225,7 +2356,6 @@ const useStoreHomeSubmit = () => {
             "section_second_text_color",
             res?.about_us?.section_second_text_color[language || "en"]
           );
-
 
           setValue(
             "section_third_title",
@@ -2545,6 +2675,43 @@ const useStoreHomeSubmit = () => {
           setOffersPageHeader(res?.offers?.header_status);
           setOffersHeaderBg(res?.offers?.header_bg);
 
+
+          setOfferSectionFirst(res?.offers?.section_first_status);
+          setOfferLeftSideImg(res?.offers?.section_first_left_side_img);
+          setOfferRightSideImg(res?.offers?.section_first_right_side_img);
+          setOfferSectionSecond(res?.offers?.section_second_status);
+          setOfferParentImg(res?.offers?.section_second_parent_img);
+          setOfferChildImg(res?.offers?.section_second_child_img);
+          setOfferBackgroundImg(res?.offers?.section_third_background_img);
+          setOfferSectionThird(res?.offers?.section_third_status);
+          setOfferTestimonial(res?.offers?.section_four_status);
+          setOfferTestimonilaImgFirst(res?.offers?.section_four_img_one);
+          setOfferTestimonialImgSecond(res?.offers?.section_four_img_two);
+          setTestimonialImgThird(res?.offers?.section_four_img_three);
+          setValue("offer_section_first_title", res?.offers?.offer_section_first_title[language || "en"]);
+          setValue("offer_section_first_description", res?.offers?.offer_section_first_description[language || "en"]);
+          setValue("offer_section_first_button_name", res?.offers?.offer_section_first_button_name[language || "en"]);
+          setValue("offer_section_first_button_link", res?.offers?.offer_section_first_button_link[language || "en"]);
+          setValue("offer_section_first_background_color", res?.offers?.offer_section_first_background_color[language || "en"]);
+          setValue("offer_section_first_text_color", res?.offers?.offer_section_first_text_color[language || "en"]);
+          setValue("offer_section_second_title", res?.offers?.offer_section_second_title[language || "en"]);
+          setValue("offer_section_second_title_1", res?.offers?.offer_section_second_title_1[language || "en"]);
+          setValue("offer_section_second_description", res?.offers?.offer_section_second_description[language || "en"]);
+          setValue("offer_section_second_description_1", res?.offers?.offer_section_second_description_1[language || "en"]);
+          setValue("offer_section_second_background_color", res?.offers?.offer_section_second_background_color[language || "en"]);
+          setValue("offer_section_third_title", res?.offers?.offer_section_third_title[language || "en"]);
+          setValue("offer_section_third_description", res?.offers?.offer_section_third_description[language || "en"]);
+          setValue("offer_section_third_background_color", res?.offers?.offer_section_third_background_color[language || "en"]);
+          setValue("offer_section_third_text_color", res?.offers?.offer_section_third_text_color[language || "en"]);
+          setValue("offer_testimonial_title_header", res?.offers?.offer_testimonial_title_header[language || "en"]);
+          setValue("offer_testimonial_title_one", res?.offers?.offer_testimonial_title_one[language || "en"]);
+          setValue("offer_testimonial_description_one", res?.offers?.offer_testimonial_description_one[language || "en"]);
+          setValue("offer_testimonial_title_two", res?.offers?.offer_testimonial_title_two[language || "en"]);
+          setValue("offer_testimonial_description_two", res?.offers?.offer_testimonial_description_two[language || "en"]);
+          setValue("offer_testimonial_title_three", res?.offers?.offer_testimonial_title_three[language || "en"]);
+          setValue("offer_testimonial_description_three", res?.offers?.offer_testimonial_description_three[language || "en"]);
+          setValue("offer_testimonial_background_color", res?.offers?.offer_testimonial_background_color[language || "en"]);
+          setValue("offer_testimonial_text_color", res?.offers?.offer_testimonial_text_color[language || "en"]);
           setValue("offers_page_title", res?.offers?.title[language || "en"]);
           // setValue('offers_coupon_code', res.offers_coupon_code);
           setCouponList1(res?.offers?.coupon_code);
@@ -2824,8 +2991,6 @@ const useStoreHomeSubmit = () => {
     secondSliderImageFive,
     setSecondSliderImageFive,
 
-
-
     testimonial,
     setTestimonial,
     testimonialBannerImg,
@@ -2834,6 +2999,31 @@ const useStoreHomeSubmit = () => {
     setTestimonialBannerImgTwo,
     testimonialBannerImgThree,
     setTestimonialBannerImgThree,
+
+    setOfferSectionFirst,
+    setOfferLeftSideImg,
+    offerSectionFirst,
+    offerLeftSideImg,
+    setOfferRightSideImg,
+    offerRightSideImg,
+    setOfferSectionSecond,
+    offerSectionSecond,
+    offferParentImg,
+    setOfferParentImg,
+    offerChildImg,
+    setOfferChildImg,
+    offerBackgroundImg,
+    setOfferBackgroundImg,
+    setOfferSectionThird,
+    offerSectionThird,
+    setOfferTestimonial,
+    offerTestimonial,
+    setOfferTestimonilaImgFirst,
+    offerTestimonilaImgFirst,
+    offTestimonialImgSecond,
+    setOfferTestimonialImgSecond,
+    offerTestimonialImgThird,
+    setTestimonialImgThird,
   };
 };
 

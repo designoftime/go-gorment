@@ -176,11 +176,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Page Title"
-                    name="section_one_title"
+                    name="section_first_title"
                     type="text"
                     placeholder={t("PageTitle")}
                   />
-                  <Error errorName={errors.section_one_title} />
+                  <Error errorName={errors.section_first_title} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -193,12 +193,12 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Top Description"
-                    name="section_one_description"
+                    name="section_first_description"
                     type="text"
                     placeholder="Top Description"
                   />
                   <Error
-                    errorName={(errors.name = "section_one_description")}
+                    errorName={(errors.name = "section_first_description")}
                   />
                 </div>
               </div>
@@ -211,11 +211,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Button Name"
-                    name="section_one_button_name"
+                    name="section_first_button_name"
                     type="text"
                     placeholder={t("ButtonName")}
                   />
-                  <Error errorName={errors.section_one_button_name} />
+                  <Error errorName={errors.section_first_button_name} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -227,11 +227,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Button Link "
-                    name="section_one_button_link"
+                    name="section_first_button_link"
                     type="text"
                     placeholder="Button Link"
                   />
-                  <Error errorName={errors.section_one_button_link} />
+                  <Error errorName={errors.section_first_button_link} />
                 </div>
               </div>
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -243,11 +243,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Background Color "
-                    name="section_one_background_color"
+                    name="section_first_background_color"
                     type="text"
                     placeholder="Background Color"
                   />
-                  <Error errorName={errors.section_one_background_color} />
+                  <Error errorName={errors.section_first_background_color} />
                 </div>
               </div>{" "}
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -259,11 +259,11 @@ const AboutUs = ({
                     required
                     register={register}
                     label="Text Color "
-                    name="section_one_text_color"
+                    name="section_first_text_color"
                     type="text"
                     placeholder="Text Color"
                   />
-                  <Error errorName={errors.section_one_text_color} />
+                  <Error errorName={errors.section_first_text_color} />
                 </div>
               </div>
             </div>

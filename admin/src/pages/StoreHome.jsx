@@ -279,6 +279,31 @@ const StoreHome = () => {
     setTestimonialBannerImgTwo,
     testimonialBannerImgThree,
     setTestimonialBannerImgThree,
+
+    setOfferSectionFirst,
+    offerSectionFirst,
+    setOfferLeftSideImg,
+    offerLeftSideImg,
+    setOfferRightSideImg,
+    offerRightSideImg,
+    setOfferSectionSecond,
+    offerSectionSecond,
+    offferParentImg,
+    setOfferParentImg,
+    offerChildImg,
+    setOfferChildImg,
+    offerBackgroundImg,
+    setOfferBackgroundImg,
+    setOfferSectionThird,
+    offerSectionThird,
+    setOfferTestimonial,
+    offerTestimonial,
+    setOfferTestimonilaImgFirst,
+    offerTestimonilaImgFirst,
+    offTestimonialImgSecond,
+    setOfferTestimonialImgSecond,
+    offerTestimonialImgThird,
+    setTestimonialImgThird,
   } = useStoreHomeSubmit();
 
   useEffect(() => {
@@ -837,6 +862,36 @@ const StoreHome = () => {
                 couponList1={couponList1}
                 setCouponList1={setCouponList1}
                 isSubmitting={isSubmitting}
+                setSectionOne={setSectionOne}
+                sectionOne={sectionOne}
+                leftSideImg={leftSideImg}
+                setLeftSideImg={setLeftSideImg}
+                rightSideImg={rightSideImg}
+                setRightSideImg={setRightSideImg}
+                setOfferSectionFirst={setOfferSectionFirst}
+                setOfferLeftSideImg={setOfferLeftSideImg}
+                offerSectionFirst={offerSectionFirst}
+                offerLeftSideImg={offerLeftSideImg}
+                setOfferRightSideImg={setOfferRightSideImg}
+                offerRightSideImg={offerRightSideImg}
+                setOfferSectionSecond={setOfferSectionSecond}
+                offerSectionSecond={offerSectionSecond}
+                offferParentImg={offferParentImg}
+                setOfferParentImg={setOfferParentImg}
+                offerChildImg={offerChildImg}
+                setOfferChildImg={setOfferChildImg}
+                offerBackgroundImg={offerBackgroundImg}
+                setOfferBackgroundImg={setOfferBackgroundImg}
+                setOfferSectionThird={setOfferSectionThird}
+                offerSectionThird={offerSectionThird}
+                setOfferTestimonial={setOfferTestimonial}
+                offerTestimonial={offerTestimonial}
+                setOfferTestimonilaImgFirst={setOfferTestimonilaImgFirst}
+                offerTestimonilaImgFirst={offerTestimonilaImgFirst}
+                offTestimonialImgSecond={offTestimonialImgSecond}
+                setOfferTestimonialImgSecond={setOfferTestimonialImgSecond}
+                offerTestimonialImgThird={offerTestimonialImgThird}
+                setTestimonialImgThird={setTestimonialImgThird}
               />
             </form>
           </div>
