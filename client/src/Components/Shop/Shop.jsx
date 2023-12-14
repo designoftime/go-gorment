@@ -26,7 +26,7 @@ import Cal130imge from './images/OLLY_S-ICONS-Loose-29.svg'
 import Haslefreeblue from './images/OLLY_SB-ICONS-hasle-freeblue.svg'
 import CoPretzelVarietyimge from './images/ChocoVaritey_360x.png'
 import CoPretzelVarietyhoverimge from './images/Choc-mixed-case_360x.png'
-import MilkChocoPT from './images/MilkChoc_360x.png' 
+import MilkChocoPT from './images/MilkChoc_360x.png'
 import MilkChocoPThover from './images/MilkChoc-Case_360x.png'
 import DarkChocoPT from './images/DarkChoc_360x.png'
 import DarkChocoPThover from './images/DarkChoc-Case_360x.png'
@@ -35,6 +35,7 @@ import { ShopBanner } from './ShopBanner'
 import { ShopSnacksBundle } from './ShopSnacksBundle'
 import { Merch } from './Merch'
 import { OneFeedsHome } from '../Home/OnefeedsHome/OneFeedsHome'
+
 
 
 export const Shop = () => {
@@ -143,41 +144,43 @@ export const Shop = () => {
       "reviews": "6"
     },
   ]
-  
+
 
   return (
     <div>
       <div className='my-5'>
-        <h1 className='LoginHeading text-center'>Shop Snacks</h1>
+        <h1 className='LoginHeading text-center '>Shop Snacks</h1>
         <div>
           <div className="Shopmenu-bar container g-0 mx-auto">
             <div className="Shopmenubar-content mx-auto">
-              <div className="mainbar text-center my-5">
-                <div className="barcontent mx-auto d-flex justify-content-between">
-                  <h3><a href="#" className='barcontenttext text-decoration-none'>ALL</a></h3>
-                  <h3><a href="#" className='barcontenttext text-decoration-none'>PRETZEL THINS</a></h3>
-                  <h3><a href="#" className='barcontenttext text-decoration-none'>OLIVES</a></h3>
-                  <h3><a href="#" className='barcontenttext text-decoration-none'>CHOCO PRETZEL</a></h3>
-                  <h3><a href="#" className='barcontenttext text-decoration-none'>BUNDLES</a></h3>
-                  <h3><a href="#" className='barcontenttext text-decoration-none'>MERCH</a></h3>
+              <div className="mainbar container mx-auto text-center my-5">
+                <div className="barcontent mx-auto d-flex justify-content-evenly">
+                  <h3><button className='barbutton text-decoration-none'>ALL</button></h3>
+                  <h3><button className='barbutton text-decoration-none'>PRETZEL THINS</button></h3>
+                  <h3><button className='barbutton text-decoration-none'>OLIVES</button></h3>
+                  <h3><button className='barbutton text-decoration-none'>CHOCO PRETZEL</button></h3>
+                  <h3><button className='barbutton text-decoration-none'>BUNDLES</button></h3>
+                  <h3><button className='barbutton text-decoration-none'>MERCH</button></h3>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <ShopBanner ShopPretzelBanner={ShopPretzelBanner} />
-      <Products ShopPretezelProducts={ShopPretezelProducts}  />
+      <div className="pretzelThins">
+        <ShopBanner ShopPretzelBanner={ShopPretzelBanner} /> 
+        <Products ShopPretezelProducts={ShopPretezelProducts} />
+      </div>
       <div className='OlivesSection'>
         <ShopBanner ShopOlivesBanner={ShopOlivesBanner} />
         <Products ShopOlivesProducts={ShopOlivesProducts} />
       </div>
       <ShopBanner ShopChocoPretzelBanner={ShopChocoPretzelBanner} />
-      <Products ShopChocoPretzelProducts={ShopChocoPretzelProducts}/>
+      <Products ShopChocoPretzelProducts={ShopChocoPretzelProducts} />
       {/* Snacks-Bundle-Section */}
-      <ShopSnacksBundle/>
-      <Merch/>
-      <OneFeedsHome/>
+      <ShopSnacksBundle />
+      <Merch />
+      <OneFeedsHome />
     </div>
 
   )

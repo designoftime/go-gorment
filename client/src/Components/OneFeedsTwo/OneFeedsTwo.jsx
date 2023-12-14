@@ -6,8 +6,10 @@ import oneFeedsBannerimge from './images/Rectangle_118_3x_ca62faef-cdf9-4da3-953
 import Feeds from './images/feed_180x.avif'
 import { Link } from 'react-router-dom'
 import { Productoverview } from '../Home/ProductOverview/Productoverview'
+import { useSelector } from 'react-redux'
 export const OneFeedsTwo = () => {
     const [showValue, setShowValue] = useState(window.innerWidth);
+    const dynamicStoreData = useSelector(store => store?.storeSettings);
     useEffect(() => {
         const handleWidth = () => {
             setShowValue(window.innerWidth);
@@ -74,9 +76,9 @@ export const OneFeedsTwo = () => {
                     </div>
                 </div>
             </div>
-           
+            <Productoverview testimonialData={dynamicStoreData?.home} />
         </div>
-         <Productoverview/>
+         
          </>
     )
 }

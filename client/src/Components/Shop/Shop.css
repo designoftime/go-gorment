@@ -1,7 +1,17 @@
-.barcontenttext {
+.barbutton {
     color: #4c4294 !important;
-    font-family: Snacksgifheaderfont;
+    font-family: barcontenttext;
     font-weight: 500;
+    background-color: white;
+    padding: 8px 15px;
+    border: 3px solid white;
+}
+.barbutton:focus{
+    border-color: #4c4294;
+    border-radius: 15%;  
+}
+.barcontent{
+    width: 100%;
 }
 
 .Shop-banner {
@@ -73,7 +83,8 @@
     width: 100%;
 }
 .ShopProduct-img1{
-    width: 100%;
+    margin: 0 auto;
+    width: 23vw;
     position: relative;
 }
 .ShopProduct-imghover {
@@ -126,3 +137,8 @@
     font-family: Snacksgifheaderfont;
 }
 /* View Product Section */
+@media(max-width=1000px){
+    .Shop-banner{
+        flex-direction: column!important;
+    }
+}

@@ -10,11 +10,11 @@ const MainHero = () => {
 
     return (
         <>
-            <div className={window.innerWidth <= 997 ? "main-hero" : "main-hero row"}>
-                <div className="left-img">
-                    <img src={HeroImgOne} alt="" />
+            <div className={window.innerWidth <= 997 ? "main-hero" : "main-hero row w-100 "}>
+                <div className="left-img col-md-4">
+                    <img src={HeroImgOne} className='w-100' alt="" />
                 </div>
-                <div className={window.innerWidth <= 997 ? "hero-content" : "hero-content col-md-12"}>
+                <div className={window.innerWidth <= 997 ? "hero-content" : "hero-content col-md-4 w-full"}>
                     <div className="content">
                         <h1 className='main-heading'>it's olly</h1>
                         <p className='desc'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam ipsam impedit quaerat accusamus, neque maxime aliquam optio ratione. Impedit ab soluta accusamus maiores aut exercitationem libero eius nobis nihil ullam? Reprehenderit, laudantium!</p>
@@ -36,8 +36,8 @@ const MainHero = () => {
 
                     </div>
                 </div>
-                <div className="right-img">
-                    <img src={HeroImgTwo} alt="" />
+                <div className="right-img col-md-4">
+                    <img src={HeroImgTwo} className='w-100 h-75' alt="" />
                 </div>
 
 
