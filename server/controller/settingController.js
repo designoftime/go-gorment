@@ -479,8 +479,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.about_us.founder_six_sub": setting.about_us.founder_six_sub,
           // new section
 
-          "setting.about_us.section_one_status":
-            setting.about_us.section_one_status,
+          "setting.about_us.section_first_status":
+            setting.about_us.section_first_status,
           "setting.about_us.section_second_status":
             setting.about_us.section_second_status,
           "setting.about_us.section_third_status":
@@ -489,10 +489,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.about_us.section_four_status,
           "setting.about_us.section_five_status":
             setting.about_us.section_five_status,
-          "setting.about_us.section_one_left_img":
-            setting.about_us.section_one_left_img,
-          "setting.about_us.section_one_right_img":
-            setting.about_us.section_one_right_img,
+          "setting.about_us.section_first_left_img":
+            setting.about_us.section_first_left_img,
+          "setting.about_us.section_first_right_img":
+            setting.about_us.section_first_right_img,
           "setting.about_us.section_second_img":
             setting.about_us.section_second_img,
           "setting.about_us.section_third_img":
@@ -501,18 +501,18 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.about_us.section_four_img,
           "setting.about_us.section_five_img":
             setting.about_us.section_five_img,
-          "setting.about_us.section_one_title":
-            setting.about_us.section_one_title,
-          "setting.about_us.section_one_description":
-            setting.about_us.section_one_description,
-          "setting.about_us.section_one_button_name":
-            setting.about_us.section_one_button_name,
-          "setting.about_us.section_one_button_link":
-            setting.about_us.section_one_button_link,
-          "setting.about_us.section_one_background_color":
-            setting.about_us.section_one_background_color,
-          "setting.about_us.section_one_text_color":
-            setting.about_us.section_one_text_color,
+          "setting.about_us.section_first_title":
+            setting.about_us.section_first_title,
+          "setting.about_us.section_first_description":
+            setting.about_us.section_first_description,
+          "setting.about_us.section_first_button_name":
+            setting.about_us.section_first_button_name,
+          "setting.about_us.section_first_button_link":
+            setting.about_us.section_first_button_link,
+          "setting.about_us.section_first_background_color":
+            setting.about_us.section_first_background_color,
+          "setting.about_us.section_first_text_color":
+            setting.about_us.section_first_text_color,
           "setting.about_us.section_second_title":
             setting.about_us.section_second_title,
           "setting.about_us.section_second_description":
@@ -644,6 +644,48 @@ const updateStoreCustomizationSetting = async (req, res) => {
 
           //offers
           "setting.offers.header_status": setting.offers.header_status,
+          "setting.offers.section_first_status": setting.offers.section_first_status,
+          "setting.offers.section_second_status": setting.offers.section_second_status,
+          "setting.offers.section_third_status": setting.offers.section_third_status,
+          "setting.offers.section_four_status": setting.offers.section_four_status,
+          "setting.offers.section_first_left_side_img": setting.offers.section_first_left_side_img,
+          "setting.offers.section_first_right_side_img": setting.offers.section_first_right_side_img,
+          "setting.offers.section_second_parent_img": setting.offers.section_second_parent_img,
+          "setting.offers.section_second_child_img": setting.offers.section_second_child_img,
+          "setting.offers.section_third_background_img": setting.offers.section_third_background_img,
+          "setting.offers.section_four_img_one": setting.offers.section_four_img_one,
+          "setting.offers.section_four_img_two": setting.offers.section_four_img_two,
+          "setting.offers.section_four_img_three": setting.offers.section_four_img_three,
+          "setting.offers.offer_section_first_title": setting.offers.offer_section_first_title,
+          "setting.offers.offer_section_first_description": setting.offers.offer_section_first_description,
+          "setting.offers.offer_section_first_button_name": setting.offers.offer_section_first_button_name,
+          "setting.offers.offer_section_first_button_link": setting.offers.offer_section_first_button_link,
+          "setting.offers.offer_section_first_background_color": setting.offers.offer_section_first_background_color,
+          "setting.offers.offer_section_first_text_color": setting.offers.offer_section_first_text_color,
+          "setting.offers.offer_section_second_title": setting.offers.offer_section_second_title,
+          "setting.offers.offer_section_second_title_1": setting.offers.offer_section_second_title_1,
+          "setting.offers.offer_section_second_description": setting.offers.offer_section_second_description,
+          "setting.offers.offer_section_second_description_1": setting.offers.offer_section_second_description_1,
+          "setting.offers.offer_section_second_background_color": setting.offers.offer_section_second_background_color,
+          "setting.offers.offer_section_second_background_color": setting.offers.offer_section_second_background_color,
+          "setting.offers.offer_section_second_text_color": setting.offers.offer_section_second_text_color,
+          "setting.offers.offer_section_third_title": setting.offers.offer_section_third_title,
+          "setting.offers.offer_section_third_description": setting.offers.offer_section_third_description,
+          "setting.offers.offer_section_third_background_color": setting.offers.offer_section_third_background_color,
+          "setting.offers.offer_section_third_text_color": setting.offers.offer_section_third_text_color,
+          "setting.offers.offer_testimonial_title_header": setting.offers.offer_testimonial_title_header,
+          "setting.offers.offer_testimonial_title_one": setting.offers.offer_testimonial_title_one,
+          "setting.offers.offer_testimonial_description_one": setting.offers.offer_testimonial_description_one,
+          "setting.offers.offer_testimonial_title_two": setting.offers.offer_testimonial_title_two,
+          "setting.offers.offer_testimonial_description_two": setting.offers.offer_testimonial_description_two,
+          "setting.offers.offer_testimonial_title_three": setting.offers.offer_testimonial_title_three,
+          "setting.offers.offer_testimonial_description_three": setting.offers.offer_testimonial_description_three,
+          "setting.offers.offer_testimonial_background_color": setting.offers.offer_testimonial_background_color,
+          "setting.offers.offer_testimonial_text_color": setting.offers.offer_testimonial_text_color,
+
+
+
+
           "setting.offers.header_bg": setting.offers.header_bg,
           "setting.offers.title": setting.offers.title,
           "setting.offers.coupon_code": setting.offers.coupon_code,
