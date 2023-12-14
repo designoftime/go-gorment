@@ -5,7 +5,7 @@ import "../style.css"
 import { TiMediaPlay } from "react-icons/ti";
 import Modal from 'react-bootstrap/Modal';
 
-const MainHero = () => {
+const MainHero = ({ourStoryData}) => {
     const [modalShow, setModalShow] = useState(false);
 
     return (

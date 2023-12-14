@@ -83,3 +83,13 @@
 .googleSignUp{
     margin: 20px 0px !important;
 }
+@media (max-width:1000px) {
+    .LoginHeading{
+        font-size: 110px;
+    }
+}
+@media (max-width:600px){
+    .LoginHeading{
+        font-size: 16vw;
+    }
+}
