@@ -153,8 +153,8 @@ export const Shop = () => {
         <div>
           <div className="Shopmenu-bar container g-0 mx-auto">
             <div className="Shopmenubar-content mx-auto">
-              <div className="mainbar text-center my-5">
-                <div className="barcontent mx-auto d-flex justify-content-between">
+              <div className="mainbar container mx-auto text-center my-5">
+                <div className="barcontent mx-auto d-flex justify-content-evenly">
                   <h3><button className='barbutton text-decoration-none'>ALL</button></h3>
                   <h3><button className='barbutton text-decoration-none'>PRETZEL THINS</button></h3>
                   <h3><button className='barbutton text-decoration-none'>OLIVES</button></h3>
