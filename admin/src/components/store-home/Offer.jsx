@@ -559,12 +559,12 @@ const Offer = ({
                   required
                   register={register}
                   label="Button Name "
-                  name="offer_section_third_background_color"
+                  name="offer_section_third_button_name"
                   type="text"
                   placeholder="Button Name"
                 />
                 <Error
-                  errorName={errors.offer_section_third_background_color}
+                  errorName={errors.offer_section_third_button_name}
                 />
               </div>
             </div>
@@ -577,11 +577,11 @@ const Offer = ({
                   required
                   register={register}
                   label="Button Link"
-                  name="offer_section_third_text_color"
+                  name="offer_section_third_button_link"
                   type="text"
                   placeholder="Button Link"
                 />
-                <Error errorName={errors.offer_section_third_text_color} />
+                <Error errorName={errors.offer_section_third_button_link} />
               </div>
             </div>
 
@@ -655,7 +655,7 @@ const Offer = ({
               >
                 <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                   <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                    Header
+                    Top Title
                   </label>
                   <div className="sm:col-span-4">
                     <InputAreaTwo
@@ -667,6 +667,22 @@ const Offer = ({
                       placeholder={"Testimonial Header"}
                     />
                     <Error errorName={errors.offer_testimonial_title_header} />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                  <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Sub  Title
+                  </label>
+                  <div className="sm:col-span-4">
+                    <InputAreaTwo
+                      required
+                      register={register}
+                      label="Title"
+                      name="offer_testimonial_subtitle"
+                      type="text"
+                      placeholder={"Testimonial Header"}
+                    />
+                    <Error errorName={errors.offer_testimonial_subtitle} />
                   </div>
                 </div>
                 <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mt-4 md:mb-6 mb-3 pb-2">
