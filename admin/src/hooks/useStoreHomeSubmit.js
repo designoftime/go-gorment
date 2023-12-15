@@ -1753,9 +1753,9 @@ const useStoreHomeSubmit = () => {
           setValue("phone_number", res?.navbar?.phone);
           setValue(
             "header_background_color",
-            res?.navbar?.header_background_color
+            res?.navbar?.header_background_color[language || "en"]
           );
-          setValue("header_text_color", res?.navbar?.header_text_color);
+          setValue("header_text_color", res?.navbar?.header_text_color[language || "en"]);
 
           //home
 
@@ -1841,8 +1841,8 @@ const useStoreHomeSubmit = () => {
             res?.home?.promotion_button_name[language || "en"]
           );
           setValue("promotion_button_link", res?.home?.promotion_button_link);
-          setValue("permotion_background_color", res?.home?.permotion_background_color);
-          setValue("permotion_text_color", res?.home?.permotion_text_color);
+          setValue("permotion_background_color", res?.home?.permotion_background_color[language || "en"]);
+          setValue("permotion_text_color", res?.home?.permotion_text_color[language || "en"]);
           setValue("feature_title", res?.home?.feature_title[language || "en"]);
           setValue(
             "feature_description",

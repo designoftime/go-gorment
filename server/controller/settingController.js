@@ -266,8 +266,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.home.bottom_promotion_button_link,
             "setting.home.bottom_permotion_background_color":
             setting.home.bottom_permotion_background_color,
-            "setting.home.bottom_permotion_background_color":
-            setting.home.bottom_permotion_background_color,
+            "setting.home.bottom_permotion_text_color":
+            setting.home.bottom_permotion_text_color,
 
           //slider
           "setting.slider.left_right_arrow": setting.slider.left_right_arrow,
