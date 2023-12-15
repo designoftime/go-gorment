@@ -10,6 +10,11 @@ export function StoreData(){
             console.log(res);
             dispatch(addStoreSetting(res.data));
             
+            const categoryRes = await axios("/category/show");
+            if(categoryRes?.data[0]?.children){
+                dispatch(addCategories(categoryRes.data[0].children));
+            }
+            
         } catch (error) {
             console.log(error);
         }

@@ -16,11 +16,19 @@ import { FaFacebook } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { footerVal } from "../../utils/Constants";
+import { footerVal, getStyles } from "../../utils/Constants";
 
 export const Footer = () => {
+  
   const footerData = useSelector((store) => store.storeSettings?.footer);
 
+  if(!footerData){
+    return;
+  }
+
+  const styles = getStyles(footerData, 'footer_background_color', 'footer_text_color');
+  // console.log(styles);
+  
   return (
     <div>
       <section className="Blog-sliding-section">
@@ -65,7 +73,7 @@ export const Footer = () => {
       </section>
       {/* Footer Section */}
 
-      <section className="footer-Section">
+      <section className="footer-Section" style={styles.fullBg}>
         <footer className="Footer-main container-fluid-g-0">
           <div className="common-wrap">
             <div className="footer-inner container">
@@ -110,9 +118,10 @@ export const Footer = () => {
                                 name="email"
                                 id="k_id_email"
                                 placeholder="Your email"
+                                style={styles.color}
                               />
                             </div>
-                              <button className="sign-up-btn">Sign Up</button>
+                              <button className="sign-up-btn" style={styles.color}>Sign Up</button>
                           </form>
                         </div>
                         {footerData?.social_links_status && (
@@ -165,7 +174,7 @@ export const Footer = () => {
                             className="footer-widget-items"
                           >
                             {footerData?.[`block${val}_title`]?.en && (
-                              <h6>{footerData?.[`block${val}_title`]?.en}</h6>
+                              <h6 style={styles.color}>{footerData?.[`block${val}_title`]?.en}</h6>
                             )}
                             <ul className="list-unstyled">
                               {footerVal.map((idx) => {
@@ -180,6 +189,7 @@ export const Footer = () => {
                                           ]
                                         }
                                         className="fshopcategory text-decoration-none"
+                                        style={styles.color}
                                       >
                                         {
                                           footerData?.[
@@ -202,7 +212,7 @@ export const Footer = () => {
                 </div>
                     {
                       window.innerWidth >= 767 ? <div className="footer-widget newsletter-widget">
-                      <p className="sign-up">Sign up</p>
+                      <p className="sign-up" style={styles.color}>Sign up</p>
                       <div className="footer-newsletter-wrap">
                         <form
                           id="email_signup"
@@ -224,7 +234,7 @@ export const Footer = () => {
                               id="k_id_email"
                               placeholder="Your email"
                             />
-                            <span className="input-field-icon">
+                            <span className="input-field-icon" style={styles.color}>
                               Sign Up
                               <IoIosArrowRoundForward className="fs-3" />
                             </span>
@@ -275,6 +285,7 @@ export const Footer = () => {
                       <a
                         className="Policiestext text-decoration-none"
                         href="/policies/privacy-policy"
+                        style={styles.color}
                       >
                         Privacy Policy
                       </a>
@@ -284,6 +295,7 @@ export const Footer = () => {
                       <a
                         className="Policiestext text-decoration-none"
                         href="/policies/refund-policy"
+                        style={styles.color}
                       >
                         Refund Policy
                       </a>
@@ -293,6 +305,7 @@ export const Footer = () => {
                       <a
                         className="Policiestext text-decoration-none"
                         href="/policies/terms-of-service"
+                        style={styles.color}
                       >
                         Terms of Service
                       </a>
@@ -316,9 +329,6 @@ export const Footer = () => {
                     </div>
                   </div> : null
                 }
-
-
-
               </div>
             </div>
           </div>

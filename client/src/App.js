@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
     dispatch(StoreData());
-    dispatch(StoreCategoriesData());
   }, []);
 
   const [showNavigation2, setShowNavigation2] = useState(false);

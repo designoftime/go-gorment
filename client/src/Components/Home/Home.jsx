@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useSelector } from "react-redux";
 import FeaturePromo from "./FeaturePromo/Featurepromo";
+import { getStyles } from "../../utils/Constants";
 
 export const Home = () => {
 
@@ -26,12 +27,17 @@ export const Home = () => {
       <div className="container-fluid g-0">
         <CarouselSection secondSliderData={dynamicStoreData?.second_slider} />
         <PrimaryProduct categoriesData={dynamicStoreData?.categories} />
-        <SnacksGif promotionBannarData={dynamicStoreData?.home} />
-        <Productoverview testimonialData={dynamicStoreData?.home} />
+        {
+          dynamicStoreData?.home && <SnacksGif promotionBannarData={dynamicStoreData?.home} styles={getStyles(dynamicStoreData?.home, 'permotion_background_color', 'permotion_text_color')} />
+        }
+        {
+          dynamicStoreData?.home && <Productoverview testimonialData={dynamicStoreData?.home} styles={getStyles(dynamicStoreData.home, 'testimonial_background_color', 'testimonial_text_color')} />
+        }
+
         <ReviewedProduct />
-        <OneFeedsHome bottomPromotionData={dynamicStoreData?.home} />
-        <CustomerCaursel bottomSliderData={dynamicStoreData?.bottom_slider} />
-        <FeaturePromo featurePromoData={dynamicStoreData?.home} />
+        {dynamicStoreData?.home && <OneFeedsHome bottomPromotionData={dynamicStoreData?.home} styles={getStyles(dynamicStoreData.home, 'bottom_permotion_background_color', 'bottom_permotion_text_color')} />}
+        {dynamicStoreData?.bottom_slider && <CustomerCaursel bottomSliderData={dynamicStoreData?.bottom_slider} />}
+        {dynamicStoreData?.home && <FeaturePromo featurePromoData={dynamicStoreData?.home} />}
       </div>
     </div>
   );
