@@ -1945,9 +1945,9 @@ const useStoreHomeSubmit = () => {
           setValue("slider_button_link", res?.slider?.first_link);
           setValue(
             "slider_one_background_color",
-            res?.slider?.slider_one_background_color
+            res?.slider?.slider_one_background_color[language || "en"]
           );
-          setValue("slider_one_text_color", res?.slider?.slider_one_text_color);
+          setValue("slider_one_text_color", res?.slider?.slider_one_text_color[language || "en"]);
           setValue(
             "slider_title_two",
             res?.slider?.second_title[language || "en"]
@@ -1963,9 +1963,9 @@ const useStoreHomeSubmit = () => {
           setValue("slider_button_link_two", res?.slider?.second_link);
           setValue(
             "slider_two_background_color",
-            res?.slider?.slider_two_background_color
+            res?.slider?.slider_two_background_color[language || "en"]
           );
-          setValue("slider_two_text_color", res?.slider?.slider_two_text_color);
+          setValue("slider_two_text_color", res?.slider?.slider_two_text_color[language || "en"]);
 
           setValue(
             "slider_title_three",
@@ -1982,11 +1982,11 @@ const useStoreHomeSubmit = () => {
           setValue("slider_button_link_three", res?.slider?.third_link);
           setValue(
             "slider_three_background_color",
-            res?.slider?.slider_three_background_color
+            res?.slider?.slider_three_background_color[language || "en"]
           );
           setValue(
             "slider_three_text_color",
-            res?.slider?.slider_three_text_color
+            res?.slider?.slider_three_text_color[language || "en"]
           );
 
           setValue(
@@ -2004,11 +2004,11 @@ const useStoreHomeSubmit = () => {
           setValue("slider_button_link_four", res?.slider?.four_link);
           setValue(
             "slider_four_background_color",
-            res?.slider?.slider_four_background_color
+            res?.slider?.slider_four_background_color[language || "en"]
           );
           setValue(
             "slider_four_text_color",
-            res?.slider?.slider_four_text_color
+            res?.slider?.slider_four_text_color[language || "en"]
           );
 
           setValue(
@@ -2026,11 +2026,11 @@ const useStoreHomeSubmit = () => {
           setValue("slider_button_link_five", res?.slider?.five_link);
           setValue(
             "slider_five_background_color",
-            res?.slider?.slider_five_background_color
+            res?.slider?.slider_five_background_color[language || "en"]
           );
           setValue(
             "slider_five_text_color",
-            res?.slider?.slider_five_text_color
+            res?.slider?.slider_five_text_color[language || "en"]
           );
 
           //  second slider
