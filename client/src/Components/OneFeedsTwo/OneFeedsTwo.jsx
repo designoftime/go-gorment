@@ -1,85 +1,85 @@
-import React, { useEffect, useState } from 'react'
 import "./OneFeedsTwo.css"
-import pretzelimge from './images/pretzel-dark-220613_3_3x_copy_540x.webp'
-import pretzelheroimge from './images/pretzel-dark-220613_3_3x_aeba7887-06db-475b-bb89-1b2880c82413_360x.avif'
-import oneFeedsBannerimge from './images/Rectangle_118_3x_ca62faef-cdf9-4da3-953d-0a0e8a63a1b2_720x.webp'
-import Feeds from './images/feed_180x.avif'
-import { Link } from 'react-router-dom'
+import SectionOne from '../Home/OnefeedsHome/Sections/Section1/SectionOne'
+import SectionTwo from '../Home/OnefeedsHome/Sections/Section2/SectionTwo'
+import SectionThree from '../Home/OnefeedsHome/Sections/Section3/SectionThree'
 import { Productoverview } from '../Home/ProductOverview/Productoverview'
-import { useSelector } from 'react-redux'
+import { sliderVal } from '../../utils/Constants'
+import { useSelector } from 'react-redux';
+
+
 export const OneFeedsTwo = () => {
-    const [showValue, setShowValue] = useState(window.innerWidth);
+
     const dynamicStoreData = useSelector(store => store?.storeSettings);
-    useEffect(() => {
-        const handleWidth = () => {
-            setShowValue(window.innerWidth);
-        };
-        window.addEventListener('resize', handleWidth);
-        return () => {
-            window.removeEventListener('resize', handleWidth);
+    const oneFeedsTwoData = dynamicStoreData?.offers;
+
+    if(!oneFeedsTwoData){
+        return;
+    }
+
+    const oneFeedsTwoComponent = (oneFeedsTwoData,val) => {
+        const styles = {
+            fullBg: {
+                backgroundColor: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`,
+                color: `${oneFeedsTwoData[`offer_section_${val}_text_color`]?.en}`
+            },
+            color: {
+                color: `${oneFeedsTwoData[`offer_section_${val}_text_color`]?.en}`
+            },
+            bg: {
+                backgroundColor: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`
+            }
         }
-    }, [])
+
+        return {
+            "first": <SectionOne oneFeedsTwoData={oneFeedsTwoData} val={val} styles={styles} />,
+            "second": <SectionTwo oneFeedsTwoData={oneFeedsTwoData} val={val} styles={styles} />,
+            "third": <SectionThree oneFeedsTwoData={oneFeedsTwoData} val={val} styles={styles} />
+        }
+    }
+
     return (
         <>
         <div className='sec'>
             <div className="container-fluid g-0">
-                <div className="HerO-section py-5 ">
-                    <div className="container ">
-                        <h1 className='HerO-Heading wow animate__animated animate__fadeInUp text-center fw-bolder'>OUR SNACKS<br />KEEP GIVING</h1>
-                        <img className='HerOimage1 d-block mx-auto wow animate__animated animate__fadeInUp' src={pretzelimge} alt={pretzelimge} />
-                        <img className='HerOimage2 wow animate__animated animate__fadeInUp' src={pretzelheroimge} alt={pretzelheroimge} />
-                        <p className='text-center mx-auto my-2 fs-5 pb-5 wow animate__animated animate__fadeInUp'>We’re super proud to be working alongside our incredible charity partner, One Feeds Two, to help in providing school meals tounderprivileged children around the world.</p>
-                    </div>
-                </div>
-                {/* Banner Section */}
-                <div className="BannerO-section pt-5 ">
-                    <div className="container">
-                        {showValue > 1000 ? <div className="BannerO-Heading wow animate__animated animate__fadeInUp my-5 text-center fw-bolder">FIGHTING HUNGER<br />WITH EVERY ORDER</div> : ""}
-                        <div className={showValue > 1000 ? 'row' : ''}>
+                {
+                    sliderVal.map((val) => {
 
-                            <div className="col-md-5 g-0 BannerO-left mt-5">
-                                <div className={showValue > 1000 ? 'w-full' : 'w-full col-12 g-0 align-items-center'}>
-                                    <img src={oneFeedsBannerimge} className='img-fluid rounded wow animate__animated animate__fadeInUp BannerO-imge' alt={oneFeedsBannerimge} />
-                                    <img src={Feeds} alt={Feeds} className='BannerO-feeds' /></div>
+                        if(!oneFeedsTwoData[`section_${val}_status`]){
+                            return;
+                        }
 
-                            </div>
-
-                            <div className={showValue > 1000 ? "col-md-7 BannerO-right" : "col-12 BannerO-Right"}>
-                                <div >
-                                    {showValue <= 1000 ? <div className="BannerO-Heading wow animate__animated animate__fadeInUp my-5 fw-bolder">FIGHTING HUNGER<br />WITH EVERY ORDER</div> : ""}
-                                    <div className="BannerO-subHeading fs-1 wow animate__animated animate__fadeInUp fw-bolder ">Did you know?</div>
-                                    <p className="BannerO-content wow animate__animated animate__fadeInUp">
-                                        Over 61,000,000 children miss out on primary school every day due to hunger.
-                                        <br />
-                                        <br />
-                                        One Feeds Two continue to do all they can to combat this shocking statistic, by facilitating new channels and partnerships to supply children with regular school meals all over the world.
-                                    </p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="Info-section">
-                    <div className="container">
-                        <div className="row">
-                            <div className="Info-box">
-                                <div class="card Info-card rounded-4">
-                                    <div class="card-body mb-4">
-                                        <h5 class="fs-1 fw-bolder my-3 Info-header">You order, we provide</h5>
-                                        <p class="Info-content fs-5 mb-4 fw-bold">It’s dead simple... With every order placed on the Olly’s website, we will be donating a school meal to a child in need on your behalf.</p>
-                                        <Link to={""} className='fw-bolder fs-5 Info-button mx-2  rounded-5'>Shop now</Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        return <div key={val}> { oneFeedsTwoComponent(oneFeedsTwoData,val)[val] } </div>
+                    })
+                }
             </div>
-            <Productoverview testimonialData={dynamicStoreData?.home} />
+
+            <Productoverview testimonialData={{
+                testimonial_status: oneFeedsTwoData?.section_four_status,
+                testimonial_title_header: oneFeedsTwoData?.offer_testimonial_title_header,
+                testimonial_subtitle: oneFeedsTwoData?.offer_testimonial_subtitle,
+                testimonial_banner_img_one: oneFeedsTwoData?.section_four_img_one,
+                testimonial_banner_img_two: oneFeedsTwoData?.section_four_img_two,
+                testimonial_banner_img_three: oneFeedsTwoData?.section_four_img_three,
+                testimonial_title_one: oneFeedsTwoData?.offer_testimonial_title_one,
+                testimonial_title_two: oneFeedsTwoData?.offer_testimonial_title_two,
+                testimonial_title_three: oneFeedsTwoData?.offer_testimonial_title_three,
+                testimonial_description_one: oneFeedsTwoData?.offer_testimonial_description_one,
+                testimonial_description_two: oneFeedsTwoData?.offer_testimonial_description_two,
+                testimonial_description_three: oneFeedsTwoData?.offer_testimonial_description_three,
+            }} styles={{
+                fullBg: {
+                    backgroundColor: `${oneFeedsTwoData?.offer_testimonial_background_color?.en}`,
+                    color: `${oneFeedsTwoData?.offer_testimonial_text_color?.en}`
+                },
+                color: {
+                    color: `${oneFeedsTwoData?.offer_testimonial_text_color?.en}`
+                },
+                bg: {
+                    backgroundColor: `${oneFeedsTwoData?.offer_testimonial_background_color?.en}`,
+                }
+            }} />
         </div>
-         
-         </>
+        </>
     )
 }
 

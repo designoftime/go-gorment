@@ -3,7 +3,7 @@ import productoverviewimg1 from './images/ProductOverviewimg1.svg'
 import productoverviewimg2 from './images/product-overviewimg-2.svg'
 import productoverviewimg3 from './images/ProductOverviewimg3.svg'
 import { featurePromo } from '../../../utils/Constants'
-export const Productoverview = ({testimonialData}) => {
+export const Productoverview = ({testimonialData, styles}) => {
 
     if(!testimonialData){
         return;
@@ -12,13 +12,13 @@ export const Productoverview = ({testimonialData}) => {
     return (
         <>
         {testimonialData.testimonial_status ?
-            <section  className="Product-OverviewSection text-center contianer-fluid g-0">
+            <section  className="Product-OverviewSection text-center contianer-fluid g-0" style={styles?.fullBg}>
                 <div className="product-overview-inner-wrap">
                     <div className="common-wrap container g-0 mx-auto clear mx-auto">
                         <div className="product-overview-inner flex">
                             <div className="product-overview-title ">
-                            {testimonialData.testimonial_title_header.en && <h2 className="text-center pt-5 pb-3 wow animate__animated animate__fadeInUp" >{testimonialData.testimonial_title_header.en}</h2>}
-
+                            {testimonialData.testimonial_title_header.en && <h2 className="text-center pt-5 pb-3 wow animate__animated animate__fadeInUp" style={styles?.color} >{testimonialData.testimonial_title_header.en}</h2>}
+                            {testimonialData?.testimonial_subtitle?.en && <h4 className="text-center pt-5 pb-3 wow animate__animated animate__fadeInUp" style={styles?.color} >{testimonialData.testimonial_subtitle?.en}</h4>}
                             </div>
                             <div className="product-overview-item-wrap container g-0 mx-auto d-flex">
                                 {
@@ -32,8 +32,8 @@ export const Productoverview = ({testimonialData}) => {
                                                 <img className='pologoimg' src={testimonialData[`testimonial_banner_img_${val}`]} alt="product-overview-logo" />
                                             </div>
                                             <div className="product-overview-item-content">
-                                            {testimonialData[`testimonial_title_${val}`]?.en && <h6 className = "poheader">{testimonialData[`testimonial_title_${val}`]?.en} </h6>}
-                                                {testimonialData[`testimonial_description_${val}`]?.en && <p className = "pocontent" >{testimonialData[`testimonial_description_${val}`]?.en}</p>}
+                                            {testimonialData[`testimonial_title_${val}`]?.en && <h6 className = "poheader" style={styles?.color}>{testimonialData[`testimonial_title_${val}`]?.en} </h6>}
+                                                {testimonialData[`testimonial_description_${val}`]?.en && <p className = "pocontent" style={styles?.color} >{testimonialData[`testimonial_description_${val}`]?.en}</p>}
                                             </div>
                                         </div>
                                         )
