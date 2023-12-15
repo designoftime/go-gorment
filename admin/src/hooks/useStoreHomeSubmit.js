@@ -1616,8 +1616,14 @@ const useStoreHomeSubmit = () => {
             block4_phone: data.footer_block_four_phone,
             block4_email: data.footer_block_four_email,
             bottom_contact: data.footer_Bottom_Contact,
-            footer_background_color: data.footer_background_color,
-            footer_text_color: data.footer_text_color,
+            footer_background_color: {
+              ...resData?.footer?.footer_background_color,
+              [language]: data.footer_background_color || "",
+            },
+            footer_text_color: {
+              ...resData?.footer?.footer_text_color,
+              [language]: data.footer_text_color || "",
+            },
           },
           slug: {
             right_box_status: singleProductPageRightBox,
@@ -2434,8 +2440,8 @@ const useStoreHomeSubmit = () => {
           setValue("social_linkedin", res?.footer?.social_linkedin);
           setValue("social_whatsapp", res?.footer?.social_whatsapp);
           setValue("footer_Bottom_Contact", res?.footer?.bottom_contact);
-          setValue("footer_background_color", res?.footer?.footer_background_color);
-          setValue("footer_text_color", res?.footer?.footer_text_color);
+          setValue("footer_background_color", res?.footer?.footer_background_color[language || "en"]);
+          setValue("footer_text_color", res?.footer?.footer_text_color[language || "en"]);
 
           // slug
           setSingleProductPageRightBox(res?.slug?.right_box_status);

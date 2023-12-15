@@ -36,7 +36,7 @@ const useCategorySubmit = (id, data) => {
 
   // console.log("lang", lang, language);
 
-  const onSubmit = async ({ name, description }) => {
+  const onSubmit = async ({ name, description,background_color,text_color }) => {
     try {
       setIsSubmitting(true);
 

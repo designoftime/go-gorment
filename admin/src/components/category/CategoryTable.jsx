@@ -32,7 +32,7 @@ const CategoryTable = ({
       setIsCheck(isCheck.filter((item) => item !== id));
     }
   };
-
+console.log(categories,data)
   return (
     <>
       {isCheck?.length < 1 && (
