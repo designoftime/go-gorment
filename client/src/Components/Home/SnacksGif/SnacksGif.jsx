@@ -5,7 +5,7 @@ import './snacksGif.css';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-export const SnacksGif = ({promotionBannarData}) => {
+export const SnacksGif = ({promotionBannarData, styles}) => {
     
     const [showValue,setShowValue]= useState(window.innerWidth);
     useEffect(()=>{
@@ -25,19 +25,19 @@ export const SnacksGif = ({promotionBannarData}) => {
     return (
         (promotionBannarData?.promotion_banner_status) ? (
         <div className=''>
-            <div className='container-fluid g-0 main-snack-banner'>
+            <div className='container-fluid g-0 main-snack-banner' style={styles.fullBg}>
                 <div className="d-flex">
                     <div className="row snake-banner">
                         <div className={showValue <= 767 ? "left-container" : "left-container col-md-6"}>
-                            {promotionBannarData?.promotion_title?.en && <h2 className='heading'>{promotionBannarData.promotion_title.en}</h2>}
+                            {promotionBannarData?.promotion_title?.en && <h2 className='heading' style={styles.color}>{promotionBannarData.promotion_title.en}</h2>}
                             {
                                 showValue <= 767 ? 
                                 promotionBannarData?.permotion_banner_img && <img className='mobile-image' src={promotionBannarData.permotion_banner_img} alt="" /> : ""
                             }
-                            {promotionBannarData?.promotion_description?.en && <p className='desc'>
+                            {promotionBannarData?.promotion_description?.en && <p className='desc' style={styles.color}>
                                 {promotionBannarData.promotion_description.en}
                             </p>}
-                            {promotionBannarData?.promotion_button_name?.en && <Link to={promotionBannarData.promotion_button_link} className='olly-btn'>{promotionBannarData.promotion_button_name.en}</Link>}
+                            {promotionBannarData?.promotion_button_name?.en && <Link to={promotionBannarData.promotion_button_link} className='olly-btn' style={styles.color}>{promotionBannarData.promotion_button_name.en}</Link>}
                         </div>
 
                         {showValue <= 767 ? ""

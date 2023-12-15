@@ -13,7 +13,8 @@ export const CarouselSection = ({secondSliderData}) => {
     if(!secondSliderData){
         return;
     }
-    return (
+
+    return secondSliderData?.second_slider_status && (
         <>
             <div className="main-swiper-carousel">
                 <Swiper

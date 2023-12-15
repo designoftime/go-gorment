@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import './CustomerCaursel.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -9,18 +9,53 @@ import 'swiper/css/navigation';
 import { sliderVal } from '../../../utils/Constants'
 
 export const CustomerCaursel = ({bottomSliderData}) => {
-    const [toggleAni, setToggleAni ] = useState(false);
     
-    if (!bottomSliderData) {
-        return;
+    // if (!bottomSliderData) {
+    //     return;
+    // }
+
+    const [toggleAni, setToggleAni ] = useState(false);
+    const [backgroundStyle, setBackgroundStyle] = useState({
+        fullBg: {
+            backgroundColor: bottomSliderData[`bottom_slider_background_color_first`]?.en,
+            color: bottomSliderData[`bottom_slider_text_color_first`]?.en
+        },
+        color: {
+            color: bottomSliderData[`bottom_slider_text_color_first`]?.en
+        },
+        bg: {
+            backgroundColor: bottomSliderData[`bottom_slider_background_color_first`]?.en,
+        }
+    });
+
+    
+    const getStyle = (val) => {
+        return {
+            fullBg: {
+                backgroundColor: bottomSliderData[`bottom_slider_background_color_${val}`]?.en,
+                color: bottomSliderData[`bottom_slider_text_color_${val}`]?.en
+            },
+            color: {
+                color: bottomSliderData[`bottom_slider_text_color_${val}`]?.en
+            },
+            bg: {
+                backgroundColor: bottomSliderData[`bottom_slider_background_color_${val}`]?.en,
+            }
+        }
+    }
+
+    const handleStyleChange = (idx) => {
+        const val = sliderVal[idx];
+        const styles = getStyle(val);
+        setBackgroundStyle(styles);
     }
 
     return (
         <>
         {
-        (bottomSliderData?.first_img) ? (
+        (bottomSliderData?.bottom_slider_status) ? (
         <div>
-            <section className='main-customer-review'>
+            <section className='main-customer-review' style={backgroundStyle.fullBg}>
                 <div className="container">
                 <Swiper
                     spaceBetween={50}
@@ -28,6 +63,7 @@ export const CustomerCaursel = ({bottomSliderData}) => {
                     navigation={true}
                     onSlideChange={(e) => {
                         setToggleAni(!toggleAni)
+                        handleStyleChange(e.activeIndex);
                     }}
                     className='customer-slider'
                     modules={[Navigation]}
@@ -43,8 +79,8 @@ export const CustomerCaursel = ({bottomSliderData}) => {
                                 <img src={bottomSliderData[`${val}_img`]} alt="" className={!toggleAni ? "active-animation" : ""} />
                             </div>
                             <div className="review ">
-                                <p>{bottomSliderData[`${val}_title`]?.en}</p>
-                                <span className='customer-name'>{bottomSliderData[`${val}_description`]?.en}</span>
+                                <p style={backgroundStyle.color}>{bottomSliderData[`${val}_title`]?.en}</p>
+                                <span className='customer-name' style={backgroundStyle.color}>{bottomSliderData[`${val}_description`]?.en}</span>
                             </div>
 
                             </SwiperSlide>
