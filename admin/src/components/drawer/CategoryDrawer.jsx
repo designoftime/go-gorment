@@ -29,7 +29,15 @@ const CategoryDrawer = ({ id, data }) => {
     handleSubmit,
     errors,
     imageUrl,
+    imageUrl1,
+    imageUrl2,
+    imageUrl3,
+    imageUrl4,
     setImageUrl,
+    setImageUrl1,
+    setImageUrl2,
+    setImageUrl3,
+    setImageUrl4,
     published,
     setPublished,
     setChecked,
@@ -206,8 +214,8 @@ const CategoryDrawer = ({ id, data }) => {
               <LabelArea label={"Testimonial One"} />
               <div className="col-span-8 sm:col-span-4">
                 <Uploader
-                  imageUrl={imageUrl}
-                  setImageUrl={setImageUrl}
+                  imageUrl={imageUrl1}
+                  setImageUrl={setImageUrl1}
                   folder="category"
                 />
               </div>
@@ -216,8 +224,8 @@ const CategoryDrawer = ({ id, data }) => {
               <LabelArea label={"Testimonial Two"} />
               <div className="col-span-8 sm:col-span-4">
                 <Uploader
-                  imageUrl={imageUrl}
-                  setImageUrl={setImageUrl}
+                  imageUrl={imageUrl2}
+                  setImageUrl={setImageUrl2}
                   folder="category"
                 />
               </div>
@@ -226,8 +234,8 @@ const CategoryDrawer = ({ id, data }) => {
               <LabelArea label={"Testimonial Three"} />
               <div className="col-span-8 sm:col-span-4">
                 <Uploader
-                  imageUrl={imageUrl}
-                  setImageUrl={setImageUrl}
+                  imageUrl={imageUrl3}
+                  setImageUrl={setImageUrl3}
                   folder="category"
                 />
               </div>
@@ -236,8 +244,8 @@ const CategoryDrawer = ({ id, data }) => {
               <LabelArea label={"Testimonial Four"} />
               <div className="col-span-8 sm:col-span-4">
                 <Uploader
-                  imageUrl={imageUrl}
-                  setImageUrl={setImageUrl}
+                  imageUrl={imageUrl4}
+                  setImageUrl={setImageUrl4}
                   folder="category"
                 />
               </div>
