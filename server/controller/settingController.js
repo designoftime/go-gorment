@@ -134,6 +134,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.navbar.contact_menu_status,
           "setting.navbar.offers_menu_status":
             setting.navbar.offers_menu_status,
+            "setting.navbar.header_background_color":
+            setting.navbar.header_background_color,
+            "setting.navbar.header_text_color":
+            setting.navbar.header_text_color,
 
           // home
           "setting.home.coupon_status": setting.home.coupon_status,
@@ -192,6 +196,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.home.testimonial_title_three,
           "setting.home.testimonial_description_three":
             setting.home.testimonial_description_three,
+            "setting.home.testimonial_background_color":
+            setting.home.testimonial_background_color,
+            "setting.home.testimonial_text_color":
+            setting.home.testimonial_text_color,
 
           "setting.home.discount_title": setting.home.discount_title,
 
@@ -204,6 +212,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.home.promotion_button_name,
           "setting.home.promotion_button_link":
             setting.home.promotion_button_link,
+            "setting.home.permotion_background_color":
+            setting.home.permotion_background_color,
+            "setting.home.permotion_text_color":
+            setting.home.permotion_text_color,
           "setting.home.feature_title": setting.home.feature_title,
           "setting.home.feature_description": setting.home.feature_description,
           "setting.home.feature_product_limit":
@@ -252,6 +264,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.home.bottom_promotion_button_name,
           "setting.home.bottom_promotion_button_link":
             setting.home.bottom_promotion_button_link,
+            "setting.home.bottom_permotion_background_color":
+            setting.home.bottom_permotion_background_color,
+            "setting.home.bottom_permotion_text_color":
+            setting.home.bottom_permotion_text_color,
 
           //slider
           "setting.slider.left_right_arrow": setting.slider.left_right_arrow,
@@ -263,27 +279,37 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.slider.first_description": setting.slider.first_description,
           "setting.slider.first_button": setting.slider.first_button,
           "setting.slider.first_link": setting.slider.first_link,
+          "setting.slider.slider_one_background_color": setting.slider.slider_one_background_color,
+          "setting.slider.slider_one_text_color": setting.slider.slider_one_text_color,
           "setting.slider.second_img": setting.slider.second_img,
           "setting.slider.second_title": setting.slider.second_title,
           "setting.slider.second_description":
             setting.slider.second_description,
           "setting.slider.second_button": setting.slider.second_button,
           "setting.slider.second_link": setting.slider.second_link,
+          "setting.slider.slider_two_background_color": setting.slider.slider_two_background_color,
+          "setting.slider.slider_two_text_color": setting.slider.slider_two_text_color,
           "setting.slider.third_img": setting.slider.third_img,
           "setting.slider.third_title": setting.slider.third_title,
           "setting.slider.third_description": setting.slider.third_description,
           "setting.slider.third_button": setting.slider.third_button,
           "setting.slider.third_link": setting.slider.third_link,
+          "setting.slider.slider_three_background_color": setting.slider.slider_three_background_color,
+          "setting.slider.slider_three_text_color": setting.slider.slider_three_text_color,
           "setting.slider.four_img": setting.slider.four_img,
           "setting.slider.four_title": setting.slider.four_title,
           "setting.slider.four_description": setting.slider.four_description,
           "setting.slider.four_button": setting.slider.four_button,
           "setting.slider.four_link": setting.slider.four_link,
+          "setting.slider.slider_four_background_color": setting.slider.slider_four_background_color,
+          "setting.slider.slider_four_text_color": setting.slider.slider_four_text_color,
           "setting.slider.five_img": setting.slider.five_img,
           "setting.slider.five_title": setting.slider.five_title,
           "setting.slider.five_description": setting.slider.five_description,
           "setting.slider.five_button": setting.slider.five_button,
           "setting.slider.five_link": setting.slider.five_link,
+          "setting.slider.slider_five_background_color": setting.slider.slider_five_background_color,
+          "setting.slider.slider_five_text_color": setting.slider.slider_five_text_color,
 
           // second slider
 
@@ -328,6 +354,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.bottom_slider.first_button":
             setting.bottom_slider.first_button,
           "setting.bottom_slider.first_link": setting.bottom_slider.first_link,
+          "setting.bottom_slider.bottom_slider_background_color_one": setting.bottom_slider.bottom_slider_background_color_one,
+          "setting.bottom_slider.bottom_slider_text_color_one": setting.bottom_slider.bottom_slider_text_color_one,
           "setting.bottom_slider.second_img": setting.bottom_slider.second_img,
           "setting.bottom_slider.second_title":
             setting.bottom_slider.second_title,
@@ -337,6 +365,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.bottom_slider.second_button,
           "setting.bottom_slider.second_link":
             setting.bottom_slider.second_link,
+            "setting.bottom_slider.bottom_slider_background_color_two":
+            setting.bottom_slider.bottom_slider_background_color_two,
+            "setting.bottom_slider.bottom_slider_text_color_two":
+            setting.bottom_slider.bottom_slider_text_color_two,
           "setting.bottom_slider.third_img": setting.bottom_slider.third_img,
           "setting.bottom_slider.third_title":
             setting.bottom_slider.third_title,
@@ -345,6 +377,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.bottom_slider.third_button":
             setting.bottom_slider.third_button,
           "setting.bottom_slider.third_link": setting.bottom_slider.third_link,
+          "setting.bottom_slider.bottom_slider_background_color_three": setting.bottom_slider.bottom_slider_background_color_three,
+          "setting.bottom_slider.bottom_slider_text_color_three": setting.bottom_slider.bottom_slider_text_color_three,
           "setting.bottom_slider.four_img": setting.bottom_slider.four_img,
           "setting.bottom_slider.four_title": setting.bottom_slider.four_title,
           "setting.bottom_slider.four_description":
@@ -352,6 +386,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.bottom_slider.four_button":
             setting.bottom_slider.four_button,
           "setting.bottom_slider.four_link": setting.bottom_slider.four_link,
+          "setting.bottom_slider.bottom_slider_background_color_four": setting.bottom_slider.bottom_slider_background_color_four,
+          "setting.bottom_slider.bottom_slider_text_color_four": setting.bottom_slider.bottom_slider_text_color_four,
           "setting.bottom_slider.five_img": setting.bottom_slider.five_img,
           "setting.bottom_slider.five_title": setting.bottom_slider.five_title,
           "setting.bottom_slider.five_description":
@@ -359,6 +395,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.bottom_slider.five_button":
             setting.bottom_slider.five_button,
           "setting.bottom_slider.five_link": setting.bottom_slider.five_link,
+          "setting.bottom_slider.bottom_slider_background_color_five": setting.bottom_slider.bottom_slider_background_color_five,
+          "setting.bottom_slider.bottom_slider_text_color_five": setting.bottom_slider.bottom_slider_text_color_five,
 
           //checkout
           "setting.checkout.personal_details":
@@ -671,9 +709,12 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.offers.offer_section_second_text_color": setting.offers.offer_section_second_text_color,
           "setting.offers.offer_section_third_title": setting.offers.offer_section_third_title,
           "setting.offers.offer_section_third_description": setting.offers.offer_section_third_description,
+          "setting.offers.offer_section_third_button_name": setting.offers.offer_section_third_button_name,
+          "setting.offers.offer_section_third_button_link": setting.offers.offer_section_third_button_link,
           "setting.offers.offer_section_third_background_color": setting.offers.offer_section_third_background_color,
           "setting.offers.offer_section_third_text_color": setting.offers.offer_section_third_text_color,
           "setting.offers.offer_testimonial_title_header": setting.offers.offer_testimonial_title_header,
+          "setting.offers.offer_testimonial_subtitle": setting.offers.offer_testimonial_subtitle,
           "setting.offers.offer_testimonial_title_one": setting.offers.offer_testimonial_title_one,
           "setting.offers.offer_testimonial_description_one": setting.offers.offer_testimonial_description_one,
           "setting.offers.offer_testimonial_title_two": setting.offers.offer_testimonial_title_two,
@@ -704,6 +745,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.footer.payment_method_status,
           "setting.footer.bottom_contact_status":
             setting.footer.bottom_contact_status,
+            "setting.footer.footer_background_color":
+            setting.footer.footer_background_color,
+            "setting.footer.footer_text_color":
+            setting.footer.footer_text_color,
           "setting.footer.social_links_status":
             setting.footer.social_links_status,
           "setting.footer.shipping_card": setting.footer.shipping_card,

@@ -514,6 +514,39 @@ const HomePage = ({
                     processOption={termsConditionsMenuLink}
                   />
                 </div> */}
+                
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="header_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.header_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="header_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.header_text_color} />
+                </div>
               </div>
             </div>
           </div>
@@ -621,6 +654,38 @@ const HomePage = ({
                       <Error errorName={errors.slider_button_link} />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="slider_one_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.slider_one_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="slider_one_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.slider_one_text_color} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -703,6 +768,38 @@ const HomePage = ({
                       <Error errorName={errors.slider_button_link_two} />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="slider_two_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.slider_two_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="slider_two_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.header_text_color} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -785,6 +882,38 @@ const HomePage = ({
                       <Error errorName={errors.slider_button_link_three} />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="slider_three_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.slider_three_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="slider_three_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.slider_three_text_color} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -866,6 +995,38 @@ const HomePage = ({
                       <Error errorName={errors.slider_button_link_four} />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="slider_four_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.slider_four_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="slider_four_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.slider_four_text_color} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -947,6 +1108,38 @@ const HomePage = ({
                       <Error errorName={errors.slider_button_link_five} />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="slider_five_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.slider_five_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="slider_five_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.slider_five_text_color} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -1362,6 +1555,38 @@ const HomePage = ({
                       <Error errorName={errors.bottom_slider_description} />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="bottom_slider_background_color_one"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.bottom_slider_background_color_one} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="bottom_slider_text_color_one"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.bottom_slider_text_color_one} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -1410,6 +1635,38 @@ const HomePage = ({
                       <Error errorName={errors.bottom_slider_description_two} />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="bottom_slider_background_color_two"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.bottom_slider_background_color_two} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="bottom_slider_text_color_two"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.bottom_slider_text_color_two} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -1461,6 +1718,38 @@ const HomePage = ({
                       />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="bottom_slider_background_color_three"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.bottom_slider_background_color_three} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="bottom_slider_text_color_three"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.bottom_slider_text_color_three} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -1511,6 +1800,38 @@ const HomePage = ({
                       />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="bottom_slider_background_color_four"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.bottom_slider_background_color_four} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="bottom_slider_text_color_four"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.bottom_slider_text_color_four} />
+                </div>
+              </div>
                 </TabPanel>
 
                 <TabPanel>
@@ -1561,6 +1882,38 @@ const HomePage = ({
                       />
                     </div>
                   </div>
+                  <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="bottom_slider_background_color_five"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.bottom_slider_background_color_five} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="bottom_slider_text_color_five"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.bottom_slider_text_color_five} />
+                </div>
+              </div>
                 </TabPanel>
                 <TabPanel>
                   <div className="grid md:grid-cols-3 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
@@ -1825,6 +2178,38 @@ const HomePage = ({
                   <Error errorName={errors.promotion_button_link} />
                 </div>
               </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="permotion_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.permotion_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="permotion_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.permotion_text_color} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2021,6 +2406,38 @@ const HomePage = ({
                   />
 
                   <Error errorName={errors.testimonial_description_three} />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="testimonial_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.testimonial_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="testimonial_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.testimonial_text_color} />
                 </div>
               </div>
             </div>
@@ -2800,6 +3217,38 @@ const HomePage = ({
                   <Error errorName={errors.bottom_promotion_button_link} />
                 </div>
               </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="bottom_permotion_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.bottom_permotion_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="bottom_permotion_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.bottom_permotion_text_color} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -3556,7 +4005,7 @@ const HomePage = ({
             </div>
 
             <div className="inline-flex md:text-base text-sm mb-3 text-gray-500 dark:text-gray-400 relative mt-24 md:mt-0">
-              <strong>{t("PaymentMethod")}</strong>
+              <strong>{"Footer Bottom Logo "}</strong>
             </div>
             <hr className="md:mb-12 mb-3" />
             <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
@@ -3583,7 +4032,7 @@ const HomePage = ({
             >
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                  {t("PaymentMethod")}
+                Logo
                 </label>
                 <div className="sm:col-span-4">
                   <Uploader
@@ -3638,7 +4087,7 @@ const HomePage = ({
               className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3"
             >
               <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
-                {t("FooterBottomContact")}
+               Footer Bottom Header Name
               </label>
               <div className="sm:col-span-4 mb-20 md:mb-0">
                 <InputAreaTwo
@@ -3647,11 +4096,43 @@ const HomePage = ({
                   label="Title"
                   name="footer_Bottom_Contact"
                   type="text"
-                  placeholder={t("FooterBottomContact")}
+                  placeholder={"Footer Bottom Name"}
                 />
                 <Error errorName={errors.footer_Bottom_Contact} />
               </div>
             </div>
+            <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Background Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Background Color "
+                    name="footer_background_color"
+                    type="text"
+                    placeholder="Background Color"
+                  />
+                  <Error errorName={errors.footer_background_color} />
+                </div>
+              </div>{" "}
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                 Text Color
+                </label>
+                <div className="sm:col-span-4">
+                  <InputAreaTwo
+                    required
+                    register={register}
+                    label="Text Color "
+                    name="footer_text_color"
+                    type="text"
+                    placeholder="Text Color"
+                  />
+                  <Error errorName={errors.footer_text_color} />
+                </div>
+              </div>
           </div>
         </div>
       </div>
