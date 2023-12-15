@@ -13,6 +13,10 @@ const useCategorySubmit = (id, data) => {
   const [resData, setResData] = useState({});
   const [checked, setChecked] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl1, setImageUrl1] = useState("");
+  const [imageUrl2, setImageUrl2] = useState("");
+  const [imageUrl3, setImageUrl3] = useState("");
+  const [imageUrl4, setImageUrl4] = useState("");
   const [children, setChildren] = useState([]);
   const [language, setLanguage] = useState(lang);
   const [published, setPublished] = useState(true);
@@ -51,11 +55,23 @@ const useCategorySubmit = (id, data) => {
           [language]: description || "",
           ...descriptionTranslates,
         },
+        background_color: {
+          [language]: background_color || "",
+          ...descriptionTranslates,
+        },
+        text_color: {
+          [language]: text_color || "",
+          ...descriptionTranslates,
+        },
         parentId: checked ? checked : undefined,
         parentName: selectCategoryName ? selectCategoryName : "Home",
         // parentName: selectCategoryName ? selectCategoryName : 'Home',
 
         icon: imageUrl,
+        icon1: imageUrl1,
+        icon2: imageUrl2,
+        icon3: imageUrl3,
+        icon4: imageUrl4,
         status: published ? "show" : "hide",
         lang: language,
       };
@@ -90,6 +106,8 @@ const useCategorySubmit = (id, data) => {
     if (Object.keys(resData).length > 0) {
       setValue("name", resData.name[lang ? lang : "en"]);
       setValue("description", resData.description[lang ? lang : "en"]);
+      setValue("background_color", resData.background_color[lang ? lang : "en"]);
+      setValue("text_color", resData.text_color[lang ? lang : "en"]);
     }
   };
 
@@ -100,13 +118,21 @@ const useCategorySubmit = (id, data) => {
       setValue("parentId");
       setValue("parentName");
       setValue("description");
+      setValue("background_color");
+      setValue("text_color");
       setValue("icon");
+      setValue("icon1");
+      setValue("icon2");
+      setValue("icon3");
+      setValue("icon4");
       setImageUrl("");
       setPublished(true);
       clearErrors("name");
       clearErrors("parentId");
       clearErrors("parentName");
       clearErrors("description");
+      clearErrors("background_color");
+      clearErrors("text_color");
       setSelectCategoryName("Home");
       setLanguage(lang);
       setValue("language", language);
@@ -150,7 +176,15 @@ const useCategorySubmit = (id, data) => {
     onSubmit,
     errors,
     imageUrl,
+    imageUrl1,
+    imageUrl2,
+    imageUrl3,
+    imageUrl4,
     setImageUrl,
+    setImageUrl1,
+    setImageUrl2,
+    setImageUrl3,
+    setImageUrl4,
     children,
     setChildren,
     published,

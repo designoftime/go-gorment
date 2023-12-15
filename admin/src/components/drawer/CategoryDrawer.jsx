@@ -29,7 +29,15 @@ const CategoryDrawer = ({ id, data }) => {
     handleSubmit,
     errors,
     imageUrl,
+    imageUrl1,
+    imageUrl2,
+    imageUrl3,
+    imageUrl4,
     setImageUrl,
+    setImageUrl1,
+    setImageUrl2,
+    setImageUrl3,
+    setImageUrl4,
     published,
     setPublished,
     setChecked,
@@ -151,7 +159,6 @@ const CategoryDrawer = ({ id, data }) => {
                 <Error errorName={errors.name} />
               </div>
             </div>
-
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label={t("Description")} />
               <div className="col-span-8 sm:col-span-4">
@@ -166,7 +173,6 @@ const CategoryDrawer = ({ id, data }) => {
                 <Error errorName={errors.description} />
               </div>
             </div>
-
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label={t("ParentCategory")} />
               <div className="col-span-8 sm:col-span-4 relative">
@@ -194,7 +200,6 @@ const CategoryDrawer = ({ id, data }) => {
                 </div>
               </div>
             </div>
-
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label={t("CategoryIcon")} />
               <div className="col-span-8 sm:col-span-4">
@@ -205,7 +210,72 @@ const CategoryDrawer = ({ id, data }) => {
                 />
               </div>
             </div>
-
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={"Testimonial One"} />
+              <div className="col-span-8 sm:col-span-4">
+                <Uploader
+                  imageUrl={imageUrl1}
+                  setImageUrl={setImageUrl1}
+                  folder="category"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={"Testimonial Two"} />
+              <div className="col-span-8 sm:col-span-4">
+                <Uploader
+                  imageUrl={imageUrl2}
+                  setImageUrl={setImageUrl2}
+                  folder="category"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={"Testimonial Three"} />
+              <div className="col-span-8 sm:col-span-4">
+                <Uploader
+                  imageUrl={imageUrl3}
+                  setImageUrl={setImageUrl3}
+                  folder="category"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={"Testimonial Four"} />
+              <div className="col-span-8 sm:col-span-4">
+                <Uploader
+                  imageUrl={imageUrl4}
+                  setImageUrl={setImageUrl4}
+                  folder="category"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={"Background Color"} />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  label="Background Color"
+                  name="background_color"
+                  type="text"
+                  placeholder={"Background Color"}
+                />
+                <Error errorName={errors.background_color} />
+              </div>
+            </div>{" "}
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={"Text Color"} />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  label="Text Color"
+                  name="text_color"
+                  type="text"
+                  placeholder={"Text Color"}
+                />
+                <Error errorName={errors.text_color} />
+              </div>
+            </div>
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label={t("Published")} />
               <div className="col-span-8 sm:col-span-4">

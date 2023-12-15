@@ -279,23 +279,23 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.slider.first_description": setting.slider.first_description,
           "setting.slider.first_button": setting.slider.first_button,
           "setting.slider.first_link": setting.slider.first_link,
-          "setting.slider.slider_one_background_color": setting.slider.slider_one_background_color,
-          "setting.slider.slider_one_text_color": setting.slider.slider_one_text_color,
+          "setting.slider.slider_first_background_color": setting.slider.slider_first_background_color,
+          "setting.slider.slider_first_text_color": setting.slider.slider_first_text_color,
           "setting.slider.second_img": setting.slider.second_img,
           "setting.slider.second_title": setting.slider.second_title,
           "setting.slider.second_description":
             setting.slider.second_description,
           "setting.slider.second_button": setting.slider.second_button,
           "setting.slider.second_link": setting.slider.second_link,
-          "setting.slider.slider_two_background_color": setting.slider.slider_two_background_color,
-          "setting.slider.slider_two_text_color": setting.slider.slider_two_text_color,
+          "setting.slider.slider_second_background_color": setting.slider.slider_second_background_color,
+          "setting.slider.slider_second_text_color": setting.slider.slider_second_text_color,
           "setting.slider.third_img": setting.slider.third_img,
           "setting.slider.third_title": setting.slider.third_title,
           "setting.slider.third_description": setting.slider.third_description,
           "setting.slider.third_button": setting.slider.third_button,
           "setting.slider.third_link": setting.slider.third_link,
-          "setting.slider.slider_three_background_color": setting.slider.slider_three_background_color,
-          "setting.slider.slider_three_text_color": setting.slider.slider_three_text_color,
+          "setting.slider.slider_third_background_color": setting.slider.slider_third_background_color,
+          "setting.slider.slider_third_text_color": setting.slider.slider_third_text_color,
           "setting.slider.four_img": setting.slider.four_img,
           "setting.slider.four_title": setting.slider.four_title,
           "setting.slider.four_description": setting.slider.four_description,
@@ -354,8 +354,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.bottom_slider.first_button":
             setting.bottom_slider.first_button,
           "setting.bottom_slider.first_link": setting.bottom_slider.first_link,
-          "setting.bottom_slider.bottom_slider_background_color_one": setting.bottom_slider.bottom_slider_background_color_one,
-          "setting.bottom_slider.bottom_slider_text_color_one": setting.bottom_slider.bottom_slider_text_color_one,
+          "setting.bottom_slider.bottom_slider_background_color_first": setting.bottom_slider.bottom_slider_background_color_first,
+          "setting.bottom_slider.bottom_slider_text_color_first": setting.bottom_slider.bottom_slider_text_color_first,
           "setting.bottom_slider.second_img": setting.bottom_slider.second_img,
           "setting.bottom_slider.second_title":
             setting.bottom_slider.second_title,
@@ -365,10 +365,10 @@ const updateStoreCustomizationSetting = async (req, res) => {
             setting.bottom_slider.second_button,
           "setting.bottom_slider.second_link":
             setting.bottom_slider.second_link,
-            "setting.bottom_slider.bottom_slider_background_color_two":
-            setting.bottom_slider.bottom_slider_background_color_two,
-            "setting.bottom_slider.bottom_slider_text_color_two":
-            setting.bottom_slider.bottom_slider_text_color_two,
+            "setting.bottom_slider.bottom_slider_background_color_second":
+            setting.bottom_slider.bottom_slider_background_color_second,
+            "setting.bottom_slider.bottom_slider_text_color_second":
+            setting.bottom_slider.bottom_slider_text_color_second,
           "setting.bottom_slider.third_img": setting.bottom_slider.third_img,
           "setting.bottom_slider.third_title":
             setting.bottom_slider.third_title,
@@ -377,8 +377,8 @@ const updateStoreCustomizationSetting = async (req, res) => {
           "setting.bottom_slider.third_button":
             setting.bottom_slider.third_button,
           "setting.bottom_slider.third_link": setting.bottom_slider.third_link,
-          "setting.bottom_slider.bottom_slider_background_color_three": setting.bottom_slider.bottom_slider_background_color_three,
-          "setting.bottom_slider.bottom_slider_text_color_three": setting.bottom_slider.bottom_slider_text_color_three,
+          "setting.bottom_slider.bottom_slider_background_color_third": setting.bottom_slider.bottom_slider_background_color_third,
+          "setting.bottom_slider.bottom_slider_text_color_third": setting.bottom_slider.bottom_slider_text_color_third,
           "setting.bottom_slider.four_img": setting.bottom_slider.four_img,
           "setting.bottom_slider.four_title": setting.bottom_slider.four_title,
           "setting.bottom_slider.four_description":

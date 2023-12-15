@@ -99,7 +99,19 @@ const updateCategory = async (req, res) => {
         ...category.description,
         ...req.body.description,
       };
+      category.background_color = {
+        ...category.background_color,
+        ...req.body.background_color,
+      };
+      category.text_color = {
+        ...category.text_color,
+        ...req.body.text_color,
+      };
       category.icon = req.body.icon;
+      category.icon1 = req.body.icon1;
+      category.icon2 = req.body.icon2;
+      category.icon3 = req.body.icon3;
+      category.icon4 = req.body.icon4;
       category.status = req.body.status;
       category.parentId = req.body.parentId
         ? req.body.parentId
