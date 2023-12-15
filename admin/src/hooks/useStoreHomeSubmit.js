@@ -1126,13 +1126,13 @@ const useStoreHomeSubmit = () => {
               [language]: data.slider_button_name || "",
             },
             first_link: data.slider_button_link,
-            slider_one_background_color: {
-              ...resData?.slider?.slider_one_background_color,
-              [language]: data.slider_one_background_color || "",
+            slider_first_background_color: {
+              ...resData?.slider?.slider_first_background_color,
+              [language]: data.slider_first_background_color || "",
             },
-            slider_one_text_color: {
-              ...resData?.slider?.slider_one_text_color,
-              [language]: data.slider_one_text_color || "",
+            slider_first_text_color: {
+              ...resData?.slider?.slider_first_text_color,
+              [language]: data.slider_first_text_color || "",
             },
 
             second_img: sliderImageTwo,
@@ -1149,13 +1149,13 @@ const useStoreHomeSubmit = () => {
               [language]: data.slider_button_name_two || "",
             },
             second_link: data.slider_button_link_two,
-            slider_two_background_color: {
-              ...resData?.slider?.slider_two_background_color,
-              [language]: data.slider_two_background_color || "",
+            slider_second_background_color: {
+              ...resData?.slider?.slider_second_background_color,
+              [language]: data.slider_second_background_color || "",
             },
-            slider_two_text_color: {
-              ...resData?.slider?.slider_two_text_color,
-              [language]: data.slider_two_text_color || "",
+            slider_second_text_color: {
+              ...resData?.slider?.slider_second_text_color,
+              [language]: data.slider_second_text_color || "",
             },
 
             third_img: sliderImageThree,
@@ -1172,13 +1172,13 @@ const useStoreHomeSubmit = () => {
               [language]: data.slider_button_name_three || "",
             },
             third_link: data.slider_button_link_three,
-            slider_three_background_color: {
-              ...resData?.slider?.slider_three_background_color,
-              [language]: data.slider_three_background_color || "",
+            slider_third_background_color: {
+              ...resData?.slider?.slider_third_background_color,
+              [language]: data.slider_third_background_color || "",
             },
-            slider_three_text_color: {
-              ...resData?.slider?.slider_three_text_color,
-              [language]: data.slider_three_text_color || "",
+            slider_third_text_color: {
+              ...resData?.slider?.slider_third_text_color,
+              [language]: data.slider_third_text_color || "",
             },
             four_img: sliderImageFour,
             four_title: {
@@ -1238,13 +1238,13 @@ const useStoreHomeSubmit = () => {
               ...resData?.bottom_slider?.first_description,
               [language]: data.bottom_slider_description || "",
             },
-            bottom_slider_background_color_one: {
-              ...resData?.bottom_slider?.bottom_slider_background_color_one,
-              [language]: data.bottom_slider_background_color_one || "",
+            bottom_slider_background_color_first: {
+              ...resData?.bottom_slider?.bottom_slider_background_color_first,
+              [language]: data.bottom_slider_background_color_first || "",
             },
-            bottom_slider_text_color_one: {
-              ...resData?.bottom_slider?.bottom_slider_text_color_one,
-              [language]: data.bottom_slider_text_color_one || "",
+            bottom_slider_text_color_first: {
+              ...resData?.bottom_slider?.bottom_slider_text_color_first,
+              [language]: data.bottom_slider_text_color_first || "",
             },
 
             second_img: bottomSliderImageTwo,
@@ -1256,13 +1256,13 @@ const useStoreHomeSubmit = () => {
               ...resData?.bottom_slider?.second_description,
               [language]: data.bottom_slider_description_two || "",
             },
-            bottom_slider_background_color_two: {
-              ...resData?.bottom_slider?.bottom_slider_background_color_two,
-              [language]: data.bottom_slider_background_color_two || "",
+            bottom_slider_background_color_second: {
+              ...resData?.bottom_slider?.bottom_slider_background_color_second,
+              [language]: data.bottom_slider_background_color_second || "",
             },
-            bottom_slider_text_color_two: {
-              ...resData?.bottom_slider?.bottom_slider_text_color_two,
-              [language]: data.bottom_slider_text_color_two || "",
+            bottom_slider_text_color_second: {
+              ...resData?.bottom_slider?.bottom_slider_text_color_second,
+              [language]: data.bottom_slider_text_color_second || "",
             },
 
             third_img: bottomSliderImageThree,
@@ -1274,13 +1274,13 @@ const useStoreHomeSubmit = () => {
               ...resData?.bottom_slider?.third_description,
               [language]: data.bottom_slider_description_three || "",
             },
-            bottom_slider_background_color_three: {
-              ...resData?.bottom_slider?.bottom_slider_background_color_three,
-              [language]: data.bottom_slider_background_color_three || "",
+            bottom_slider_background_color_third: {
+              ...resData?.bottom_slider?.bottom_slider_background_color_third,
+              [language]: data.bottom_slider_background_color_third || "",
             },
-            bottom_slider_text_color_three: {
-              ...resData?.bottom_slider?.bottom_slider_text_color_three,
-              [language]: data.bottom_slider_text_color_three || "",
+            bottom_slider_text_color_third: {
+              ...resData?.bottom_slider?.bottom_slider_text_color_third,
+              [language]: data.bottom_slider_text_color_third || "",
             },
 
             four_img: bottomSliderImageFour,
@@ -1944,10 +1944,10 @@ const useStoreHomeSubmit = () => {
           );
           setValue("slider_button_link", res?.slider?.first_link);
           setValue(
-            "slider_one_background_color",
-            res?.slider?.slider_one_background_color[language || "en"]
+            "slider_first_background_color",
+            res?.slider?.slider_first_background_color[language || "en"]
           );
-          setValue("slider_one_text_color", res?.slider?.slider_one_text_color[language || "en"]);
+          setValue("slider_first_text_color", res?.slider?.slider_first_text_color[language || "en"]);
           setValue(
             "slider_title_two",
             res?.slider?.second_title[language || "en"]
@@ -1962,10 +1962,10 @@ const useStoreHomeSubmit = () => {
           );
           setValue("slider_button_link_two", res?.slider?.second_link);
           setValue(
-            "slider_two_background_color",
-            res?.slider?.slider_two_background_color[language || "en"]
+            "slider_second_background_color",
+            res?.slider?.slider_second_background_color[language || "en"]
           );
-          setValue("slider_two_text_color", res?.slider?.slider_two_text_color[language || "en"]);
+          setValue("slider_second_text_color", res?.slider?.slider_second_text_color[language || "en"]);
 
           setValue(
             "slider_title_three",
@@ -1981,12 +1981,12 @@ const useStoreHomeSubmit = () => {
           );
           setValue("slider_button_link_three", res?.slider?.third_link);
           setValue(
-            "slider_three_background_color",
-            res?.slider?.slider_three_background_color[language || "en"]
+            "slider_third_background_color",
+            res?.slider?.slider_third_background_color[language || "en"]
           );
           setValue(
-            "slider_three_text_color",
-            res?.slider?.slider_three_text_color[language || "en"]
+            "slider_third_text_color",
+            res?.slider?.slider_third_text_color[language || "en"]
           );
 
           setValue(
@@ -2100,12 +2100,12 @@ const useStoreHomeSubmit = () => {
             res?.bottom_slider?.first_description[language || "en"]
           );
           setValue(
-            "bottom_slider_background_color_one",
-            res?.bottom_slider?.bottom_slider_background_color_one[language || "en"]
+            "bottom_slider_background_color_first",
+            res?.bottom_slider?.bottom_slider_background_color_first[language || "en"]
           );
           setValue(
-            "bottom_slider_text_color_one",
-            res?.bottom_slider?.bottom_slider_text_color_one[language || "en"]
+            "bottom_slider_text_color_first",
+            res?.bottom_slider?.bottom_slider_text_color_first[language || "en"]
           );
           setValue(
             "bottom_slider_title_two",
@@ -2116,12 +2116,12 @@ const useStoreHomeSubmit = () => {
             res?.bottom_slider?.second_description[language || "en"]
           );
           setValue(
-            "bottom_slider_background_color_two",
-            res?.bottom_slider?.bottom_slider_background_color_two[language || "en"]
+            "bottom_slider_background_color_second",
+            res?.bottom_slider?.bottom_slider_background_color_second[language || "en"]
           );
           setValue(
-            "bottom_slider_text_color_two",
-            res?.bottom_slider?.bottom_slider_text_color_two[language || "en"]
+            "bottom_slider_text_color_second",
+            res?.bottom_slider?.bottom_slider_text_color_second[language || "en"]
           );
           setValue(
             "bottom_slider_title_three",
@@ -2132,12 +2132,12 @@ const useStoreHomeSubmit = () => {
             res?.bottom_slider?.third_description[language || "en"]
           );
           setValue(
-            "bottom_slider_background_color_three",
-            res?.bottom_slider?.bottom_slider_background_color_three[language || "en"]
+            "bottom_slider_background_color_third",
+            res?.bottom_slider?.bottom_slider_background_color_third[language || "en"]
           );
           setValue(
-            "bottom_slider_text_color_three",
-            res?.bottom_slider?.bottom_slider_text_color_three[language || "en"]
+            "bottom_slider_text_color_third",
+            res?.bottom_slider?.bottom_slider_text_color_third[language || "en"]
           );
           setValue(
             "bottom_slider_title_four",

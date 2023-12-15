@@ -662,12 +662,12 @@ const HomePage = ({
                   <InputAreaTwo
                     required
                     register={register}
-                    label="Background Color "
-                    name="slider_one_background_color"
+                    label="Background Color"
+                    name="slider_first_background_color"
                     type="text"
                     placeholder="Background Color"
                   />
-                  <Error errorName={errors.slider_one_background_color} />
+                  <Error errorName={errors.slider_first_background_color} />
                 </div>
               </div>{" "}
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -678,12 +678,12 @@ const HomePage = ({
                   <InputAreaTwo
                     required
                     register={register}
-                    label="Text Color "
-                    name="slider_one_text_color"
+                    label="Text Color"
+                    name="slider_first_text_color"
                     type="text"
                     placeholder="Text Color"
                   />
-                  <Error errorName={errors.slider_one_text_color} />
+                  <Error errorName={errors.slider_first_text_color} />
                 </div>
               </div>
                 </TabPanel>
@@ -777,11 +777,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Background Color "
-                    name="slider_two_background_color"
+                    name="slider_second_background_color"
                     type="text"
                     placeholder="Background Color"
                   />
-                  <Error errorName={errors.slider_two_background_color} />
+                  <Error errorName={errors.slider_second_background_color} />
                 </div>
               </div>{" "}
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -793,11 +793,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Text Color "
-                    name="slider_two_text_color"
+                    name="slider_second_text_color"
                     type="text"
                     placeholder="Text Color"
                   />
-                  <Error errorName={errors.header_text_color} />
+                  <Error errorName={errors.slider_second_text_color} />
                 </div>
               </div>
                 </TabPanel>
@@ -891,11 +891,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Background Color "
-                    name="slider_three_background_color"
+                    name="slider_third_background_color"
                     type="text"
                     placeholder="Background Color"
                   />
-                  <Error errorName={errors.slider_three_background_color} />
+                  <Error errorName={errors.slider_third_background_color} />
                 </div>
               </div>{" "}
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -907,11 +907,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Text Color "
-                    name="slider_three_text_color"
+                    name="slider_third_text_color"
                     type="text"
                     placeholder="Text Color"
                   />
-                  <Error errorName={errors.slider_three_text_color} />
+                  <Error errorName={errors.slider_third_text_color} />
                 </div>
               </div>
                 </TabPanel>
@@ -1564,11 +1564,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Background Color "
-                    name="bottom_slider_background_color_one"
+                    name="bottom_slider_background_color_first"
                     type="text"
                     placeholder="Background Color"
                   />
-                  <Error errorName={errors.bottom_slider_background_color_one} />
+                  <Error errorName={errors.bottom_slider_background_color_first} />
                 </div>
               </div>{" "}
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -1580,11 +1580,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Text Color "
-                    name="bottom_slider_text_color_one"
+                    name="bottom_slider_text_color_first"
                     type="text"
                     placeholder="Text Color"
                   />
-                  <Error errorName={errors.bottom_slider_text_color_one} />
+                  <Error errorName={errors.bottom_slider_text_color_first} />
                 </div>
               </div>
                 </TabPanel>
@@ -1644,11 +1644,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Background Color "
-                    name="bottom_slider_background_color_two"
+                    name="bottom_slider_background_color_second"
                     type="text"
                     placeholder="Background Color"
                   />
-                  <Error errorName={errors.bottom_slider_background_color_two} />
+                  <Error errorName={errors.bottom_slider_background_color_second} />
                 </div>
               </div>{" "}
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -1660,11 +1660,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Text Color "
-                    name="bottom_slider_text_color_two"
+                    name="bottom_slider_text_color_second"
                     type="text"
                     placeholder="Text Color"
                   />
-                  <Error errorName={errors.bottom_slider_text_color_two} />
+                  <Error errorName={errors.bottom_slider_text_color_second} />
                 </div>
               </div>
                 </TabPanel>
@@ -1727,11 +1727,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Background Color "
-                    name="bottom_slider_background_color_three"
+                    name="bottom_slider_background_color_third"
                     type="text"
                     placeholder="Background Color"
                   />
-                  <Error errorName={errors.bottom_slider_background_color_three} />
+                  <Error errorName={errors.bottom_slider_background_color_third} />
                 </div>
               </div>{" "}
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
@@ -1743,11 +1743,11 @@ const HomePage = ({
                     required
                     register={register}
                     label="Text Color "
-                    name="bottom_slider_text_color_three"
+                    name="bottom_slider_text_color_third"
                     type="text"
                     placeholder="Text Color"
                   />
-                  <Error errorName={errors.bottom_slider_text_color_three} />
+                  <Error errorName={errors.bottom_slider_text_color_third} />
                 </div>
               </div>
                 </TabPanel>
