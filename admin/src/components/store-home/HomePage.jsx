@@ -123,10 +123,34 @@ const HomePage = ({
   setBottomSliderImageFive,
   permotionBannerImg,
   setPermotionBannerImg,
-  scrollingImage,
-  setScrollingImage,
+
+
+
+  scrollingImageOne,
+  setScrollingImageOne,
+  scrollingImageTwo,
+  setScrollingImageTwo,
+  scrollingImageThree,
+  setScrollingImageThree,
+  scrollingImageFour,
+  setScrollingImageFour,
+  scrollingImageFive,
+  setScrollingImageFive,
+  scrollingImageSix,
+  setScrollingImageSix,
+  scrollingImageSeven,
+  setScrollingImageSeven,
+  scrollingImageEight,
+  setScrollingImageEight,
+  scrollingImageNine,
+  setScrollingImageNine,
+  scrollingImageTen,
+  setScrollingImageTen,
+
+
   scrollingBanner,
   setScrollingBanner,
+  
   setBottomPermotionBanner,
   bottomPermotionBanner,
   bottomPermotionBannerImg,
@@ -3296,8 +3320,116 @@ const HomePage = ({
                 <div className="sm:col-span-4">
                   <Uploader
                     folder="home"
-                    imageUrl={scrollingImage}
-                    setImageUrl={setScrollingImage}
+                    imageUrl={scrollingImageOne}
+                    setImageUrl={setScrollingImageOne}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 1
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageTwo}
+                    setImageUrl={setScrollingImageTwo}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 2
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageThree}
+                    setImageUrl={setScrollingImageThree}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 3
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageFour}
+                    setImageUrl={setScrollingImageFour}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 4
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageFive}
+                    setImageUrl={setScrollingImageFive}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 5
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageSix}
+                    setImageUrl={setScrollingImageSix}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 6
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageSeven}
+                    setImageUrl={setScrollingImageSeven}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 7
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageEight}
+                    setImageUrl={setScrollingImageEight}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 8
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageNine}
+                    setImageUrl={setScrollingImageNine}
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
+                <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
+                  Image 9
+                </label>
+                <div className="sm:col-span-4">
+                  <Uploader
+                    folder="home"
+                    imageUrl={scrollingImageTen}
+                    setImageUrl={setScrollingImageTen}
                   />
                 </div>
               </div>

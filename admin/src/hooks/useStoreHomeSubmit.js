@@ -139,7 +139,16 @@ const useStoreHomeSubmit = () => {
 
   const [permotionBannerImg, setPermotionBannerImg] = useState("");
 
-  const [scrollingImage, setScrollingImage] = useState("");
+  const [scrollingImageOne, setScrollingImageOne] = useState();
+  const [scrollingImageTwo, setScrollingImageTwo] = useState();
+  const [scrollingImageThree, setScrollingImageThree] = useState();
+  const [scrollingImageFour, setScrollingImageFour] = useState();
+  const [scrollingImageFive, setScrollingImageFive] = useState();
+  const [scrollingImageSix, setScrollingImageSix] = useState();
+  const [scrollingImageSeven, setScrollingImageSeven] = useState();
+  const [scrollingImageEight, setScrollingImageEight] = useState();
+  const [scrollingImageNine, setScrollingImageNine] = useState();
+  const [scrollingImageTen, setScrollingImageTen] = useState();
   const [scrollingBanner, setScrollingBanner] = useState(true);
 
   const [bottomPermotionBanner, setBottomPermotionBanner] = useState(true);
@@ -344,7 +353,6 @@ const useStoreHomeSubmit = () => {
               ...resData?.home?.testimonial_text_color,
               [language]: data.testimonial_text_color || "",
             },
-
 
             discount_title: {
               ...resData?.home?.discount_title,
@@ -1485,7 +1493,16 @@ const useStoreHomeSubmit = () => {
           },
           scrolling: {
             scrolling_banner_status: scrollingBanner,
-            scrolling_image: scrollingImage,
+            one_img: scrollingImageOne,
+            two_img: scrollingImageTwo,
+            three_img: scrollingImageThree,
+            four_img: scrollingImageFour,
+            five_img: scrollingImageFive,
+            six_img: scrollingImageSix,
+            seven_img: scrollingImageSeven,
+            eight_img: scrollingImageEight,
+            nine_img: scrollingImageNine,
+            ten_img: scrollingImageTen,
           },
           footer: {
             promo_status: true,
@@ -1761,7 +1778,10 @@ const useStoreHomeSubmit = () => {
             "header_background_color",
             res?.navbar?.header_background_color[language || "en"]
           );
-          setValue("header_text_color", res?.navbar?.header_text_color[language || "en"]);
+          setValue(
+            "header_text_color",
+            res?.navbar?.header_text_color[language || "en"]
+          );
 
           //home
 
@@ -1847,8 +1867,14 @@ const useStoreHomeSubmit = () => {
             res?.home?.promotion_button_name[language || "en"]
           );
           setValue("promotion_button_link", res?.home?.promotion_button_link);
-          setValue("permotion_background_color", res?.home?.permotion_background_color[language || "en"]);
-          setValue("permotion_text_color", res?.home?.permotion_text_color[language || "en"]);
+          setValue(
+            "permotion_background_color",
+            res?.home?.permotion_background_color[language || "en"]
+          );
+          setValue(
+            "permotion_text_color",
+            res?.home?.permotion_text_color[language || "en"]
+          );
           setValue("feature_title", res?.home?.feature_title[language || "en"]);
           setValue(
             "feature_description",
@@ -1953,7 +1979,10 @@ const useStoreHomeSubmit = () => {
             "slider_first_background_color",
             res?.slider?.slider_first_background_color[language || "en"]
           );
-          setValue("slider_first_text_color", res?.slider?.slider_first_text_color[language || "en"]);
+          setValue(
+            "slider_first_text_color",
+            res?.slider?.slider_first_text_color[language || "en"]
+          );
           setValue(
             "slider_title_two",
             res?.slider?.second_title[language || "en"]
@@ -1971,7 +2000,10 @@ const useStoreHomeSubmit = () => {
             "slider_second_background_color",
             res?.slider?.slider_second_background_color[language || "en"]
           );
-          setValue("slider_second_text_color", res?.slider?.slider_second_text_color[language || "en"]);
+          setValue(
+            "slider_second_text_color",
+            res?.slider?.slider_second_text_color[language || "en"]
+          );
 
           setValue(
             "slider_title_three",
@@ -2107,7 +2139,9 @@ const useStoreHomeSubmit = () => {
           );
           setValue(
             "bottom_slider_background_color_first",
-            res?.bottom_slider?.bottom_slider_background_color_first[language || "en"]
+            res?.bottom_slider?.bottom_slider_background_color_first[
+              language || "en"
+            ]
           );
           setValue(
             "bottom_slider_text_color_first",
@@ -2123,11 +2157,15 @@ const useStoreHomeSubmit = () => {
           );
           setValue(
             "bottom_slider_background_color_second",
-            res?.bottom_slider?.bottom_slider_background_color_second[language || "en"]
+            res?.bottom_slider?.bottom_slider_background_color_second[
+              language || "en"
+            ]
           );
           setValue(
             "bottom_slider_text_color_second",
-            res?.bottom_slider?.bottom_slider_text_color_second[language || "en"]
+            res?.bottom_slider?.bottom_slider_text_color_second[
+              language || "en"
+            ]
           );
           setValue(
             "bottom_slider_title_three",
@@ -2139,7 +2177,9 @@ const useStoreHomeSubmit = () => {
           );
           setValue(
             "bottom_slider_background_color_third",
-            res?.bottom_slider?.bottom_slider_background_color_third[language || "en"]
+            res?.bottom_slider?.bottom_slider_background_color_third[
+              language || "en"
+            ]
           );
           setValue(
             "bottom_slider_text_color_third",
@@ -2155,7 +2195,9 @@ const useStoreHomeSubmit = () => {
           );
           setValue(
             "bottom_slider_background_color_four",
-            res?.bottom_slider?.bottom_slider_background_color_four[language || "en"]
+            res?.bottom_slider?.bottom_slider_background_color_four[
+              language || "en"
+            ]
           );
           setValue(
             "bottom_slider_text_color_four",
@@ -2177,9 +2219,7 @@ const useStoreHomeSubmit = () => {
           );
           setValue(
             "bottom_slider_text_color_five",
-            res?.bottom_slider?.bottom_slider_text_color_five[
-              language || "en"
-            ]
+            res?.bottom_slider?.bottom_slider_text_color_five[language || "en"]
           );
 
           //checkout
@@ -2302,9 +2342,18 @@ const useStoreHomeSubmit = () => {
             "change_password",
             res?.dashboard?.change_password[language || "en"]
           );
-          //
+          // scrolling
           setScrollingBanner(res?.scrolling?.scrolling_banner_status);
-          setScrollingImage(res?.scrolling?.scrolling_image);
+          setScrollingImageOne(res?.scrolling?.one_img);
+          setScrollingImageTwo(res?.scrolling?.two_img);
+          setScrollingImageThree(res?.scrolling?.three_img);
+          setScrollingImageFour(res?.scrolling?.four_img);
+          setScrollingImageFive(res?.scrolling?.five_img);
+          setScrollingImageSix(res?.scrolling?.six_img);
+          setScrollingImageSeven(res?.scrolling?.seven_img);
+          setScrollingImageEight(res?.scrolling?.eight_img);
+          setScrollingImageTen(res?.scrolling?.nine_img);
+          setScrollingImageNine(res?.scrolling?.ten_img);
 
           //footer
           setFooterBlock1(res?.footer?.block1_status);
@@ -2440,8 +2489,14 @@ const useStoreHomeSubmit = () => {
           setValue("social_linkedin", res?.footer?.social_linkedin);
           setValue("social_whatsapp", res?.footer?.social_whatsapp);
           setValue("footer_Bottom_Contact", res?.footer?.bottom_contact);
-          setValue("footer_background_color", res?.footer?.footer_background_color[language || "en"]);
-          setValue("footer_text_color", res?.footer?.footer_text_color[language || "en"]);
+          setValue(
+            "footer_background_color",
+            res?.footer?.footer_background_color[language || "en"]
+          );
+          setValue(
+            "footer_text_color",
+            res?.footer?.footer_text_color[language || "en"]
+          );
 
           // slug
           setSingleProductPageRightBox(res?.slug?.right_box_status);
@@ -3263,8 +3318,27 @@ const useStoreHomeSubmit = () => {
     setPermotionBannerImg,
     setScrollingBanner,
     scrollingBanner,
-    scrollingImage,
-    setScrollingImage,
+    scrollingImageOne,
+    setScrollingImageOne,
+    scrollingImageTwo,
+    setScrollingImageTwo,
+    scrollingImageThree,
+    setScrollingImageThree,
+    scrollingImageFour,
+    setScrollingImageFour,
+    scrollingImageFive,
+    setScrollingImageFive,
+    scrollingImageSix,
+    setScrollingImageSix,
+    scrollingImageSeven,
+    setScrollingImageSeven,
+    scrollingImageEight,
+    setScrollingImageEight,
+    scrollingImageNine,
+    setScrollingImageNine,
+    scrollingImageTen,
+    setScrollingImageTen,
+
     setBottomPermotionBanner,
     bottomPermotionBanner,
     bottomPermotionBannerImg,
