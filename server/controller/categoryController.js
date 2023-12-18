@@ -95,6 +95,7 @@ const updateCategory = async (req, res) => {
     const category = await Category.findById(req.params.id);
     if (category) {
       category.name = { ...category.name, ...req.body.name };
+      category.sub_title = { ...category.sub_title, ...req.body.sub_title };
       category.description = {
         ...category.description,
         ...req.body.description,
@@ -108,6 +109,7 @@ const updateCategory = async (req, res) => {
         ...req.body.text_color,
       };
       category.icon = req.body.icon;
+      category.cover = req.body.cover;
       category.icon1 = req.body.icon1;
       category.icon2 = req.body.icon2;
       category.icon3 = req.body.icon3;

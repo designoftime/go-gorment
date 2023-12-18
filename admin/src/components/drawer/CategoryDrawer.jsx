@@ -28,12 +28,14 @@ const CategoryDrawer = ({ id, data }) => {
     onSubmit,
     handleSubmit,
     errors,
+    imageUrlCover,
     imageUrl,
     imageUrl1,
     imageUrl2,
     imageUrl3,
     imageUrl4,
     setImageUrl,
+    setImageUrlCover,
     setImageUrl1,
     setImageUrl2,
     setImageUrl3,
@@ -160,6 +162,19 @@ const CategoryDrawer = ({ id, data }) => {
               </div>
             </div>
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={"Sub title"} />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  label="Sub title"
+                  name="sub_title"
+                  type="text"
+                  placeholder={"Sub title"}
+                />
+                <Error errorName={errors.sub_title} />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label={t("Description")} />
               <div className="col-span-8 sm:col-span-4">
                 <TextAreaCom
@@ -206,6 +221,16 @@ const CategoryDrawer = ({ id, data }) => {
                 <Uploader
                   imageUrl={imageUrl}
                   setImageUrl={setImageUrl}
+                  folder="category"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label={'Cover Image'} />
+              <div className="col-span-8 sm:col-span-4">
+                <Uploader
+                  imageUrl={imageUrlCover}
+                  setImageUrl={setImageUrlCover}
                   folder="category"
                 />
               </div>
