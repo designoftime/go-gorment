@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './Checkout.css'
+import '../Shop/ViewProducts/ViewProducts.css'
 import Gpayimge from './images/gpay (1).png'
 import Paypalimge from './images/images.png'
 import Shopayimge from './images/download.jpg'
+import Productimage from '../Shop/images/SourCreamHoverimg.jpg'
 import { IoSearchOutline } from "react-icons/io5";
 import { IoAdd } from "react-icons/io5";
 import { FaRegQuestionCircle } from "react-icons/fa";
@@ -83,16 +85,16 @@ const Checkout = () => {
                     </select>
                     <label htmlFor="country" className='label-form' >Country/region</label>
                   </div>
-                  <div class="row justify-content-between my-3">
-                    <div class="col-5 ">
+                  <div className="row justify-content-between my-3">
+                    <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" id='firstname' onChange={InputHandler} name='firstname' class="form-control Checkout-input" placeholder="First name(optional)" aria-label="First name" />
+                        <input type="text" id='firstname' onChange={InputHandler} name='firstname' className="form-control Checkout-input" placeholder="First name(optional)" aria-label="First name" />
                         <label htmlFor="firstname" className='label-form' >First name(optional)</label>
                       </div>
                     </div>
-                    <div class="col-5 ">
+                    <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" name='lastname' id='lastname' class="form-control Checkout-input" placeholder="Last name" onChange={InputHandler} aria-label="Last name" />
+                        <input type="text" name='lastname' id='lastname' className="form-control Checkout-input" placeholder="Last name" onChange={InputHandler} aria-label="Last name" />
                         <label htmlFor="lastname" className='label-form' >Last name</label>
                       </div>
                     </div>
@@ -106,19 +108,19 @@ const Checkout = () => {
                   </div>
                   <div className={showInput ? "d-none" : "my-2 "}><a href="#" onClick={handleHiddenInput} className='text-decoration-none'><IoAdd /> Add apartment, suite, etc.</a></div>
                   <div className={showInput ? "d-block my-3 form-floating" : "d-none"}>
-                    <input type="text" id='apartment' onChange={InputHandler} name='apartment' class="form-control Checkout-input" placeholder="Apartment, suite, etc." />
+                    <input type="text" id='apartment' onChange={InputHandler} name='apartment' className="form-control Checkout-input" placeholder="Apartment, suite, etc." />
                     <label htmlFor="apartment" className='label-form'>Apartment</label>
                   </div>
-                  <div class="row justify-content-between my-3">
-                    <div class="col-5 ">
+                  <div className="row justify-content-between my-3">
+                    <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" id='city' onChange={InputHandler} name='city' class="form-control Checkout-input" placeholder="City" aria-label="City" />
+                        <input type="text" id='city' onChange={InputHandler} name='city' className="form-control Checkout-input" placeholder="City" aria-label="City" />
                         <label htmlFor="city" className='label-form'>City</label>
                       </div>
                     </div>
-                    <div class="col-5 ">
+                    <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" id='postcode' name='postcode' class="form-control Checkout-input" placeholder="Postcode" onChange={InputHandler} />
+                        <input type="text" id='postcode' name='postcode' className="form-control Checkout-input" placeholder="Postcode" onChange={InputHandler} />
                         <label htmlFor="postcode" className='label-form' >Postcode</label>
                       </div>
                     </div>
@@ -169,7 +171,7 @@ const Checkout = () => {
                   <p>All transactions are secure and encrypted.</p>
                   <div className="Payment-card p-3 mt-4 searchIcon border border-1 rounded-top d-flex justify-content-between">
                     <div className='d-flex justify-content-between '>
-                      <input type="radio" value="creditcard" checked />
+                      <input type="radio" value="creditcard" defaultChecked />
                       <div><span /> <span className='px-2'>Credit Card</span></div>
                     </div>
                     <div>"card company images"</div>
@@ -183,25 +185,38 @@ const Checkout = () => {
                     </div>
                     <span className='input-group-text searchIcon '><GoLock /></span>
                   </div>
-                  <div class="row justify-content-between my-3">
-                    <div class="col-5 ">
+                  <div className="row justify-content-between my-3">
+                    <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" id='expirydate' onChange={InputHandler} name='expirydate' class="form-control Checkout-input" placeholder="Expiration Date (MM/YY)" aria-label="expirydate" />
+                        <input type="text" id='expirydate' onChange={InputHandler} name='expirydate' className="form-control Checkout-input" placeholder="Expiration Date (MM/YY)" aria-label="expirydate" />
                         <label htmlFor="expirydate" className='label-form' >Expiration Date (MM/YY)</label>
                       </div>
                     </div>
-                    <div class="col-5 ">
+                    <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" name='lastname' id='lastname' class="form-control Checkout-input" placeholder="Last name" onChange={InputHandler} aria-label="Last name" />
-                        <label htmlFor="lastname" className='label-form' >Last name</label>
+                        <input type="text" name='securitycode' id='securitycode' className="form-control Checkout-input" placeholder="Security code" onChange={InputHandler} aria-label="Security code" />
+                        <label htmlFor="securitycode" className='label-form' >Security code</label>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="paybtn "><button className='notifymebtn fs-4 rounded py-2'>Pay now</button></div>
               </form>
             </div>
           </div>
-          <div className="Checkout-right my-5 col-sm-md-xl-6"></div>
+          <div className="Checkout-right my-5 col-sm-12 col-md-xl-6">
+            <div className="Checkout-container w-75">
+              <div className="Product-view row">
+                <div className="col-2">
+                  <div className="image-block">
+                    <img src={Productimage} alt="" />
+                  </div>
+                </div>
+                <div className="col-6"></div>
+                <div className="col-3"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div >
     </div >

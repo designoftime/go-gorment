@@ -60,15 +60,19 @@
     height: auto !important;
     border-color: rgb(149, 147, 147)!important;
 }
-.Checkout-right {
-    width: 50%;
-    height: 300px;
-    background-color: rgb(52, 2, 97);
-}
+
 .shipping-box{
     border-color: rgb(149, 147, 147)!important;
 }
 .Shipping-message{
     border-color: rgb(193, 159, 177)!important;
     background-color: rgb(193, 159, 177);
+}
+.Checkout-right {
+    position: sticky;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: rgb(52, 2, 97);
+    
 }
