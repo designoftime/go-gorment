@@ -8,8 +8,8 @@ const useNotification = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    // setSocket(io(import.meta.env.VITE_APP_API_BASE_URL));
-    setSocket(io(process.env.VITE_APP_API_SOCKET_URL));
+    setSocket(io(import.meta.env.VITE_APP_API_BASE_URL));
+    // setSocket(io(process.env.VITE_APP_API_SOCKET_URL));
   }, []);
 
   useEffect(() => {
