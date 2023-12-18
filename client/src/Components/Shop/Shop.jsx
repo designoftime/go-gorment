@@ -37,18 +37,20 @@ import { Merch } from './Merch'
 import { OneFeedsHome } from '../Home/OnefeedsHome/OneFeedsHome'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
-
-
+import { useSelector } from 'react-redux'
 
 export const Shop = () => {
   const [showValue, setShowValue] = useState(window.innerWidth);
   const [dropdownOpen, setDropDownOpen] = useState(false);
+
+  const shopData = useSelector(store => store.storeSettings?.categories);
+  
   const toggleOpen = () => {
     setDropDownOpen(!dropdownOpen);
   }
-
+  
   useEffect(() => {
+    // console.log("running");
     const handleWidth = () => {
       setShowValue(window.innerWidth);
     }
@@ -56,7 +58,13 @@ export const Shop = () => {
     return () => {
       window.removeEventListener('resize', handleWidth);
     }
-  })
+  });
+  
+  if(!shopData){
+    return;
+  }
+  console.log(shopData);
+  
   const ShopPretzelBanner = [
     {
       "id": 1,
@@ -173,12 +181,12 @@ export const Shop = () => {
             <div className="Shopmenubar-content mx-auto">
               <div className="mainbar container mx-auto text-center my-5">
                 {showValue > 1000 ? <div className="barcontent mx-auto d-flex justify-content-evenly">
-                  <h3><button className='barbutton text-decoration-none'>ALL</button></h3>
-                  <h3><button className='barbutton text-decoration-none'>PRETZEL THINS</button></h3>
-                  <h3><button className='barbutton text-decoration-none'>OLIVES</button></h3>
-                  <h3><button className='barbutton text-decoration-none'>CHOCO PRETZEL</button></h3>
-                  <h3><button className='barbutton text-decoration-none'>BUNDLES</button></h3>
-                  <h3><button className='barbutton text-decoration-none'>MERCH</button></h3>
+                  <h3><button className='barbutton text-decoration-none'>{shopData[0]?.name?.en && shopData[0]?.name?.en}</button></h3>
+                  {
+                    Array.isArray(shopData) && shopData[0].children && shopData[0].children.map((eachCategory) => {
+                      return (<h3 key={eachCategory._id}><button className='barbutton text-decoration-none'>{eachCategory?.name?.en}</button></h3>)
+                    })
+                  }
                 </div> : <div class="Dropdown">
                   <div className="maindropdown">
                     <button class="barbutton dropdown-toggle" onClick={toggleOpen} type="button" >
@@ -192,29 +200,32 @@ export const Shop = () => {
                     </ul>
 
                 </div>
-
                 }
-
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="pretzelThins">
-        <ShopBanner ShopPretzelBanner={ShopPretzelBanner} />
-        <Products ShopPretezelProducts={ShopPretezelProducts} />
-      </div>
-      <div className='OlivesSection'>
+      {
+        Array.isArray(shopData) && shopData[0].children && shopData[0].children.map((eachCategory) => {
+          return (
+            <div className="pretzelThins" key={eachCategory._id}>
+              <ShopBanner shopData={eachCategory} />
+              <Products ShopPretezelProducts={ShopPretezelProducts} />
+            </div>
+          )
+        })
+      }
+      
+      {/* <div className='OlivesSection'>
         <ShopBanner ShopOlivesBanner={ShopOlivesBanner} />
         <Products ShopOlivesProducts={ShopOlivesProducts} />
       </div>
       <ShopBanner ShopChocoPretzelBanner={ShopChocoPretzelBanner} />
-      <Products ShopChocoPretzelProducts={ShopChocoPretzelProducts} />
-      {/* Snacks-Bundle-Section */}
-      <ShopSnacksBundle />
+      <Products ShopChocoPretzelProducts={ShopChocoPretzelProducts} /> */}
+      {/* <ShopSnacksBundle />
       <Merch />
-      <OneFeedsHome />
+      <OneFeedsHome /> */}
     </div>
-
   )
 }

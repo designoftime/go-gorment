@@ -7,12 +7,11 @@ export function StoreData(){
         try {
 
             const res = await axios("/setting/store/customization/all");
-            console.log(res);
             dispatch(addStoreSetting(res.data));
             
             const categoryRes = await axios("/category/show");
             if(categoryRes?.data[0]?.children){
-                dispatch(addCategories(categoryRes.data[0].children));
+                dispatch(addCategories(categoryRes.data));
             }
             
         } catch (error) {

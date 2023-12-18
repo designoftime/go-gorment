@@ -13,6 +13,7 @@ const {
   deleteProduct,
   deleteManyProducts,
   getShowingStoreProducts,
+  getProductByCategory,
 } = require("../controller/productController");
 
 //add a product
@@ -35,6 +36,9 @@ router.get("/", getAllProducts);
 
 //get a product by slug
 router.get("/product/:slug", getProductBySlug);
+
+//get a Product by its ID
+router.get("/category/:id", getProductByCategory);
 
 //update a product
 router.patch("/:id", updateProduct);

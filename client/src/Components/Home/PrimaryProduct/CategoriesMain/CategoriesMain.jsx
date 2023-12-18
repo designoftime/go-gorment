@@ -10,19 +10,19 @@ const CategoriesMain = ({categoriesData}) => {
                 {
                     categoriesData.map((eachCategory) => {
                         return (<div key={eachCategory._id} className="primary-product-component mx-2 px-2">
-                        <Link to='/shop' className="primary-product-component-content">
+                        <Link to='/collections/all' className="primary-product-component-content">
                             <figure>
                                 <div className='imagediv'>
-                                    <img className='img-fluid priproductimg' src={eachCategory.icon} />
+                                    <img className='img-fluid priproductimg' src={eachCategory.cover} />
                                 </div>
                             </figure>
 
                         </Link>
                         <div className="head-container">
-                            <Link to="/shop" className='ppcheader text-center text-decoration-none' >
+                            <Link to="/collections/all" className='ppcheader text-center text-decoration-none' >
                                 <h5 className="heading">{eachCategory.name.en}</h5>
                             </Link>
-                            <p className="desc">{eachCategory.description.en}</p>
+                            <p className="desc">{eachCategory.sub_title.en}</p>
                         </div>
                     </div>)
                     })

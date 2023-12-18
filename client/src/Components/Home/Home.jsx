@@ -26,7 +26,7 @@ export const Home = () => {
       <HomeCarousel homeSliderData={dynamicStoreData?.slider} />
       <div className="container-fluid g-0">
         <CarouselSection secondSliderData={dynamicStoreData?.second_slider} />
-        <PrimaryProduct categoriesData={dynamicStoreData?.categories} />
+        {Array.isArray(dynamicStoreData.categories) && dynamicStoreData?.categories[0].children && <PrimaryProduct categoriesData={dynamicStoreData?.categories[0].children} />}
         {
           dynamicStoreData?.home && <SnacksGif promotionBannarData={dynamicStoreData?.home} styles={getStyles(dynamicStoreData?.home, 'permotion_background_color', 'permotion_text_color')} />
         }

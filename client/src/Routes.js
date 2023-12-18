@@ -18,6 +18,7 @@ import EmailVerification from "./Components/Accounts/EmailVerification/EmailVeri
 import { Ourstory } from "./Components/OurStory/Ourstory";
 import { OneFeedsTwo } from "./Components/OneFeedsTwo/OneFeedsTwo";
 import Checkout from "./Components/Checkout/Checkout";
+import ContactUs from "./Components/ContactUs/ContactUs";
 
 const appRouter = createBrowserRouter([
     {
@@ -95,6 +96,10 @@ const appRouter = createBrowserRouter([
                     {
                         path: "one-feeds-two",
                         element: <OneFeedsTwo />
+                    },
+                    {
+                        path: "store-locator",
+                        element: <ContactUs />
                     }
                 ]
             },

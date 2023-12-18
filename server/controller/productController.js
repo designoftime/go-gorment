@@ -135,6 +135,24 @@ const getProductBySlug = async (req, res) => {
   }
 };
 
+const getProductByCategory = async (req,res) => {
+  try {
+    const id = req.params.id;
+    if (id) {
+      const productData = await Product.find({ categories: id, "status": "show" });
+      res.status(201).send({
+        message: "Success",
+        data: productData
+      })
+    }
+
+  } catch (err) {
+    res.status(501).send({
+      message: 'Internal Error : ' + err
+    })
+  }
+}
+
 const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
@@ -339,4 +357,5 @@ module.exports = {
   deleteProduct,
   deleteManyProducts,
   getShowingStoreProducts,
+  getProductByCategory
 };
