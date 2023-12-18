@@ -37,7 +37,7 @@ const useCategorySubmit = (id, data) => {
 
   // console.log("lang", lang, language);
 
-  const onSubmit = async ({ name, description,background_color,text_color }) => {
+  const onSubmit = async ({ name, description,background_color,text_color,sub_title }) => {
     try {
       setIsSubmitting(true);
 
@@ -129,11 +129,17 @@ const useCategorySubmit = (id, data) => {
       setValue("background_color");
       setValue("text_color");
       setValue("icon");
+      setValue("cover");
       setValue("icon1");
       setValue("icon2");
       setValue("icon3");
       setValue("icon4");
       setImageUrl("");
+      setImageUrlCover("");
+      setImageUrl1("");
+      setImageUrl2("");
+      setImageUrl3("");
+      setImageUrl4("");
       setPublished(true);
       clearErrors("name");
       clearErrors("sub_title");
@@ -155,10 +161,11 @@ const useCategorySubmit = (id, data) => {
       (async () => {
         try {
           const res = await CategoryServices.getCategoryById(id);
+          console.log(res)
           if (res) {
             setResData(res);
             setValue("name", res.name[language ? language : "en"]);
-            setValue("sub_title", res.sub_title.en.en);
+            setValue("sub_title",res.sub_title[language ? language : "en"]);
             setValue(
               "description",
               res.description[language ? language : "en"]
@@ -166,8 +173,8 @@ const useCategorySubmit = (id, data) => {
             setValue("language", language);
             setValue("parentId", res.parentId);
             setValue("parentName", res.parentName);
-            setValue("background_color", res.background_color.en);
-            setValue("text_color", res.text_color.en.en);
+            setValue("background_color",res.background_color[language ? language : "en"]);
+            setValue("text_color",res.text_color[language ? language : "en"]);
             setSelectCategoryName(res.parentName);
             setChecked(res.parentId);
             setImageUrl(res.icon);
