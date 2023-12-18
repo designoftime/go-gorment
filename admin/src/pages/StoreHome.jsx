@@ -216,8 +216,28 @@ const StoreHome = () => {
     setBottomSliderImageFive,
     permotionBannerImg,
     setPermotionBannerImg,
-    scrollingImage,
-    setScrollingImage,
+
+    scrollingImageOne,
+    setScrollingImageOne,
+    scrollingImageTwo,
+    setScrollingImageTwo,
+    scrollingImageThree,
+    setScrollingImageThree,
+    scrollingImageFour,
+    setScrollingImageFour,
+    scrollingImageFive,
+    setScrollingImageFive,
+    scrollingImageSix,
+    setScrollingImageSix,
+    scrollingImageSeven,
+    setScrollingImageSeven,
+    scrollingImageEight,
+    setScrollingImageEight,
+    scrollingImageNine,
+    setScrollingImageNine,
+    scrollingImageTen,
+    setScrollingImageTen,
+
     setScrollingBanner,
     scrollingBanner,
     setBottomPermotionBanner,
@@ -661,8 +681,26 @@ const StoreHome = () => {
                 setBottomSliderImageFive={setBottomSliderImageFive}
                 permotionBannerImg={permotionBannerImg}
                 setPermotionBannerImg={setPermotionBannerImg}
-                scrollingImage={scrollingImage}
-                setScrollingImage={setScrollingImage}
+                scrollingImageOne={scrollingImageOne}
+                setScrollingImageOne={setScrollingImageOne}
+                scrollingImageTwo={scrollingImageTwo}
+                setScrollingImageTwo={setScrollingImageTwo}
+                scrollingImageThree={scrollingImageThree}
+                setScrollingImageThree={setScrollingImageThree}
+                scrollingImageFour={scrollingImageFour}
+                setScrollingImageFour={setScrollingImageFour}
+                scrollingImageFive={scrollingImageFive}
+                setScrollingImageFive={setScrollingImageFive}
+                scrollingImageSix={scrollingImageSix}
+                setScrollingImageSix={setScrollingImageSix}
+                scrollingImageSeven={scrollingImageSeven}
+                setScrollingImageSeven={setScrollingImageSeven}
+                scrollingImageEight={scrollingImageEight}
+                setScrollingImageEight={setScrollingImageEight}
+                scrollingImageNine={scrollingImageNine}
+                setScrollingImageNine={setScrollingImageNine}
+                scrollingImageTen={scrollingImageTen}
+                setScrollingImageTen={setScrollingImageTen}
                 scrollingBanner={scrollingBanner}
                 setScrollingBanner={setScrollingBanner}
                 setBottomPermotionBanner={setBottomPermotionBanner}
