@@ -252,10 +252,16 @@ const readyToParentAndChildrenCategory = (categories, parentId = null) => {
     categoryList.push({
       _id: cate._id,
       name: cate.name,
+      sub_title:cate.sub_title,
       parentId: cate.parentId,
       parentName: cate.parentName,
       description: cate.description,
+      cover: cate.cover,
       icon: cate.icon,
+      icon1: cate.icon1,
+      icon2: cate.icon2,
+      icon3: cate.icon3,
+      icon4: cate.icon4,
       status: cate.status,
       children: readyToParentAndChildrenCategory(categories, cate._id),
     });
