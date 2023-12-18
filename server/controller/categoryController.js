@@ -95,6 +95,7 @@ const updateCategory = async (req, res) => {
     const category = await Category.findById(req.params.id);
     if (category) {
       category.name = { ...category.name, ...req.body.name };
+      category.sub_title = { ...category.sub_title, ...req.body.sub_title };
       category.description = {
         ...category.description,
         ...req.body.description,
@@ -108,6 +109,7 @@ const updateCategory = async (req, res) => {
         ...req.body.text_color,
       };
       category.icon = req.body.icon;
+      category.cover = req.body.cover;
       category.icon1 = req.body.icon1;
       category.icon2 = req.body.icon2;
       category.icon3 = req.body.icon3;
@@ -250,10 +252,18 @@ const readyToParentAndChildrenCategory = (categories, parentId = null) => {
     categoryList.push({
       _id: cate._id,
       name: cate.name,
+      sub_title:cate.sub_title,
       parentId: cate.parentId,
       parentName: cate.parentName,
+      background_color: cate.background_color,
+      text_color: cate.text_color,
       description: cate.description,
+      cover: cate.cover,
       icon: cate.icon,
+      icon1: cate.icon1,
+      icon2: cate.icon2,
+      icon3: cate.icon3,
+      icon4: cate.icon4,
       status: cate.status,
       children: readyToParentAndChildrenCategory(categories, cate._id),
     });

@@ -32,7 +32,6 @@ const CategoryTable = ({
       setIsCheck(isCheck.filter((item) => item !== id));
     }
   };
-console.log(categories,data)
   return (
     <>
       {isCheck?.length < 1 && (
@@ -115,7 +114,7 @@ console.log(categories,data)
               )}
             </TableCell>
             <TableCell className="text-sm">
-              {showingTranslateValue(category?.description)}
+              {showingTranslateValue(category?.sub_title)}
             </TableCell>
 
             <TableCell className="text-center">

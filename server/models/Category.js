@@ -6,6 +6,10 @@ const categorySchema = new mongoose.Schema(
       type: Object,
       required: true,
     },
+    sub_title: {
+      type: Object,
+      required: true,
+    },
     description: {
       type: Object,
       required: false,
@@ -31,6 +35,10 @@ const categorySchema = new mongoose.Schema(
       required: false,
     },
     id: {
+      type: String,
+      required: false,
+    },
+    cover: {
       type: String,
       required: false,
     },

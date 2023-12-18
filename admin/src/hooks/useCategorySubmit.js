@@ -13,6 +13,7 @@ const useCategorySubmit = (id, data) => {
   const [resData, setResData] = useState({});
   const [checked, setChecked] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [imageUrlCover, setImageUrlCover] = useState("");
   const [imageUrl1, setImageUrl1] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
   const [imageUrl3, setImageUrl3] = useState("");
@@ -36,7 +37,7 @@ const useCategorySubmit = (id, data) => {
 
   // console.log("lang", lang, language);
 
-  const onSubmit = async ({ name, description,background_color,text_color }) => {
+  const onSubmit = async ({ name, description,background_color,text_color,sub_title }) => {
     try {
       setIsSubmitting(true);
 
@@ -49,6 +50,10 @@ const useCategorySubmit = (id, data) => {
       const categoryData = {
         name: {
           [language]: name,
+          ...nameTranslates,
+        },
+        sub_title: {
+          [language]: sub_title,
           ...nameTranslates,
         },
         description: {
@@ -67,6 +72,7 @@ const useCategorySubmit = (id, data) => {
         parentName: selectCategoryName ? selectCategoryName : "Home",
         // parentName: selectCategoryName ? selectCategoryName : 'Home',
 
+        cover: imageUrlCover,
         icon: imageUrl,
         icon1: imageUrl1,
         icon2: imageUrl2,
@@ -108,6 +114,7 @@ const useCategorySubmit = (id, data) => {
       setValue("description", resData.description[lang ? lang : "en"]);
       setValue("background_color", resData.background_color[lang ? lang : "en"]);
       setValue("text_color", resData.text_color[lang ? lang : "en"]);
+      setValue("sub_title", resData.sub_title[lang ? lang : "en"]);
     }
   };
 
@@ -115,19 +122,27 @@ const useCategorySubmit = (id, data) => {
     if (!isDrawerOpen) {
       setResData({});
       setValue("name");
+      setValue("sub_title");
       setValue("parentId");
       setValue("parentName");
       setValue("description");
       setValue("background_color");
       setValue("text_color");
       setValue("icon");
+      setValue("cover");
       setValue("icon1");
       setValue("icon2");
       setValue("icon3");
       setValue("icon4");
       setImageUrl("");
+      setImageUrlCover("");
+      setImageUrl1("");
+      setImageUrl2("");
+      setImageUrl3("");
+      setImageUrl4("");
       setPublished(true);
       clearErrors("name");
+      clearErrors("sub_title");
       clearErrors("parentId");
       clearErrors("parentName");
       clearErrors("description");
@@ -146,11 +161,11 @@ const useCategorySubmit = (id, data) => {
       (async () => {
         try {
           const res = await CategoryServices.getCategoryById(id);
-          // console.log("res category", res);
-
+          console.log(res)
           if (res) {
             setResData(res);
             setValue("name", res.name[language ? language : "en"]);
+            setValue("sub_title",res.sub_title[language ? language : "en"]);
             setValue(
               "description",
               res.description[language ? language : "en"]
@@ -158,9 +173,16 @@ const useCategorySubmit = (id, data) => {
             setValue("language", language);
             setValue("parentId", res.parentId);
             setValue("parentName", res.parentName);
+            setValue("background_color",res.background_color[language ? language : "en"]);
+            setValue("text_color",res.text_color[language ? language : "en"]);
             setSelectCategoryName(res.parentName);
             setChecked(res.parentId);
             setImageUrl(res.icon);
+            setImageUrlCover(res.cover);
+            setImageUrl1(res.icon1);
+            setImageUrl2(res.icon2);
+            setImageUrl3(res.icon3);
+            setImageUrl4(res.icon4);
             setPublished(res.status === "show" ? true : false);
           }
         } catch (err) {
@@ -176,6 +198,8 @@ const useCategorySubmit = (id, data) => {
     onSubmit,
     errors,
     imageUrl,
+    imageUrlCover,
+    setImageUrlCover,
     imageUrl1,
     imageUrl2,
     imageUrl3,
