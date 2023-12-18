@@ -114,7 +114,7 @@ const CategoryTable = ({
               )}
             </TableCell>
             <TableCell className="text-sm">
-              {showingTranslateValue(category?.description)}
+              {showingTranslateValue(category?.sub_title)}
             </TableCell>
 
             <TableCell className="text-center">

@@ -223,11 +223,10 @@ const Category = () => {
                     isChecked={isCheckAll}
                   />
                 </TableCell>
-
                 <TableCell>{t("catIdTbl")}</TableCell>
                 <TableCell>{t("catIconTbl")}</TableCell>
                 <TableCell>{t("CatTbName")}</TableCell>
-                <TableCell>{t("CatTbDescription")}</TableCell>
+                <TableCell>{"Sub Title"}</TableCell>
                 <TableCell className="text-center">
                   {t("catPublishedTbl")}
                 </TableCell>

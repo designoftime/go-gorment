@@ -255,6 +255,8 @@ const readyToParentAndChildrenCategory = (categories, parentId = null) => {
       sub_title:cate.sub_title,
       parentId: cate.parentId,
       parentName: cate.parentName,
+      background_color: cate.background_color,
+      text_color: cate.text_color,
       description: cate.description,
       cover: cate.cover,
       icon: cate.icon,

@@ -32,7 +32,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
     accept: {
       "image/*": [".jpeg", ".jpg", ".png", ".webp"],
     },
-    multiple: product ? true : false,
+    multiple: true,
     maxSize: 5000000,
     maxFiles: globalSetting?.number_of_image_per_product || 2,
     onDrop: (acceptedFiles) => {
@@ -69,10 +69,9 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
     if (files) {
       files.forEach((file) => {
         if (
-          product &&
           imageUrl?.length + files?.length >
-            globalSetting?.number_of_image_per_product
-        ) {
+          globalSetting?.number_of_image_per_product
+        ) { 
           return notifyError(
             `Maximum ${globalSetting?.number_of_image_per_product} Image Can be Upload!`
           );
@@ -81,7 +80,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
         setLoading(true);
         setError("Uploading....");
 
-        if (product) {
+        if (product) { 
           const result = imageUrl?.find(
             (img) => img === `${import.meta.env.VITE_APP_CLOUDINARY_URL}`
           );
