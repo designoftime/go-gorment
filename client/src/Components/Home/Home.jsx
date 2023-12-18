@@ -34,7 +34,7 @@ export const Home = () => {
           dynamicStoreData?.home && <Productoverview testimonialData={dynamicStoreData?.home} styles={getStyles(dynamicStoreData.home, 'testimonial_background_color', 'testimonial_text_color')} />
         }
 
-        <ReviewedProduct />
+        {Array.isArray(dynamicStoreData.categories) && dynamicStoreData?.categories[0] && <ReviewedProduct categoryId={dynamicStoreData?.categories[0]._id}/>}
         {dynamicStoreData?.home && <OneFeedsHome bottomPromotionData={dynamicStoreData?.home} styles={getStyles(dynamicStoreData.home, 'bottom_permotion_background_color', 'bottom_permotion_text_color')} />}
         {dynamicStoreData?.bottom_slider && <CustomerCaursel bottomSliderData={dynamicStoreData?.bottom_slider} />}
         {dynamicStoreData?.home && <FeaturePromo featurePromoData={dynamicStoreData?.home} />}

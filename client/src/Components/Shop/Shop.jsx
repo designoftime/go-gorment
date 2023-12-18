@@ -63,7 +63,6 @@ export const Shop = () => {
   if(!shopData){
     return;
   }
-  console.log(shopData);
   
   const ShopPretzelBanner = [
     {
@@ -211,7 +210,7 @@ export const Shop = () => {
           return (
             <div className="pretzelThins" key={eachCategory._id}>
               <ShopBanner shopData={eachCategory} />
-              <Products ShopPretezelProducts={ShopPretezelProducts} />
+              <Products categoryId={eachCategory._id} />
             </div>
           )
         })

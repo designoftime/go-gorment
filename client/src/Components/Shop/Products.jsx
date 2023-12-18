@@ -1,57 +1,61 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Accounts/Ollys-Login/Login.css'
 import './Shop.css'
 import { BsFillStarFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import NewMobileProduct from './NewMobileProduct'
+import axios from 'axios'
 
-export const Products = ({ShopPretezelProducts,ShopOlivesProducts,ShopChocoPretzelProducts,ShopSnacksBundleProducts, MerchProducts,BestSellerProducts }) => { 
-  const [btnHover,setBtnHover] = useState(true);
-  // console.log(btnHover);
-  // const funHovered = btnHover?{backgroundColor:"#412f59"} : {backgroundColor:"#4c4294"};
-  // console.log(funHovered);
-// Products function
-    const shopProductsdata = ShopPretezelProducts?ShopPretezelProducts:ShopOlivesProducts?ShopOlivesProducts :ShopChocoPretzelProducts?ShopChocoPretzelProducts:ShopSnacksBundleProducts?ShopSnacksBundleProducts: MerchProducts?MerchProducts:BestSellerProducts;
-    // console.log(shopProductsdata);
-    // color function
-    const olivColor = (ShopOlivesProducts || ShopSnacksBundleProducts)?{color:"#412f59",borderColor:"#412f59",}:{color:"#4c4294", borderColor:"#4c4294"};
-    // console.log(olivColor);
+export const Products = ({categoryId}) => {
+  
+  const [products, setProducts] = useState([]);
+  
+  const fetchProductByCategoryId = async (id) => {
+    try {
+      const res = await axios.get(`/products/category/${id}`);
+      
+      if(res?.data?.data){
+        setProducts(res.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchProductByCategoryId(categoryId);
+  }, []);
+  
   return (
     <div>
-      
         <div className="ShopProducts-section container-fluid row justify-content-around g-0 mt-5 pb-5">
               {
-                window.innerWidth <= 767 ? null :
-                shopProductsdata.map((items) => {
+                products.length && products.map((product) => {
                   return (
-                    
-                    <div className="ShopProducts col-sm-2 container g-0 " key={items.id}>
+                    <div className="ShopProducts col-sm-2 container g-0 " key={product._id}>
                       <div className="ShopProducts-content text-center">
                         <div className="ShopProducts-imge d-flex">
-                          <img className='ShopProduct-img1' src={items.productimge1} alt="" /><br />
-                          <img className='ShopProduct-imghover' src={items.imgehover} alt="" />
-
+                          <img className='ShopProduct-img1' src={product?.image[0]} alt="" /><br />
+                          {/* <img className='ShopProduct-imghover' src={product?.image[1]} alt="" /> */}
                         </div>
-                        <div className="ShopProductsheader" style={olivColor}>
-                          {items.title}
+                        <div className="ShopProductsheader" >
+                          {product?.title?.en}
                         </div>
-                        <div className="ShopProducts-size text-uppercase fw-bold" style={olivColor}>{items.sizeinfo}</div>
-                        <div className="ShopProductsPrice fw-bold fs-5" style={olivColor}><span>£</span><span>{items.price}</span></div>
+                        <div className="ShopProducts-size text-uppercase fw-bold" >BUNDLE (50 x 35g)</div>
+                        <div className="ShopProductsPrice fw-bold fs-5" ><span>£</span><span>{product?.prices?.originalPrice}</span></div>
                         <div className="ShopProductbutton">
-                          {/* <a href="#" className='SVPbtn bg-*' style={{...olivColor}}>View Product</a> */}
-                          <Link to="/shop/viewproduct" className='SVPbtn bg-*' style={olivColor}>View Product </Link>
-                          {/* <a href="#" className='SVPbtn bg-*' style={{...olivColor,...funHovered}} onMouseEnter={setBtnHover(true)} onMouseLeave={setBtnHover(false)}>View Product </a> */}
+                          <Link to="/shop/viewproduct" className='SVPbtn bg-*' > View Product </Link>
                         </div>
-                        {items.reviews!==""? <div className="ShopProduct-starreview">
-                          <span style={olivColor}>
-                            <span className="jdgm-star jdgm--on bold" style={olivColor}><BsFillStarFill /></span> <span />
-                            <span className="jdgm-star jdgm--on bold" style={olivColor}><BsFillStarFill /></span> <span />
-                            <span className="jdgm-star jdgm--on bold" style={olivColor}><BsFillStarFill /></span> <span />
-                            <span className="jdgm-star jdgm--on bold" style={olivColor}><BsFillStarFill /></span> <span />
-                            <span className="jdgm-star jdgm--on bold" style={olivColor}><BsFillStarFill /></span> <span />
+                        <div className="ShopProduct-starreview">
+                          <span >
+                            <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
+                            <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
+                            <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
+                            <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
+                            <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
                           </span>
-                          <span style={olivColor}> <span style={olivColor}>{items.reviews}</span> reviews</span>
-                        </div>:""}
+                          <span > <span >28</span> reviews</span>
+                        </div>
                       </div>
                     </div>
                   )

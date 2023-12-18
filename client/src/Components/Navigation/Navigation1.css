@@ -31,7 +31,7 @@
     .navbar {
         width: 100%;
         max-width: 1320px;
-        padding: 18px 30px;
+        padding: 60px 30px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -59,8 +59,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: 30px;
+        /* padding-top: 30px; */
         overflow-y: hidden;
+
+        img{
+            width: 100%;
+            max-width:150px;
+        }
     }
 
     .navbar .right {
@@ -71,7 +76,7 @@
 
         .links {
             display: flex;
-            gap: 10px;
+            gap: 30px;
         }
 
         .icons {

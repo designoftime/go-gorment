@@ -11,7 +11,7 @@ import MultiSeedSesame from './images/Sesame-35_450x26f5.png'
 import MultiSeedSesameHover from './images/Sesame-35-Case_450x292a.jpg'
 import { BsFillStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom'
-export const ReviewedProduct = () => {
+export const ReviewedProduct = ({categoryId}) => {
     const BestSellerProducts = [
         {
           "id": 1,
@@ -57,7 +57,7 @@ export const ReviewedProduct = () => {
                 <h2 className='RPSheadercontent1  text-white mx-auto fw-bolder wow animate__animated animate__fadeIn'><strong>TRY SOME</strong></h2>
                 <h2 className='RPSheadercontent2  text-white mx-auto fw-bolder wow animate__animated animate__fadeIn'><strong>BESTSELLER</strong></h2>
             </div>
-            <Products BestSellerProducts={BestSellerProducts}/>
+            <Products categoryId={categoryId}/>
         </section>
     )
 }
