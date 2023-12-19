@@ -101,15 +101,11 @@
     .customer-slide .review{
         margin: 5vh auto;
         width: 100%;
+        padding-bottom: 5vh;
     }
     .review p{
         font-size: 10vw;
         line-height: 8vw;
     }
-    /* .active-animation{
-        transform: 0;
-    }
-    .active-animation2{
-        transform: 0;
-    } */
+    
 }
