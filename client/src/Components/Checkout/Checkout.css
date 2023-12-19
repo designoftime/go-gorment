@@ -1,0 +1,78 @@
+.Checkout-Section {
+    background-color: rgb(211, 181, 197);
+}
+
+.Checkout-left {
+    width: 50%;
+    border: 2px solid rgb(149, 147, 147);
+    border-left: 0;
+    border-right: 0;
+}
+
+.payimge {
+    width: 30%;
+}
+
+.payimge img {
+    height: 70%;
+}
+
+.endofpaybox {
+    margin: 10px auto;
+    color: rgb(149, 147, 147);
+    text-align: center;
+}
+
+.withintext {
+    margin-top: 1.7%;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: 44%;
+    height: 0;
+    border: 1px solid rgb(149, 147, 147);
+}
+
+.Checkout-form {
+    margin-left: 4.17rem;
+    padding-right: 2rem;
+    width: 90%;
+}
+
+.checkedBox {
+    background-color: #412f59 !important;
+}
+
+.Checkout-input {
+    margin: 0px auto;
+    background-color: rgb(211, 181, 197) !important;
+    border-color: rgb(149, 147, 147);
+    position: relative;
+}
+.form-floating {
+    background-color: transparent;
+}
+.form-floating .label-form {
+    background-color: transparent;
+    border:  1px solid transparent !important;
+}
+.searchIcon {
+    background-color: rgb(211, 181, 197);
+    height: auto !important;
+    border-color: rgb(149, 147, 147)!important;
+}
+
+.shipping-box{
+    border-color: rgb(149, 147, 147)!important;
+}
+.Shipping-message{
+    border-color: rgb(193, 159, 177)!important;
+    background-color: rgb(193, 159, 177);
+}
+.Checkout-right {
+    position: sticky;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: rgb(52, 2, 97);
+    
+}

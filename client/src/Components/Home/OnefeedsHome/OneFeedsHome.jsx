@@ -28,7 +28,7 @@ export const OneFeedsHome = ({bottomPromotionData, styles}) => {
                 {bottomPromotionData?.bottom_promotion_button_name?.en ? (
                   <div className="cta-btn">
                     <Link
-                      href={bottomPromotionData?.bottom_promotion_button_link}
+                      to={bottomPromotionData?.bottom_promotion_button_link?.en}
                       className="ctabutton"
                       style={styles.color}
                     >

@@ -23,6 +23,10 @@
 .Shopbanner-left {
     width: 50%;
     border-bottom: 3px solid #4c4294;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 2rem;
 }
 
 .Shopbanner-header {
@@ -82,16 +86,22 @@
 }
 .ShopProducts-imge{
     width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 .ShopProduct-img1{
     margin: 0 auto;
     width: 23vw;
     position: relative;
+    cursor: pointer;
 }
 .ShopProduct-imghover {
     width: 23vw;
     position: absolute;
-    display: none;
+    z-index: 999;
+    margin: 0 auto;
+    top: 0;
+    left: 10%;
 }
 
 
@@ -145,6 +155,10 @@
     .Shopbanner-left{
         width: 100%;
         margin: 3rem auto!important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 2rem;
     }
     .Shopbanner-header{
         margin: 3rem auto!important;

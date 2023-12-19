@@ -75,8 +75,8 @@ li{
         padding-top: 0;
 
         .logo2{
-            width: 100px !important;
-            height: 100px !important;
+            width: 100%;
+            max-width: 150px;
         }
     }
     
