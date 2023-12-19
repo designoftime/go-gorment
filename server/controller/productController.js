@@ -138,25 +138,31 @@ const getProductBySlug = async (req, res) => {
 const getProductByCategory = async (req, res) => {
   try {
     const id = req.params.id;
-    if (id) {
-      const productData = await Product.find({
-        categories: id,
-        status: "show",
-      }).populate({
-        path: "variants",
-      });
-      res.status(201).send({
-        message: "Success",
-        data: productData,
+    if (!id) {
+      return res.status(400).send({
+        success: false,
+        message: "Invalid category ID",
       });
     }
+
+    // Assuming Product and Variant models are properly defined
+    const productData = await Product.find({
+      categories: id,
+      status: "show",
+    });
+
+    res.status(200).send({
+      success: true,
+      message: "Success",
+      data: productData,
+    });
   } catch (err) {
-    res.status(501).send({
-      message: "Internal Error : " + err,
+    res.status(500).send({
+      success: false,
+      message: "Internal server error",
     });
   }
 };
-
 const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
