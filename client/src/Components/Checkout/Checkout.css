@@ -1,18 +1,15 @@
 .Checkout-Section {
     background-color: rgb(211, 181, 197);
 }
-
 .Checkout-left {
     width: 50%;
     border: 2px solid rgb(149, 147, 147);
     border-left: 0;
     border-right: 0;
 }
-
 .payimge {
     width: 30%;
 }
-
 .payimge img {
     height: 70%;
 }
@@ -74,5 +71,4 @@
     width: 50%;
     height: 100vh;
     background-color: rgb(52, 2, 97);
-    
 }

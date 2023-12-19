@@ -20,51 +20,30 @@ const FooterScroller = ({scrollerData}) => {
             <div className="Blog-sliding-main">
               {
                 scrollImage.map((val) => {
+                    if(!scrollerData[`${val}_img`]){
+                          return;
+                    }
                     return (
-                        <div className="Blog-sliding-content" id={val}>
-                            <img src={scrollerData[`${val}_img`]} className="imagesofblog" alt="" />
+                        <div className="Blog-sliding-content" key={val}>
+                            <img src={scrollerData[`${val}_img`]} className="imagesofblog" alt={scrollerData[`${val}_img`]} />
                         </div>
                     )
                 })
               }
-              {/* <div className="Blog-sliding-content">
-                <img src={Blogimage2} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage3} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage4} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage5} className="imagesofblog" alt="" />
-              </div> */}
             </div>
             <div className="Blog-sliding-main">
             {
                 scrollImage.map((val) => {
+                  if(!scrollerData[`${val}_img`]){
+                      return;
+                  }
                     return (
-                        <div className="Blog-sliding-content" id={val}>
+                        <div className="Blog-sliding-content" key={val}>
                             <img src={scrollerData[`${val}_img`]} className="imagesofblog" alt="" />
                         </div>
                     )
                 })
               }
-              {/* <div className="Blog-sliding-content">
-                <img src={Blogimage1} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage2} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage3} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage4} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage5} className="imagesofblog" alt="" />
-              </div>*/}
             </div> 
           </div>
         </div>

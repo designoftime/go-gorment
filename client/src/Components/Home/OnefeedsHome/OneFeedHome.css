@@ -1,5 +1,7 @@
 .OneFeeds-section{
     margin-top: 80px!important;
+    width: 100%;
+    height: 100%;
     background-color: #c6e3ee;
 }
 .cta-image{
@@ -12,18 +14,19 @@
     display: flex;
 }
 .ctaleft{
-    width: 490px;
+    width: 45%;
 }
 .cta-text{
     margin-top: 80px!important;
-    font-size: 45px;
+    margin-left: 20px;
+    font-size: 4vw;
     color: #412f59;
     font-weight: 800;
-    line-height: 36px;
+    line-height: 3.5vw;
     letter-spacing: .27px;
 }
 .cta-btn{
-    margin: 20px 0!important;
+    margin: 20px 20px!important;
 }
 .ctabutton{
     font-size: 18px!important;
@@ -38,4 +41,9 @@
     margin-left: 54px!important;
     margin-top: 30px!important;
     width: 90%;
+}
+@media(max-width:770px){
+    .OneFeeds-section{
+        display: none;
+    }
 }

@@ -44,7 +44,7 @@ export const Products = ({categoryId}) => {
                         <div className="ShopProducts-size text-uppercase fw-bold" >BUNDLE (50 x 35g)</div>
                         <div className="ShopProductsPrice fw-bold fs-5" ><span>£</span><span>{product?.prices?.originalPrice}</span></div>
                         <div className="ShopProductbutton">
-                          <Link to="/shop/viewproduct" className='SVPbtn bg-*' > View Product </Link>
+                          <Link to={`/products/${product?.slug}`} className='SVPbtn bg-*' > View Product </Link>
                         </div>
                         <div className="ShopProduct-starreview">
                           <span >

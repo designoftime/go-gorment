@@ -3,7 +3,7 @@ import SectionOne from '../Home/OnefeedsHome/Sections/Section1/SectionOne'
 import SectionTwo from '../Home/OnefeedsHome/Sections/Section2/SectionTwo'
 import SectionThree from '../Home/OnefeedsHome/Sections/Section3/SectionThree'
 import { Productoverview } from '../Home/ProductOverview/Productoverview'
-import { sliderVal } from '../../utils/Constants'
+import { getStyles, sliderVal } from '../../utils/Constants'
 import { useSelector } from 'react-redux';
 
 
@@ -19,14 +19,14 @@ export const OneFeedsTwo = () => {
     const oneFeedsTwoComponent = (oneFeedsTwoData,val) => {
         const styles = {
             fullBg: {
-                backgroundColor: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`,
+                background: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`,
                 color: `${oneFeedsTwoData[`offer_section_${val}_text_color`]?.en}`
             },
             color: {
                 color: `${oneFeedsTwoData[`offer_section_${val}_text_color`]?.en}`
             },
             bg: {
-                backgroundColor: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`
+                background: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`
             }
         }
 
@@ -66,18 +66,7 @@ export const OneFeedsTwo = () => {
                 testimonial_description_one: oneFeedsTwoData?.offer_testimonial_description_one,
                 testimonial_description_two: oneFeedsTwoData?.offer_testimonial_description_two,
                 testimonial_description_three: oneFeedsTwoData?.offer_testimonial_description_three,
-            }} styles={{
-                fullBg: {
-                    backgroundColor: `${oneFeedsTwoData?.offer_testimonial_background_color?.en}`,
-                    color: `${oneFeedsTwoData?.offer_testimonial_text_color?.en}`
-                },
-                color: {
-                    color: `${oneFeedsTwoData?.offer_testimonial_text_color?.en}`
-                },
-                bg: {
-                    backgroundColor: `${oneFeedsTwoData?.offer_testimonial_background_color?.en}`,
-                }
-            }} />
+            }} styles={getStyles(oneFeedsTwoComponent, 'offer_testimonial_background_color', 'offer_testimonial_text_color')} />
         </div>
         </>
     )
