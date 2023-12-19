@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const ViewProductsicon = ({vpIconsSection}) => {
-    console.log(typeof(vpIconsSection))
+    // console.log(typeof(vpIconsSection))
    
     return (
         <div className='container-fluid g-0 py-5 ViewProductIconsSection'>

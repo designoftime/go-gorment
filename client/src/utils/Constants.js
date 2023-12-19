@@ -5,14 +5,14 @@ export const featurePromo = ["one", "two", "three", "four", "five"];
 export const getStyles = (data,bg,color) => {
     return {
         fullBg: {
-            backgroundColor: data[bg]?.en,
+            background: data[bg]?.en,
             color: data[color]?.en
         },
         color: {
             color: data[color]?.en
         },
         bg: {
-            backgroundColor: data[bg]?.en,
+            background: data[bg]?.en,
         }
     }
 }

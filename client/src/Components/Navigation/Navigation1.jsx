@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MobileMenu from './mobileMenu';
 import { useSelector } from 'react-redux';
+import { getStyles } from '../../utils/Constants';
 
 
 export const Navigation1 = () => {
@@ -28,6 +29,10 @@ export const Navigation1 = () => {
         };
     }, []);
 
+    if(!headerData){
+        return;
+    }
+
     const handleToggleMenu =() =>{
         if(toggleMenu){
             setToggleMenu(false)
@@ -37,18 +42,7 @@ export const Navigation1 = () => {
         }
     }
 
-    const styles = {
-        fullBg: {
-            backgroundColor: headerData?.header_background_color?.en,
-            color: headerData?.header_text_color?.en
-        },
-        color: {
-            color: headerData?.header_text_color?.en
-        },
-        bg: {
-            backgroundColor: headerData?.header_background_color?.en,
-        }
-    }
+    const styles = getStyles(headerData, 'header_background_color', 'header_text_color');
 
     return (
         <div className={showNavigation2 || toggleMenu  ? 'main-nav-2' : "main-nav"} style={styles.fullBg}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../Home/Home.css'
 import SliderArrow from '../../Home/CustomerCaursel/images/slider-rightarrow.svg'
 import Ovenbakedimge from '../images/OLLYS-ICONS-OvenBaked.svg'
@@ -26,6 +26,8 @@ import { BsFillStarFill } from 'react-icons/bs'
 import { Navigation2 } from '../../Navigation/Navigation2'
 import { Accordion } from '../Accordion'
 import { ViewProductsicon } from './ViewProductsicon'
+import { useParams } from 'react-router'
+import axios from 'axios'
 export const ViewProduct = () => {
     const vpIconsSection = [
         {
@@ -99,9 +101,27 @@ export const ViewProduct = () => {
         setOpen(index);
     };
 
+    const [product, setProduct] = useState({});
+
+    const fetchProductBySlug = async (id) => {
+        try {
+          const res = await axios.get(`/products/product/${id}`);
+          setProduct(res.data);
+          console.log(res.data);
+
+        } catch (error) {
+          console.log(error);
+        }
+    }
+
+    const {productSlug} = useParams();
+
+    useEffect(() => {
+        fetchProductBySlug(productSlug);
+    }, [productSlug]);
+
     return (
         <div>
-            <Navigation2 />
             <section className='View-Products-section'>
                 <div className="container-fluid g-0">
                     <div className="container g-0 mx-auto  justify-content-center">
@@ -149,9 +169,9 @@ export const ViewProduct = () => {
                             <div className="col-sm-6 VPRight">
                                 <div className='mx-auto'>
                                     <h1 className='VPheader'>
-                                        OLL-TIMATE <br /> PRETZEL THINS <br /> BUNDLE
+                                        {product?.title?.en}
                                     </h1>
-                                    <p className='fw-bold fs-5'>Absolute pretz-fection. 50 packs. 10 of each flavour. 1 way ticket to pleasureville.</p>
+                                    <p className='fw-bold fs-5'>{product?.description?.en}</p>
                                     <div className="VPreviws mt-2 fw-bold">
                                         <span>
                                             <span><BsFillStarFill /></span> <span />
@@ -165,10 +185,16 @@ export const ViewProduct = () => {
                                     <div className="VPselect-size my-4 fw-normal  row">
                                         <p className='fw-bolder select-size-header'>SELECT SIZE</p>
                                         <div className="col-sm-3 mt-3 text-center vpselect-size-box">
-                                            <div className='py-1'>
-                                                <p>BUNDLE</p>
-                                                <p>(50x35g)</p>
-                                            </div>
+                                            {
+                                                product?.variants?.map((variant) => {
+                                                    return (
+                                                        <div className='py-1'>
+                                                            <p>BUNDLE</p>
+                                                            <p>(50x35g)</p>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
                                         </div>
                                     </div>
                                     <div className="VPNotifymebutton text-center my-2">
