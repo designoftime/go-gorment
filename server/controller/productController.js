@@ -135,23 +135,27 @@ const getProductBySlug = async (req, res) => {
   }
 };
 
-const getProductByCategory = async (req,res) => {
+const getProductByCategory = async (req, res) => {
   try {
     const id = req.params.id;
     if (id) {
-      const productData = await Product.find({ categories: id, "status": "show" });
+      const productData = await Product.find({
+        categories: id,
+        status: "show",
+      }).populate({
+        path: "variants",
+      });
       res.status(201).send({
         message: "Success",
-        data: productData
-      })
+        data: productData,
+      });
     }
-
   } catch (err) {
     res.status(501).send({
-      message: 'Internal Error : ' + err
-    })
+      message: "Internal Error : " + err,
+    });
   }
-}
+};
 
 const getProductById = async (req, res) => {
   try {
@@ -357,5 +361,5 @@ module.exports = {
   deleteProduct,
   deleteManyProducts,
   getShowingStoreProducts,
-  getProductByCategory
+  getProductByCategory,
 };

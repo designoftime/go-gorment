@@ -83,7 +83,7 @@ const appRouter = createBrowserRouter([
                 ]
             },
             {
-                path: "/products",
+                path: "/products/:productSlug",
                 element: <ViewProduct />
             },
             {

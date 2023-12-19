@@ -9,14 +9,14 @@ const ourStoryComponent = (ourStoryData,val) => {
 
   const styles = {
     fullBg: {
-      backgroundColor: `${ourStoryData[`section_${val}_background_color`]?.en}`,
+      background: `${ourStoryData[`section_${val}_background_color`]?.en}`,
       color: `${ourStoryData[`section_${val}_text_color`]?.en}`
     },
     color: {
       color: `${ourStoryData[`section_${val}_text_color`]?.en}`
     },
     bg: {
-      backgroundColor: `${ourStoryData[`section_${val}_background_color`]?.en}`
+      background: `${ourStoryData[`section_${val}_background_color`]?.en}`
     }
   }
 
@@ -48,30 +48,6 @@ export const Ourstory = () => {
           return <div key={val}>{ourStoryComponent(ourStoryData, val)[val]}</div>;
         })
       }
-      {/* <MainHero/>
-      <ThemeTwo Data={{
-        button: true,
-        img: HeroImg3
-      }} />
-      <ThemeThree Data={{
-        img: HeroImg4,
-        backgroundColor: "#c8e0d4",
-        color: "#412f59",
-        button: false
-      }} />
-      <ThemeTwo Data={{
-        backgroundColor: "#412f59",
-        color: "#c8e0d4",
-        button: false,
-        img: HeroImg6
-      }} />
-      <ThemeThree Data={{
-        direction: "row-reverse",
-        backgroundColor: "#c05a8c",
-        color: "#fff",
-        img: HeroImg5,
-        button: true
-      }} /> */}
     </div>
   )
 }
