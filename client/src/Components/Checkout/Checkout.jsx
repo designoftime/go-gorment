@@ -139,7 +139,7 @@ const Checkout = () => {
                       <input type="text" value={inputVal.mobile} onChange={InputHandler} name='mobile' id='mobile' className={inputVal.mobile != "" ? 'form-control Checkout-input border-start-0 border-end-0' : 'form-control border-start-0 Checkout-input'} placeholder='Mobile number' />
                       <label htmlFor="mobile" className='label-form'>Mobile number</label>
                     </div>
-                    {inputVal.mobile.length == 3 ? <span className='input-group-text searchIcon border border-start-0'>
+                    {inputVal.mobile.length > 3 ? <span className='input-group-text searchIcon border border-start-0'>
                       <select name="" className='searchIcon border-0' id="">
                         <option value="UK">UK</option>
                       </select>

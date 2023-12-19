@@ -53,6 +53,6 @@ export const OneFeedsHome = ({bottomPromotionData, styles}) => {
           </div>
         </div>
       </section>
-    </div>
-  ) : null;
+    </div>)
+   : null;
 };
