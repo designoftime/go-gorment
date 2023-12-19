@@ -1,10 +1,5 @@
 import React from "react";
 import "./Footer.css";
-import Blogimage1 from "./images/blogimg1.jpg";
-import Blogimage2 from "./images/blogimg2.png";
-import Blogimage3 from "./images/blogimg3.png";
-import Blogimage4 from "./images/blogimg4.jpg";
-import Blogimage5 from "./images/blogimg5.jpg";
 import FooterLogo from "./images/footer-logo.svg";
 import Footertext1 from "./images/footer-text-1.svg";
 import Footertext2 from "./images/footer-text-2.svg";
@@ -17,60 +12,22 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { footerVal, getStyles } from "../../utils/Constants";
+import FooterScroller from "./FooterScroller";
 
 export const Footer = () => {
   
   const footerData = useSelector((store) => store.storeSettings?.footer);
+  const scrollerData = useSelector((store) => store.storeSettings?.scrolling);
 
-  if(!footerData){
+  if(!footerData || !scrollerData){
     return;
   }
 
   const styles = getStyles(footerData, 'footer_background_color', 'footer_text_color');
-  // console.log(styles);
   
   return (
     <div>
-      <section className="Blog-sliding-section">
-        <div className="container-fluid g-0">
-          <div className="Blog-animation-sliding">
-            <div className="Blog-sliding-main">
-              <div className="Blog-sliding-content">
-                <img src={Blogimage1} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage2} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage3} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage4} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage5} className="imagesofblog" alt="" />
-              </div>
-            </div>
-            <div className="Blog-sliding-main">
-              <div className="Blog-sliding-content">
-                <img src={Blogimage1} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage2} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage3} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage4} className="imagesofblog" alt="" />
-              </div>
-              <div className="Blog-sliding-content">
-                <img src={Blogimage5} className="imagesofblog" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {scrollerData.scrolling_banner_status && <FooterScroller scrollerData={scrollerData} />}
       {/* Footer Section */}
 
       <section className="footer-Section" style={styles.fullBg}>

@@ -9,8 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useSelector } from "react-redux";
-import { sliderVal } from "../../../utils/Constants";
+import { getStyles, sliderVal } from "../../../utils/Constants";
 import { Link } from "react-router-dom";
 
 const HomeCarousel = ({homeSliderData}) => {
@@ -19,8 +18,10 @@ const HomeCarousel = ({homeSliderData}) => {
       return;
   }
 
+  const styles = getStyles(homeSliderData, 'slider_first_background_color', 'slider_first_text_color');
+
   return (
-    (!homeSliderData.static_content && !homeSliderData.both_slider && !homeSliderData.bottom_dots && !homeSliderData.left_right_arrow) ? null : <div className="main-home">
+    (!homeSliderData.static_content && !homeSliderData.both_slider && !homeSliderData.bottom_dots && !homeSliderData.left_right_arrow) ? null : <div className="main-home" style={styles.fullBg}>
         <Swiper
           className="main-swiper-home"
           spaceBetween={50}
@@ -51,46 +52,46 @@ const HomeCarousel = ({homeSliderData}) => {
                   <div className="Banner-content">
                     <div className="banner-left">
                       <div className="product-component__rating hero-rating ">
-                        <span className="rating-count text-white bold">
+                        <span className="rating-count bold" style={styles.color}>
                           489
                         </span>
                         <span />
                         <span data-score="4.89" className="stars">
-                          <span className="jdgm-star jdgm--on text-white bold">
+                          <span className="jdgm-star jdgm--on  bold">
                             <BsFillStarFill />
                           </span>
                           <span />
-                          <span className="jdgm-star jdgm--on text-white bold">
+                          <span className="jdgm-star jdgm--on  bold">
                             <BsFillStarFill />
                           </span>
                           <span />
-                          <span className="jdgm-star jdgm--on text-white bold">
+                          <span className="jdgm-star jdgm--on  bold">
                             <BsFillStarFill />
                           </span>
                           <span />
-                          <span className="jdgm-star jdgm--on text-white bold">
+                          <span className="jdgm-star jdgm--on  bold">
                             <BsFillStarFill />
                           </span>
                           <span />
-                          <span className="jdgm-star jdgm--on text-white bold">
+                          <span className="jdgm-star jdgm--on  bold">
                             <BsFillStarFill />
                           </span>
                           <span />
                         </span>
-                        <span className="text-white bold">2165 Reviews</span>
+                        <span className=" bold" style={styles.color}>2165 Reviews</span>
                       </div>
                       {homeSliderData[`${val}_title`]?.en && (
-                        <h1 className="animate__animated animate__fadeInUp Bannerheader text-white ">
+                        <h1 className="animate__animated animate__fadeInUp Bannerheader  " style={styles.color}>
                           {homeSliderData[`${val}_title`]?.en}
                         </h1>
                       )}
                       {homeSliderData[`${val}_description`]?.en && (
-                        <div className="text-white bannerpara">
+                        <div className=" bannerpara" style={styles.color}>
                           {homeSliderData[`${val}_description`]?.en}
                         </div>
                       )}
                       {homeSliderData[`${val}_button`]?.en && <div>
-                        <Link to={homeSliderData[`${val}_link`]} className="btn btn-outline-light shopbanner ">
+                        <Link to={homeSliderData[`${val}_link`]} className="btn btn-outline-light shopbanner " style={styles.color}>
                           {homeSliderData[`${val}_button`].en}
                         </Link>
                       </div>}
