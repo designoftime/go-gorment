@@ -8,9 +8,10 @@ import 'swiper/css/navigation';
 import { sliderVal } from '../../../utils/Constants'
 import useWindowInnerWidth from '../../hooks/useWindowInnerWidth';
 
+
 export const CustomerCaursel = ({ bottomSliderData }) => {
     const showValue = useWindowInnerWidth();
-
+    console.log(showValue);
     // if (!bottomSliderData) {
     //     return;
     // }
@@ -60,16 +61,14 @@ export const CustomerCaursel = ({ bottomSliderData }) => {
                                 <Swiper
                                     spaceBetween={50}
                                     slidesPerView={1}
-                                    navigation={showValue < 767 ? false : true}
                                     onSlideChange={(e) => {
                                         setToggleAni(!toggleAni)
                                         handleStyleChange(e.activeIndex);
                                     }}
-                                    pagination={{
-                                        dynamicBullets:true,
-                                    }}
+                                    pagination={showValue < 767?{dynamicBullets:true}:{dynamicBullets:false}}
+                                    navigation={showValue < 767 ? false : true}
                                     className='customer-slider'
-                                    modules={ showValue < 767 ?[Pagination] : [Navigation]}
+                                    modules={ showValue < 767 ? [Pagination] : [Navigation]}
                                 >
                                     {
                                         sliderVal.map((val) => {

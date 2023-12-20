@@ -81,7 +81,22 @@
     justify-content: space-around;
     width: 100%;
 }
-
+@media(max-width:450px){
+    .customer-slide .customer-image{
+        margin: 5vh auto;
+        padding: 0;
+        width: 100%;
+    }
+    .customer-slide .review{
+        margin: 5vh auto;
+        width: 100%;
+        padding-bottom: 5vh;
+    }
+    .review p{
+        font-size: 10vw;
+        line-height: 8vw;
+    }
+}
 @media (max-width:767px){
 
     .customer-content{
@@ -91,7 +106,7 @@
     .customer-slide .customer-image{
         margin: 5vh auto;
         padding: 0;
-        width: 100%;
+        width: 65%;
     }
     .customer-image img{
         width: 100%;
@@ -104,8 +119,16 @@
         padding-bottom: 5vh;
     }
     .review p{
-        font-size: 10vw;
-        line-height: 8vw;
+        font-size: 5vw;
+        line-height: 4vw;
+    }
+    .Stockist-main{
+        width: 100%;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+    .Stockist-content{
+        padding: 0 2vw;
     }
     
 }

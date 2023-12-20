@@ -21,12 +21,11 @@ const categoriesMobile = ({categoriesData}) => {
                         className='main-swiper-home'
                         spaceBetween={50}
                         slidesPerView={1}
-                        navigation={true}
                         pagination={{
                             dynamicBullets: true,
                         }}
                         scrollbar={{ draggable: true }}
-                        modules={[Pagination, Navigation]}
+                        modules={[Pagination]}
                     >
                         {
                             categoriesData.map((eachCategory) => {

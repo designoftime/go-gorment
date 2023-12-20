@@ -11,7 +11,7 @@ const useWindowInnerWidth = () => {
 
             window.removeEventListener('resize',handleWidth);
         }
-    })
+    },[])
   return widthValue;
 }
 export default useWindowInnerWidth;
