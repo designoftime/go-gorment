@@ -18,9 +18,9 @@ const Variant = ({variantData}) => {
     },[]);
 
     return (
-        <div className="col-sm-3 mt-3 text-center vpselect-size-box">
+        <div className="col-sm-3 mt-3 text-center mx-auto vpselect-size-box">
             <div className='py-1'>
-                <p>{variantVal?.name?.en ? variantVal?.name?.en : "Hello"}</p>
+                <p className="">{variantVal?.name?.en ? variantVal?.name?.en : "Hello"}</p>
             </div>
         </div>
         )

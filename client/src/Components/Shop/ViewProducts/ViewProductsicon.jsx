@@ -4,7 +4,7 @@ export const ViewProductsicon = ({vpIconsSection}) => {
     // console.log(typeof(vpIconsSection))
    
     return (
-        <div className='container-fluid g-0 py-5 ViewProductIconsSection'>
+        <div className='container-fluid g-0 mt-5 py-5 ViewProductIconsSection'>
             <div className="container mx-auto">
                 <div className="VPIconsbox d-flex justify-content-around">
                     {

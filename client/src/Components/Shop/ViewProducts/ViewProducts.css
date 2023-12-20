@@ -1,32 +1,29 @@
+.View-Products-section{
+    margin: 10vh 0;
+}
 .VPCaursel{
     /* background-color: blue; */
     height: 90%!important;
-}
-.VpCarousel-content{
-    width: 90%;
-    height: 60%!important;
     position: sticky;
-    /* background-color: yellow; */
+    top: 0;
 }
 .vpcarouselimages{
-    height: 100%!important;
-    width: 100%;
-}
-.carousel-indicators{
-    padding-top:750px!important;
     width: 100%!important;
 }
-.vpintabbtn{
-    height: 6rem!important;
-    width: 6rem!important;
+.vpslide-logos img{
+    max-width: 7vw;
+    width: auto;
+    object-fit: cover;
+    aspect-ratio: 4/-4;
+    cursor: pointer;
+    filter: grayscale(1);
+    opacity: 0.4;
+    background-color: #4c4294;
 }
-.vpindicimge{
-    height: 100%;
-    width: 100%;
-}
+
 .VPRight{
     color: #4c4294;
-    width: 100%;
+    width: 50%;
     position: sticky;
 }
 .VPheader{
@@ -84,6 +81,9 @@
     font-family: ReviewedProductHeaderfont;
     font-size: 15px;
 }
+.LayerImage{
+    width : 5vw;
+}
 .collapsebutton{
     transform: rotate(45deg)!important;
     transition: all 500ms ease-in!important;
@@ -122,4 +122,20 @@
 }
 .vpiconsimge:hover{
     transform: rotate(360deg);
+}
+@media (max-width:1000px) {
+    
+    .vpslider-logo{
+        display: none!important;
+    }
+    .VPRight{
+        margin: auto;
+        width: 90%;
+    }
+    
+}
+@media (max-width:770px){
+    .AsSeenLayer{
+        width: 90%;
+    }
 }
