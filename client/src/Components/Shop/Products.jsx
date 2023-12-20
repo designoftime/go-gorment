@@ -5,6 +5,7 @@ import { BsFillStarFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import NewMobileProduct from './NewMobileProduct'
 import axios from 'axios'
+import { fetchProductPrice } from '../../Redux/actions/productService'
 
 export const Products = ({categoryId}) => {
   
@@ -42,7 +43,7 @@ export const Products = ({categoryId}) => {
                           {product?.title?.en}
                         </div>
                         <div className="ShopProducts-size text-uppercase fw-bold" >BUNDLE (50 x 35g)</div>
-                        <div className="ShopProductsPrice fw-bold fs-5" ><span>£</span><span>{product?.prices?.originalPrice}</span></div>
+                        <div className="ShopProductsPrice fw-bold fs-5" ><span>£</span><span>{fetchProductPrice(product)}</span></div>
                         <div className="ShopProductbutton">
                           <Link to={`/products/${product?.slug}`} className='SVPbtn bg-*' > View Product </Link>
                         </div>
