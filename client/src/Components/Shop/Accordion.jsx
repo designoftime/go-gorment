@@ -30,7 +30,7 @@ export const Accordion = ({ open, toggle, title, content, linkTitle}) => {
                     {content}
                     {linkTitle.map((items,index)=>{
                         return(
-                            <div className='py-1'><Link to='/shop/viewproduct' className='linkTitle-content' key={index}>{items}</Link></div>
+                            <div className='py-1' key={index}><Link to='/shop/viewproduct' className='linkTitle-content' key={index}>{items}</Link></div>
                         )
                     })}
                 </div>

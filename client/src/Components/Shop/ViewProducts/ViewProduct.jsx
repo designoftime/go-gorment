@@ -28,6 +28,8 @@ import { Accordion } from '../Accordion'
 import { ViewProductsicon } from './ViewProductsicon'
 import { useParams } from 'react-router'
 import axios from 'axios'
+import Variant from '../Variant'
+
 export const ViewProduct = () => {
     const vpIconsSection = [
         {
@@ -120,6 +122,7 @@ export const ViewProduct = () => {
         fetchProductBySlug(productSlug);
     }, [productSlug]);
 
+
     return (
         <div>
             <section className='View-Products-section'>
@@ -182,20 +185,12 @@ export const ViewProduct = () => {
                                             <span> 489</span><span /> <span>reviews</span>
                                         </span>
                                     </div>
-                                    <div className="VPselect-size my-4 fw-normal  row">
-                                        <p className='fw-bolder select-size-header'>SELECT SIZE</p>
-                                        <div className="col-sm-3 mt-3 text-center vpselect-size-box">
+                                    <div className="VPselect-size my-4 fw-normal  row">                                        <p className='fw-bolder select-size-header'>SELECT SIZE</p>
                                             {
                                                 product?.variants?.map((variant) => {
-                                                    return (
-                                                        <div className='py-1'>
-                                                            <p>BUNDLE</p>
-                                                            <p>(50x35g)</p>
-                                                        </div>
-                                                    )
+                                                    return <Variant variantData={variant} />
                                                 })
                                             }
-                                        </div>
                                     </div>
                                     <div className="VPNotifymebutton text-center my-2">
                                         <button className='py-3 notifymebtn'><h5 className='text-uppercase'>Notify me when back in stock</h5></button>
@@ -238,7 +233,7 @@ export const ViewProduct = () => {
                          
                     </div>
                 </div>
-                <ViewProductsicon vpIconsSection={vpIconsSection}/>
+                {/* <ViewProductsicon vpIconsSection={vpIconsSection}/> */}
             </section>
         </div>
     )
