@@ -33,6 +33,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import useWindowInnerWidth from '../../hooks/useWindowInnerWidth'
 import { ProductHero } from './ProductHero'
+import { ProductPrice } from './ProductPrice'
 
 export const ViewProduct = () => {
     const vpIconsSection = [
@@ -159,9 +160,9 @@ export const ViewProduct = () => {
         <div>
             <section className='View-Products-section'>
                 <div className="container-fluid">
-                    <div className="container mx-auto">
-                        <div className="row">
-                            <div className={showValue < 1000?"col-12 VPCaursel mt-5":"col-6 VPCaursel mt-5"}>
+                    <div className="container mx-auto g-0">
+                        <div className="row justify-content-between">
+                            <div className={showValue < 1000?"col-12 VPCaursel mt-5":"col-8 VPCaursel mt-5"}>
                                 <Swiper
                                     className='swiper VpCarousel-content'
                                     ref={first}
@@ -174,7 +175,7 @@ export const ViewProduct = () => {
                                 >
                                     {productSliderVal.map((items, id) => {
                                         return (
-                                            <SwiperSlide key={id} className='slide'><img src={items.sliderimg} alt={items.sliderimg} key={id} className='vpcarouselimages' /></SwiperSlide>
+                                            <SwiperSlide key={id} className='slide'><img src={items.sliderimg} alt={items.sliderimg} key={id} className='vpcarouselimages rounded-4' /></SwiperSlide>
                                         )
                                     })}
                                 </Swiper>
@@ -183,7 +184,7 @@ export const ViewProduct = () => {
                                         {
                                             productSliderVal.map((items, id) => {
                                                 return (
-                                                    <img key={id} src={items.sliderimg} alt={items.sliderimg} className='active-logo' onClick={() => {
+                                                    <img key={id} src={items.sliderimg} alt={items.sliderimg} className='active-logo rounded-4' onClick={() => {
                                                         first.current.swiper.slideTo(id);
                                                     }} />
                                                 )
@@ -218,6 +219,7 @@ export const ViewProduct = () => {
                                             }
                                         </div>
                                     </div>
+                                    <ProductPrice/>
                                     <div className="VPNotifymebutton text-center my-2">
                                         <button className='py-3 notifymebtn'><h5 className='text-uppercase'>Notify me when back in stock</h5></button>
                                     </div>
