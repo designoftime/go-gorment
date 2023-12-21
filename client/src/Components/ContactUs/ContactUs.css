@@ -1,0 +1,30 @@
+.contact-div{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 120px;
+}
+.contact-heading{
+    font-size: 7.4rem;
+    font-family: "Olly-Condensed-bold";
+    line-height: 6rem;
+    color: #4c4294;
+}
+
+.contact-desc{
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: .12px;
+    color: #4c4294;
+    width: 50%;
+    text-align: center;
+    font-weight: 400;
+}
+
+.contact-map{
+    height: 400px;
+    width: 100%;
+}

@@ -169,7 +169,7 @@ export const ViewProduct = () => {
                                     navigation={true}
                                     spaceBetween={0}
                                     onSlideChange={(e) => {
-                                        setActiveSlider(e.activeIndex)
+                                        // setActiveSlider(e.activeIndex)
                                     }}
                                     modules={[Navigation, Pagination]}
                                 >

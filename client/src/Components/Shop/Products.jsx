@@ -31,7 +31,7 @@ export const Products = ({categoryId}) => {
     <div>
         <div className="ShopProducts-section container-fluid row justify-content-around g-0 mt-5 pb-5">
               {
-                products.length && products.map((product) => {
+                (products.length) ? products.map((product) => {
                   return (
                     <div className="ShopProducts col-sm-2 container g-0 " key={product._id}>
                       <div className="ShopProducts-content text-center">
@@ -43,7 +43,7 @@ export const Products = ({categoryId}) => {
                           {product?.title?.en}
                         </div>
                         <div className="ShopProducts-size text-uppercase fw-bold" >BUNDLE (50 x 35g)</div>
-                        <div className="ShopProductsPrice fw-bold fs-5" ><span>£</span><span>{fetchProductPrice(product)}</span></div>
+                        <div className="ShopProductsPrice fw-bold fs-5" ><span>&#8377;</span><span>{fetchProductPrice(product)}</span></div>
                         <div className="ShopProductbutton">
                           <Link to={`/products/${product?.slug}`} className='SVPbtn bg-*' > View Product </Link>
                         </div>
@@ -60,8 +60,7 @@ export const Products = ({categoryId}) => {
                       </div>
                     </div>
                   )
-                })
-
+                }) : null
               }
             </div>
     </div>
