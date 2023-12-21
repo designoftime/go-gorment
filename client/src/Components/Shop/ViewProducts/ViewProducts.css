@@ -3,16 +3,25 @@
 }
 .VPCaursel{
     /* background-color: blue; */
+    width:40%;
     height: 90%!important;
     position: sticky;
     top: 0;
+    overflow: hidden;
 }
 .vpcarouselimages{
     width: 100%!important;
 }
+.vpslide-logos{
+    width: 90%;
+    display: flex;
+    gap: 1vw;
+    justify-content: space-between;
+    align-items: center;
+
+}
 .vpslide-logos img{
-    max-width: 7vw;
-    width: auto;
+    width: 15%;
     object-fit: cover;
     aspect-ratio: 4/-4;
     cursor: pointer;
@@ -160,7 +169,7 @@
     line-height: 14vh;
 }
 .PH-content{
-    width: 24rem;
+    width: 25rem;
     margin: 0 auto;
 }
 .PH-main{

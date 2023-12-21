@@ -158,9 +158,9 @@ export const ViewProduct = () => {
     return (
         <div>
             <section className='View-Products-section'>
-                <div className="container-fluid g-0">
-                    <div className="container g-0 mx-auto justify-content-center">
-                        <div className="row ">
+                <div className="container-fluid">
+                    <div className="container mx-auto">
+                        <div className="row">
                             <div className={showValue < 1000?"col-12 VPCaursel mt-5":"col-6 VPCaursel mt-5"}>
                                 <Swiper
                                     className='swiper VpCarousel-content'
@@ -174,16 +174,16 @@ export const ViewProduct = () => {
                                 >
                                     {productSliderVal.map((items, id) => {
                                         return (
-                                            <SwiperSlide key={id} className='slide'><img src={items.sliderimg} alt={items.sliderimg} className='vpcarouselimages' /></SwiperSlide>
+                                            <SwiperSlide key={id} className='slide'><img src={items.sliderimg} alt={items.sliderimg} key={id} className='vpcarouselimages' /></SwiperSlide>
                                         )
                                     })}
                                 </Swiper>
                                 <div className='vpslider-logo'>
-                                    <div className="vpslide-logos mt-1 ms-4 d-flex justify-content-around">
+                                    <div className="vpslide-logos">
                                         {
                                             productSliderVal.map((items, id) => {
                                                 return (
-                                                    <img src={items.sliderimg} alt={items.sliderimg} className='active-logo' onClick={() => {
+                                                    <img key={id} src={items.sliderimg} alt={items.sliderimg} className='active-logo' onClick={() => {
                                                         first.current.swiper.slideTo(id);
                                                     }} />
                                                 )
@@ -212,8 +212,8 @@ export const ViewProduct = () => {
                                         <p className='fw-bolder select-size-header '>SELECT SIZE</p>
                                         <div className='row'>
                                             {
-                                                product?.variants?.map((variant) => {
-                                                    return <Variant variantData={variant} />
+                                                product?.variants?.map((variant,index) => {
+                                                    return <Variant key={index} variantData={variant} />
                                                 })
                                             }
                                         </div>

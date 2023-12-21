@@ -29,9 +29,9 @@ export const ProductHero = () => {
                         <h1 className='PH-header text-center pt-5 '>HEALTHIER <br /> DELICIOUS</h1>
 
                         <div className="PH-content">
-                            {pHContent.map((items) => {
+                            {pHContent.map((items,id) => {
                                 return (
-                                    <div className='PH-main'>
+                                    <div className='PH-main' key={id}>
                                         <h5 className='fw-bolder'><strong className='PH-sub-header'>{items.subheader}</strong></h5>
                                         <p className='PH-sub-content'>{items.subcontent}</p>
                                     </div>
