@@ -2,6 +2,7 @@
 
 *{
   font-family: "Olly";
+  scroll-behavior: smooth;
 }
 .main-app{
   max-width: 100vw;
