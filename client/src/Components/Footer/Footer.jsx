@@ -35,13 +35,14 @@ export const Footer = () => {
           <div className="common-wrap">
             <div className="footer-inner container">
               <div className="footer-top">
-                <div className="footer-logo ">
+                {footerData?.payment_method_status && <div className="footer-logo ">
                   <Link to="/">
-                    <img src={FooterLogo} alt="footer-logo" />
+                    <img src={footerData?.payment_method_img} alt="footer-logo" />
                   </Link>
-                </div>
+                </div>}
                 <div className="footer-top-text">
-                  <img src={Footertext1} alt="footer-text" />
+                  {/* <img src={Footertext1} alt="footer-text" /> */}
+                  <h1 className="footer-headings"> {footerData?.bottom_contact} </h1>
                 </div>
                 {
                   window.innerWidth <= 767 ?

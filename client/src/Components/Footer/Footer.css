@@ -213,6 +213,12 @@
     transform: rotate(360deg);
 }
 
+.footer-headings{
+    font-size: 7.9rem;
+    font-family: "Olly-Condensed-bold";
+    line-height: 6rem;
+}
+
 @media screen and (max-width:767px) {
     .footer-top {
         flex-direction: column;
