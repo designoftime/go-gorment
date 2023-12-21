@@ -32,6 +32,7 @@ import Variant from '../Variant'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import useWindowInnerWidth from '../../hooks/useWindowInnerWidth'
+import { ProductHero } from './ProductHero'
 
 export const ViewProduct = () => {
     const vpIconsSection = [
@@ -259,6 +260,7 @@ export const ViewProduct = () => {
                     </div>
                 </div>
                 <ViewProductsicon vpIconsSection={vpIconsSection} />
+                <ProductHero/>
             </section>
         </div>
     )
