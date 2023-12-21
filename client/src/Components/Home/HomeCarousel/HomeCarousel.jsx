@@ -15,10 +15,11 @@ import useWindowInnerWidth from "../../hooks/useWindowInnerWidth";
 
 const HomeCarousel = ({homeSliderData}) => {
 
-  if (!homeSliderData) {
-      return;
-  }
   const showValue = useWindowInnerWidth();
+
+  if (!homeSliderData) {
+    return;
+  }
   const styles = getStyles(homeSliderData, 'slider_first_background_color', 'slider_first_text_color');
 
   return (

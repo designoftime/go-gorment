@@ -11,7 +11,6 @@ import useWindowInnerWidth from '../../hooks/useWindowInnerWidth';
 
 export const CustomerCaursel = ({ bottomSliderData }) => {
     const showValue = useWindowInnerWidth();
-    console.log(showValue);
     // if (!bottomSliderData) {
     //     return;
     // }
