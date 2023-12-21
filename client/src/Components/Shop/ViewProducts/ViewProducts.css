@@ -82,7 +82,10 @@
     font-size: 15px;
 }
 .LayerImage{
-    width : 5vw;
+    width : 8vw;
+}
+.layerImg{
+    width: 100%;
 }
 .collapsebutton{
     transform: rotate(45deg)!important;
@@ -132,10 +135,24 @@
         margin: auto;
         width: 90%;
     }
+    .LayerImage{
+        width:10vw;
+    }
     
 }
-@media (max-width:770px){
+@media ((min-width:500px) and (max-width:770px)){
     .AsSeenLayer{
-        width: 90%;
+        width: 60%;
+    }
+    .LayerImage{
+        width:15vw;
+    }
+}
+@media(max-width:500px){
+    .AsSeenLayer{
+        width: 80%;
+    }
+    .LayerImage{
+        width: 25vw;
     }
 }

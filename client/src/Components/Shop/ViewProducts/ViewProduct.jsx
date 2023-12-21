@@ -228,13 +228,13 @@ export const ViewProduct = () => {
                                             <div className="AsSeentext text-uppercase py-1">As Seen IN</div>
                                             <div className='AsSeenLayer '>
 
-                                                <div className="LayerImage "><img className='img-fluid' src={Bluegreataste} alt={Bluegreataste} /></div>
+                                                <div className="LayerImage "><img className='layerImg' src={Bluegreataste} alt={Bluegreataste} /></div>
 
-                                                <div className="LayerImage"><img className='img-fluid' src={Layer_2imge} alt={Layer_2imge} /></div>
+                                                <div className="LayerImage"><img className='layerImg' src={Layer_2imge} alt={Layer_2imge} /></div>
 
-                                                <div className="LayerImage"><img className='img-fluid' src={Layer_3imge} alt={Layer_3imge} /></div>
+                                                <div className="LayerImage"><img className='layerImg' src={Layer_3imge} alt={Layer_3imge} /></div>
 
-                                                <div className="LayerImage"><img className='img-fluid' src={Layer_4imge} alt={Layer_4imge} /></div>
+                                                <div className="LayerImage"><img className='layerImg' src={Layer_4imge} alt={Layer_4imge} /></div>
 
                                             </div>
                                         </div>
