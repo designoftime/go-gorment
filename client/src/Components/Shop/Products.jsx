@@ -35,7 +35,7 @@ const ShopProductImage = ({product}) => {
 </div>)
 }
 
-export const Products = ({categoryId, variants}) => {
+export const Products = ({categoryId, variants, styles}) => {
   
   const [products, setProducts] = useState([]);
   
@@ -57,20 +57,20 @@ export const Products = ({categoryId, variants}) => {
   
   return (
     <div>
-        <div className="ShopProducts-section container-fluid row justify-content-around g-0 mt-5 pb-5">
+        <div className="ShopProducts-section container-fluid row justify-content-around g-0 pt-5 pb-5" style={styles?.fullBg}>
               {
                 (products.length) ? products.map((product) => {
                   return (
                     <div className="ShopProducts col-sm-2 container g-0 " key={product._id}>
                       <div className="ShopProducts-content text-center">
                         <ShopProductImage product={product} />
-                        <div className="ShopProductsheader" >
+                        <div className="ShopProductsheader" style={styles?.color} >
                           {product?.title?.en}
                         </div>
-                        <div className="ShopProducts-size text-uppercase fw-bold" >{findProductAttribute(product,variants)}</div>
-                        <div className="ShopProductsPrice fw-bold fs-5" ><span>&#8377;</span><span>{fetchProductPrice(product)}</span></div>
-                        <div className="ShopProductbutton">
-                          <Link to={`/products/${product?.slug}`} className='SVPbtn bg-*' > View Product </Link>
+                        <div className="ShopProducts-size text-uppercase fw-bold" style={styles?.color}>{findProductAttribute(product,variants)}</div>
+                        <div className="ShopProductsPrice fw-bold fs-5" ><span>&#8377;</span><span style={styles?.color}>{fetchProductPrice(product)}</span></div>
+                        <div className="ShopProductbutton" style={styles?.color}>
+                          <Link to={`/products/${product?.slug}`} className='SVPbtn bg-*' style={styles?.color}> View Product </Link>
                         </div>
                         <div className="ShopProduct-starreview">
                           <span >
@@ -80,7 +80,7 @@ export const Products = ({categoryId, variants}) => {
                             <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
                             <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
                           </span>
-                          <span > <span >28</span> reviews</span>
+                          <span style={styles?.color} > <span style={styles?.color}>28</span> reviews</span>
                         </div>
                       </div>
                     </div>

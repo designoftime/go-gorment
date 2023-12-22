@@ -4,7 +4,7 @@ import productoverviewimg2 from './images/product-overviewimg-2.svg'
 import productoverviewimg3 from './images/ProductOverviewimg3.svg'
 import { featurePromo } from '../../../utils/Constants'
 export const Productoverview = ({testimonialData, styles}) => {
-
+    
     if(!testimonialData){
         return;
     }
@@ -14,7 +14,7 @@ export const Productoverview = ({testimonialData, styles}) => {
         {testimonialData.testimonial_status ?
             <section  className="Product-OverviewSection text-center contianer-fluid g-0" style={styles?.fullBg}>
                 <div className="product-overview-inner-wrap">
-                    <div className="common-wrap container g-0 mx-auto clear mx-auto">
+                    <div className="common-wrap container g-0 mx-auto clear">
                         <div className="product-overview-inner flex">
                             <div className="product-overview-title ">
                             {testimonialData.testimonial_title_header.en && <h2 className="text-center pt-5 pb-3 wow animate__animated animate__fadeInUp" style={styles?.color} >{testimonialData.testimonial_title_header.en}</h2>}

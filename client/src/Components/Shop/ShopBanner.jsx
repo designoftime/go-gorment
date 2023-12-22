@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../Accounts/Ollys-Login/Login.css'
 import './Shop.css'
-import { getStyles } from '../../utils/Constants';
-export const ShopBanner = ({shopData}) => {
+export const ShopBanner = ({shopData, styles}) => {
   
   const [showValue,setShowValue]= useState(window.innerWidth);
   
@@ -16,7 +15,7 @@ export const ShopBanner = ({shopData}) => {
     }
   });
 
-  const styles = getStyles(shopData, 'background_color', 'text_color');
+  
 
   return (
     <div>

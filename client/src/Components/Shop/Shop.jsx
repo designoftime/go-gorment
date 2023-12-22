@@ -40,6 +40,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import requests from '../../Services/httpService'
+import { getStyles } from '../../utils/Constants'
 
 export const Shop = () => {
   const [showValue, setShowValue] = useState(window.innerWidth);
@@ -220,10 +221,12 @@ export const Shop = () => {
       {
         Array.isArray(shopData) && shopData[0].children && shopData[0].children.map((eachCategory) => {
           let dynamicId = eachCategory.name?.en.trim().split(" ").join("-");
+          const styles = getStyles(eachCategory, 'background_color', 'text_color');
+          
           return (
             <div className="pretzelThins" key={eachCategory._id} id={dynamicId.toLowerCase()}>
-              <ShopBanner shopData={eachCategory} />
-              <Products categoryId={eachCategory._id} variants={variants} />
+              <ShopBanner shopData={eachCategory} styles={styles} />
+              <Products categoryId={eachCategory._id} variants={variants} styles={styles} />
             </div>
           )
         })
