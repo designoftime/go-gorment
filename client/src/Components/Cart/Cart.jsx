@@ -57,9 +57,9 @@ export const Cart = () => {
     };
     return (
         <div>
-            <a onClick={handleShow} href="#" className="accountIcon">
+            <button onClick={handleShow} href="#" className="accountIcon">
                 <MdOutlineShoppingBag />
-            </a>
+            </button>
             <OffCanvas
                 show={showcart}
                 placement="end"
