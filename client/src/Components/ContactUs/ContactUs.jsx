@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import FeaturePromo from '../Home/FeaturePromo/Featurepromo';
 import "./ContactUs.css"
@@ -6,6 +6,10 @@ import "./ContactUs.css"
 const ContactUs = () => {
 
     const homeData = useSelector(store => store?.storeSettings?.home);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    },[]);
 
     if(!homeData){
         return;

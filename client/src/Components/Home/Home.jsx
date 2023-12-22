@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import { CarouselSection } from "./Carousel/CarouselSection";
 import { PrimaryProduct } from "./PrimaryProduct/PrimaryProduct";
@@ -20,6 +20,10 @@ import { getStyles } from "../../utils/Constants";
 export const Home = () => {
 
   const dynamicStoreData = useSelector(store => store?.storeSettings);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
 
   return (
     <div>

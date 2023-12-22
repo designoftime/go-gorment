@@ -39,10 +39,12 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import requests from '../../Services/httpService'
 
 export const Shop = () => {
   const [showValue, setShowValue] = useState(window.innerWidth);
   const [dropdownOpen, setDropDownOpen] = useState(false);
+  const [variants, setVariants] = useState([]);
 
   const shopData = useSelector(store => store.storeSettings?.categories);
   
@@ -56,10 +58,19 @@ export const Shop = () => {
       setShowValue(window.innerWidth);
     }
     window.addEventListener('resize', handleWidth);
+    
+    const fetchProductAttribute = async () => {
+      const res = await requests.get("/attributes/show");
+      setVariants(res[0].variants);
+    }
+
+    fetchProductAttribute();
+    window.scrollTo({ top: 0, behavior: "instant" });
+    
     return () => {
       window.removeEventListener('resize', handleWidth);
     }
-  });
+  },[]);
   
   if(!shopData){
     return;
@@ -213,7 +224,7 @@ export const Shop = () => {
           return (
             <div className="pretzelThins" key={eachCategory._id} id={dynamicId.toLowerCase()}>
               <ShopBanner shopData={eachCategory} />
-              <Products categoryId={eachCategory._id} />
+              <Products categoryId={eachCategory._id} variants={variants} />
             </div>
           )
         })

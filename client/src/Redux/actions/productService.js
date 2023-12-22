@@ -32,3 +32,12 @@ export const fetchPrice = (product) => {
     let originalPrice = Number(product?.originalPrice);
     return originalPrice;
 }
+
+export const findProductAttribute = (product, variants) => {
+    let val = Object.values(product?.variants[0])[0];
+    const findAttribute = variants ? variants.find((variant) => {
+      return (variant._id == val);
+    }) : null;
+
+    return findAttribute?.name?.en;
+}

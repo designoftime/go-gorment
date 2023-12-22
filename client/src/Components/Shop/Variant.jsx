@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { fetchPrice } from "../../Redux/actions/productService";
+import requests from "../../Services/httpService";
 
-const Variant = ({variantData, setProductPrice}) => {
+const Variant = ({variantData, setProductPrice, setIsQuantityAvailable}) => {
 
     const parentId = Object.keys(variantData);
     const childId = Object.values(variantData);
@@ -11,8 +11,8 @@ const Variant = ({variantData, setProductPrice}) => {
     useEffect(() => {
 
         const fetchVariants = async () => {
-            const res = await axios.get(`/attributes/child/${parentId[0]}/${childId[0]}`);
-            setVariantVal(res.data);
+            const res = await requests.get(`/attributes/child/${parentId[0]}/${childId[0]}`);
+            setVariantVal(res);
         }
 
         fetchVariants();
@@ -24,6 +24,13 @@ const Variant = ({variantData, setProductPrice}) => {
             subscribePrice: 0
         }
         setProductPrice(productPrice);
+        
+        if(Number(variantData?.quantity) <= 0){
+            setIsQuantityAvailable(false);
+        }
+        else{
+            setIsQuantityAvailable(true);
+        }
     }
 
     return (

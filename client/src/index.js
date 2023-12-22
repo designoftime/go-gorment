@@ -16,11 +16,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Provider } from 'react-redux';
 import store from './Redux/Store/Store';
 
-// axios
-import axios from 'axios';
 import appRouter from './Routes';
-
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -5,12 +5,17 @@ import SectionThree from '../Home/OnefeedsHome/Sections/Section3/SectionThree'
 import { Productoverview } from '../Home/ProductOverview/Productoverview'
 import { getStyles, sliderVal } from '../../utils/Constants'
 import { useSelector } from 'react-redux';
+import { useEffect } from "react"
 
 
 export const OneFeedsTwo = () => {
 
     const dynamicStoreData = useSelector(store => store?.storeSettings);
     const oneFeedsTwoData = dynamicStoreData?.offers;
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }, []);
 
     if(!oneFeedsTwoData){
         return;

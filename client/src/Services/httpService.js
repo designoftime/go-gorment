@@ -1,33 +1,32 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const instance = axios.create({
-//   baseURL: process.env.REACT_APP_API_URL,
-//   timeout: 50000,
-//   headers: {
-//     Accept: "application/json",
-//     "Content-Type": "application/json",
-//   },
-// });
+const instance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  timeout: 50000,
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+});
 
-// instance.interceptors.use((config) => {
-//   console.log(config);
-//   return config;
-// });
+instance.interceptors.request.use((config) => {
+  return config;
+});
 
-// const responseBody = (response) => response.data;
+const responseBody = (response) => response.data;
 
-// const requests = {
-//   get: (url, body, headers) =>
-//     instance.get(url, body, headers).then(responseBody),
+const requests = {
+  get: (url, body, headers) =>
+    instance.get(url, body, headers).then(responseBody),
 
-//   post: (url, body) => instance.post(url, body).then(responseBody),
+  post: (url, body) => instance.post(url, body).then(responseBody),
 
-//   put: (url, body, headers) =>
-//     instance.put(url, body, headers).then(responseBody),
+  put: (url, body, headers) =>
+    instance.put(url, body, headers).then(responseBody),
 
-//   patch: (url, body) => instance.patch(url, body).then(responseBody),
+  patch: (url, body) => instance.patch(url, body).then(responseBody),
 
-//   delete: (url, body) => instance.delete(url, body).then(responseBody),
-// };
+  delete: (url, body) => instance.delete(url, body).then(responseBody),
+};
 
-// export default requests;
+export default requests;

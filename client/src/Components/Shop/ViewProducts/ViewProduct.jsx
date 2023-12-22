@@ -27,13 +27,14 @@ import { Navigation2 } from '../../Navigation/Navigation2'
 import { Accordion } from '../Accordion'
 import { ViewProductsicon } from './ViewProductsicon'
 import { useParams } from 'react-router'
-import axios from 'axios'
 import Variant from '../Variant'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import useWindowInnerWidth from '../../hooks/useWindowInnerWidth'
 import { ProductHero } from './ProductHero'
 import { ProductPrice } from './ProductPrice'
+import { fetchPrice } from '../../../Redux/actions/productService'
+import requests from '../../../Services/httpService'
 
 export const ViewProduct = () => {
     const vpIconsSection = [
@@ -100,32 +101,6 @@ export const ViewProduct = () => {
             "linkTitle": []
         }
     ];
-    const productSliderVal = [
-        {
-            id: 1,
-            "sliderimg": PretzelBundle
-        },
-        {
-            id: 2,
-            "sliderimg": PretzelBundlehover
-        },
-        {
-            id: 3,
-            "sliderimg": PretzelBundlecontent
-        },
-        {
-            id: 4,
-            "sliderimg": PretzelSalted10x
-        },
-        {
-            id: 5,
-            "sliderimg": PretzelSesame10x
-        },
-        {
-            id: 6,
-            "sliderimg": PretzelCheesy10x
-        },
-    ]
     const showValue = useWindowInnerWidth();
     const first = useRef();
     const [open, setOpen] = useState(false);
@@ -138,13 +113,29 @@ export const ViewProduct = () => {
 
     const [product, setProduct] = useState({});
     const [productPrice, setProductPrice] = useState({});
+    const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
 
+    const handlePrice = (variantData) => {
+        const productPrice = {
+            price: fetchPrice(variantData),
+            subscribePrice: 0
+        }
+        setProductPrice(productPrice);
+        
+        if(Number(variantData?.quantity) <= 0){
+            setIsQuantityAvailable(false);
+        }
+        else{
+            setIsQuantityAvailable(true);
+        }
+    }
 
     const fetchProductBySlug = async (id) => {
         try {
-            const res = await axios.get(`/products/product/${id}`);
-            setProduct(res.data);
-            console.log(res.data);
+            const res = await requests.get(`/products/product/${id}`);
+            setProduct(res);
+            handlePrice(res?.variants[0]);
+            console.log(res);
 
         } catch (error) {
             console.log(error);
@@ -155,6 +146,7 @@ export const ViewProduct = () => {
 
     useEffect(() => {
         fetchProductBySlug(productSlug);
+        window.scrollTo({ top: 0, behavior: "instant" });
     }, [productSlug]);
 
 
@@ -215,18 +207,18 @@ export const ViewProduct = () => {
                                         <p className='fw-bolder select-size-header '>SELECT SIZE</p>
                                         <div className='row'>
                                             {
-                                                product?.variants?.map((variant,index) => {
-                                                    return <>
-                                                        <Variant key={index} variantData={variant} setProductPrice={setProductPrice} />
-                                                    </>
+                                                product?.variants?.map((variant,idx) => {
+                                                    return(
+                                                        <Variant key={idx} variantData={variant} setIsQuantityAvailable={setIsQuantityAvailable} setProductPrice={setProductPrice} />
+                                                    )
                                                 })
                                             }
                                         </div>
                                     </div>
-                                    <ProductPrice productPrice={productPrice} />
+                                    {isQuantityAvailable ? <ProductPrice productPrice={productPrice} /> :
                                     <div className="VPNotifymebutton text-center my-2">
                                         <button className='py-3 notifymebtn'><h5 className='text-uppercase'>Notify me when back in stock</h5></button>
-                                    </div>
+                                    </div>}
                                     <div className="afterNotifymetext">
                                         <p className='fw-bold'>You’ll be donating a meal with this order. Learn more on <span className='fw-bolder'>One Feeds Two</span></p>
                                     </div>

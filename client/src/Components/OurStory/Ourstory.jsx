@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainHero from './MultipleComponents/MainHero/MainHero'
 import ThemeTwo from './MultipleComponents/ThemeTwo/ThemeTwo'
 import ThemeThree from './MultipleComponents/ThemeThree/ThemeThree'
@@ -32,6 +32,10 @@ const ourStoryComponent = (ourStoryData,val) => {
 export const Ourstory = () => {
 
   const ourStoryData = useSelector(store => store?.storeSettings?.about_us);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  },[])
 
   if(!ourStoryData){
     return;

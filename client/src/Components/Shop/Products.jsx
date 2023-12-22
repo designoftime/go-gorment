@@ -4,19 +4,20 @@ import './Shop.css'
 import { BsFillStarFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import NewMobileProduct from './NewMobileProduct'
-import axios from 'axios'
-import { fetchProductPrice } from '../../Redux/actions/productService'
+import { fetchProductPrice, findProductAttribute } from '../../Redux/actions/productService'
+import requests from '../../Services/httpService'
 
-export const Products = ({categoryId}) => {
+export const Products = ({categoryId, variants}) => {
   
   const [products, setProducts] = useState([]);
+  const [productAttribute, setProductproductsAttribute] = useState([]);
   
   const fetchProductByCategoryId = async (id) => {
     try {
-      const res = await axios.get(`/products/category/${id}`);
+      const res = await requests.get(`/products/category/${id}`);
       
-      if(res?.data?.data){
-        setProducts(res.data.data);
+      if(res?.data){
+        setProducts(res.data);
       }
     } catch (error) {
       console.log(error);
@@ -42,7 +43,7 @@ export const Products = ({categoryId}) => {
                         <div className="ShopProductsheader" >
                           {product?.title?.en}
                         </div>
-                        <div className="ShopProducts-size text-uppercase fw-bold" >BUNDLE (50 x 35g)</div>
+                        <div className="ShopProducts-size text-uppercase fw-bold" >{findProductAttribute(product,variants)}</div>
                         <div className="ShopProductsPrice fw-bold fs-5" ><span>&#8377;</span><span>{fetchProductPrice(product)}</span></div>
                         <div className="ShopProductbutton">
                           <Link to={`/products/${product?.slug}`} className='SVPbtn bg-*' > View Product </Link>
