@@ -65,7 +65,6 @@ export const Shop = () => {
     }
 
     fetchProductAttribute();
-    window.scrollTo({ top: 0, behavior: "instant" });
     
     return () => {
       window.removeEventListener('resize', handleWidth);

@@ -21,10 +21,6 @@ export const Home = () => {
 
   const dynamicStoreData = useSelector(store => store?.storeSettings);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  });
-
   return (
     <div>
       <HomeCarousel homeSliderData={dynamicStoreData?.slider} />

@@ -5,7 +5,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 export const OneFeedsHome = ({bottomPromotionData, styles}) => {
-
+  console.log(bottomPromotionData);
   if (!bottomPromotionData) {
     return;
   }

@@ -7,10 +7,6 @@ const ContactUs = () => {
 
     const homeData = useSelector(store => store?.storeSettings?.home);
 
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "instant" });
-    },[]);
-
     if(!homeData){
         return;
     }

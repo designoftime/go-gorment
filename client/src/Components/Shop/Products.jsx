@@ -7,10 +7,37 @@ import NewMobileProduct from './NewMobileProduct'
 import { fetchProductPrice, findProductAttribute } from '../../Redux/actions/productService'
 import requests from '../../Services/httpService'
 
+const ShopProductImage = ({product}) => {
+
+  const [viewProduct, setViewProduct] = useState(false);
+
+  return (<div className="ShopProducts-imge d-flex">
+  <img className='ShopProduct-img1' src={product?.image[0]} onMouseOut={(e) => {
+      e.currentTarget.src = product?.image[0]
+      setViewProduct(false);
+    }
+    } onMouseOver={(e) => {
+      e.currentTarget.src = product?.image[1];
+      setViewProduct(true);
+  }} alt="" /><br />
+  {
+    viewProduct && <div><Link style={{
+      position: "absolute",
+      display: "flex",
+      justifyContent: "center",
+      alignContent: "center",
+      padding: "20px",
+      backgroundColor: "white",
+      color: "blue"
+    }} to={`/products/${product?.slug}`}> View Product </Link>
+    </div>
+  }
+</div>)
+}
+
 export const Products = ({categoryId, variants}) => {
   
   const [products, setProducts] = useState([]);
-  const [productAttribute, setProductproductsAttribute] = useState([]);
   
   const fetchProductByCategoryId = async (id) => {
     try {
@@ -36,10 +63,7 @@ export const Products = ({categoryId, variants}) => {
                   return (
                     <div className="ShopProducts col-sm-2 container g-0 " key={product._id}>
                       <div className="ShopProducts-content text-center">
-                        <div className="ShopProducts-imge d-flex">
-                          <img className='ShopProduct-img1' src={product?.image[0]} alt="" /><br />
-                          {/* <img className='ShopProduct-imghover' src={product?.image[1]} alt="" /> */}
-                        </div>
+                        <ShopProductImage product={product} />
                         <div className="ShopProductsheader" >
                           {product?.title?.en}
                         </div>

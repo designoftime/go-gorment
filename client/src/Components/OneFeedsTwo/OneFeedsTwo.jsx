@@ -13,10 +13,6 @@ export const OneFeedsTwo = () => {
     const dynamicStoreData = useSelector(store => store?.storeSettings);
     const oneFeedsTwoData = dynamicStoreData?.offers;
 
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "instant" });
-    }, []);
-
     if(!oneFeedsTwoData){
         return;
     }

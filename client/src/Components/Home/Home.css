@@ -79,9 +79,11 @@
     font-family: bannerheaderfont;
     font-size: 11rem;
     overflow-y: hidden;
+    color: #fff;
 }
 
 .Banner-content {
+    color: #fff;
     display: flex;
     width: 100%;
     height: 100vh;

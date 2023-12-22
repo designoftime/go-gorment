@@ -135,7 +135,7 @@ export const ViewProduct = () => {
             const res = await requests.get(`/products/product/${id}`);
             setProduct(res);
             handlePrice(res?.variants[0]);
-            console.log(res);
+            // console.log(res);
 
         } catch (error) {
             console.log(error);
@@ -146,9 +146,7 @@ export const ViewProduct = () => {
 
     useEffect(() => {
         fetchProductBySlug(productSlug);
-        window.scrollTo({ top: 0, behavior: "instant" });
     }, [productSlug]);
-
 
     return (
         <div>

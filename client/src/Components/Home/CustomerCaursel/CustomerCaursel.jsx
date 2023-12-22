@@ -64,7 +64,7 @@ export const CustomerCaursel = ({ bottomSliderData }) => {
                                         setToggleAni(!toggleAni)
                                         handleStyleChange(e.activeIndex);
                                     }}
-                                    pagination={showValue < 767?{dynamicBullets:true}:{dynamicBullets:false}}
+                                    pagination={showValue < 767 ? {dynamicBullets:true}:{dynamicBullets:false}}
                                     navigation={showValue < 767 ? false : true}
                                     className='customer-slider'
                                     modules={ showValue < 767 ? [Pagination] : [Navigation]}

@@ -33,10 +33,6 @@ export const Ourstory = () => {
 
   const ourStoryData = useSelector(store => store?.storeSettings?.about_us);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  },[])
-
   if(!ourStoryData){
     return;
   }
