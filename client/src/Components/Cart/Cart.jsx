@@ -11,7 +11,7 @@ import '../Navigation/Navigation2.css';
 import cartProductImg1 from '../Shop/images/SourCreamHoverimg.jpg';
 import cartProductImg2 from '../Shop/images/DarkChoc-Case_360x.png';
 export const Cart = () => {
-    const [productNo, setProductNo] = useState(1)
+    const [productNo, setProductNo] = useState(0)
     const [showcart, setShowCart] = useState(false);
     const handleShow = (event) => {
         event.preventDefault();
@@ -43,7 +43,7 @@ export const Cart = () => {
     ]
     const updateProductNo = (event) => {
         const newValue = parseInt(event.target.value);
-        if (!isNaN(newValue) && newValue >= 1) {
+        if (!isNaN(newValue)) {
             setProductNo(newValue);
         }
     }
@@ -60,7 +60,7 @@ export const Cart = () => {
             <button onClick={handleShow} href="#" className='accountIcon'><MdOutlineShoppingBag /></button>
             <OffCanvas show={showcart} placement='end' onHide={handleClose} name="end">
                 <OffCanvas.Header className='accountIcon'>
-                    <CgArrowLongLeft onClick={handleClose} />
+                    <CgArrowLongLeft onClick={handleClose} className='cartClosebtn'/>
                     <OffCanvas.Title>Your Cart</OffCanvas.Title>
                 </OffCanvas.Header>
                 <OffCanvas.Body>
@@ -83,7 +83,6 @@ export const Cart = () => {
                                 </div>
                             )
                         })}
-
                     </div>
                 </OffCanvas.Body>
             </OffCanvas>

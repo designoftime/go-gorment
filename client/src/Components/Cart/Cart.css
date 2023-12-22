@@ -1,3 +1,6 @@
+.cartClosebtn{
+    font-size: 7vw;
+}
 .Cartgrid{
     display: grid;
     grid-template-columns: 0.3fr 1fr;
