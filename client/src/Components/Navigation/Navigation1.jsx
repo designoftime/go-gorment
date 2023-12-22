@@ -3,7 +3,6 @@ import './Navigation1.css';
 import './Navigation2.css';
 import Logo from './images/Logo.svg';
 import { RiAccountCircleLine } from 'react-icons/ri';
-import { MdOutlineShoppingBag } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MobileMenu from './mobileMenu';

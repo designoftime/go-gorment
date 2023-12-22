@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import { CgArrowLongLeft } from "react-icons/cg";
 import { Button } from 'react-bootstrap'
 import OffCanvas from 'react-bootstrap/Offcanvas';
-import { FaShoppingBag } from 'react-icons/fa';
+import { MdOutlineShoppingBag } from 'react-icons/md';
 import { HiOutlineTrash } from "react-icons/hi";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
-import '../Home/Home.css'
 import './Cart.css'
+import '../Navigation/Navigation1.css';
+import '../Navigation/Navigation2.css';
 import cartProductImg1 from '../Shop/images/SourCreamHoverimg.jpg';
 import cartProductImg2 from '../Shop/images/DarkChoc-Case_360x.png';
 export const Cart = () => {
@@ -56,7 +57,7 @@ export const Cart = () => {
     }
     return (
         <div>
-            <Button onClick={handleShow} className='accountIcon'><FaShoppingBag /></Button>
+            <a onClick={handleShow} href="#" className='accountIcon'><MdOutlineShoppingBag /></a>
             <OffCanvas show={showcart} placement='end' onHide={handleClose} name="end">
                 <OffCanvas.Header className='accountIcon'>
                     <CgArrowLongLeft onClick={handleClose} />
