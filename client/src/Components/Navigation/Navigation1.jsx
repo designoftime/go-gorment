@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import MobileMenu from './mobileMenu';
 import { useSelector } from 'react-redux';
 import { getStyles } from '../../utils/Constants';
+import { Cart } from '../Cart/Cart';
 
 
 export const Navigation1 = () => {
@@ -103,7 +104,7 @@ export const Navigation1 = () => {
                         </div>
                         <div className='nav-item '>
                             <a className='nav-link active bolder' href="" style={styles.color}>
-                                <MdOutlineShoppingBag className='accountIcon' />
+                                <Cart/>
                             </a>
                         </div>
                     </div>

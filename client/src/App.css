@@ -21,3 +21,7 @@
   align-items: center;
   justify-content: center;
 }
+.offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl{
+  --bs-offcanvas-width: 550px;
+  --bs-offcanvas-height: 40vh;
+}
