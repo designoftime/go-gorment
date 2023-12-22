@@ -22,3 +22,13 @@ export const fetchProductPrice = (product) => {
         return originalPrice;
     } 
 }
+
+export const fetchPrice = (product) => {
+    let salePrice = Number(product?.price); 
+    if(salePrice){
+        return salePrice;
+    }
+    
+    let originalPrice = Number(product?.originalPrice);
+    return originalPrice;
+}

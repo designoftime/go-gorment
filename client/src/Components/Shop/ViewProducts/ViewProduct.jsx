@@ -137,6 +137,8 @@ export const ViewProduct = () => {
     };
 
     const [product, setProduct] = useState({});
+    const [productPrice, setProductPrice] = useState({});
+
 
     const fetchProductBySlug = async (id) => {
         try {
@@ -173,19 +175,19 @@ export const ViewProduct = () => {
                                     }}
                                     modules={[Navigation, Pagination]}
                                 >
-                                    {productSliderVal.map((items, id) => {
+                                    {product?.image && product?.image.map((img, idx) => {
                                         return (
-                                            <SwiperSlide key={id} className='slide'><img src={items.sliderimg} alt={items.sliderimg} key={id} className='vpcarouselimages rounded-4' /></SwiperSlide>
+                                            <SwiperSlide key={idx} className='slide'><img src={img} alt={img} key={idx} className='vpcarouselimages rounded-4' /></SwiperSlide>
                                         )
                                     })}
                                 </Swiper>
                                 <div className='vpslider-logo'>
                                     <div className="vpslide-logos">
                                         {
-                                            productSliderVal.map((items, id) => {
+                                            product?.image && product?.image.map((img, idx) => {
                                                 return (
-                                                    <img key={id} src={items.sliderimg} alt={items.sliderimg} className='active-logo rounded-4' onClick={() => {
-                                                        first.current.swiper.slideTo(id);
+                                                    <img key={idx} src={img} alt={img} className='active-logo rounded-4' onClick={() => {
+                                                        first.current.swiper.slideTo(idx);
                                                     }} />
                                                 )
                                             })
@@ -214,12 +216,14 @@ export const ViewProduct = () => {
                                         <div className='row'>
                                             {
                                                 product?.variants?.map((variant,index) => {
-                                                    return <Variant key={index} variantData={variant} />
+                                                    return <>
+                                                        <Variant key={index} variantData={variant} setProductPrice={setProductPrice} />
+                                                    </>
                                                 })
                                             }
                                         </div>
                                     </div>
-                                    <ProductPrice/>
+                                    <ProductPrice productPrice={productPrice} />
                                     <div className="VPNotifymebutton text-center my-2">
                                         <button className='py-3 notifymebtn'><h5 className='text-uppercase'>Notify me when back in stock</h5></button>
                                     </div>

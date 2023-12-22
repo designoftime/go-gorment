@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { fetchPrice } from "../../Redux/actions/productService";
 
-const Variant = ({variantData}) => {
+const Variant = ({variantData, setProductPrice}) => {
 
     const parentId = Object.keys(variantData);
     const childId = Object.values(variantData);
@@ -17,10 +18,18 @@ const Variant = ({variantData}) => {
         fetchVariants();
     },[]);
 
+    const handlePrice = () => {
+        const productPrice = {
+            price: fetchPrice(variantData),
+            subscribePrice: 0
+        }
+        setProductPrice(productPrice);
+    }
+
     return (
         <div className="col-sm-3 mt-3 text-center mx-auto vpselect-size-box">
             <div className='py-1'>
-                <p className="">{variantVal?.name?.en ? variantVal?.name?.en : "Hello"}</p>
+                <button className="" onClick={handlePrice}>{variantVal?.name?.en && variantVal.name.en}</button>
             </div>
         </div>
         )
