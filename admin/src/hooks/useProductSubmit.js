@@ -82,13 +82,6 @@ const useProductSubmit = (id) => {
     try {
       setIsSubmitting(true);
       if (!imageUrl) return notifyError("Image is required!");
-      console.log(
-        "data",
-        data.originalPrice,
-        data.price,
-        data.originalPrice < data.price
-      );
-
       if (data.originalPrice < data.price) {
         setIsSubmitting(false);
         return notifyError(
