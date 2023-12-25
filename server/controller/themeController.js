@@ -59,10 +59,11 @@ const updateTheme = async (req, res) => {
     const themeCustomization = await Theme.findOneAndUpdate(
       {
         _id: id,
-        name: req.body.name
+        name: req.body.name,
       },
       {
         $set: {
+          "theme.theme_unique_name": theme.theme_unique_name,
           "theme.section_one.section_status": theme.section_one.section_status,
           "theme.section_one.first_img": theme.section_one.first_img,
           "theme.section_one.second_img": theme.section_one.second_img,
@@ -115,6 +116,10 @@ const updateTheme = async (req, res) => {
           "theme.section_four.second_title": theme.section_four.second_title,
           "theme.section_four.second_description":
             theme.section_four.second_description,
+          "theme.section_four.third_description":
+            theme.section_four.third_description,
+          "theme.section_four.third_description":
+            theme.section_four.third_description,
           "theme.section_four.background_color":
             theme.section_four.background_color,
           "theme.section_four.text_color": theme.section_four.text_color,
