@@ -81,14 +81,19 @@
 
         .icons {
             display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 10px;
             margin-left: 20px !important;
 
             .accountIcon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 font-size: 30px !important;
                 font-weight: bolder !important;
-                margin: 0 5px !important;
                 color: white !important;
+                padding: 0.2rem;
             }
         }
 
@@ -222,18 +227,20 @@
     justify-content: center;
 }
 
-@media screen and (max-width: 997px) {
-    .left li {
-        display: none !important;
+@media screen and (max-width: 767px) {
+    .logo {
+        width: 100px;
     }
 
-    .right .links {
-        display: none !important;
+    .navbar {
+        padding: 50px 20px !important;
+        /* padding-top: 50px !important; */
+        justify-content: space-between !important;
     }
 
     .navbar .left {
         width: auto !important;
-        min-width: 20%;
+        min-width: 30%;
     }
 
     .navbar .right {
@@ -247,19 +254,18 @@
     }
 }
 
-@media screen and (max-width: 767px) {
-    .logo {
-        width: 100px;
+@media screen and (max-width: 997px) {
+    .left li {
+        display: none !important;
     }
 
-    .navbar {
-        padding-top: 20px !important;
-        justify-content: space-between !important;
+    .right .links {
+        display: none !important;
     }
 
     .navbar .left {
         width: auto !important;
-        min-width: 30%;
+        min-width: 20%;
     }
 
     .navbar .right {
