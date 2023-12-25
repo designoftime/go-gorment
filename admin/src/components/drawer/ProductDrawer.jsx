@@ -278,7 +278,7 @@ const ProductDrawer = ({ id }) => {
                     disabled={isCombination}
                     register={register}
                     maxValue={2000}
-                    minValue={1}
+                    minValue={isCombination ? 0 : 1}
                     label="Original Price"
                     name="originalPrice"
                     type="number"
@@ -470,6 +470,8 @@ const ProductDrawer = ({ id }) => {
                         <TableCell>{t("Barcode")}</TableCell>
                         <TableCell>{t("Price")}</TableCell>
                         <TableCell>{t("SalePrice")}</TableCell>
+                        <TableCell>{"Subscription"}</TableCell>
+                        <TableCell>{"Duration"}</TableCell>
                         <TableCell>{t("QuantityTbl")}</TableCell>
                         <TableCell className="text-right">
                           {t("Action")}

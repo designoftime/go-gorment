@@ -280,6 +280,7 @@ const CategoryDrawer = ({ id, data }) => {
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
+                  required
                   label="Background Color"
                   name="background_color"
                   type="text"
@@ -293,6 +294,7 @@ const CategoryDrawer = ({ id, data }) => {
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
+                  required
                   label="Text Color"
                   name="text_color"
                   type="text"

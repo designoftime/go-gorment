@@ -571,7 +571,7 @@ const AboutUs = ({
                 visibility: !sectionFour ? "hidden" : "visible",
                 opacity: !sectionFour ? "0" : "1",
               }}
-            >
+             >
               <div className="grid md:grid-cols-5 sm:grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
                 <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 md:mb-1">
                   Image

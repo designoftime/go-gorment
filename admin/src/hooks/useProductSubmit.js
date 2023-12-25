@@ -435,7 +435,6 @@ const useProductSubmit = (id) => {
       } else {
         const newCom = {
           ...com,
-
           originalPrice: getNumberTwo(originalPrice),
           price: getNumber(price),
           quantity: Number(quantity),
