@@ -471,7 +471,6 @@ const ProductDrawer = ({ id }) => {
                         <TableCell>{t("Price")}</TableCell>
                         <TableCell>{t("SalePrice")}</TableCell>
                         <TableCell>{"Subscription"}</TableCell>
-                        <TableCell>{"Duration"}</TableCell>
                         <TableCell>{t("QuantityTbl")}</TableCell>
                         <TableCell className="text-right">
                           {t("Action")}

@@ -87,10 +87,10 @@ console.log(updatedthemes)
                 )}
                 <div>
                   <span className="text-sm">
-                   {data?.theme?.section_one.first_title}
-                  </span>{" "}
+                   {data?.theme?.theme_unique_name}
+                  </span>
                 </div>
-              </div>{" "}
+              </div>
             </TableCell>
             <TableCell className="text-center">
               <ShowHideButton id={data?._id} status={data?.theme?.section_one.section_status} />
@@ -101,7 +101,7 @@ console.log(updatedthemes)
                 isCheck={isCheck}
                 handleUpdate={handleUpdate}
                 handleModalOpen={handleModalOpen}
-                title={data?.theme?.section_one.first_title}
+                title={data?.theme?.theme_unique_name}
               />
             </TableCell>
           </TableRow>
