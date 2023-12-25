@@ -66,6 +66,11 @@ const productSchema = new mongoose.Schema(
         type: Number,
         required: false,
       },
+      subscription: {
+        type: Number,
+        required: false,
+      },
+      
     },
     variants: [{}],
     isCombination: {
