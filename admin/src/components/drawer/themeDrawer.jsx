@@ -71,8 +71,8 @@ const ThemeDrawer = ({ id }) => {
             register={register}
             required
             handleSelectLanguage={handleSelectLanguage}
-            title={t("UpdateCoupon")}
-            description={t("UpdateCouponDescription")}
+            title={"Update Theme"}
+            description={"Update Theme and Customization"}
           />
         ) : (
           <Title
@@ -90,6 +90,20 @@ const ThemeDrawer = ({ id }) => {
       <Scrollbars className="w-full md:w-7/12 lg:w-8/12 xl:w-8/12 relative dark:bg-gray-700 dark:text-gray-200">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="px-6 pt-8 flex-grow scrollbar-hide w-full max-h-full pb-20">
+          <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label={"Theme Unique Name"} />
+                <div className="col-span-8 sm:col-span-4">
+                  <InputArea
+                    register={register}
+                    required
+                    label="Theme Name"
+                    name="theme_name"
+                    type="text"
+                    placeholder={"Theme Name"}
+                  />
+                  <Error errorName={errors.theme_name} />
+                </div>
+              </div>
             <div className="inline-flex md:text-lg text-base text-gray-800 font-semibold dark:text-gray-400 mb-3">
               <FiSettings className="mt-1 mr-2" /> {"Section One"}
             </div>
@@ -671,6 +685,35 @@ const ThemeDrawer = ({ id }) => {
                   />
 
                   <Error errorName={errors.description_second} />
+                </div>
+              </div>
+              <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label={"Top Title"} />
+                <div className="col-span-8 sm:col-span-4">
+                  <InputArea
+                    register={register}
+                    required
+                    label="Top Title"
+                    name="section_four_title_third"
+                    type="text"
+                    placeholder={"Top Title"}
+                  />
+                  <Error errorName={errors.title_third} />
+                </div>
+              </div>
+              <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label={"Top Description"} />
+                <div className="col-span-8 sm:col-span-4">
+                  <TextAreaCom
+                    required
+                    register={register}
+                    label="Top Description"
+                    name="section_four_description_third"
+                    type="text"
+                    placeholder={"Top Description"}
+                  />
+
+                  <Error errorName={errors.description_third} />
                 </div>
               </div>
               <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">

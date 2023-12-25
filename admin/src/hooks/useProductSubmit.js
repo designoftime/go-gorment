@@ -600,6 +600,17 @@ const useProductSubmit = (id) => {
       const timeOutId = setTimeout(() => setIsBulkUpdate(false), 100);
       return () => clearTimeout(timeOutId);
     }
+    if (name === "subscription" && Number(value) > Number(variant.originalPrice)) {
+      // variants[id][name] = Number(variant.originalPrice);
+      notifyError(
+        " Subscription must be less then or equal of product price!"
+      );
+      setValue("subscription", variant.subscription);
+      setIsBulkUpdate(true);
+      const timeOutId = setTimeout(() => setIsBulkUpdate(false), 100);
+      return () => clearTimeout(timeOutId);
+    }
+
     setVariants((pre) =>
       pre.map((com, i) => {
         if (i === id) {
@@ -614,6 +625,10 @@ const useProductSubmit = (id) => {
           }
           if (name === "originalPrice") {
             updatedCom.originalPrice = getNumberTwo(value);
+            updatedCom.discount = Number(value) - Number(variant.price);
+          }
+          if (name === "subscription") {
+            updatedCom.subscription = getNumberTwo(value);
             updatedCom.discount = Number(value) - Number(variant.price);
           }
 

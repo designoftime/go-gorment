@@ -68,6 +68,7 @@ const useThemeSubmit = (id) => {
       const themeData = {
         name: "themeCustomization",
         theme: {
+          theme_unique_name: data.theme_name,
           section_one: {
             section_status: sectionOne ? "show" : "hide",
             first_img: imageUrlSectionOneFirst,
@@ -127,6 +128,8 @@ const useThemeSubmit = (id) => {
             first_description: data.section_four_description_one,
             second_title: data.section_four_title_second,
             second_description: data.section_four_description_second,
+            third_description: data.section_four_description_third,
+            third_description: data.section_four_description_third,
             background_color: data.section_four_background_color,
             text_color: data.section_four_text_color,
           },
@@ -176,6 +179,7 @@ const useThemeSubmit = (id) => {
   useEffect(() => {
     if (!isDrawerOpen) {
       setResData({});
+      setValue("theme_name");
       setValue("section_one_title_one");
       setValue("section_one_title_two");
       setValue("section_one_title_three");
@@ -199,6 +203,8 @@ const useThemeSubmit = (id) => {
       setValue("section_four_description_one");
       setValue("section_four_title_second");
       setValue("section_four_description_second");
+      setValue("section_four_description_third");
+      setValue("section_four_description_third");
       setValue("section_four_background_color");
       setValue("section_four_text_color");
       setImageUrlSectionOneFirst("");
@@ -214,6 +220,7 @@ const useThemeSubmit = (id) => {
       setImageUrlSectionTwoFour("");
       setImageUrlThird("");
       setImageUrlSectionFour("");
+      clearErrors("theme_name");
       clearErrors("section_one_title_one");
       clearErrors("section_one_title_two");
       clearErrors("section_one_title_three");
@@ -237,6 +244,8 @@ const useThemeSubmit = (id) => {
       clearErrors("section_four_description_one");
       clearErrors("section_four_title_second");
       clearErrors("section_four_description_second");
+      clearErrors("section_four_description_third");
+      clearErrors("section_four_description_third");
       clearErrors("section_four_background_color");
       clearErrors("section_four_text_color");
       // setLanguage(lang);
@@ -250,7 +259,10 @@ const useThemeSubmit = (id) => {
           if (res) {
             setResData(res);
             setIsSave(false);
-
+            setValue(
+              "theme_name",
+              res.theme.theme_unique_name
+            );
             setValue(
               "section_one_title_one",
               res.theme.section_one.first_title
@@ -342,6 +354,14 @@ const useThemeSubmit = (id) => {
             setValue(
               "section_four_description_second",
               res.theme.section_four.second_description
+            );
+            setValue(
+              "section_four_description_third",
+              res.theme.section_four.third_description
+            );
+            setValue(
+              "section_four_description_third",
+              res.theme.section_four.third_description
             );
             setValue(
               "section_four_background_color",
