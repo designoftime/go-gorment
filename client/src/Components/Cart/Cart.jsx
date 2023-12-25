@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import OffCanvas from "react-bootstrap/Offcanvas";
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { HiOutlineTrash } from "react-icons/hi";
+import { BiSolidTrashAlt } from "react-icons/bi";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 import Backarrow from './images/back.svg'
 import "./Cart.css";
@@ -29,7 +29,27 @@ export const Cart = () => {
             cartpsize: "REGULAR (10 X 35G)",
             cartpprice: "£50.00",
         },
-        
+        {
+            id: 2,
+            cartpimage: cartProductImg2,
+            cartpheader: "Dark Choclate PRETZEL THINS",
+            cartpsize: "REGULAR (10 X 35G)",
+            cartpprice: "£60.00",
+        },
+        {
+            id: 3,
+            cartpimage: cartProductImg1,
+            cartpheader: "SOUR CREAM & ONION PRETZEL THINS",
+            cartpsize: "REGULAR (10 X 35G)",
+            cartpprice: "£50.00",
+        },
+        {
+            id: 4,
+            cartpimage: cartProductImg2,
+            cartpheader: "Dark Choclate PRETZEL THINS",
+            cartpsize: "REGULAR (10 X 35G)",
+            cartpprice: "£60.00",
+        },
     ];
     const updateProductNo = (event) => {
         const newValue = parseInt(event.target.value);
@@ -60,7 +80,7 @@ export const Cart = () => {
                         {cartProductData.map((items, id) => {
                             return (
                                 <div className="Cartgrid my-4" key={id}>
-                                    <div className="cartproductimg">
+                                    <div className="cartproductimg mt-1">
                                         <img
                                             src={items.cartpimage}
                                             alt={items.cartpimage}
@@ -68,11 +88,11 @@ export const Cart = () => {
                                     </div>
                                     <div className="cartProductremaing">
                                         <div className="cartRemainpart1">
-                                            <div className="cartProductName">
+                                            <div className="cartProductName mt-1">
                                                 {items.cartpheader}
                                             </div>
-                                            <div className="cartProductDel">
-                                                <HiOutlineTrash />
+                                            <div className="cartProductDel ms-2">
+                                            <BiSolidTrashAlt />
                                             </div>
                                         </div>
                                         <div className="cartProductSize">
@@ -87,7 +107,7 @@ export const Cart = () => {
                                                             increaseProduct
                                                         }
                                                     >
-                                                        <AiOutlinePlusSquare className="w-100" />
+                                                    <strong>+</strong>
                                                     </button>
                                                 </div>{" "}
                                                 <div>
@@ -97,7 +117,7 @@ export const Cart = () => {
                                                             updateProductNo
                                                         }
                                                         value={productNo}
-                                                        className="border-0"
+                                                        className=" counterinput"
                                                     />
                                                 </div>
                                                 <div>
@@ -107,7 +127,7 @@ export const Cart = () => {
                                                             decreaseProduct
                                                         }
                                                     >
-                                                        <AiOutlineMinusSquare className="w-100" />
+                                                        <strong>-</strong>
                                                     </button>
                                                 </div>
                                             </div>
@@ -120,15 +140,17 @@ export const Cart = () => {
 
                             );
                         })}
-                        <div className="CartOrder-section w-100">
+                        
+                        
+                    </div>
+                </OffCanvas.Body>
+                <div className="CartOrder-section w-100">
                             <div className="CartOrder-details">
                                 <div className="CartOrder-header">Order Total</div>
                                 <div className="CartOrder-Price">£66.50</div>
                             </div>
                             <div className="Cartbtn"><button className="Checkoutbutton">Checkout</button></div>
                         </div>
-                    </div>
-                </OffCanvas.Body>
             </OffCanvas>
         </div>
     );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchPrice } from "../../Redux/actions/productService";
 import requests from "../../Services/httpService";
+import { fetchPrice } from "../../Redux/actions/productService";
 
 const Variant = ({variantData, setProductPrice, setIsQuantityAvailable}) => {
 
