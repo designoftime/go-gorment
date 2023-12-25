@@ -1,23 +1,27 @@
 import React from 'react'
+import { sliderVal } from '../../../utils/Constants';
 
-export const ViewProductsicon = ({vpIconsSection}) => {
-    // console.log(typeof(vpIconsSection))
-   
+export const ViewProductsicon = ({data}) => {
+
+    if(!data){
+        return;
+    }
+
     return (
         <div className='container-fluid g-0 mt-5 py-5 ViewProductIconsSection'>
             <div className="container mx-auto">
                 <div className="VPIconsbox ">
                     {
-                      vpIconsSection.map((items,id)=>{
+                      sliderVal.map((val,idx)=>{
+                        if(!data[`${val}_img`]) return;
                         return (
-                            <div className='VPIcon-main py-5' key={id}>
-                                <div className='VPIcon mx-auto'><img className='vpiconsimge' src={items.iconsimge} alt={items.iconsimge} /> </div>
-                                <div className="VPIcon-content py-3 fw-bold fs-4 text-uppercase text-center">{items.iconcontent} </div>
+                            <div className='VPIcon-main py-5' key={idx}>
+                                <div className='VPIcon mx-auto'><img className='vpiconsimge' src={data[`${val}_img`]} alt={data[`${val}_img`]} /> </div>
+                                <div className="VPIcon-content py-3 fw-bold fs-4 text-uppercase text-center">{data[`${val}_title`]} </div>
                             </div>
                         );
                        })
                     }
-
                 </div>
             </div>
         </div>

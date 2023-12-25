@@ -1,43 +1,30 @@
 import React from 'react'
-import ProductHeroImage from '../images/ProductHeroImage.webp'
-export const ProductHero = () => {
-    const pHContent = [
-        {
-            id: 1,
-            "subheader": "CRISP OLL-TERNATIVE ",
-            "subcontent": "Our magical pretzel thins have less fat & fewer calories than crisps & popcorn. All vegan friendly too!",
-        },
-        {
-            id: 2,
-            "subheader": "OVEN-BAKED (NEVER FRIED) ",
-            "subcontent": "We oven-bake our thins to pretz-perfection, to create a light & crispy snack that will blow your socks off every time. ",
-        },
-        {
-            id: 3,
-            "subheader": "LESS THAN 120 CALS ",
-            "subcontent": "Thins by name, thins by nature. Our snack packs have less than 120 calories per bag.",
-        },
-    ]
+import { sliderVal } from '../../../utils/Constants';
+export const ProductHero = ({data}) => {
+    
+    if(!data){
+        return;
+    }
+
     return (
         <div>
             <div className="Product-Hero-Section">
                 <div className="ProductHeroMain">
                     <div className="ProductHero-left">
-                        <img className='Product-hero-img' src={ProductHeroImage} alt={ProductHeroImage} />
+                        <img className='Product-hero-img' src={data[`first_img`]} alt={data[`first_img`]} />
                     </div>
                     <div className="ProductHero-right">
-                        <h1 className='PH-header text-center pt-5 '>HEALTHIER <br /> DELICIOUS</h1>
+                        <h1 className='PH-header text-center pt-5 '>{data?.top_header}</h1>
 
                         <div className="PH-content">
-                            {pHContent.map((items,id) => {
+                            {sliderVal.map((val,idx) => {
                                 return (
-                                    <div className='PH-main' key={id}>
-                                        <h5 className='fw-bolder'><strong className='PH-sub-header'>{items.subheader}</strong></h5>
-                                        <p className='PH-sub-content'>{items.subcontent}</p>
+                                    <div className='PH-main' key={idx}>
+                                        <h5 className='fw-bolder'><strong className='PH-sub-header'>{data[`${val}_title`]}</strong></h5>
+                                        <p className='PH-sub-content'>{data[`${val}_description`]}</p>
                                     </div>
                                 )
                             })}
-
                         </div>
                     </div>
                 </div>

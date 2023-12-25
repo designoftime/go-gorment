@@ -2,8 +2,8 @@ import React from 'react'
 import Collapse from 'react-collapse'
 import './ViewProducts/ViewProducts.css'
 import {IoMdClose} from 'react-icons/io'
-import { Link } from 'react-router-dom'
-export const Accordion = ({ open, toggle, title, content, linkTitle}) => {
+
+export const Accordion = ({ open, toggle, title, content}) => {
 
     return (
       
@@ -26,13 +26,7 @@ export const Accordion = ({ open, toggle, title, content, linkTitle}) => {
                 </div>
             </div>
             <Collapse isOpened={open} className='VPcollapse'>
-                <div className=" pb-3 accordion-content ">
-                    {content}
-                    {linkTitle.map((items,index)=>{
-                        return(
-                            <div className='py-1' key={index}><Link to='/shop/viewproduct' className='linkTitle-content' key={index}>{items}</Link></div>
-                        )
-                    })}
+                <div className=" pb-3 accordion-content " dangerouslySetInnerHTML={{__html: content}}>
                 </div>
             </Collapse>
 

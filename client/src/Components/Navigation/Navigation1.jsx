@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MobileMenu from "./mobileMenu";
 import { useSelector } from "react-redux";
-import { getStyles } from "../../utils/Constants";
+import { getStylesLan } from "../../utils/Constants";
 import { Cart } from "../Cart/Cart";
 
 export const Navigation1 = () => {
@@ -40,7 +40,7 @@ export const Navigation1 = () => {
         }
     };
 
-    const styles = getStyles(
+    const styles = getStylesLan(
         headerData,
         "header_background_color",
         "header_text_color"
@@ -145,7 +145,7 @@ export const Navigation1 = () => {
                         )}
                     </div>
                     <div className="icons">
-                        <div className="nav-item ">
+                        <div className="nav-item  avater">
                             <Link
                                 to="/accounts/profile"
                                 className="nav-link active bolder"

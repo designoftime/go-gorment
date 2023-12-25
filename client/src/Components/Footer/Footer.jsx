@@ -11,7 +11,7 @@ import { FaFacebook } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { footerVal, getStyles } from "../../utils/Constants";
+import { footerVal, getStylesLan } from "../../utils/Constants";
 import FooterScroller from "./FooterScroller";
 
 export const Footer = () => {
@@ -23,7 +23,7 @@ export const Footer = () => {
     return;
   }
 
-  const styles = getStyles(footerData, 'footer_background_color', 'footer_text_color');
+  const styles = getStylesLan(footerData, 'footer_background_color', 'footer_text_color');
   
   return (
     <div>
