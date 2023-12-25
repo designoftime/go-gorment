@@ -22,6 +22,7 @@ const Languages = lazy(() => import("@/pages/Languages"));
 const Currencies = lazy(() => import("@/pages/Currencies"));
 const Setting = lazy(() => import("@/pages/Setting"));
 const StoreHome = lazy(() => import("@/pages/StoreHome"));
+const Theme = lazy(()=>import('@/pages/theme'))
 /*
 //  * ⚠ These are internal routes!
 //  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -41,6 +42,10 @@ const routes = [
   {
     path: "/products",
     component: Products,
+  },
+  {
+    path: "/theme",
+    component: Theme,
   },
   {
     path: "/attributes",
