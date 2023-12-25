@@ -2,17 +2,18 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../../Home/Home.css'
 import './ViewProducts.css'
 import { BsFillStarFill } from 'react-icons/bs'
-import { ViewProductsicon } from './ViewProductsicon'
 import { useParams } from 'react-router'
 import Variant from '../Variant'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import useWindowInnerWidth from '../../hooks/useWindowInnerWidth'
-import { ProductHero } from './ProductHero'
 import { ProductPrice } from './ProductPrice'
 import { fetchPrice } from '../../../Redux/actions/productService'
 import requests from '../../../Services/httpService'
 import ProductSectionOne from './ProductSectionOne'
+import ProductSectionTwo from './ProductSectionTwo'
+import ProductSectionThree from './ProductSectionThree'
+import ProductSectionFour from './ProductSectionFour'
 
 export const ViewProduct = () => {
 
@@ -44,6 +45,7 @@ export const ViewProduct = () => {
         try {
             const res = await requests.get(`/products/product/${id}`);
             setProduct(res);
+            console.log(res);
             handlePrice(res?.variants[0]);
             const productPageRes = await requests.get(`http://localhost:5055/api/theme/658921a204b7393748042e6f`);
             setProductTheme(productPageRes?.theme);
@@ -138,8 +140,9 @@ export const ViewProduct = () => {
                         <ProductSectionOne data={productTheme?.section_one} />
                     </div>
                 </div>
-                <ViewProductsicon data={productTheme?.section_two} />
-                <ProductHero data={productTheme?.section_three}/>
+                <ProductSectionTwo data={productTheme?.section_two} />
+                <ProductSectionThree data={productTheme?.section_three}/>
+                <ProductSectionFour data={productTheme?.section_four} />
             </section>
         </div>
     )

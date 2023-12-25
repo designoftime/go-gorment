@@ -18,18 +18,7 @@ export const OneFeedsTwo = () => {
     }
 
     const oneFeedsTwoComponent = (oneFeedsTwoData,val) => {
-        const styles = {
-            fullBg: {
-                background: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`,
-                color: `${oneFeedsTwoData[`offer_section_${val}_text_color`]?.en}`
-            },
-            color: {
-                color: `${oneFeedsTwoData[`offer_section_${val}_text_color`]?.en}`
-            },
-            bg: {
-                background: `${oneFeedsTwoData[`offer_section_${val}_background_color`]?.en}`
-            }
-        }
+        const styles =  getStylesLan(oneFeedsTwoData, `offer_section_${val}_background_color`, `offer_section_${val}_text_color`);
 
         return {
             "first": <SectionOne oneFeedsTwoData={oneFeedsTwoData} val={val} styles={styles} />,

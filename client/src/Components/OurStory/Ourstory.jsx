@@ -2,23 +2,12 @@ import React, { useEffect } from 'react'
 import MainHero from './MultipleComponents/MainHero/MainHero'
 import ThemeTwo from './MultipleComponents/ThemeTwo/ThemeTwo'
 import ThemeThree from './MultipleComponents/ThemeThree/ThemeThree'
-import { sliderVal } from '../../utils/Constants';
+import { getStylesLan, sliderVal } from '../../utils/Constants';
 import { useSelector } from 'react-redux';
 
 const ourStoryComponent = (ourStoryData,val) => {
 
-  const styles = {
-    fullBg: {
-      background: `${ourStoryData[`section_${val}_background_color`]?.en}`,
-      color: `${ourStoryData[`section_${val}_text_color`]?.en}`
-    },
-    color: {
-      color: `${ourStoryData[`section_${val}_text_color`]?.en}`
-    },
-    bg: {
-      background: `${ourStoryData[`section_${val}_background_color`]?.en}`
-    }
-  }
+  const styles = getStylesLan(ourStoryData, `section_${val}_background_color`, `section_${val}_text_color`);
 
   return {
     "first": <MainHero ourStoryData={ourStoryData} val={val} styles={styles} />,
