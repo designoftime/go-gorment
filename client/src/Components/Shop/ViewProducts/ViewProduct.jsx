@@ -1,30 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../../Home/Home.css'
-import SliderArrow from '../../Home/CustomerCaursel/images/slider-rightarrow.svg'
-import Ovenbakedimge from '../images/OLLYS-ICONS-OvenBaked.svg'
-import Cal75imge from '../images/OLLY_SB-ICONS-75-cal-.svg'
-import Haslefree from '../images/OLLY_SB-ICONS-hasle-free.svg'
-import Nostones from '../images/OLLY_SB-ICONS-no-stones.svg'
-import Sourcefiber from '../images/OLLY_SB-ICONS-fibre.svg'
-import Tooth from '../images/OLLYS-ICONS-Toothv-2.svg'
-import Bluegreataste from '../images/Layer_1_450x (1).svg'
-import Layer_2imge from '../images/GQ_Logo_1_450x.svg'
-import Layer_3imge from '../images/VOGUE_LOGO_1_450x.svg'
-import Layer_4imge from '../images/evening_180x.svg'
-import PretzelBundle from '../images/ShopPretzelThinsBundlesimg1.png'
-import PretzelBundlecontent from '../images/Ollys_Bundles-Content.jpg'
-import PretzelBundlehover from '../images/ShopPretzelThinsBundleshoverimg1webp.png'
-import PretzelSalted10x from '../images/OLL-TPretzelThinsPacks_10x1.jpg'
-import PretzelSesame10x from '../images/OLL-TPretzelThinsPacks2_10x2.jpg'
-import PretzelCheesy10x from '../images/OLL-TIPretzelThinsPacks3_10x3.jpg'
 import './ViewProducts.css'
-import Cal130imge from '../images/OLLY_S-ICONS-Loose-29.svg'
-import Haslefreeblue from '../images/OLLY_SB-ICONS-hasle-freeblue.svg'
-import Cal120 from '../images/OLLYS-ICONS-Cal1201.svg'
-import Veganfriendly from '../images/OLLYS-ICONS-Veganfriendly.svg'
 import { BsFillStarFill } from 'react-icons/bs'
-import { Navigation2 } from '../../Navigation/Navigation2'
-import { Accordion } from '../Accordion'
 import { ViewProductsicon } from './ViewProductsicon'
 import { useParams } from 'react-router'
 import Variant from '../Variant'
@@ -35,91 +12,24 @@ import { ProductHero } from './ProductHero'
 import { ProductPrice } from './ProductPrice'
 import { fetchPrice } from '../../../Redux/actions/productService'
 import requests from '../../../Services/httpService'
+import ProductSectionOne from './ProductSectionOne'
 
 export const ViewProduct = () => {
-    const vpIconsSection = [
-        {
-            "id": 1,
-            "iconsimge": Ovenbakedimge,
-            "iconcontent": "Oven-baked"
-        },
-        {
-            "id": 2,
-            "iconsimge": Veganfriendly,
-            "iconcontent": "Vegan Friendly"
-        },
-        {
-            "id": 3,
-            "iconsimge": Cal120,
-            "iconcontent": "light- crispy"
-        },
-        {
-            "id": 4,
-            "iconsimge": Tooth,
-            "iconcontent": "Super Sesoning"
-        },
-    ];
-    const accordianData = [
-        {
-            "id": 1,
-            "title": "Learn More",
-            "content": `The planet’s thinnest & crispiest pretzels! Our oven-baked pretzel thins comes dressed 5 super duper seasonings. 
 
-            Thins by name, thins by nature… Our pretzel thins have less fat & fewer calories than crisps & popcorn. A deliciously light, healthy and crispy snack.
-            
-            Less than 130 calories per pack and all flavours are vegan friendly too!
-            
-            All pretzelheads are welcome. :)`,
-            "linkTitle": []
-        },
-        {
-            "id": 2,
-            "title": "Nutritional Info",
-            "content": `Our pretzel thins have less fat & fewer calories than crisps, popcorn and even rice cakes! 
-
-            Please check out the individual flavours for their respective nutritional deets:
-            
-            `,
-            "linkTitle": [`SALTED ORIGINAL`, `MULTI-SEED SESAME`, `SWEET CHILLI`, `SOUR CREAM & ONION`, `OH SO CHEESY`]
-        },
-        {
-            "id": 3,
-            "title": "Incredients",
-            "content": `All vegan friendly! 
-
-            SALTED ORIGINAL: Wheat Flour, Water, Sunflower Oil, Sugar, Barley Malt Extract, Salt, Soya Lecithin, Sodium Bicarbonate.
-            
-            MULTI-SEED SESAME: Wheat Flour, Water, Sunflower Oil, Sugar, Barley Malt Extract, White and Black Sesame, Salt, Soya Lecithin, Sodium Bicarbonate.
-            
-            SWEET CHILLI: Wheat Flour, Sunflower Oil, Sweet Chilli Flavouring, Sugar, Barley Malt Extract, Salt, Soya Lecithin, Raising Agent: Ammonium Bicarbonate.
-            
-            SOUR CREAM & ONION: Wheat Flour, Sunflower Oil, Sour Cream & Onion Flavouring, Sugar, Barley Malt Extract, Salt, Soya Lecithin, Raising Agent: Ammonium Bicarbonate.
-            
-            OH SO CHEESY: Wheat Flour, Sunflower Oil, Vegan Cheese Flavouring, Sugar, Barley Malt Extract, Salt, Soya Lecithin, Raising Agent: Ammonium Bicarbonate.
-            
-            Allergen Advice: for allergens see ingredients in bold. Produced in a factory that handles Sesame.`,
-            "linkTitle": []
-        }
-    ];
     const showValue = useWindowInnerWidth();
     const first = useRef();
-    const [open, setOpen] = useState(false);
-    const toggle = (index) => {
-        if (open === index) {
-            return setOpen(null);
-        }
-        setOpen(index);
-    };
 
     const [product, setProduct] = useState({});
     const [productPrice, setProductPrice] = useState({});
     const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
+    const [productTheme, setProductTheme] = useState({});
 
     const handlePrice = (variantData) => {
         const productPrice = {
             price: fetchPrice(variantData),
             subscribePrice: 0
         }
+
         setProductPrice(productPrice);
         
         if(Number(variantData?.quantity) <= 0){
@@ -135,8 +45,9 @@ export const ViewProduct = () => {
             const res = await requests.get(`/products/product/${id}`);
             setProduct(res);
             handlePrice(res?.variants[0]);
-            // console.log(res);
-
+            const productPageRes = await requests.get(`http://localhost:5055/api/theme/658921a204b7393748042e6f`);
+            setProductTheme(productPageRes?.theme);
+            console.log(productPageRes);
         } catch (error) {
             console.log(error);
         }
@@ -220,43 +131,15 @@ export const ViewProduct = () => {
                                     <div className="afterNotifymetext">
                                         <p className='fw-bold'>You’ll be donating a meal with this order. Learn more on <span className='fw-bolder'>One Feeds Two</span></p>
                                     </div>
-                                    <div className=" AsSeenandImgLayer my-4">
-                                        <div className='inner-end-div'>
-                                            <div className="AsSeentext text-uppercase py-1">As Seen IN</div>
-                                            <div className='AsSeenLayer '>
 
-                                                <div className="LayerImage "><img className='layerImg' src={Bluegreataste} alt={Bluegreataste} /></div>
-
-                                                <div className="LayerImage"><img className='layerImg' src={Layer_2imge} alt={Layer_2imge} /></div>
-
-                                                <div className="LayerImage"><img className='layerImg' src={Layer_3imge} alt={Layer_3imge} /></div>
-
-                                                <div className="LayerImage"><img className='layerImg' src={Layer_4imge} alt={Layer_4imge} /></div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="Accordian-section">
-                                        {accordianData.map(({ title, content, linkTitle }, index) => {
-                                            return <Accordion
-                                                key={index}
-                                                title={title}
-                                                content={content}
-                                                linkTitle={linkTitle}
-                                                open={index === open}
-                                                toggle={() => toggle(index)}
-                                            />
-                                        })}
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
-
+                        <ProductSectionOne data={productTheme?.section_one} />
                     </div>
                 </div>
-                <ViewProductsicon vpIconsSection={vpIconsSection} />
-                <ProductHero/>
+                <ViewProductsicon data={productTheme?.section_two} />
+                <ProductHero data={productTheme?.section_three}/>
             </section>
         </div>
     )

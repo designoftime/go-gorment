@@ -3,7 +3,7 @@ import SectionOne from '../Home/OnefeedsHome/Sections/Section1/SectionOne'
 import SectionTwo from '../Home/OnefeedsHome/Sections/Section2/SectionTwo'
 import SectionThree from '../Home/OnefeedsHome/Sections/Section3/SectionThree'
 import { Productoverview } from '../Home/ProductOverview/Productoverview'
-import { getStyles, sliderVal } from '../../utils/Constants'
+import { getStylesLan, sliderVal } from '../../utils/Constants'
 import { useSelector } from 'react-redux';
 import { useEffect } from "react"
 
@@ -69,7 +69,7 @@ export const OneFeedsTwo = () => {
                 }
             </div>
 
-            <Productoverview testimonialData={testimonialData} styles={getStyles(oneFeedsTwoData, 'offer_testimonial_background_color', 'offer_testimonial_text_color')} />
+            <Productoverview testimonialData={testimonialData} styles={getStylesLan(oneFeedsTwoData, 'offer_testimonial_background_color', 'offer_testimonial_text_color')} />
         </div>
         </>
     )

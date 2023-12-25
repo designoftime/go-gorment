@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { getStyles, sliderVal } from "../../../utils/Constants";
+import { getStylesLan, sliderVal } from "../../../utils/Constants";
 import { Link } from "react-router-dom";
 import useWindowInnerWidth from "../../hooks/useWindowInnerWidth";
 
@@ -20,7 +20,7 @@ const HomeCarousel = ({homeSliderData}) => {
   if (!homeSliderData) {
     return;
   }
-  const styles = getStyles(homeSliderData, 'slider_first_background_color', 'slider_first_text_color');
+  const styles = getStylesLan(homeSliderData, 'slider_first_background_color', 'slider_first_text_color');
 
   return (
     (!homeSliderData.static_content && !homeSliderData.both_slider && !homeSliderData.bottom_dots && !homeSliderData.left_right_arrow) ? null : <div className="main-home" style={styles.fullBg}>
