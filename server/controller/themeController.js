@@ -20,7 +20,6 @@ const getAllThemes = async (req, res) => {
     const storeCustomizationTheme = await Theme.find({
       name: "themeCustomization",
     });
-    console.log(storeCustomizationTheme)
     res.send(storeCustomizationTheme);
   } catch (err) {
     res.status(500).send({
@@ -56,16 +55,14 @@ const getThemeById = async (req, res) => {
 const updateTheme = async (req, res) => {
   try {
     const theme = req.body.theme;
-    const id= req.params.id
-
+    const id = req.params.id;
     const themeCustomization = await Theme.findOneAndUpdate(
       {
-        _id:id,
-        name: "themeCustomization",
+        _id: id,
+        name: req.body.name
       },
       {
         $set: {
-
           "theme.section_one.section_status": theme.section_one.section_status,
           "theme.section_one.first_img": theme.section_one.first_img,
           "theme.section_one.second_img": theme.section_one.second_img,
@@ -78,8 +75,6 @@ const updateTheme = async (req, res) => {
           "theme.section_one.third_title": theme.section_one.third_title,
           "theme.section_one.third_editor": theme.section_one.third_editor,
 
-
-
           "theme.section_two.section_status": theme.section_two.section_status,
           "theme.section_two.first_title": theme.section_two.first_title,
           "theme.section_two.first_img": theme.section_two.first_img,
@@ -89,34 +84,40 @@ const updateTheme = async (req, res) => {
           "theme.section_two.third_img": theme.section_two.third_img,
           "theme.section_two.four_title": theme.section_two.four_title,
           "theme.section_two.four_img": theme.section_two.four_img,
-          "theme.section_two.background_color": theme.section_two.background_color,
+          "theme.section_two.background_color":
+            theme.section_two.background_color,
           "theme.section_two.text_color": theme.section_two.text_color,
 
-
-
-          "theme.section_three.section_status": theme.section_three.section_status,
+          "theme.section_three.section_status":
+            theme.section_three.section_status,
           "theme.section_three.top_header": theme.section_three.top_header,
           "theme.section_three.first_img": theme.section_three.first_img,
           "theme.section_three.first_title": theme.section_three.first_title,
-          "theme.section_three.first_description": theme.section_three.first_description,
+          "theme.section_three.first_description":
+            theme.section_three.first_description,
           "theme.section_three.second_title": theme.section_three.second_title,
-          "theme.section_three.second_description": theme.section_three.second_description,
+          "theme.section_three.second_description":
+            theme.section_three.second_description,
           "theme.section_three.third_title": theme.section_three.third_title,
-          "theme.section_three.third_description": theme.section_three.third_description,
-          "theme.section_three.background_color": theme.section_three.background_color,
+          "theme.section_three.third_description":
+            theme.section_three.third_description,
+          "theme.section_three.background_color":
+            theme.section_three.background_color,
           "theme.section_three.text_color": theme.section_three.text_color,
 
-
-
-          "theme.section_four.section_status": theme.section_four.section_status,
+          "theme.section_four.section_status":
+            theme.section_four.section_status,
           "theme.section_four.first_img": theme.section_four.first_img,
           "theme.section_four.top_header": theme.section_four.top_header,
           "theme.section_four.first_title": theme.section_four.first_title,
-          "theme.section_four.first_description": theme.section_four.first_description,
+          "theme.section_four.first_description":
+            theme.section_four.first_description,
           "theme.section_four.second_title": theme.section_four.second_title,
-          "theme.section_four.second_description": theme.section_four.second_description,
-          "theme.section_four.background_color": theme.section_four.background_color,
-          "theme.section_four.text_color": theme.section_four.first_editor,
+          "theme.section_four.second_description":
+            theme.section_four.second_description,
+          "theme.section_four.background_color":
+            theme.section_four.background_color,
+          "theme.section_four.text_color": theme.section_four.text_color,
         },
       },
       {

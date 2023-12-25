@@ -63,13 +63,8 @@ const useThemeSubmit = (id) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log("coupon data", data);
     try {
       setIsSubmitting(true);
-      // const titleTranslates = await handlerTextTranslateHandler(
-      //   data.title,
-      //   language
-      // );
       const themeData = {
         name: "themeCustomization",
         theme: {
@@ -152,7 +147,7 @@ const useThemeSubmit = (id) => {
       // return;
 
       if (id) {
-        const res = await ThemeServices.updateTheme(id,themeData);
+        const res = await ThemeServices.updateTheme(id, themeData);
         setIsUpdate(true);
         setIsSubmitting(false);
         notifySuccess(res.message);
@@ -189,6 +184,7 @@ const useThemeSubmit = (id) => {
       setValue("section_two_title_three");
       setValue("section_two_title_four");
       setValue("section_two_text_color");
+      setValue("section_two_background_color");
       setValue("section_three_top_header");
       setValue("section_three_title_one");
       setValue("section_three_description_one");
@@ -226,6 +222,7 @@ const useThemeSubmit = (id) => {
       clearErrors("section_two_title_three");
       clearErrors("section_two_title_four");
       clearErrors("section_two_text_color");
+      clearErrors("section_two_background_color");
       clearErrors("section_three_top_header");
       clearErrors("section_three_title_one");
       clearErrors("section_three_description_one");
@@ -251,64 +248,109 @@ const useThemeSubmit = (id) => {
         try {
           const res = await ThemeServices.getThemeById(id);
           if (res) {
-            // console.log('res coupon', res);
             setResData(res);
-            setIsSave(false)
+            setIsSave(false);
 
-            setValue("section_one_title_one", res.theme.section_one.title_one);
-            setValue("section_one_title_two", res.theme.section_one.title_two);
-            setValue("section_one_title_three", res.theme.section_one.title_three);
-            setValue("section_two_title_one", res.theme.section_two.title_one);
-            setValue("section_two_title_second", res.theme.section_two.title_second);
-            setValue("section_two_title_three", res.theme.section_two.title_three);
-            setValue("section_two_title_four", res.theme.section_two.title_four);
-            setValue("section_two_text_color", res.theme.section_two.text_color);
-            setValue("section_three_top_header", res.theme.section_three.top_header);
-            setValue("section_three_title_one", res.theme.section_three.title_one);
+            setValue(
+              "section_one_title_one",
+              res.theme.section_one.first_title
+            );
+            setValue(
+              "section_one_title_two",
+              res.theme.section_one.second_title
+            );
+            setValue(
+              "section_one_title_three",
+              res.theme.section_one.third_title
+            );
+            setValue(
+              "section_two_title_one",
+              res.theme.section_two.first_title
+            );
+            setValue(
+              "section_two_title_second",
+              res.theme.section_two.second_title
+            );
+            setValue(
+              "section_two_title_three",
+              res.theme.section_two.third_title
+            );
+            setValue(
+              "section_two_title_four",
+              res.theme.section_two.four_title
+            );
+            setValue(
+              "section_two_text_color",
+              res.theme.section_two.text_color
+            );
+            setValue(
+              "section_two_background_color",
+              res.theme.section_two.background_color
+            );
+            setValue(
+              "section_three_top_header",
+              res.theme.section_three.top_header
+            );
+            setValue(
+              "section_three_title_one",
+              res.theme.section_three.first_title
+            );
             setValue(
               "section_three_description_one",
-              res.theme.section_three.description_one
+              res.theme.section_three.first_description
             );
             setValue(
               "section_three_title_second",
-              res.theme.section_three.title_second
+              res.theme.section_three.second_title
             );
             setValue(
               "section_three_description_second",
-              res.theme.section_three.description_second
+              res.theme.section_three.second_description
             );
             setValue(
               "section_three_tittle_three",
-              res.theme.section_three.tittle_three
+              res.theme.section_three.third_title
             );
             setValue(
               "section_three_description_three",
-              res.theme.section_three.description_three
+              res.theme.section_three.third_description
             );
             setValue(
               "section_three_background_color",
               res.theme.section_three.background_color
             );
-            setValue("section_three_text_color", res.theme.section_three.text_color);
-            setValue("section_four_top_header", res.theme.section_four.top_header);
-            setValue("section_four_title_one", res.theme.section_four.title_one);
+            setValue(
+              "section_three_text_color",
+              res.theme.section_three.text_color
+            );
+            setValue(
+              "section_four_top_header",
+              res.theme.section_four.top_header
+            );
+            setValue(
+              "section_four_title_one",
+              res.theme.section_four.first_title
+            );
             setValue(
               "section_four_description_one",
-              res.theme.section_four.description_one
+              res.theme.section_four.first_description
             );
             setValue(
               "section_four_title_second",
-              res.theme.section_four.title_second
+              res.theme.section_four.second_title
             );
             setValue(
               "section_four_description_second",
-              res.theme.section_four.description_second
+              res.theme.section_four.second_description
             );
             setValue(
               "section_four_background_color",
               res.theme.section_four.background_color
             );
-            setValue("section_four_text_color", res.theme.section_four.text_color);
+            setValue(
+              "section_four_text_color",
+              res.theme.section_four.text_color
+            );
 
             setSectionOne(
               res.theme.section_one.section_status === "show" ? true : false
@@ -332,7 +374,7 @@ const useThemeSubmit = (id) => {
             setSectionOneEditoreFirst(
               createEditorState(res.theme.section_one.first_editor)
             );
-            setSectionOneEditoreS.themeecond(
+            setSectionOneEditoreSecond(
               createEditorState(res.theme.section_one.second_editor)
             );
             setSectionOneEditoreThird(
@@ -398,7 +440,6 @@ const useThemeSubmit = (id) => {
     sectionFour,
     isSave,
 
-    
     currency,
     isSubmitting,
   };

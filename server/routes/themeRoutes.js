@@ -29,7 +29,7 @@ router.get('/', getAllThemes);
 router.get('/:id', getThemeById);
 
 //update a Theme
-router.put('/', updateTheme);
+router.put('/:id', updateTheme);
 
 //update many Theme
 router.patch('/update/many', updateManyThemes);
