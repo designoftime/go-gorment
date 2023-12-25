@@ -202,6 +202,7 @@ const updateProduct = async (req, res) => {
       product.variants = req.body.variants;
       product.stock = req.body.stock;
       product.prices = req.body.prices;
+      product.subscription = req.body.subscription;
       product.image = req.body.image;
       product.tag = req.body.tag;
 

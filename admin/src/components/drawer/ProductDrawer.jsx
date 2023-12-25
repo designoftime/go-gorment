@@ -36,6 +36,7 @@ import UploaderThree from "@/components/image-uploader/UploaderThree";
 import AttributeOptionTwo from "@/components/attribute/AttributeOptionTwo";
 import AttributeListTable from "@/components/attribute/AttributeListTable";
 import SwitchToggleForCombination from "@/components/form/switch/SwitchToggleForCombination";
+import SelectOption from "../form/selectOption/SelectOption";
 
 //internal import
 
@@ -277,7 +278,7 @@ const ProductDrawer = ({ id }) => {
                   <InputValue
                     disabled={isCombination}
                     register={register}
-                    maxValue={2000}
+                    maxValue={20000}
                     minValue={isCombination ? 0 : 1}
                     label="Original Price"
                     name="originalPrice"
@@ -309,6 +310,27 @@ const ProductDrawer = ({ id }) => {
                     currency={currency}
                   />
                   <Error errorName={errors.price} />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label="Subscription Price" />
+                <div className="col-span-8 sm:col-span-4">
+                  <InputValue
+                    disabled={isCombination}
+                    register={register}
+                    maxValue={20000}
+                    minValue={isCombination ? 0 : 1}
+                    label="Subscription Price"
+                    name="subscription"
+                    type="number"
+                    placeholder="Subscription"
+                    defaultValue={0.0}
+                    required="false"
+                    product
+                    currency={currency}
+                  />
+                  <Error errorName={errors.subscription} />
                 </div>
               </div>
 

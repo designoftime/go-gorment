@@ -35,6 +35,7 @@ const useProductSubmit = (id) => {
 
   const [originalPrice, setOriginalPrice] = useState(0);
   const [price, setPrice] = useState(0);
+  const [subscription, setSubscription] = useState(0);
   const [sku, setSku] = useState("");
   const [barcode, setBarcode] = useState("");
   const [isBasicComplete, setIsBasicComplete] = useState(false);
@@ -100,6 +101,7 @@ const useProductSubmit = (id) => {
           originalPrice: getNumberTwo(v?.originalPrice),
           discount: getNumberTwo(v?.discount),
           quantity: Number(v?.quantity || 0),
+          subscription:getNumberTwo(v?.subscription),
         };
         return newObj;
       });
@@ -110,6 +112,7 @@ const useProductSubmit = (id) => {
       setBarcode(data.barcode);
       setSku(data.sku);
       setOriginalPrice(data.originalPrice);
+      setSubscription(data.subscription);
 
       const titleTranslates = await handlerTextTranslateHandler(
         data.title,
@@ -147,6 +150,7 @@ const useProductSubmit = (id) => {
           price: getNumber(data.price),
           originalPrice: getNumberTwo(data.originalPrice),
           discount: Number(data.originalPrice) - Number(data.price),
+          subscription: getNumber(data.subscription),
         },
         isCombination: updatedVariants?.length > 0 ? isCombination : false,
         variants: isCombination ? updatedVariants : [],
@@ -179,7 +183,6 @@ const useProductSubmit = (id) => {
         }
       } else {
         const res = await ProductServices.addProduct(productData);
-        // console.log("res is ", res);
         if (isCombination) {
           setUpdatedId(res._id);
           setValue("title", res.title[language ? language : "en"]);
@@ -187,6 +190,7 @@ const useProductSubmit = (id) => {
           setValue("slug", res.slug);
           setValue("show", res.show);
           setValue("barcode", res.barcode);
+          setValue("subscription", res.subscription);
           setValue("stock", res.stock);
           setTag(JSON.parse(res.tag));
           setImageUrl(res.image);
@@ -194,11 +198,13 @@ const useProductSubmit = (id) => {
           setValue("productId", res.productId);
           setProductId(res.productId);
           setOriginalPrice(res?.prices?.originalPrice);
+          setSubscription(res?.prices?.subscription);
           setPrice(res?.prices?.price);
           setBarcode(res.barcode);
           setSku(res.sku);
           const result = res.variants.map(
             ({
+              subscription,
               originalPrice,
               price,
               discount,
@@ -207,10 +213,10 @@ const useProductSubmit = (id) => {
               sku,
               productId,
               image,
+
               ...rest
             }) => rest
           );
-
           setVariant(result);
           setIsUpdate(true);
           setIsBasicComplete(true);
@@ -251,6 +257,7 @@ const useProductSubmit = (id) => {
       setValue("description");
       setValue("quantity");
       setValue("stock");
+      setValue("subscription");
       setValue("originalPrice");
       setValue("price");
       setValue("barcode");
@@ -274,12 +281,14 @@ const useProductSubmit = (id) => {
       clearErrors("title");
       clearErrors("slug");
       clearErrors("description");
+      clearErrors("subscription");
       clearErrors("stock");
       clearErrors("quantity");
       setValue("stock", 0);
       setValue("costPrice", 0);
       setValue("price", 0);
       setValue("originalPrice", 0);
+      setValue("subscription", 0);
       clearErrors("show");
       clearErrors("barcode");
       setIsCombination(false);
@@ -316,6 +325,7 @@ const useProductSubmit = (id) => {
             setValue("barcode", res.barcode);
             setValue("stock", res.stock);
             setValue("productId", res.productId);
+            setValue("subscription", res?.prices?.subscription);
             setValue("price", res?.prices?.price);
             setValue("originalPrice", res?.prices?.originalPrice);
             setValue("stock", res.stock);
@@ -343,6 +353,7 @@ const useProductSubmit = (id) => {
             setQuantity(res?.stock);
             setTotalStock(res.stock);
             setOriginalPrice(res?.prices?.originalPrice);
+            setSubscription(res?.prices?.subscription)
             setPrice(res?.prices?.price);
           }
         } catch (err) {
@@ -412,6 +423,7 @@ const useProductSubmit = (id) => {
     const result = variants.filter(
       ({
         originalPrice,
+        subscription,
         discount,
         price,
         quantity,
@@ -436,6 +448,7 @@ const useProductSubmit = (id) => {
         const newCom = {
           ...com,
           originalPrice: getNumberTwo(originalPrice),
+          subscription:getNumberTwo(subscription),
           price: getNumber(price),
           quantity: Number(quantity),
           discount: Number(originalPrice - price),
@@ -492,6 +505,7 @@ const useProductSubmit = (id) => {
         // console.log("result", result);
         const {
           originalPrice,
+          subscription,
           price,
           discount,
           quantity,
@@ -600,11 +614,12 @@ const useProductSubmit = (id) => {
       const timeOutId = setTimeout(() => setIsBulkUpdate(false), 100);
       return () => clearTimeout(timeOutId);
     }
-    if (name === "subscription" && Number(value) > Number(variant.originalPrice)) {
+    if (
+      name === "subscription" &&
+      Number(value) > Number(variant.originalPrice)
+    ) {
       // variants[id][name] = Number(variant.originalPrice);
-      notifyError(
-        " Subscription must be less then or equal of product price!"
-      );
+      notifyError(" Subscription must be less then or equal of product price!");
       setValue("subscription", variant.subscription);
       setIsBulkUpdate(true);
       const timeOutId = setTimeout(() => setIsBulkUpdate(false), 100);

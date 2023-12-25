@@ -37,6 +37,10 @@ const customerSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    subscription: {
+      type: String,
+      required: false,
+    },
   },
   {
     timestamps: true,
