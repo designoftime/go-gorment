@@ -48,6 +48,9 @@
     display: grid;
     grid-template-columns: 5fr 1fr;
 }
+.cartProductName, .cartProductSize, .CartOrder-header, .CartOrder-Price, .ProgressBartext, .Cartheader{
+    font-family: bannerhomebtn;
+}
 
 .cartProductQuantity {
     display: grid;
@@ -109,7 +112,7 @@
     font-size: 20px;
     color: #4c4294;
     font-weight: bolder;
-
+    font-family: bannerhomebtn!important;
 }
 
 .Checkoutbutton {

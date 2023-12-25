@@ -74,7 +74,7 @@ export const Cart = () => {
                     <OffCanvas.Title className="Cartheader">Your Cart</OffCanvas.Title>
                 </OffCanvas.Header>
                 <OffCanvas.Body>
-                    {cartProductData.length == 1 ? <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong>REWARDS</strong> Spend another £12.50 to qualify for free shipping</p> : cartProductData.length > 1 ? <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong>REWARDS</strong> Great! You have got free shipping!</p> : <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong>REWARDS</strong> Spend atleast £25.00 to qualify for free shipping</p>}
+                    {cartProductData.length == 1 ? <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong className="ProgressBartext">REWARDS</strong> Spend another £12.50 to qualify for free shipping</p> : cartProductData.length > 1 ? <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong className="ProgressBartext">REWARDS</strong> Great! You have got free shipping!</p> : <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong className="ProgressBartext">REWARDS</strong> Spend atleast £25.00 to qualify for free shipping</p>}
                     {cartProductData.length == 1 ? <ProgressBar now={50} /> : cartProductData.length > 1 ? <ProgressBar now={100} /> : <ProgressBar now={0} />}
                     <div className="CartProduct">
                         {cartProductData.map((items, id) => {
@@ -109,7 +109,7 @@ export const Cart = () => {
                                                     >
                                                     <strong>+</strong>
                                                     </button>
-                                                </div>{" "}
+                                                </div>
                                                 <div>
                                                     <input
                                                         type="text"
