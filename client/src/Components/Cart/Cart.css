@@ -43,3 +43,22 @@
     border: none;
     color: blue;
 }
+.Cartbtn{
+    margin: 5rem auto;
+}
+.Checkoutbutton{
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: #4c4294;
+    border: 3px solid #4c4294;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 8px 0;
+    font-family: bannerhomebtn;
+    font-weight: bolder!important;
+    transition: .4s all;
+}
+.Checkoutbutton:hover{
+    border-radius: 50%;
+}
