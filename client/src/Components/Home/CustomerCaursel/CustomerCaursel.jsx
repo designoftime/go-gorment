@@ -1,19 +1,19 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import './CustomerCaursel.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-
+import { Navigation, Pagination } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { sliderVal } from '../../../utils/Constants'
+import useWindowInnerWidth from '../../hooks/useWindowInnerWidth';
+
 
 export const CustomerCaursel = ({ bottomSliderData }) => {
-
+    const showValue = useWindowInnerWidth();
     // if (!bottomSliderData) {
     //     return;
     // }
-
     const [toggleAni, setToggleAni] = useState(false);
     const [backgroundStyle, setBackgroundStyle] = useState({
         fullBg: {
@@ -60,13 +60,14 @@ export const CustomerCaursel = ({ bottomSliderData }) => {
                                 <Swiper
                                     spaceBetween={50}
                                     slidesPerView={1}
-                                    navigation={true}
                                     onSlideChange={(e) => {
                                         setToggleAni(!toggleAni)
                                         handleStyleChange(e.activeIndex);
                                     }}
+                                    pagination={showValue < 767 ? {dynamicBullets:true}:{dynamicBullets:false}}
+                                    navigation={showValue < 767 ? false : true}
                                     className='customer-slider'
-                                    modules={[Navigation]}
+                                    modules={ showValue < 767 ? [Pagination] : [Navigation]}
                                 >
                                     {
                                         sliderVal.map((val) => {

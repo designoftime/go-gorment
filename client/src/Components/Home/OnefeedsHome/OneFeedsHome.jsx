@@ -2,7 +2,6 @@ import React from "react";
 import "./OneFeedHome.css";
 import Image1 from "./images/pretzel-dark.png";
 import { BsArrowRight } from "react-icons/bs";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 export const OneFeedsHome = ({bottomPromotionData, styles}) => {
 

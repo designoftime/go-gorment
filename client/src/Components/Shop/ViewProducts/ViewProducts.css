@@ -1,32 +1,48 @@
+.View-Products-section{
+    margin: 10vh 0;
+}
 .VPCaursel{
     /* background-color: blue; */
+    width: 55%;
     height: 90%!important;
-}
-.VpCarousel-content{
-    width: 90%;
-    height: 60%!important;
     position: sticky;
-    /* background-color: yellow; */
+    top: 0;
+    overflow: hidden;
 }
 .vpcarouselimages{
-    height: 100%!important;
-    width: 100%;
-}
-.carousel-indicators{
-    padding-top:750px!important;
     width: 100%!important;
 }
-.vpintabbtn{
-    height: 6rem!important;
-    width: 6rem!important;
+.swiper-button-next{
+    background-color: transparent;
+    color: #412f59;
 }
-.vpindicimge{
+.swiper-button-prev{
+    background-color: transparent;
+    color: #412f59;
+}
+.vpslide-logos{
+    width: 90%;
     height: 100%;
-    width: 100%;
+    display: flex;
+    gap: 1vw;
+    justify-content: space-between;
+    align-items: center;
+
 }
+.vpslide-logos img{
+    width: 15%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/-4;
+    cursor: pointer;
+    filter: grayscale(1);
+    opacity: 0.4;
+    background-color: #4c4294;
+}
+
 .VPRight{
     color: #4c4294;
-    width: 100%;
+    width: 45%;
     position: sticky;
 }
 .VPheader{
@@ -44,6 +60,22 @@
 .select-size-header{
     font-size: 15px;
     font-family: bannerhomebtn;
+}
+.PriceText{
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 1vw;
+    border-radius: .5vw;
+    background-color: rgb(235, 235, 245);
+}
+.PriceMain{
+    display: flex;
+    gap: 10px;
+}
+.SubscribeText{
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 1vw;
 }
 .notifymebtn{
     width: 100%;
@@ -84,6 +116,12 @@
     font-family: ReviewedProductHeaderfont;
     font-size: 15px;
 }
+.LayerImage{
+    width : 8vw;
+}
+.layerImg{
+    width: 100%;
+}
 .collapsebutton{
     transform: rotate(45deg)!important;
     transition: all 500ms ease-in!important;
@@ -114,6 +152,12 @@
     background-color: #f5d0ba;
     color: #4c4294;
 }
+.VPIconsbox{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 .VPIcon{
     width: 104px!important;
 }
@@ -122,4 +166,121 @@
 }
 .vpiconsimge:hover{
     transform: rotate(360deg);
+}
+/* Product-Hero-Section */
+.Product-Hero-Section{
+    width: 100%;
+    color: #e2c7d6;
+}
+.ProductHeroMain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.ProductHero-left{
+    width: 50%;
+    height: 100%;
+}
+.Product-hero-img{
+    width: 100%;
+    height: 100%;
+}
+.ProductHero-right{
+    width: 50%;
+    background-color: #412f59;
+}
+.PH-header{
+    font-size: 8vw;
+    font-family: Snacksgifheaderfont;
+    line-height: 14vh;
+}
+.PH-content{
+    width: 25rem;
+    margin: 0 auto;
+}
+.PH-main{
+    margin-top: 8vh;
+}
+.PH-sub-header{
+    font-size: 1.6vw;
+    font-family: bannerhomebtn!important;
+}
+.PH-sub-content{
+    font-weight: 700;
+    font-size: 1.2vw;
+    font-family: bannerhomebtn;
+}
+@media (max-width:1000px) {
+    
+    .vpslider-logo{
+        display: none!important;
+    }
+    .VPRight{
+        margin: auto;
+        width: 90%;
+    }
+    .LayerImage{
+        width:10vw;
+    }
+    .VPIconsbox{
+        width: 100%;
+        justify-content: center;
+        margin: auto;
+    }
+    .VPIcon-main{
+        padding: 15rem 15vw;
+    }
+    .VPIcon-content{
+        width: 10vw;
+    }
+}
+@media(max-width:990px){
+    .ProductHeroMain{
+        flex-direction: column;
+    }
+    .ProductHero-left{
+        width: 100%;
+    }
+    .ProductHero-right{
+        width: 100%;
+    }
+    .PH-header{
+        font-size: 10vw;
+    }
+    .PH-sub-header{
+        font-size: 2vw;
+    }
+    .PH-sub-content{
+        font-weight: 700;
+        font-size: 1.5vw;
+
+    }
+}
+@media ((min-width:500px) and (max-width:770px)){
+    .AsSeenLayer{
+        width: 60%;
+    }
+    .LayerImage{
+        width:15vw;
+    }
+    .VPIconsbox{
+        width: 100%;
+    }
+    .VPIcon-main{
+        padding: 5rem 10vw;
+    }
+}
+@media(max-width:500px){
+    .AsSeenLayer{
+        width: 80%;
+    }
+    .LayerImage{
+        width: 25vw;
+    }
+    .VPIconsbox{
+        width: 100%;
+    }
+    .VPIcon-main{
+        padding: 5rem 8vw;
+    }
 }

@@ -95,15 +95,6 @@
     position: relative;
     cursor: pointer;
 }
-.ShopProduct-imghover {
-    width: 23vw;
-    position: absolute;
-    z-index: 999;
-    margin: 0 auto;
-    top: 0;
-    left: 10%;
-}
-
 
 .ShopProductbutton {
     margin: 20px 0 !important;

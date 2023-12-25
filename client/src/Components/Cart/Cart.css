@@ -1,0 +1,45 @@
+.cartClosebtn{
+    font-size: 7vw;
+}
+.Cartgrid{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    column-gap: 1rem;
+}
+.cartproductimg{
+    width: 7vw;
+}
+.cartproductimg img{
+    width: 100%;
+    border-radius: 15%;
+}
+.cartProductremaing{
+    display: grid;
+    
+}
+.cartRemainpart1{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+.cartProductQuantity{
+    display: grid;
+    grid-template-columns: .14fr .1fr .1fr;
+}
+.cartProductQuantity input{
+    width: 100%;
+}
+.cartProductQuantity input:focus{
+    outline: none;
+}
+.cartRemainPart2{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+.counterbtn{
+    padding: 0;
+    margin: 0;
+    width: 2vw;
+    background-color: transparent;
+    border: none;
+    color: blue;
+}

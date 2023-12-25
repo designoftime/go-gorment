@@ -3,12 +3,12 @@ import './Navigation1.css';
 import './Navigation2.css';
 import Logo from './images/Logo.svg';
 import { RiAccountCircleLine } from 'react-icons/ri';
-import { MdOutlineShoppingBag } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MobileMenu from './mobileMenu';
 import { useSelector } from 'react-redux';
 import { getStyles } from '../../utils/Constants';
+import { Cart } from '../Cart/Cart';
 
 
 export const Navigation1 = () => {
@@ -45,7 +45,7 @@ export const Navigation1 = () => {
     const styles = getStyles(headerData, 'header_background_color', 'header_text_color');
 
     return (
-        <div className={showNavigation2 || toggleMenu  ? 'main-nav-2' : "main-nav"} style={styles.fullBg}>
+        <div className={showNavigation2 || toggleMenu  ? 'main-nav-2' : "main-nav"} style={styles?.fullBg}>
             {
                 showNavigation2 || toggleMenu ? null : (headerData?.help_text?.en) && <h4 className='nav-offer-banner'>{headerData.help_text.en}</h4> 
             }
@@ -67,52 +67,51 @@ export const Navigation1 = () => {
                     {
                         headerData?.categories_menu_status &&
                         <li>
-                            <Link className="nav-link active bolder navtext " to="/collections/all" style={styles.color}>{headerData.categories.en}</Link>
+                            <Link className="nav-link active bolder navtext " to="/collections/all" style={styles?.color}>{headerData.categories.en}</Link>
                         </li>
                     }
                     {
                         headerData?.about_menu_status &&
                         <li>
-                            <Link to='/pages/our-story' className="nav-link active  bolder navtext" style={styles.color}>{headerData.about_us.en}</Link>
+                            <Link to='/pages/our-story' className="nav-link active  bolder navtext" style={styles?.color}>{headerData.about_us.en}</Link>
                         </li>
                     }
                 </div>
                 {headerData?.logo && <div className="center">
-                    <Link to="/"><img src={headerData.logo} className={showNavigation2 || toggleMenu ? 'logo2 animate__animated animate__fadeInUp' : 'logo animate__animated animate__fadeInUp logo'} alt="" style={styles.color}/></Link>
+                    <Link to="/"><img src={headerData.logo} className={showNavigation2 || toggleMenu ? 'logo2 animate__animated animate__fadeInUp' : 'logo animate__animated animate__fadeInUp logo'} alt="" style={styles?.color}/></Link>
                 </div>}
                 <div className="right">
                     <div className="links">
                     {
                         headerData?.offers_menu_status &&
                             <li>
-                                <Link className="nav-link active bolder navtext" to="/pages/one-feeds-two" style={styles.color}>{headerData.offers.en}</Link>
+                                <Link className="nav-link active bolder navtext" to="/pages/one-feeds-two" style={styles?.color}>{headerData.offers.en}</Link>
                             </li>
                     }
                     {
                         headerData?.contact_menu_status &&
                             <li>
-                                <Link className="nav-link active bolder navtext" to="/pages/store-locator" style={styles.color}>{headerData.contact_us.en}</Link>
+                                <Link className="nav-link active bolder navtext" to="/pages/store-locator" style={styles?.color}>{headerData.contact_us.en}</Link>
                             </li>
                     }
                     </div>
                     <div className="icons">
                         <div className="nav-item ">
-                            <Link to="/accounts/profile" className="nav-link active bolder" href="#" style={styles.color}>
+                            <Link to="/accounts/profile" className="nav-link active bolder" href="#" style={styles?.color}>
                                 <RiAccountCircleLine className='accountIcon' />
                             </Link>
                         </div>
                         <div className='nav-item '>
                             <a className='nav-link active bolder' href="" style={styles.color}>
-                                <MdOutlineShoppingBag className='accountIcon' />
+                                <Cart/>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             {
-                toggleMenu ? <MobileMenu/>:""
+                toggleMenu ? <MobileMenu headerData={headerData} styles={styles} /> : ""
             }
-                
         </div>
     )
 }

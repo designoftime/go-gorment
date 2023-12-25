@@ -21,20 +21,19 @@ const categoriesMobile = ({categoriesData}) => {
                         className='main-swiper-home'
                         spaceBetween={50}
                         slidesPerView={1}
-                        navigation={true}
                         pagination={{
                             dynamicBullets: true,
                         }}
                         scrollbar={{ draggable: true }}
-                        modules={[Pagination, Navigation]}
+                        modules={[Pagination]}
                     >
                         {
                             categoriesData.map((eachCategory) => {
-                                
+                                let dynamicLink = eachCategory.name?.en.trim().split(" ").join("-"); 
                                 return (
                                     <SwiperSlide key={eachCategory._id}>
                                         <div className="primary-product-component mx-2 px-2">
-                                            <Link to='/shop' className="primary-product-component-content">
+                                            <Link to={`/collections/all#${dynamicLink}`} className="primary-product-component-content">
                                                 <figure>
                                                     <div className='imagediv'>
 
@@ -45,12 +44,13 @@ const categoriesMobile = ({categoriesData}) => {
 
                                             </Link>
                                             <div className="head-container">
-                                                <Link to="/shop" className='ppcheader text-center text-decoration-none' >
+                                                <Link to={`/collections/all#${dynamicLink}`} className='ppcheader text-center text-decoration-none' >
                                                     <h5 className="heading">{eachCategory.name.en}</h5>
                                                 </Link>
                                                 <p className="desc">{eachCategory.description.en}</p>
                                             </div>
                                         </div>
+                                    <div> Shop Now </div>
                                     </SwiperSlide>
                                 )
                             })

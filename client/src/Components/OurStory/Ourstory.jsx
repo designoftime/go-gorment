@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainHero from './MultipleComponents/MainHero/MainHero'
 import ThemeTwo from './MultipleComponents/ThemeTwo/ThemeTwo'
 import ThemeThree from './MultipleComponents/ThemeThree/ThemeThree'

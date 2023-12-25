@@ -6,6 +6,7 @@ import ErrorBoundaries from "./Components/ErrorBoundaries/ErrorBoundaries"
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { StoreCategoriesData, StoreData } from './Redux/actions/storeSettingServices';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 function App() {
 
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ function App() {
     
     // <ErrorBoundaries>
       <div className='main-app'>
-        
+        <ScrollToTop />
         <Navigation1 />
         <Outlet />
         <Footer />

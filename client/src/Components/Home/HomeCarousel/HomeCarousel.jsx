@@ -11,13 +11,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { getStyles, sliderVal } from "../../../utils/Constants";
 import { Link } from "react-router-dom";
+import useWindowInnerWidth from "../../hooks/useWindowInnerWidth";
 
 const HomeCarousel = ({homeSliderData}) => {
 
-  if (!homeSliderData) {
-      return;
-  }
+  const showValue = useWindowInnerWidth();
 
+  if (!homeSliderData) {
+    return;
+  }
   const styles = getStyles(homeSliderData, 'slider_first_background_color', 'slider_first_text_color');
 
   return (
@@ -26,14 +28,12 @@ const HomeCarousel = ({homeSliderData}) => {
           className="main-swiper-home"
           spaceBetween={50}
           slidesPerView={1}
-          navigation={!homeSliderData?.static_content}
-          pagination={{
-            dynamicBullets: true,
-          }}
+          navigation={showValue>767 ? !homeSliderData?.static_content:""}
+          pagination={showValue<767?{dynamicBullets:true}:{dynamicBullets:false}}
           scrollbar={{ draggable: true }}
           onSlideChange={console.log()}
           onSwiper={console.log()}
-          modules={[Pagination, Navigation]}
+          modules={showValue > 767 ?[Navigation]:[Navigation,Pagination]}
         >
           {sliderVal.map((val) => {
             if ((homeSliderData?.static_content && val != "first") || (!homeSliderData[`${val}_img`] && val != "first")) {

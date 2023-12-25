@@ -38,10 +38,14 @@ import { OneFeedsHome } from '../Home/OnefeedsHome/OneFeedsHome'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import requests from '../../Services/httpService'
+import { getStyles } from '../../utils/Constants'
 
 export const Shop = () => {
   const [showValue, setShowValue] = useState(window.innerWidth);
   const [dropdownOpen, setDropDownOpen] = useState(false);
+  const [variants, setVariants] = useState([]);
 
   const shopData = useSelector(store => store.storeSettings?.categories);
   
@@ -55,10 +59,18 @@ export const Shop = () => {
       setShowValue(window.innerWidth);
     }
     window.addEventListener('resize', handleWidth);
+    
+    const fetchProductAttribute = async () => {
+      const res = await requests.get("/attributes/show");
+      setVariants(res[0].variants);
+    }
+
+    fetchProductAttribute();
+    
     return () => {
       window.removeEventListener('resize', handleWidth);
     }
-  });
+  },[]);
   
   if(!shopData){
     return;
@@ -183,7 +195,8 @@ export const Shop = () => {
                   <h3><button className='barbutton text-decoration-none'>{shopData[0]?.name?.en && shopData[0]?.name?.en}</button></h3>
                   {
                     Array.isArray(shopData) && shopData[0].children && shopData[0].children.map((eachCategory) => {
-                      return (<h3 key={eachCategory._id}><button className='barbutton text-decoration-none'>{eachCategory?.name?.en}</button></h3>)
+                      let dynamicLink = eachCategory.name?.en.trim().split(" ").join("-");
+                      return (<h3 key={eachCategory._id}><a href={`#${dynamicLink.toLowerCase()}`} className='barbutton text-decoration-none'>{eachCategory?.name?.en}</a></h3>)
                     })
                   }
                 </div> : <div class="Dropdown">
@@ -207,10 +220,13 @@ export const Shop = () => {
       </div>
       {
         Array.isArray(shopData) && shopData[0].children && shopData[0].children.map((eachCategory) => {
+          let dynamicId = eachCategory.name?.en.trim().split(" ").join("-");
+          const styles = getStyles(eachCategory, 'background_color', 'text_color');
+          
           return (
-            <div className="pretzelThins" key={eachCategory._id}>
-              <ShopBanner shopData={eachCategory} />
-              <Products categoryId={eachCategory._id} />
+            <div className="pretzelThins" key={eachCategory._id} id={dynamicId.toLowerCase()}>
+              <ShopBanner shopData={eachCategory} styles={styles} />
+              <Products categoryId={eachCategory._id} variants={variants} styles={styles} />
             </div>
           )
         })
