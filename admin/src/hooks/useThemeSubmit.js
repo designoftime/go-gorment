@@ -249,7 +249,7 @@ const useThemeSubmit = (id) => {
     if (id) {
       (async () => {
         try {
-          const res = await CouponServices.getCouponById(id);
+          const res = await ThemeServices.getThemeById(id);
           if (res) {
             // console.log('res coupon', res);
             setResData(res);

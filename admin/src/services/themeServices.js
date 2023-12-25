@@ -14,7 +14,7 @@ const ThemeServices = {
     return requests.get(`/theme/${id}`);
   },
   updateTheme: async (id, body) => {
-    return requests.put(`theme${id}`, body);
+    return requests.put(`/theme${id}`, body);
   },
   updateManyThemes: async (body) => {
     return requests.patch("/theme/update/many", body);

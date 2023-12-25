@@ -42,16 +42,16 @@ const getAllThemes = async (req, res) => {
 //   }
 // };
 
-// const getThemeById = async (req, res) => {
-//   try {
-//     const Theme = await Theme.findById(req.params.id);
-//     res.send(Theme);
-//   } catch (err) {
-//     res.status(500).send({
-//       message: err.message,
-//     });
-//   }
-// };
+const getThemeById = async (req, res) => {
+  try {
+    const theme = await Theme.findById(req.params.id);
+    res.send(theme);
+  } catch (err) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
 
 const updateTheme = async (req, res) => {
   try {
@@ -213,7 +213,7 @@ module.exports = {
   // addAllTheme,
   getAllThemes,
   // getShowingThemes,
-  // getThemeById,
+  getThemeById,
   updateTheme,
   updateStatus,
   deleteTheme,

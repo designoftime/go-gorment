@@ -85,7 +85,7 @@ const DeleteModal = ({ id, ids, setIsCheck, category, title, useParamId }) => {
           closeModal();
           setIsSubmitting(false);
         } else {
-          const res = await CouponServices.deleteTheme(id);
+          const res = await ThemeServices.deleteTheme(id);
           setIsUpdate(true);
           notifySuccess(res.message);
           setServiceId();

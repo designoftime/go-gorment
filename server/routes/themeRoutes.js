@@ -5,7 +5,7 @@ const {
   // addAllTheme,
   getAllThemes,
   // getShowingThemes,
-  // getThemeById,
+  getThemeById,
   updateTheme,
   updateStatus,
   deleteTheme,
@@ -26,7 +26,7 @@ router.get('/', getAllThemes);
 // router.get('/show', getShowingThemes);
 
 // //get a Theme
-// router.get('/:id', getThemeById);
+router.get('/:id', getThemeById);
 
 //update a Theme
 router.put('/', updateTheme);
