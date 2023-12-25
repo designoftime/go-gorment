@@ -21,7 +21,6 @@ const AttributeListTable = ({
 }) => {
   const { t } = useTranslation();
   const { showingTranslateValue } = useUtilsFunction();
-
   return (
     <>
       <TableBody>
@@ -140,22 +139,11 @@ const AttributeListTable = ({
             <TableCell className="font-medium text-sm">
               <CombinationInput
                 id={i}
-                name="price"
-                placeholder="Sale price"
+                name="subscription"
+                placeholder="Subscription"
                 variant={variant}
                 isBulkUpdate={isBulkUpdate}
-                value={variant.price || ""}
-                handleQuantityPrice={handleQuantityPrice}
-              />
-            </TableCell>
-            <TableCell className="font-medium text-sm">
-              <CombinationInput
-                id={i}
-                name="price"
-                placeholder="Sale price"
-                variant={variant}
-                isBulkUpdate={isBulkUpdate}
-                value={variant.price || ""}
+                value={variant.subscription || ""}
                 handleQuantityPrice={handleQuantityPrice}
               />
             </TableCell>
