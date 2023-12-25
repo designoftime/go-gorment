@@ -145,7 +145,7 @@ export const Navigation1 = () => {
                         )}
                     </div>
                     <div className="icons">
-                        <div className="nav-item ">
+                        <div className="nav-item  avater">
                             <Link
                                 to="/accounts/profile"
                                 className="nav-link active bolder"
