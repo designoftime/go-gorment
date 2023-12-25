@@ -6,6 +6,7 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { HiOutlineTrash } from "react-icons/hi";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 import "./Cart.css";
+import "../Accounts/Ollys-Login/Login.css"
 import "../Navigation/Navigation1.css";
 import "../Navigation/Navigation2.css";
 import cartProductImg1 from "../Shop/images/SourCreamHoverimg.jpg";
@@ -57,7 +58,7 @@ export const Cart = () => {
     };
     return (
         <div>
-            <button onClick={handleShow} href="#" className='accountIcon'><MdOutlineShoppingBag /></button>
+            <button onClick={handleShow} href="#" className='accountIcon nav-link'><MdOutlineShoppingBag /></button>
             <OffCanvas show={showcart} placement='end' onHide={handleClose} name="end">
                 <OffCanvas.Header className='accountIcon'>
                     <CgArrowLongLeft onClick={handleClose} className='cartClosebtn'/>
@@ -125,8 +126,10 @@ export const Cart = () => {
                                         </div>
                                     </div>
                                 </div>
+                                
                             );
                         })}
+                         <div className="Cartbtn"><button className="Checkoutbutton">Checkout</button></div>
                     </div>
                 </OffCanvas.Body>
             </OffCanvas>
