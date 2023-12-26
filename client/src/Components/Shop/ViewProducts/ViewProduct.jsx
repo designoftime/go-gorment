@@ -14,6 +14,7 @@ import ProductSectionOne from './ProductSectionOne'
 import ProductSectionTwo from './ProductSectionTwo'
 import ProductSectionThree from './ProductSectionThree'
 import ProductSectionFour from './ProductSectionFour'
+import AllVariants from '../Variants/AllVariants'
 
 export const ViewProduct = () => {
 
@@ -114,18 +115,7 @@ export const ViewProduct = () => {
                                             <span> 490</span><span /> <span>reviews</span>
                                         </span>
                                     </div>
-                                    <div className="VPselect-size my-4 fw-normal  row">
-                                        <p className='fw-bolder select-size-header '>SELECT SIZE</p>
-                                        <div className='row'>
-                                            {
-                                                product?.variants?.map((variant,idx) => {
-                                                    return(
-                                                        <Variant key={idx} variantData={variant} setIsQuantityAvailable={setIsQuantityAvailable} setProductPrice={setProductPrice} />
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </div>
+                                    <AllVariants product={product} setProductPrice={setProductPrice} setIsQuantityAvailable={setIsQuantityAvailable} />
                                     {isQuantityAvailable ? <ProductPrice productPrice={productPrice} /> :
                                     <div className="VPNotifymebutton text-center my-2">
                                         <button className='py-3 notifymebtn'><h5 className='text-uppercase'>Notify me when back in stock</h5></button>
