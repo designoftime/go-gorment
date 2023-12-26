@@ -1,0 +1,31 @@
+.CustomerReview-section{
+    background-color: #e2c7d6;
+    color:#412f59;
+}
+.CR-header{
+    font-family : Snacksgifheaderfont;
+    font-size: 110px;
+}
+.ReviewInfo{
+    display: grid;
+    grid-template-columns: 10.5rem 20rem auto;  
+}
+.totalReview{
+    grid-template-columns: 1/2;
+}
+.reviewCategory{
+    grid-template-columns: 2/3;
+    border-left: 3px solid #412f59;
+    border-right: 3px solid #412f59;
+}
+.writeReview{
+    grid-template-columns: 3/-1;
+}
+.reviewSubCategory{
+    display: grid;
+    padding: .5rem .8rem;
+    grid-template-columns: 4fr 3fr 2fr;
+    column-gap: .5rem;
+    align-items: center;
+   
+}

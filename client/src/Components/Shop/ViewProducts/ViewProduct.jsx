@@ -15,6 +15,7 @@ import ProductSectionTwo from './ProductSectionTwo'
 import ProductSectionThree from './ProductSectionThree'
 import ProductSectionFour from './ProductSectionFour'
 import AllVariants from '../Variants/AllVariants'
+import { CustomerReview } from './CustomerReview/CustomerReview'
 
 export const ViewProduct = () => {
 
@@ -184,6 +185,7 @@ export const ViewProduct = () => {
                 <ProductSectionTwo data={productTheme?.section_two} />
                 <ProductSectionThree data={productTheme?.section_three} />
                 <ProductSectionFour data={productTheme?.section_four} />
+                <CustomerReview/>
             </section>
         </div>
     )
