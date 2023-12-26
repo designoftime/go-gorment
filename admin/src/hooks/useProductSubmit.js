@@ -77,7 +77,6 @@ const useProductSubmit = (id) => {
     clearErrors,
     formState: { errors },
   } = useForm();
-  console.log(selectTheme, "product page ");
   const onSubmit = async (data) => {
     try {
       setIsSubmitting(true);
