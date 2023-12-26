@@ -36,7 +36,6 @@ import ThemeServices from "@/services/themeServices";
     const { t } = useTranslation();
     const { toggleDrawer } = useContext(SidebarContext);
     const { data, loading, error } = useAsync(ThemeServices.getAllThemes);
-    // console.log('data',data)
     const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
   
