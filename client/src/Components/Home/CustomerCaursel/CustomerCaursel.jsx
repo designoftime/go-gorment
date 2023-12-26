@@ -5,7 +5,8 @@ import { Navigation, Pagination } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { sliderVal } from '../../../utils/Constants'
+import 'swiper/css/pagination';
+import { getStylesLan, sliderVal } from '../../../utils/Constants'
 import useWindowInnerWidth from '../../hooks/useWindowInnerWidth';
 
 
@@ -14,39 +15,12 @@ export const CustomerCaursel = ({ bottomSliderData }) => {
     // if (!bottomSliderData) {
     //     return;
     // }
-    const [toggleAni, setToggleAni] = useState(false);
-    const [backgroundStyle, setBackgroundStyle] = useState({
-        fullBg: {
-            backgroundColor: bottomSliderData[`bottom_slider_background_color_first`]?.en,
-            color: bottomSliderData[`bottom_slider_text_color_first`]?.en
-        },
-        color: {
-            color: bottomSliderData[`bottom_slider_text_color_first`]?.en
-        },
-        bg: {
-            backgroundColor: bottomSliderData[`bottom_slider_background_color_first`]?.en,
-        }
-    });
-
-
-    const getStyle = (val) => {
-        return {
-            fullBg: {
-                backgroundColor: bottomSliderData[`bottom_slider_background_color_${val}`]?.en,
-                color: bottomSliderData[`bottom_slider_text_color_${val}`]?.en
-            },
-            color: {
-                color: bottomSliderData[`bottom_slider_text_color_${val}`]?.en
-            },
-            bg: {
-                backgroundColor: bottomSliderData[`bottom_slider_background_color_${val}`]?.en,
-            }
-        }
-    }
+    const [toggleAni, setToggleAni] = useState(false); 
+    const [backgroundStyle, setBackgroundStyle] = useState(getStylesLan(bottomSliderData, `bottom_slider_background_color_first`, `bottom_slider_text_color_first`));
 
     const handleStyleChange = (idx) => {
         const val = sliderVal[idx];
-        const styles = getStyle(val);
+        const styles = getStylesLan(bottomSliderData, `bottom_slider_background_color_${val}`, `bottom_slider_text_color_${val}`);
         setBackgroundStyle(styles);
     }
 
@@ -64,10 +38,10 @@ export const CustomerCaursel = ({ bottomSliderData }) => {
                                         setToggleAni(!toggleAni)
                                         handleStyleChange(e.activeIndex);
                                     }}
-                                    pagination={showValue < 767 ? {dynamicBullets:true}:{dynamicBullets:false}}
+                                    pagination={{dynamicBullets: (showValue < 767) ? true : false}}
                                     navigation={showValue < 767 ? false : true}
                                     className='customer-slider'
-                                    modules={ showValue < 767 ? [Pagination] : [Navigation]}
+                                    modules={showValue < 767 ? [Pagination] : [Navigation]}
                                 >
                                     {
                                         sliderVal.map((val) => {

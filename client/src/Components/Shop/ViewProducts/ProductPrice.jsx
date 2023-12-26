@@ -24,7 +24,7 @@ export const ProductPrice = ({productPrice}) => {
                     </div>
                     <div>{productPrice?.price}</div>
                 </div>
-                <div className="SubscribeBox mt-3">
+                <div className="SubscribeBox mt-3" style={ purchaseType === "subscribe" ? {border:"3px solid #4c4294",borderRadius:"10px"}:{border:"3px solid white"}}>
                     <div className="SubscribeText">
                         <div className='PriceMain'>
                             <div><input type="radio" checked={purchaseType==="subscribe"} onChange={(purchaseEvent)=>handlePurchaseType(purchaseEvent)} value="subscribe" /></div>
@@ -40,6 +40,7 @@ export const ProductPrice = ({productPrice}) => {
                             <DropdownItem onSelect={()=>handleDelivery("Deliver every 7 days")}>Deliver every 7 days</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
+                    
                 </div>
             </div>
         </div>

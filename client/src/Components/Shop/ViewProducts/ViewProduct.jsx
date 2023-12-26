@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../../Home/Home.css'
 import './ViewProducts.css'
+import '../../Cart/Cart.css'
 import { BsFillStarFill } from 'react-icons/bs'
 import { useParams } from 'react-router'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -19,12 +20,25 @@ export const ViewProduct = () => {
 
     const showValue = useWindowInnerWidth();
     const first = useRef();
-
+    const [productNo, setProductNo] = useState(0)
     const [product, setProduct] = useState({});
     const [productPrice, setProductPrice] = useState({});
     const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
     const [productTheme, setProductTheme] = useState({});
-
+    const updateProductNo = (event) => {
+        const newValue = parseInt(event.target.value);
+        if (!isNaN(newValue)) {
+            setProductNo(newValue)
+        }
+    }
+    const increaseProduct = () => {
+        setProductNo((prevProductNo) => prevProductNo + 1);
+    }
+    const decreaseProduct = () => {
+        if (productNo > 0) {
+            setProductNo((prevProductNo) => prevProductNo - 1);
+        }
+    }
     const handlePrice = (variantData) => {
         const productPrice = {
             price: fetchPrice(variantData),
@@ -32,11 +46,11 @@ export const ViewProduct = () => {
         }
 
         setProductPrice(productPrice);
-        
-        if(Number(variantData?.quantity) <= 0){
+
+        if (Number(variantData?.quantity) <= 0) {
             setIsQuantityAvailable(false);
         }
-        else{
+        else {
             setIsQuantityAvailable(true);
         }
     }
@@ -67,7 +81,7 @@ export const ViewProduct = () => {
                 <div className="container-fluid">
                     <div className="container mx-auto g-0">
                         <div className="row justify-content-between">
-                            <div className={showValue < 1000?"col-12 VPCaursel mt-5":"col-8 VPCaursel mt-5"}>
+                            <div className={showValue < 1000 ? "col-12 VPCaursel mt-5" : "col-8 VPCaursel mt-5"}>
                                 <Swiper
                                     className='swiper VpCarousel-content'
                                     ref={first}
@@ -115,10 +129,48 @@ export const ViewProduct = () => {
                                         </span>
                                     </div>
                                     <AllVariants product={product} setProductPrice={setProductPrice} setIsQuantityAvailable={setIsQuantityAvailable} />
-                                    {isQuantityAvailable ? <ProductPrice productPrice={productPrice} /> :
-                                    <div className="VPNotifymebutton text-center my-2">
-                                        <button className='py-3 notifymebtn'><h5 className='text-uppercase'>Notify me when back in stock</h5></button>
-                                    </div>}
+                                    {isQuantityAvailable ? <><ProductPrice productPrice={productPrice} />
+                                    <div className='d-flex gap-3 my-3'>
+                                        <div className="cartProductQuantity">
+                                            <div>
+                                                <button
+                                                    className="counterbtn"
+                                                    onClick={
+                                                        decreaseProduct
+                                                    }
+                                                >
+                                                    <strong>-</strong>
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="text"
+                                                    onChange={
+                                                        updateProductNo
+                                                    }
+                                                    value={productNo}
+                                                    className=" counterinput"
+                                                />
+                                            </div>
+                                            <div>
+                                                <button
+                                                    className="counterbtn"
+                                                    onClick={
+                                                        increaseProduct
+                                                    }
+                                                >
+                                                    <strong>+</strong>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="addtocart">
+                                            <button className='addtocartbtn'>Add to Cart</button>
+                                        </div>
+                                    </div></> :
+                                        <div className="VPNotifymebutton text-center my-2">
+                                            <button className='py-3 notifymebtn'><h5 className='text-uppercase'>Notify me when back in stock</h5></button>
+                                        </div>}
+                                    
                                     <div className="afterNotifymetext">
                                         <p className='fw-bold'>You’ll be donating a meal with this order. Learn more on <span className='fw-bolder'>One Feeds Two</span></p>
                                     </div>
@@ -130,7 +182,7 @@ export const ViewProduct = () => {
                     </div>
                 </div>
                 <ProductSectionTwo data={productTheme?.section_two} />
-                <ProductSectionThree data={productTheme?.section_three}/>
+                <ProductSectionThree data={productTheme?.section_three} />
                 <ProductSectionFour data={productTheme?.section_four} />
             </section>
         </div>
