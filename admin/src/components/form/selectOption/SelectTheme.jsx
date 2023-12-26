@@ -7,7 +7,7 @@ import useUtilsFunction from "@/hooks/useUtilsFunction";
 import ThemeServices from "@/services/themeServices";
 
 const SelectTheme = ({ setSelectTheme, selectTheme }) => {
-  console.log(selectTheme);
+  // console.log(selectTheme);
   const { data, loading, error } = useAsync(ThemeServices?.getAllThemes);
   const { showingTranslateValue } = useUtilsFunction();
 

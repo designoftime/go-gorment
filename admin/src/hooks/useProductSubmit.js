@@ -77,7 +77,7 @@ const useProductSubmit = (id) => {
     clearErrors,
     formState: { errors },
   } = useForm();
-  console.log(selectTheme, "product page ");
+  // console.log(selectTheme, "product page ");
   const onSubmit = async (data) => {
     try {
       setIsSubmitting(true);
@@ -213,10 +213,10 @@ const useProductSubmit = (id) => {
               sku,
               productId,
               image,
-
               ...rest
             }) => rest
           );
+          setSelectTheme([{ name: res?.theme?.theme?.theme_unique_name }]);
           setVariant(result);
           setIsUpdate(true);
           setIsBasicComplete(true);

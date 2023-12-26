@@ -54,7 +54,7 @@ const ProductDetails = () => {
     }
   }, [attribue, data?.variants, loading, lang]);
 
-  console.log("product", data);
+  // console.log("product", data);
 
   return (
     <>
