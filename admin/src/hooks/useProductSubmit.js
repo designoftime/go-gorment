@@ -77,7 +77,7 @@ const useProductSubmit = (id) => {
     clearErrors,
     formState: { errors },
   } = useForm();
-  // console.log(selectTheme, "product page ");
+  console.log(selectTheme, "product page ");
   const onSubmit = async (data) => {
     try {
       setIsSubmitting(true);
@@ -216,7 +216,9 @@ const useProductSubmit = (id) => {
               ...rest
             }) => rest
           );
-          setSelectTheme([{ name: res?.theme?.theme?.theme_unique_name }]);
+          setSelectTheme([
+            { name: res?.theme?.theme?.theme_unique_name, _id: res?._id },
+          ]);
           setVariant(result);
           setIsUpdate(true);
           setIsBasicComplete(true);
@@ -344,7 +346,9 @@ const useProductSubmit = (id) => {
             );
             setSelectedCategory(res.categories);
             setDefaultCategory([res?.category]);
-            setSelectTheme([{ name: res?.theme?.theme?.theme_unique_name }]);
+            setSelectTheme([
+              { name: res?.theme?.theme?.theme_unique_name, _id: res?._id },
+            ]);
             setTag(JSON.parse(res.tag));
             setImageUrl(res.image);
             setVariants(res.variants);
