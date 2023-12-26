@@ -36,7 +36,7 @@ const Variant = ({index, product, variantData, setVariantPrice, setIsQuantityAva
     }
 
     return (
-        <div className="d-flex">
+        <div className="d-flex justify-content-between">
             {
                 product?.variants ? product.variants.map((variant,idx) => {
 
@@ -44,9 +44,9 @@ const Variant = ({index, product, variantData, setVariantPrice, setIsQuantityAva
                     if(!checkVariant) return;
 
                     return (
-                        <div className="col-sm-3 mt-3 text-center mx-auto vpselect-size-box" key={idx}>
+                        <div className=" mt-3 text-center mx-auto vpselect-size" key={idx}>
                         <div className='py-1'>
-                            <button className="" onClick={() => handlePrice(variant)}>{checkVariant?.name?.en && checkVariant.name.en}</button>
+                            <button className=" vpselect-size-box" onFocus={handlePrice} onClick={() => handlePrice(variant)}>{checkVariant?.name?.en && checkVariant.name.en}</button>
                         </div>
                     </div>
                     )

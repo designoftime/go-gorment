@@ -1,6 +1,6 @@
-.View-Products-section{
-    /* margin: 10vh 0; */
-}
+/* .View-Products-section{
+    margin: 10vh 0;
+} */
 .VPCaursel{
     /* background-color: blue; */
     width: 55%;
@@ -52,10 +52,21 @@
     letter-spacing: 1px!important;
     font-family: Snacksgifheaderfont;
 }
+.VPselect-size{
+    column-gap: 0.3rem;
+}
 .vpselect-size-box{
-    border: 3px solid #4c4294;
+    width: 8.5rem;
+    height: 5rem;
+    border: 0;   
+    color: #4c4294;
     border-radius: 10px;
     font-family: ReviewedProductHeaderfont;
+    
+}
+.vpselect-size-box:focus{
+    border: 3px solid #4c4294;
+    background-color: white;
 }
 .select-size-header{
     font-size: 15px;

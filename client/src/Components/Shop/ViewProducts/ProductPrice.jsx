@@ -10,13 +10,16 @@ export const ProductPrice = ({productPrice}) => {
     const handleDelivery =(selected)=>{
         setDeliveryOption(selected);
     }
-    
+    const [purchaseType,setPurchaseType] = useState("onetime");
+    const handlePurchaseType = (purchaseEvent)=>{
+        setPurchaseType(purchaseEvent.target.value);
+    }
     return (
         <div>
-            <div className="Product-Price-section">
+            <div className="Product-Price-section animate__animated animate__fadeInDown">
                 <div className=" PriceText">
                     <div className='PriceMain'>
-                        <div><input type="radio" value="onetime" defaultChecked /></div>
+                        <div><input type="radio" value="onetime" checked={purchaseType==="onetime"} onChange={(purchaseEvent)=>handlePurchaseType(purchaseEvent)}  /></div>
                         <div className='PriceMainText'>One Time Purchase</div>
                     </div>
                     <div>{productPrice?.price}</div>
@@ -24,7 +27,7 @@ export const ProductPrice = ({productPrice}) => {
                 <div className="SubscribeBox mt-3">
                     <div className="SubscribeText">
                         <div className='PriceMain'>
-                            <div><input type="radio" value="subscribe" /></div>
+                            <div><input type="radio" checked={purchaseType==="subscribe"} onChange={(purchaseEvent)=>handlePurchaseType(purchaseEvent)} value="subscribe" /></div>
                             <div className='PriceMainText'>Subscribe & Save</div>
                         </div>
                         <div>{productPrice?.subscribePrice}</div>
