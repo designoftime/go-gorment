@@ -67,7 +67,8 @@ export const Cart = () => {
     };
     return (
         <div>
-            <button onClick={handleShow} href="#" className='accountIcon nav-link'><MdOutlineShoppingBag /></button>
+            <button onClick={handleShow} className='accountIcon nav-link'><MdOutlineShoppingBag /></button>
+            {/* <button onClick={handleShow} className='accountIcon nav-link '><input type="text" value={cartProductData.length} className="Showprouctno" readOnly /></button> */}
             <OffCanvas show={showcart} placement='end' onHide={handleClose} name="end">
                 <OffCanvas.Header className='accountIcon CartmainHeader'>
                     <Link to='' onClick={handleClose} className='cartClosebtn'><img src={Backarrow} alt={Backarrow} /></Link>
