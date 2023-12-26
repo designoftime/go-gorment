@@ -12,8 +12,14 @@ const SelectTheme = ({ setSelectTheme, selectTheme }) => {
   const { showingTranslateValue } = useUtilsFunction();
 
   const STYLE = `
-  .rc-tree-child-tree {
-    display: block;
+  .rc-tree-list-holder-inner{
+      display: grid !important;
+      flex-direction: column;
+      grid-template-columns: repeat(4,1fr);
+      max-height: 120px;
+    
+    overflow-y: scroll;
+
   }
   .node-motion {
     transition: all .3s;
@@ -106,7 +112,7 @@ const SelectTheme = ({ setSelectTheme, selectTheme }) => {
             // defaultCheckedKeys={id}
             onSelect={(v) => handleSelect(v)}
             motion={motion}
-            animation="slide-up"
+            // animation="slide-up"
           />
         </div>
       )}
