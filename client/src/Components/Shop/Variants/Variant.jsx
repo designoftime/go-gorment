@@ -46,7 +46,7 @@ const Variant = ({index, product, variantData, setVariantPrice, setIsQuantityAva
                     return (
                         <div className=" mt-3 text-center mx-auto vpselect-size" key={idx}>
                         <div className='py-1'>
-                            <button className=" vpselect-size-box" onFocus={handlePrice} onClick={() => handlePrice(variant)}>{checkVariant?.name?.en && checkVariant.name.en}</button>
+                            <button className=" vpselect-size-box" style={focus(handlePrice? {border: "3px solid #4c4294",backgroundColor:"White"}:"")} onClick={() => handlePrice(variant)}>{checkVariant?.name?.en && checkVariant.name.en}</button>
                         </div>
                     </div>
                     )
