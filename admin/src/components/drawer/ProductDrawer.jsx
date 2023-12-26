@@ -37,6 +37,7 @@ import AttributeOptionTwo from "@/components/attribute/AttributeOptionTwo";
 import AttributeListTable from "@/components/attribute/AttributeListTable";
 import SwitchToggleForCombination from "@/components/form/switch/SwitchToggleForCombination";
 import SelectOption from "../form/selectOption/SelectOption";
+import SelectTheme from "../form/selectOption/SelectTheme";
 
 //internal import
 
@@ -76,6 +77,8 @@ const ProductDrawer = ({ id }) => {
     handleProductTap,
     selectedCategory,
     setSelectedCategory,
+    setSelectTheme,
+    selectTheme,
     setDefaultCategory,
     defaultCategory,
     handleProductSlug,
@@ -269,6 +272,15 @@ const ProductDrawer = ({ id }) => {
                     options={selectedCategory}
                     placeholder={"Default Category"}
                   ></Multiselect>
+                </div>
+              </div>
+              <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label={"Select Theme"} />
+                <div className="col-span-8 sm:col-span-4">
+                  <SelectTheme
+                    selectTheme={selectTheme}
+                    setSelectTheme={setSelectTheme}
+                  />
                 </div>
               </div>
 

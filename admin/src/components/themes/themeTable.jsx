@@ -47,7 +47,6 @@ const ThemeTable = ({ isCheck, themes, setIsCheck }) => {
     });
     setUpdatedthemes(result);
   }, [themes, globalSetting?.default_time_zone]);
-console.log(updatedthemes)
   return (
     <>
       {isCheck.length < 1 && <DeleteModal id={serviceId} title={title} />}

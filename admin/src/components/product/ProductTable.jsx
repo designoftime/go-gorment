@@ -35,7 +35,6 @@ const ProductTable = ({ products, isCheck, setIsCheck }) => {
       setIsCheck(isCheck.filter((item) => item !== id));
     }
   };
-
   return (
     <>
       {isCheck?.length < 1 && <DeleteModal id={serviceId} title={title} />}
@@ -88,6 +87,14 @@ const ProductTable = ({ products, isCheck, setIsCheck }) => {
             <TableCell>
               <span className="text-sm">
                 {showingTranslateValue(product?.category?.name)}
+              </span>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm font-semibold">
+                {currency}
+                {product?.isCombination
+                  ? getNumberTwo(product?.variants[0]?.subscription)
+                  : getNumberTwo(product?.prices?.subscription)}
               </span>
             </TableCell>
 

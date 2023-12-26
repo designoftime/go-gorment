@@ -6,6 +6,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+
     sku: {
       type: String,
       required: false,
@@ -38,6 +39,12 @@ const productSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
+    theme: 
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Theme",
+        required: true,
+      },
     image: {
       type: Array,
       required: false,
@@ -70,7 +77,6 @@ const productSchema = new mongoose.Schema(
         type: Number,
         required: false,
       },
-      
     },
     variants: [{}],
     isCombination: {

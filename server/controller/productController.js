@@ -105,6 +105,7 @@ const getAllProducts = async (req, res) => {
     const products = await Product.find(queryObject)
       .populate({ path: "category", select: "_id name" })
       .populate({ path: "categories", select: "_id name" })
+      .populate({ path: "theme", select: "_id theme.theme_unique_name" })
       .sort(sortObject)
       .skip(skip)
       .limit(limits);
@@ -167,7 +168,8 @@ const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)
       .populate({ path: "category", select: "_id, name" })
-      .populate({ path: "categories", select: "_id name" });
+      .populate({ path: "categories", select: "_id name" })
+      .populate({ path: "theme", select: "_id theme.theme_unique_name" });
 
     res.send(product);
   } catch (err) {
@@ -196,6 +198,7 @@ const updateProduct = async (req, res) => {
       product.barcode = req.body.barcode;
       product.slug = req.body.slug;
       product.categories = req.body.categories;
+      product.theme = req.body.theme;
       product.category = req.body.category;
       product.show = req.body.show;
       product.isCombination = req.body.isCombination;

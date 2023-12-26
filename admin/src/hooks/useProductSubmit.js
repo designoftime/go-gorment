@@ -19,7 +19,6 @@ const useProductSubmit = (id) => {
     useContext(SidebarContext);
 
   const { data: attribue } = useAsync(AttributeServices.getShowingAttributes);
-
   // react ref
   const resetRef = useRef([]);
   const resetRefTwo = useRef("");
@@ -49,6 +48,7 @@ const useProductSubmit = (id) => {
   const [imgId, setImgId] = useState("");
   const [isBulkUpdate, setIsBulkUpdate] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectTheme, setSelectTheme] = useState([]);
   const [defaultCategory, setDefaultCategory] = useState([]);
   const [resData, setResData] = useState({});
   const [language, setLanguage] = useState(lang);
@@ -77,9 +77,7 @@ const useProductSubmit = (id) => {
     clearErrors,
     formState: { errors },
   } = useForm();
-
   const onSubmit = async (data) => {
-    // console.log('data is data',data)
     try {
       setIsSubmitting(true);
       if (!imageUrl) return notifyError("Image is required!");
@@ -101,7 +99,7 @@ const useProductSubmit = (id) => {
           originalPrice: getNumberTwo(v?.originalPrice),
           discount: getNumberTwo(v?.discount),
           quantity: Number(v?.quantity || 0),
-          subscription:getNumberTwo(v?.subscription),
+          subscription: getNumberTwo(v?.subscription),
         };
         return newObj;
       });
@@ -141,6 +139,7 @@ const useProductSubmit = (id) => {
 
         categories: selectedCategory.map((item) => item._id),
         category: defaultCategory[0]._id,
+        theme: selectTheme[0]._id,
 
         image: imageUrl,
         stock: variants?.length < 1 ? data.stock : Number(totalStock),
@@ -213,10 +212,12 @@ const useProductSubmit = (id) => {
               sku,
               productId,
               image,
-
               ...rest
             }) => rest
           );
+          setSelectTheme([
+            { name: res?.theme?.theme?.theme_unique_name, _id: res?._id },
+          ]);
           setVariant(result);
           setIsUpdate(true);
           setIsBasicComplete(true);
@@ -266,12 +267,14 @@ const useProductSubmit = (id) => {
       setProductId("");
       // setValue('show');
       setImageUrl([]);
+      setSelectTheme([]);
       setTag([]);
       setVariants([]);
       setVariant([]);
       setValues({});
       setTotalStock(0);
       setSelectedCategory([]);
+      setSelectTheme([]);
       setDefaultCategory([]);
       if (location.pathname === "/products") {
         resetRefTwo?.current?.resetSelectedValues();
@@ -307,9 +310,6 @@ const useProductSubmit = (id) => {
       (async () => {
         try {
           const res = await ProductServices.getProductById(id);
-
-          // console.log("res", res);
-
           if (res) {
             setResData(res);
             setSlug(res.slug);
@@ -343,9 +343,11 @@ const useProductSubmit = (id) => {
               res?.category?.name,
               lang
             );
-
             setSelectedCategory(res.categories);
             setDefaultCategory([res?.category]);
+            setSelectTheme([
+              { name: res?.theme?.theme?.theme_unique_name, _id: res?._id },
+            ]);
             setTag(JSON.parse(res.tag));
             setImageUrl(res.image);
             setVariants(res.variants);
@@ -353,7 +355,7 @@ const useProductSubmit = (id) => {
             setQuantity(res?.stock);
             setTotalStock(res.stock);
             setOriginalPrice(res?.prices?.originalPrice);
-            setSubscription(res?.prices?.subscription)
+            setSubscription(res?.prices?.subscription);
             setPrice(res?.prices?.price);
           }
         } catch (err) {
@@ -448,7 +450,7 @@ const useProductSubmit = (id) => {
         const newCom = {
           ...com,
           originalPrice: getNumberTwo(originalPrice),
-          subscription:getNumberTwo(subscription),
+          subscription: getNumberTwo(subscription),
           price: getNumber(price),
           quantity: Number(quantity),
           discount: Number(originalPrice - price),
@@ -704,6 +706,8 @@ const useProductSubmit = (id) => {
     setTapValue,
     resetRefTwo,
     handleSkuBarcode,
+    setSelectTheme,
+    selectTheme,
     handleProductTap,
     selectedCategory,
     setSelectedCategory,
