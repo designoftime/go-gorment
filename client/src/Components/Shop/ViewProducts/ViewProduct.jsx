@@ -83,11 +83,11 @@ export const ViewProduct = () => {
 
         console.log(cartData);
         const AddToCartAPI = async () => {
-            const resData = await requests.post("/cart/add-to-cart", JSON.stringify({ cart: cartData}));
+            const resData = await requests.post("/cart/add-to-cart", { cart: cartData });
             console.log(resData);
         }
 
-        // AddToCartAPI();
+        AddToCartAPI();
     }
 
     return (

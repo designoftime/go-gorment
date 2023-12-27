@@ -14,7 +14,12 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
     const fetchVariants = async () => {
         const res = await requests.get(`/attributes/show`);
         setVariants(res);
-        // console.log(res);
+        if(res?.variants){
+            const firstDifferentVariants = getFirstDifferentVariants(product.variants, setFocusVariants);
+            firstDifferentVariants.forEach((eachvariants,idx) => {
+              handlePrice(variants, eachvariants,idx, setVariantPrice, setIsQuantityAvailable);
+            });
+        }
     }
 
     fetchVariants();

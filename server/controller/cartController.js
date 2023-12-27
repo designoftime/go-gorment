@@ -81,10 +81,9 @@ const updateCartQuantity = async (req, res) => {
 const getCartByUserId = async (req,res) => {
     try {
        
-        const carts = await Cart.find({user: req.user._id});
-
+        const cart = await Cart.findOne({user: req.user._id});
         return res.status(200).json({
-            carts,
+            carts: cart.carts,
             success: true,
             message: "Cart Fetched Successfully !!"
         });
