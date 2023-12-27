@@ -1,51 +1,212 @@
-.theme2-hero{
+.theme2-hero {
     background-color: #f5d0ba;
-    padding: 98px 0 104px;;
+    padding: 4rem 0.3rem;
+    padding-bottom: 5rem;
 }
-.main-heading{
-    font-family: Snacksgifheaderfont;
-    font-size: 90px;
-    line-height: 78px;
+
+.main-heading {
+    font-family: rocgrotesk-extra-bold;
+    font-size: 5.4rem;
+    font-weight: 800;
+    line-height: 97px;
     color: #412f59;
     text-align: center;
     padding: 30px;
 }
-.theme2-img img{
-    width: 30rem;
+
+.theme2-img {
+    position: relative;
+    width: 100%;
+    /* height: 100%; */
 }
 
-.theme2-container{
-    margin: 10px;
-    padding: 10px;
-    max-width: 40rem;
+.theme2-img img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.theme2-desc{
-    font-size: 20px;
-    line-height: 30px;
-    font-weight: 600;
-    letter-spacing: .12px;
-}
-
-.theme2-content{
+.theme2-container {
+    max-width: 35vw;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 85px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.theme2-desc {
+    font-size: 20px;
+    line-height: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    word-spacing: 0.05rem;
+    color: #412f59;
+    font-family: rocgrotesk-light;
+    text-align: justify;
+}
+
+.theme2-content {
+    display: flex;
+    /* align-items: center; */
+    gap: 3rem;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 14vw;
 }
 
-.theme2-desc{
-    margin: 10px;
-    padding: 10px;
-}
-
-.theme2-btn{
-    margin: 20px;
-    padding: 10px 30px;
+.theme2-btn {
+    /* margin: 20px; */
+    padding: 0.9rem 2.5rem;
     background-color: #412f59;
-    border-radius: 15px;
+    border-radius: 30px;
     color: white;
     text-decoration: none;
+    font-weight: 600;
+    font-family: rocgrotesk-light;
+}
+
+@media (max-width: 640px) {
+    .theme2-hero {
+        padding: 1rem 0.3rem;
+        padding-bottom: 3.8rem;
+    }
+
+    .main-heading {
+        font-family: rocgrotesk-bold;
+        font-size: 9vw;
+        line-height: 9.3vw;
+        font-weight: 700;
+        padding: 0.5rem 0;
+    }
+
+    .theme2-img {
+        width: 100%;
+        height: 87vw;
+    }
+
+    .theme2-img img {
+        width: 100%;
+    }
+
+    .theme2-content {
+        flex-direction: column;
+        padding: 0 0.5rem;
+        gap: 1.8rem;
+    }
+
+    .theme2-container {
+        max-width: 100%;
+        gap: 0.4rem;
+    }
+
+    .theme2-desc {
+        font-size: 0.9rem;
+        line-height: 180%;
+        font-weight: 600;
+        text-align: justify;
+    }
+
+    .theme2-btn {
+        margin: 0 auto;
+        padding: 0.8rem 2.6rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .theme2-hero {
+        background-color: #f5d0ba;
+        padding: 2rem 0.3rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+    .theme2-hero {
+        padding: 1.5rem 0.3rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .main-heading {
+        font-size: 3.5rem;
+        font-weight: 500;
+        line-height: 3.4rem;
+        padding: 24px;
+        padding-bottom: 10px;
+    }
+
+    .theme2-img {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .theme2-img img {
+        width: 100%;
+    }
+
+    .theme2-content {
+        flex-direction: column;
+        padding: 0 1.5rem;
+    }
+
+    .theme2-container {
+        max-width: 100%;
+    }
+
+    .theme2-btn {
+        margin: 0 auto;
+        padding: 1.1rem 3.5rem;
+    }
+
+    .theme2-desc {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+    .theme2-hero {
+        padding: 3rem 0.3rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .main-heading {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 4.5rem;
+    }
+
+    .theme2-img {
+        width: 100%;
+        height: 120vh;
+    }
+
+    .theme2-img img {
+        width: 100%;
+    }
+
+    .theme2-content {
+        flex-direction: column;
+        padding: 0 2rem;
+    }
+
+    .theme2-container {
+        max-width: 100%;
+    }
+
+    .theme2-btn {
+        margin: 0 auto;
+        padding: 1.1rem 3.5rem;
+    }
+}
+
+@media (min-width: 990px) and (max-width: 1280px) {
+    .theme2-content {
+        padding: 0 6vw;
+    }
+
+    .theme2-container {
+        max-width: 40vw;
+    }
 }
