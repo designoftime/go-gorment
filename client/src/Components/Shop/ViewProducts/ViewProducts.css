@@ -64,7 +64,7 @@
     font-family: ReviewedProductHeaderfont;
     
 }
-.vpselect-size-box:focus{
+.vpselect-size-box-focus{
     border: 3px solid #4c4294;
     background-color: white;
 }

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { fetchPrice } from "../../../Redux/actions/productService";
 import requests from "../../../Services/httpService";
 
-const Variant = ({index, product, variantData, setVariantPrice, setIsQuantityAvailable}) => {
-    
+const Variant = ({index, product,variantPrice, variantData, setVariantPrice, setIsQuantityAvailable, focusVariants,setFocusVariants}) => {
+
     const isVariantAvailable = (variant) => {
 
         let variantAvail = variantData.variants?.find((eachVariant) => {
@@ -43,10 +43,19 @@ const Variant = ({index, product, variantData, setVariantPrice, setIsQuantityAva
                     const checkVariant = isVariantAvailable(variant);
                     if(!checkVariant) return;
 
+                    let variantID = Object.values(variant)[0];
+                    
                     return (
                         <div className=" mt-3 text-center mx-auto vpselect-size" key={idx}>
                         <div className='py-1'>
-                            <button className=" vpselect-size-box" style={focus(handlePrice? {border: "3px solid #4c4294",backgroundColor:"White"}:"")} onClick={() => handlePrice(variant)}>{checkVariant?.name?.en && checkVariant.name.en}</button>
+                            <button className={`vpselect-size-box ${(focusVariants[index]===variantID && "vpselect-size-box-focus")}`} onClick={() => {
+                                handlePrice(variant);
+                                setFocusVariants((prev) => {
+                                    const updatedArray = [...prev];
+                                    updatedArray[index] = variantID; 
+                                    return updatedArray; 
+                                });
+                            }}>{checkVariant?.name?.en && checkVariant.name.en}</button>
                         </div>
                     </div>
                     )
