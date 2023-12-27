@@ -1,47 +1,56 @@
-.theme-3{
-    background-color: #c8e0d4;
+.theme-3 {
     width: 100%;
-    display: flex;
+    height: 110vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    background-color: #c8e0d4;
 }
 
-.theme3-img{
-    width: 50%;
+.theme3-img {
+    grid-column: 1/2;
+
+    position: relative;
+    width: 100%;
     height: 100%;
 }
 
-.theme3-img img{
+.theme3-img img {
     width: 100%;
-    object-fit: cover;
-} 
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-.theme-3-content{
-    margin: 20px;
-    padding: 20px;
-    width: 50%;
+.theme-3-content {
+    width: 100%;
+    grid-column: 2/-1;
+
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly
+    gap: 2rem;
+    padding-right: 1rem;
 }
 
-.theme3-heading{
-    font-family: Snacksgifheaderfont;
-    font-size: 80px;
-    line-height: 78px;
+.theme3-heading {
+    font-family: rocgrotesk-extra-bold;
+    font-size: 5rem;
+    line-height: 4.6rem;
     color: #412f59;
-    text-align: left;
-    padding: 30px;
 }
 
-.theme3-desc{
+.theme3-desc {
+    font-family: rocgrotesk-thin;
+
     font-size: 20px;
     line-height: 30px;
     font-weight: 500;
-    letter-spacing: .12px;
-    padding: 0 50px;
+    letter-spacing: 0.12px;
 }
 
-.theme3-btn{
+.theme3-btn {
     margin: 0px 40px;
     padding: 10px 30px;
     border: 2px solid white;
