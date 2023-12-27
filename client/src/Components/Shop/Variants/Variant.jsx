@@ -1,31 +1,6 @@
-import { useEffect, useState } from "react";
-import { fetchPrice, fetchSubscriptionPrice, isVariantAvailable } from "../../../Redux/actions/productService";
-import requests from "../../../Services/httpService";
+import { handlePrice, isVariantAvailable } from "../../../Redux/actions/productService";
 
-const Variant = ({index, product,variantPrice, variantData, setVariantPrice, setIsQuantityAvailable, focusVariants,setFocusVariants}) => {
-
-    const handlePrice = (data) => {
-        // console.log(variantData);
-        const checkVariant = isVariantAvailable(variantData,data);
-        const productPrice = {
-            price: fetchPrice(data),
-            subscribePrice: fetchSubscriptionPrice(data),
-            attribute: checkVariant?.name?.en
-        }
-
-        setVariantPrice((prevVal) => {
-            const updatedArray = [...prevVal];
-            updatedArray[index] = productPrice; 
-            return updatedArray; 
-        });
-        
-        if(Number(data?.quantity) <= 0){
-            setIsQuantityAvailable(false);
-        }
-        else{
-            setIsQuantityAvailable(true);
-        }
-    }
+const Variant = ({index, product, variantData, setVariantPrice, setIsQuantityAvailable, focusVariants,setFocusVariants}) => {
 
     return (
         <div className="d-flex justify-content-between">
@@ -41,7 +16,7 @@ const Variant = ({index, product,variantPrice, variantData, setVariantPrice, set
                         <div className=" mt-3 text-center mx-auto vpselect-size" key={idx}>
                         <div className='py-1'>
                             <button className={`vpselect-size-box ${(focusVariants[index]===variantID && "vpselect-size-box-focus")}`} onClick={() => {
-                                handlePrice(variant);
+                                handlePrice(variantData, variant, index, setVariantPrice, setIsQuantityAvailable);
                                 setFocusVariants((prev) => {
                                     const updatedArray = [...prev];
                                     updatedArray[index] = variantID; 

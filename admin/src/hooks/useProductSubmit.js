@@ -69,6 +69,7 @@ const useProductSubmit = (id) => {
   // );
 
   // handle click
+  
   const onCloseModal = () => setOpenModal(false);
   const {
     register,
