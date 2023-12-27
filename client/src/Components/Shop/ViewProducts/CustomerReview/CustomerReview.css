@@ -29,4 +29,34 @@
     align-items: center;
    
 }
+.reviewForm{
+    background-color: #e2c7d6;
+}
+.reviewInputs{
+    color: #412f59;
+    margin-top: 1.5rem;
+}
+.reviewlable{
+    color: #412f59;
+}
+#namedisplayed{
+    border: none;
+    color: #412f59;
+    background-color: transparent;
+    outline: none;
+    text-decoration: underline;
+}
+.reviewInput, .reviewInput:focus{
+    background-color: transparent;
+    outline: none!important;
+    border: 2px solid #412f59;  
+    box-shadow: none;
+}
+.starbtn{
+    color: #412f59;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+
 
