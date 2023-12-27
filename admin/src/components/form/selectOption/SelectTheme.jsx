@@ -17,8 +17,7 @@ const SelectTheme = ({ setSelectTheme, selectTheme }) => {
       flex-direction: column;
       grid-template-columns: repeat(4,1fr);
       max-height: 120px;
-    
-    overflow-y: scroll;
+      overflow-y: scroll;
 
   }
   .node-motion {
