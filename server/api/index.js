@@ -19,6 +19,7 @@ const settingRoutes = require("../routes/settingRoutes");
 const currencyRoutes = require("../routes/currencyRoutes");
 const languageRoutes = require("../routes/languageRoutes");
 const cartRoutes = require("../routes/cartRoutes");
+const customerReviews = require("../routes/reviewsRoutes")
 
 // Swagger 
 const swaggerUi = require("swagger-ui-express");
@@ -58,6 +59,7 @@ app.use("/api/setting/", settingRoutes);
 app.use("/api/currency/", isAuth, currencyRoutes);
 app.use("/api/language/", languageRoutes);
 app.use("/api/cart/", isAuth , cartRoutes);
+app.use("/api/reviews/", customerReviews);
 
 //if you not use admin dashboard then these two route will not needed.
 app.use("/api/admin/", adminRoutes);
