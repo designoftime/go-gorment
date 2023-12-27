@@ -52,10 +52,16 @@ const deleteReviews = async (req, res) => {
 
 const getAllReview = async (req, res) => {
   try {
+    const { page, limit } = req.query;
+    const pages = Number(page);
+    const limits = Number(limit);
+    const skip = (pages - 1) * limits;
     const data = await Reviews.find()
       .sort({ updatedAt: -1 })
       .populate({ path: "productId", select: "image title description prices" })
-      .populate({ path: "user", select: "name image" });
+      .populate({ path: "user", select: "name image" })
+      .limit(limits)
+      .skip(skip);
     const totalReviews = await Reviews.find().count();
     const fiveStar = await Reviews.find({ rating: 5 }).count();
     const fourStar = await Reviews.find({ rating: 4 }).count();
