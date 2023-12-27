@@ -7,7 +7,7 @@ const addToCart = async (req,res) => {
         const cart = await Cart.findOne({user: user._id});
                 
         if(!cart){
-            const newCart = await new Cart({user, carts: [req.body]});
+            const newCart = new Cart({user, carts: req.body.cart});
             await newCart.save();
         }
         else{

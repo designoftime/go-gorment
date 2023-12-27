@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import useWindowInnerWidth from '../../hooks/useWindowInnerWidth'
 import { ProductPrice } from './ProductPrice'
-import { fetchPrice } from '../../../Redux/actions/productService'
 import requests from '../../../Services/httpService'
 import ProductSectionOne from './ProductSectionOne'
 import ProductSectionTwo from './ProductSectionTwo'
@@ -20,42 +19,29 @@ import { CustomerReview } from './CustomerReview/CustomerReview'
 export const ViewProduct = () => {
 
     const showValue = useWindowInnerWidth();
-    const first = useRef();
-    const [productQuantity, setproductQuantity] = useState(1)
-    const [product, setProduct] = useState({});
-    const [productPrice, setProductPrice] = useState({});
+
+    const SwiperfirstImg = useRef();
     const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
-    const [productTheme, setProductTheme] = useState({});
+    const [productQuantity, setproductQuantity] = useState(1)
+    const [productPrice, setProductPrice] = useState({});
     const [purchaseType, setPurchaseType] = useState("single");
+    const [product, setProduct] = useState({});
+
+    const [productTheme, setProductTheme] = useState({});
 
 
-    const updateproductQuantity = (event) => {
-            const newValue = parseInt(event.target.value);
+    const updateproductQuantity = (e) => {
+            const newValue = parseInt(e.target.value);
             if (!isNaN(newValue)) {
                 setproductQuantity(newValue)
             }
     }
     const increaseProduct = () => {
-        setproductQuantity((prevProductQuantity) => prevProductQuantity + 1);
+        setproductQuantity((prevVal) => prevVal + 1);
     }
     const decreaseProduct = () => {
         if (productQuantity > 0) {
-            setproductQuantity((prevProductQuantity) => prevProductQuantity - 1);
-        }
-    }
-    const handlePrice = (variantData) => {
-        const productPrice = {
-            price: fetchPrice(variantData),
-            subscribePrice: 0
-        }
-
-        setProductPrice(productPrice);
-
-        if (Number(variantData?.quantity) <= 0) {
-            setIsQuantityAvailable(false);
-        }
-        else {
-            setIsQuantityAvailable(true);
+            setproductQuantity((prevVal) => prevVal - 1);
         }
     }
 
@@ -63,8 +49,7 @@ export const ViewProduct = () => {
         try {
             const res = await requests.get(`/products/product/${id}`);
             setProduct(res);
-            console.log(res);
-            handlePrice(res?.variants[0]);
+            // console.log(res);
             const productPageRes = await requests.get(`/theme/${res?.theme}`);
             setProductTheme(productPageRes?.theme);
             // console.log(productPageRes);
@@ -93,10 +78,16 @@ export const ViewProduct = () => {
         }
         else{
             cartData["price"] = productPrice?.subscribePrice
-            cartData["subscription"] = "7Days"
+            cartData["subscription"] = "7 Days"
         }
 
         console.log(cartData);
+        const AddToCartAPI = async () => {
+            const resData = await requests.post("/cart/add-to-cart", JSON.stringify({ cart: cartData}));
+            console.log(resData);
+        }
+
+        // AddToCartAPI();
     }
 
     return (
@@ -108,7 +99,7 @@ export const ViewProduct = () => {
                             <div className={showValue < 1000 ? "col-12 VPCaursel mt-5" : "col-8 VPCaursel mt-5"}>
                                 <Swiper
                                     className='swiper VpCarousel-content'
-                                    ref={first}
+                                    ref={SwiperfirstImg}
                                     navigation={true}
                                     spaceBetween={0}
                                     onSlideChange={(e) => {
@@ -128,7 +119,7 @@ export const ViewProduct = () => {
                                             product?.image && product?.image.map((img, idx) => {
                                                 return (
                                                     <img key={idx} src={img} alt={img} className='active-logo rounded-4' onClick={() => {
-                                                        first.current.swiper.slideTo(idx);
+                                                        SwiperfirstImg.current.swiper.slideTo(idx);
                                                     }} />
                                                 )
                                             })

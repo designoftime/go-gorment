@@ -10,7 +10,15 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-  return config;
+  
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  return {
+    ...config,
+    headers: {
+      authorization: user ? `Bearer ${user.token}` : null,
+    }
+  };
 });
 
 const responseBody = (response) => response.data;
