@@ -1,24 +1,16 @@
 import { useEffect, useState } from "react";
-import { fetchPrice } from "../../../Redux/actions/productService";
+import { fetchPrice, fetchSubscriptionPrice, isVariantAvailable } from "../../../Redux/actions/productService";
 import requests from "../../../Services/httpService";
 
 const Variant = ({index, product,variantPrice, variantData, setVariantPrice, setIsQuantityAvailable, focusVariants,setFocusVariants}) => {
 
-    const isVariantAvailable = (variant) => {
-
-        let variantAvail = variantData.variants?.find((eachVariant) => {
-            let parentId = Object.keys(variant)[0];
-            let childId = Object.values(variant)[0];
-            return parentId == variantData._id && childId == eachVariant._id;
-        })
-
-        return variantAvail;
-    }
-
     const handlePrice = (data) => {
+        // console.log(variantData);
+        const checkVariant = isVariantAvailable(variantData,data);
         const productPrice = {
             price: fetchPrice(data),
-            subscribePrice: 0
+            subscribePrice: fetchSubscriptionPrice(data),
+            attribute: checkVariant?.name?.en
         }
 
         setVariantPrice((prevVal) => {
@@ -40,7 +32,7 @@ const Variant = ({index, product,variantPrice, variantData, setVariantPrice, set
             {
                 product?.variants ? product.variants.map((variant,idx) => {
 
-                    const checkVariant = isVariantAvailable(variant);
+                    const checkVariant = isVariantAvailable(variantData,variant);
                     if(!checkVariant) return;
 
                     let variantID = Object.values(variant)[0];

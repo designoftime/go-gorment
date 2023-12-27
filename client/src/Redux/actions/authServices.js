@@ -1,15 +1,6 @@
 import { toast } from 'react-toastify';
 import { setUser } from "../reducers/authSlice";
-import { jwtDecode } from "jwt-decode"
 import requests from '../../Services/httpService';
-
-const getUserId =()=>{
-    const Data = JSON.parse(localStorage.getItem("user")) || {};
-    return Data._id || {};    
-}
-const userId = getUserId();
-// const userId = customerData._id;
-// console.log("Id",userId);
 
 export function loginUser(userData, Navigate){
 
@@ -124,11 +115,12 @@ export function resetPassword(userData, Navigate){
 export function updateCustomer(userInfo,Navigate){
     return async function updateCustomerThunk(dispatch,getstate){
         try{
-            const res = await requests.put(`/customer/${userId}`,userInfo);
+            const user = JSON.parse(localStorage.getItem("user")) || {};
+            const res = await requests.put(`/customer/${user._id}`,userInfo);
             dispatch(setUser(res));
             localStorage.removeItem("user");
             localStorage.setItem("user", JSON.stringify(res));
-            toast("user Update Successfully");
+            toast("User Update Successfully");
         } catch(error){
             console.log(error);
         }
