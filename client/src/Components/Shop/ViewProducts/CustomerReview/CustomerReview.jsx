@@ -1,7 +1,6 @@
 import React from 'react'
 import './CustomerReview.css'
-import { IoIosStar } from "react-icons/io";
-import { IoIosStarHalf } from "react-icons/io";
+import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import ProgressBar from 'react-bootstrap/esm/ProgressBar';
 export const CustomerReview = () => {
     return (
@@ -16,7 +15,7 @@ export const CustomerReview = () => {
                                 <span><IoIosStar /></span> <span />
                                 <span><IoIosStar /></span> <span />
                                 <span><IoIosStar /></span> <span />
-                                <span><IoIosStarHalf /></span> <span />
+                                <span><IoIosStarHalf/></span> <span />
                             </div>
                             <p className="totalReviewText fw-bold">Based on 40 reviews</p>
                         </div>
@@ -41,7 +40,7 @@ export const CustomerReview = () => {
                                     <span><IoIosStar /></span> <span />
                                     <span><IoIosStar /></span> <span />
                                     <span><IoIosStar /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
                                 </div>
                                 <div className='reviewBar'><ProgressBar now={3} className='reviewbar'/></div>
                                 <div className="RSC-calculate">
@@ -54,8 +53,8 @@ export const CustomerReview = () => {
                                     <span><IoIosStar /></span> <span />
                                     <span><IoIosStar /></span> <span />
                                     <span><IoIosStar /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
                                 </div>
                                 <div className='reviewBar'><ProgressBar now={5} className='reviewbar'/></div>
                                 <div className="RSC-calculate">
@@ -67,9 +66,9 @@ export const CustomerReview = () => {
                                 <div className="RSC-stars">
                                     <span><IoIosStar /></span> <span />
                                     <span><IoIosStar /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
                                 </div>
                                 <div className='reviewBar'><ProgressBar now={0} className='reviewbar'/></div>
                                 <div className="RSC-calculate">
@@ -80,10 +79,10 @@ export const CustomerReview = () => {
                             <div className="reviewSubCategory">
                                 <div className="RSC-stars">
                                     <span><IoIosStar /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
-                                    <span><IoIosStarHalf /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
+                                    <span><IoIosStarOutline /></span> <span />
+                                    <span ><IoIosStarOutline  /></span> <span />
                                 </div>
                                 <div className='reviewBar'><ProgressBar now={5} className='reviewbar'/></div>
                                 <div className="RSC-calculate">
@@ -92,7 +91,9 @@ export const CustomerReview = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="writeReview"></div>
+                        <div className="writeReview">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
