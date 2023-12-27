@@ -4,13 +4,13 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
 import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
-export const ProductPrice = ({productPrice}) => {
+export const ProductPrice = ({productPrice, purchaseType, setPurchaseType}) => {
     
     const [deliveryOption, setDeliveryOption] = useState("Deliver every 7 Days");
     const handleDelivery =(selected)=>{
         setDeliveryOption(selected);
     }
-    const [purchaseType,setPurchaseType] = useState("onetime");
+
     const handlePurchaseType = (purchaseEvent)=>{
         setPurchaseType(purchaseEvent.target.value);
     }
@@ -19,7 +19,7 @@ export const ProductPrice = ({productPrice}) => {
             <div className="Product-Price-section animate__animated animate__fadeInDown">
                 <div className=" PriceText">
                     <div className='PriceMain'>
-                        <div><input type="radio" value="onetime" checked={purchaseType==="onetime"} onChange={(purchaseEvent)=>handlePurchaseType(purchaseEvent)}  /></div>
+                        <div><input type="radio" value="single" checked={purchaseType==="single"} onChange={(purchaseEvent)=>handlePurchaseType(purchaseEvent)}  /></div>
                         <div className='PriceMainText'>One Time Purchase</div>
                     </div>
                     <div>{productPrice?.price}</div>

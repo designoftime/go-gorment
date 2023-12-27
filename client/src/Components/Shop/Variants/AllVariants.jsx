@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import requests from '../../../Services/httpService'
 import Variant from './Variant';
 import { useState } from 'react';
-import { fetchPrice } from '../../../Redux/actions/productService';
+import { fetchPrice, fetchSubscriptionPrice, isVariantAvailable, isVariantAvailableAll } from '../../../Redux/actions/productService';
 
 const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
 
@@ -44,15 +44,18 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
       return result;
     };
     
-    const handlePrice = (data) => {
+    const handlePrice = (data,idx) => {
+
+      const checkVariant = isVariantAvailableAll(variants,data);
       const productPrice = {
           price: fetchPrice(data),
-          subscribePrice: 0
+          subscribePrice: fetchSubscriptionPrice(data),
+          attribute: checkVariant?.name?.en
       }
 
       setVariantPrice((prevVal) => {
           const updatedArray = [...prevVal];
-          updatedArray.push(productPrice); 
+          updatedArray[idx] = productPrice;
           return updatedArray; 
       });
       
@@ -66,20 +69,23 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
 
     if(product?.variants){
       const firstDifferentVariants = getFirstDifferentVariants(product.variants);
-      firstDifferentVariants.forEach((eachvariants) => {
-        handlePrice(eachvariants);
+      firstDifferentVariants.forEach((eachvariants,idx) => {
+        handlePrice(eachvariants,idx);
       });
     }
 
   },[product]);
 
   useEffect(() => {
+    // console.log(variantPrice);
     let totalPrice = variantPrice.reduce((sum, currVal) => sum + currVal.price, 0);
     let subscribeTotalPrice = variantPrice.reduce((sum, currVal) => sum + currVal.subscribePrice, 0);
-    console.log(variantPrice);  
+    let allAtrributes = variantPrice.reduce((sum, currVal) => sum += "," + (currVal.attribute), "");
+    
     setProductPrice({
       price: totalPrice,
-      subscribePrice: subscribeTotalPrice
+      subscribePrice: subscribeTotalPrice,
+      attribute: allAtrributes
     });
   }, [variantPrice]);
 

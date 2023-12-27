@@ -21,23 +21,26 @@ export const ViewProduct = () => {
 
     const showValue = useWindowInnerWidth();
     const first = useRef();
-    const [productNo, setProductNo] = useState(0)
+    const [productQuantity, setproductQuantity] = useState(1)
     const [product, setProduct] = useState({});
     const [productPrice, setProductPrice] = useState({});
     const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
     const [productTheme, setProductTheme] = useState({});
-    const updateProductNo = (event) => {
-        const newValue = parseInt(event.target.value);
-        if (!isNaN(newValue)) {
-            setProductNo(newValue)
-        }
+    const [purchaseType, setPurchaseType] = useState("single");
+
+
+    const updateproductQuantity = (event) => {
+            const newValue = parseInt(event.target.value);
+            if (!isNaN(newValue)) {
+                setproductQuantity(newValue)
+            }
     }
     const increaseProduct = () => {
-        setProductNo((prevProductNo) => prevProductNo + 1);
+        setproductQuantity((prevProductQuantity) => prevProductQuantity + 1);
     }
     const decreaseProduct = () => {
-        if (productNo > 0) {
-            setProductNo((prevProductNo) => prevProductNo - 1);
+        if (productQuantity > 0) {
+            setproductQuantity((prevProductQuantity) => prevProductQuantity - 1);
         }
     }
     const handlePrice = (variantData) => {
@@ -62,9 +65,9 @@ export const ViewProduct = () => {
             setProduct(res);
             console.log(res);
             handlePrice(res?.variants[0]);
-            const productPageRes = await requests.get(`http://localhost:5055/api/theme/658921a204b7393748042e6f`);
+            const productPageRes = await requests.get(`/theme/${res?.theme}`);
             setProductTheme(productPageRes?.theme);
-            console.log(productPageRes);
+            // console.log(productPageRes);
         } catch (error) {
             console.log(error);
         }
@@ -75,6 +78,26 @@ export const ViewProduct = () => {
     useEffect(() => {
         fetchProductBySlug(productSlug);
     }, [productSlug]);
+
+    const addToCart = () => {
+        const cartData = {
+            productId: product?.productId,
+            image: product?.image[0],
+            title: product?.title?.en,
+            attribute: productPrice?.attribute.slice(1),
+            quantity: productQuantity
+        }
+
+        if(purchaseType === "single"){
+            cartData["price"] = productPrice?.price
+        }
+        else{
+            cartData["price"] = productPrice?.subscribePrice
+            cartData["subscription"] = "7Days"
+        }
+
+        console.log(cartData);
+    }
 
     return (
         <div>
@@ -130,7 +153,8 @@ export const ViewProduct = () => {
                                         </span>
                                     </div>
                                     <AllVariants product={product} setProductPrice={setProductPrice} setIsQuantityAvailable={setIsQuantityAvailable} />
-                                    {isQuantityAvailable ? <><ProductPrice productPrice={productPrice} />
+                                    {isQuantityAvailable ? <>
+                                    <ProductPrice purchaseType={purchaseType} setPurchaseType={setPurchaseType} productPrice={productPrice} />
                                     <div className='d-flex gap-3 my-3'>
                                         <div className="cartProductQuantity">
                                             <div>
@@ -147,9 +171,9 @@ export const ViewProduct = () => {
                                                 <input
                                                     type="text"
                                                     onChange={
-                                                        updateProductNo
+                                                        updateproductQuantity
                                                     }
-                                                    value={productNo}
+                                                    value={productQuantity}
                                                     className=" counterinput"
                                                 />
                                             </div>
@@ -165,7 +189,7 @@ export const ViewProduct = () => {
                                             </div>
                                         </div>
                                         <div className="addtocart">
-                                            <button className='addtocartbtn'>Add to Cart</button>
+                                            <button className='addtocartbtn' onClick={addToCart}>Add to Cart</button>
                                         </div>
                                     </div></> :
                                         <div className="VPNotifymebutton text-center my-2">

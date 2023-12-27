@@ -33,6 +33,11 @@ export const fetchPrice = (product) => {
     return originalPrice;
 }
 
+export const fetchSubscriptionPrice = (product) => {
+    let subscriptionPrice = Number(product?.subscription); 
+    return subscriptionPrice || 0;
+}
+
 export const findProductAttribute = (product, variants) => {
     let val = Object.values(product?.variants[0])[0];
     const findAttribute = variants ? variants.find((variant) => {
@@ -40,4 +45,34 @@ export const findProductAttribute = (product, variants) => {
     }) : null;
 
     return findAttribute?.name?.en;
+}
+
+export const isVariantAvailable = (variantData, variant) => {
+
+    let parentId = Object.keys(variant)[0];
+    let childId = Object.values(variant)[0];
+
+    let variantAvail = variantData.variants?.find((eachVariant) => {
+        return parentId == variantData._id && childId == eachVariant._id;
+    })
+
+    return variantAvail;
+}
+
+export const isVariantAvailableAll = (variantData, variant) => {
+
+        let parentId = Object.keys(variant)[0];
+        let childId = Object.values(variant)[0];
+
+        let variantAvail = null;
+        variantData.forEach((eachVariants) => {
+
+            if(eachVariants._id == parentId){
+                variantAvail = eachVariants.variants?.find((eachVariant) => {
+                    return childId == eachVariant._id;
+                });
+            }
+        });
+
+        return variantAvail;
 }
