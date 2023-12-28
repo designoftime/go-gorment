@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import requests from '../../../Services/httpService'
 import Variant from './Variant';
 import { useState } from 'react';
-import { fetchPrice, fetchSubscriptionPrice, isVariantAvailable, isVariantAvailableAll } from '../../../Redux/actions/productService';
+import { getFirstDifferentVariants, handlePrice } from '../../../Redux/actions/productService';
 
 const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
 
@@ -14,7 +14,12 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
     const fetchVariants = async () => {
         const res = await requests.get(`/attributes/show`);
         setVariants(res);
-        // console.log(res);
+        if(res?.variants){
+            const firstDifferentVariants = getFirstDifferentVariants(product.variants, setFocusVariants);
+            firstDifferentVariants.forEach((eachvariants,idx) => {
+              handlePrice(variants, eachvariants,idx, setVariantPrice, setIsQuantityAvailable);
+            });
+        }
     }
 
     fetchVariants();
@@ -22,62 +27,16 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
 
   useEffect(() => {
 
-    const getFirstDifferentVariants = (eachvariants) => {
-      const seenVariants = new Set();
-      const result = [];
-    
-      for (const val of eachvariants) {
-        const key = Object.keys(val)[0];
-        const value = Object.values(val)[0];
-    
-        if (!seenVariants.has(key)) {
-          seenVariants.add(key);
-          result.push(val);
-          setFocusVariants((prev) => {
-            const updatedArray = [...prev];
-            updatedArray.push(value); 
-            return updatedArray;
-          });
-        }
-      }
-    
-      return result;
-    };
-    
-    const handlePrice = (data,idx) => {
-
-      const checkVariant = isVariantAvailableAll(variants,data);
-      const productPrice = {
-          price: fetchPrice(data),
-          subscribePrice: fetchSubscriptionPrice(data),
-          attribute: checkVariant?.name?.en
-      }
-
-      setVariantPrice((prevVal) => {
-          const updatedArray = [...prevVal];
-          updatedArray[idx] = productPrice;
-          return updatedArray; 
-      });
-      
-      if(Number(data?.quantity) <= 0){
-          setIsQuantityAvailable(false);
-      }
-      else{
-          setIsQuantityAvailable(true);
-      }
-  }
-
     if(product?.variants){
-      const firstDifferentVariants = getFirstDifferentVariants(product.variants);
+      const firstDifferentVariants = getFirstDifferentVariants(product.variants, setFocusVariants);
       firstDifferentVariants.forEach((eachvariants,idx) => {
-        handlePrice(eachvariants,idx);
+        handlePrice(variants, eachvariants,idx, setVariantPrice, setIsQuantityAvailable);
       });
     }
 
   },[product]);
 
   useEffect(() => {
-    // console.log(variantPrice);
     let totalPrice = variantPrice.reduce((sum, currVal) => sum + currVal.price, 0);
     let subscribeTotalPrice = variantPrice.reduce((sum, currVal) => sum + currVal.subscribePrice, 0);
     let allAtrributes = variantPrice.reduce((sum, currVal) => sum += "," + (currVal.attribute), "");

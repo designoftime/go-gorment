@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import OffCanvas from "react-bootstrap/Offcanvas";
 import ProgressBar from 'react-bootstrap/ProgressBar'
@@ -13,9 +13,11 @@ import "../Navigation/Navigation2.css";
 import cartProductImg1 from "../Shop/images/SourCreamHoverimg.jpg";
 import cartProductImg2 from "../Shop/images/DarkChoc-Case_360x.png";
 import Star from './images/star.svg'
+import requests from "../../Services/httpService";
 export const Cart = () => {
-    const [productNo, setProductNo] = useState(0)
+    const [productQuantity, setProductQuantity] = useState(0)
     const [showcart, setShowCart] = useState(false);
+    const [cartData, setCartData] = useState([]);
     const handleShow = (event) => {
         event.preventDefault();
         setShowCart(true);
@@ -51,20 +53,31 @@ export const Cart = () => {
             cartpprice: "£60.00",
         },
     ];
-    const updateProductNo = (event) => {
+    const updateProductQuantity = (event) => {
         const newValue = parseInt(event.target.value);
         if (!isNaN(newValue)) {
-            setProductNo(newValue);
+            setProductQuantity(newValue);
         }
     };
     const increaseProduct = () => {
-        setProductNo((prevproductNo) => prevproductNo + 1);
+        setProductQuantity((prevVal) => prevVal + 1);
     };
     const decreaseProduct = () => {
-        if (productNo > 1) {
-            setProductNo((prevproductNo) => prevproductNo - 1);
+        if (productQuantity > 1) {
+            setProductQuantity((prevVal) => prevVal - 1);
         }
     };
+
+    useEffect(() => {
+        const fetchCarts = async () => {
+            const res = await requests.get("/cart");
+            setCartData(res.carts);
+            console.log(res);
+        }
+
+        fetchCarts();
+    }, []);
+
     return (
         <div>
             <button onClick={handleShow} className='accountIcon nav-link'><MdOutlineShoppingBag /></button>
@@ -78,49 +91,30 @@ export const Cart = () => {
                     {cartProductData.length == 1 ? <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong className="ProgressBartext">REWARDS</strong> Spend another £12.50 to qualify for free shipping</p> : cartProductData.length > 1 ? <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong className="ProgressBartext">REWARDS</strong> Great! You have got free shipping!</p> : <p className="ProgressBartext"><img src={Star} alt={Star} /><span /> <strong className="ProgressBartext">REWARDS</strong> Spend atleast £25.00 to qualify for free shipping</p>}
                     {cartProductData.length == 1 ? <ProgressBar now={50} /> : cartProductData.length > 1 ? <ProgressBar now={100} /> : <ProgressBar now={0} />}
                     <div className="CartProduct">
-                        {cartProductData.map((items, id) => {
-                            return (
-                                <div className="Cartgrid my-4" key={id}>
+                        {
+                            cartData.length && cartData.map((eachCart,idx) => {
+                                return (
+                                <div className="Cartgrid my-4" key={idx}>
                                     <div className="cartproductimg mt-1">
                                         <img
-                                            src={items.cartpimage}
-                                            alt={items.cartpimage}
+                                            src={eachCart?.image}
+                                            alt={eachCart?.image}
                                         />
                                     </div>
                                     <div className="cartProductremaing">
                                         <div className="cartRemainpart1">
                                             <div className="cartProductName mt-1">
-                                                {items.cartpheader}
+                                                {eachCart?.title}
                                             </div>
                                             <div className="cartProductDel ms-2">
                                             <BiSolidTrashAlt />
                                             </div>
                                         </div>
                                         <div className="cartProductSize">
-                                            {items.cartpsize}
+                                            {eachCart?.attribute}
                                         </div>
                                         <div className="cartRemainPart2">
                                             <div className="cartProductQuantity">
-                                                <div>
-                                                    <button
-                                                        className="counterbtn"
-                                                        onClick={
-                                                            increaseProduct
-                                                        }
-                                                    >
-                                                    <strong>+</strong>
-                                                    </button>
-                                                </div>
-                                                <div>
-                                                    <input
-                                                        type="text"
-                                                        onChange={
-                                                            updateProductNo
-                                                        }
-                                                        value={productNo}
-                                                        className=" counterinput"
-                                                    />
-                                                </div>
                                                 <div>
                                                     <button
                                                         className="counterbtn"
@@ -131,17 +125,36 @@ export const Cart = () => {
                                                         <strong>-</strong>
                                                     </button>
                                                 </div>
+                                                <div>
+                                                    <input
+                                                        type="text"
+                                                        onChange={
+                                                            updateProductQuantity
+                                                        }
+                                                        value={productQuantity}
+                                                        className=" counterinput"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <button
+                                                        className="counterbtn"
+                                                        onClick={
+                                                            increaseProduct
+                                                        }
+                                                    >
+                                                    <strong>+</strong>
+                                                    </button>
+                                                </div>
                                             </div>
                                             <div className="cartProductPrice">
-                                                {items.cartpprice}
+                                                {eachCart?.price}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             );
-                        })}
-                        
+                            })
+                        }
                         
                     </div>
                 </OffCanvas.Body>

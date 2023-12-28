@@ -76,3 +76,49 @@ export const isVariantAvailableAll = (variantData, variant) => {
 
         return variantAvail;
 }
+
+export const getFirstDifferentVariants = (eachvariants, setFocusVariants) => {
+      const seenVariants = new Set();
+      const result = [];
+    
+      for (const val of eachvariants) {
+        const key = Object.keys(val)[0];
+        const value = Object.values(val)[0];
+    
+        if (!seenVariants.has(key)) {
+          seenVariants.add(key);
+          result.push(val);
+          setFocusVariants((prev) => {
+            const updatedArray = [...prev];
+            updatedArray.push(value); 
+            return updatedArray;
+          });
+        }
+      }
+    
+      return result;
+};
+
+export const handlePrice = (variantData, data, idx, setVariantPrice, setIsQuantityAvailable) => {
+
+    const checkVariant = variantData._id ? isVariantAvailable(variantData,data) : isVariantAvailableAll(variantData,data);
+
+        const productPrice = {
+            price: fetchPrice(data),
+            subscribePrice: fetchSubscriptionPrice(data),
+            attribute: checkVariant?.name?.en
+        }
+
+        setVariantPrice((prevVal) => {
+            const updatedArray = [...prevVal];
+            updatedArray[idx] = productPrice; 
+            return updatedArray; 
+        });
+        
+        if(Number(data?.quantity) <= 0){
+            setIsQuantityAvailable(false);
+        }
+        else{
+            setIsQuantityAvailable(true);
+        }
+    }
