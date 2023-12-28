@@ -120,4 +120,4 @@ export const handlePrice = (variantData, data, idx, setVariantPrice, setIsQuanti
         else{
             setIsQuantityAvailable(true);
         }
-    }
+}

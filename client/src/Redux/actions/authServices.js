@@ -10,6 +10,7 @@ export function loginUser(userData, Navigate){
             const res = await requests.post("/customer/login", userData);
             dispatch(setUser(res));
             localStorage.setItem("user", JSON.stringify(res));
+            localStorage.removeItem("carts");
             toast('User Login Successfully !!');
             Navigate("/");
             
@@ -75,6 +76,7 @@ export function registerUserByGoogle(token, Navigate){
             const res = await requests.post(`/customer/signup/${token}`);
             dispatch(setUser(res));
             localStorage.setItem("user", JSON.stringify(res));
+            localStorage.removeItem("carts");
             toast('User Login Successfully !!');
             Navigate("/");
             
