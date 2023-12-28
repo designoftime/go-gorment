@@ -38,8 +38,15 @@ const customerSchema = new mongoose.Schema(
       required: false,
     },
     subscription: {
-      type: String,
-      required: false,
+      product: {
+        type: mongoose.Types.ObjectId,
+        ref: "Product",
+        reqrequired: false,
+      },
+      status: {
+        type: String,
+        enum: ["Active", "Inactive"],
+      },
     },
   },
   {
