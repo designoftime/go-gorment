@@ -124,7 +124,7 @@ const CustomersReviews = () => {
                             "{item?.reviewTitle}"
                           </p>
                           <p className="text-gray-600 dark:text-gray-400">
-                            {item.review}
+                            "{item.review}"
                           </p>
                           <EditDeleteButton
                             id={item?._id}

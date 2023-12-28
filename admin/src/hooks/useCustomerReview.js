@@ -16,7 +16,6 @@ const useCustomerReviewsSubmit = (id) => {
     setValue,
     formState: { errors },
   } = useForm();
-console.log(id)
   const onSubmit = async (data) => {
     try {
       const reviewData = {
@@ -44,9 +43,9 @@ console.log(id)
           const res = await ReviewsServices.getReviewById(id);
           console.log(res,"kjhkj")
           if (res) {
-            setValue("review_rating", res.rating);
-            setValue("review_title", res.reviewTitle);
-            setValue("review_description", res.review);
+            setValue("review_rating", res.data.rating);
+            setValue("review_title", res.data.reviewTitle);
+            setValue("review_description", res.data.review);
           }
         } catch (err) {
           notifyError(err ? err?.response?.data?.message : err.message);
