@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import requests from '../../Services/httpService';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCartLocal } from '../../Redux/actions/cartServices';
 
-const CartQuantity = ({cartId, quantity,fetchCarts}) => {
+const CartQuantity = ({cartAttribute, cartSubscription, cartId, quantity, fetchCarts}) => {
 
     const [productQuantity, setProductQuantity] = useState(quantity);
+    const user = JSON.parse(localStorage.getItem("user"));
+    const reduxCarts = useSelector((store => store.carts?.carts));
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setProductQuantity(quantity);
     }, [quantity]);
 
     const updateCartQuantity = async (cartId, newQuantity) => {
+        if(!user?.token){
+            updateCartLocal({attribute: cartAttribute,subscription: cartSubscription,quantity: newQuantity});
+            return;
+        }
+
         await requests.put(`cart/${cartId}`, {newQuantity});
     }
 
