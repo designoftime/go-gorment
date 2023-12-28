@@ -11,7 +11,13 @@ const addToCart = async (req,res) => {
             await newCart.save();
         }
         else{
-            cart.carts.push(req.body.cart);
+            if(Array.isArray(req.body.cart)){
+              cart.carts.push(...req.body.cart);
+            }
+            else{
+              cart.carts.push(req.body.cart);
+            }
+            
             await cart.save();
         }
         
