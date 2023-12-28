@@ -21,7 +21,7 @@ const updateReviews = async (req, res) => {
     const reviewData = {
       rating: dataR.rating,
       reviewTitle: dataR.reviewTitle,
-      review: dataR.reviewTitle,
+      review: dataR.review,
     };
     const data = await Reviews.findByIdAndUpdate(id, reviewData, { new: true });
     res.status(201).send({
@@ -54,7 +54,7 @@ const getReviewById = async (req, res) => {
   try {
     const id = req.params.id;
     if (!id) return new Error("Id Not found");
-    const data = await Reviews.findById();
+    const data = await Reviews.findById(id);
     res.status(201).send({
       message: "succes",
       data,

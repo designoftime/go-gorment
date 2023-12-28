@@ -19,6 +19,7 @@ import AttributeServices from "@/services/AttributeServices";
 import CurrencyServices from "@/services/CurrencyServices";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import ThemeServices from "@/services/themeServices";
+import ReviewsServices from "@/services/reviewsServices";
 
 const DeleteModal = ({ id, ids, setIsCheck, category, title, useParamId }) => {
   const { isModalOpen, closeModal, setIsUpdate } = useContext(SidebarContext);
@@ -92,6 +93,14 @@ const DeleteModal = ({ id, ids, setIsCheck, category, title, useParamId }) => {
           closeModal();
           setIsSubmitting(false);
         }
+      }
+      if (location.pathname === "/review") {
+        const res = await ReviewsServices.deleteReviews(id);
+        setIsUpdate(true);
+        notifySuccess(res.message);
+        setServiceId();
+        closeModal();
+        setIsSubmitting(false);
       }
       if (location.pathname === "/categories" || category) {
         if (ids) {

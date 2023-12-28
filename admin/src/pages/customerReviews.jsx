@@ -6,7 +6,7 @@ import {
   TableContainer,
   TableFooter,
 } from "@windmill/react-ui";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@windmill/react-ui";
 
@@ -24,7 +24,9 @@ import useToggleDrawer from "@/hooks/useToggleDrawer";
 import ReviewsServices from "@/services/reviewsServices";
 import TableLoading from "@/components/preloader/TableLoading";
 import { SidebarContext } from "@/context/SidebarContext";
-import DrawerButton from "@/components/form/button/DrawerButton";
+import DeleteModal from "@/components/modal/DeleteModal";
+import CardItemTwo from "@/components/dashboard/CardItemTwo";
+import { Avatar } from "@windmill/react-ui";
 
 const CustomersReviews = () => {
   const { data, loading, error } = useAsync(ReviewsServices.getAllReviews);
@@ -56,14 +58,90 @@ const CustomersReviews = () => {
     imageUrl,
     isSubmitting,
   } = useCustomerReviewsSubmit(serviceId);
+
   return (
     <>
+      <DeleteModal id={serviceId} title={title} />
       <PageTitle>{"Customer Reviews"}</PageTitle>
+
       <div className="flex-grow scrollbar-hide w-full max-h-full xl:px-10">
         <div className="inline-flex md:text-base text-sm my-3 text-gray-500 dark:text-gray-400">
           <strong>{" Manage All Customer Reviews"}</strong>
         </div>
         <hr className="md:mb-12 mb-3" />
+        <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+          {data.totalReviews} global ratings
+        </p>
+        <div className="flex items-center mt-4">
+          <a
+            href="#"
+            className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            {data.fiveStar} star
+          </a>
+          <div
+            style={{ width: ` ${data.fiveStar}px` }}
+            className={`h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
+          >
+            <div className="h-5 bg-yellow-300 rounded"></div>
+          </div>
+        </div>
+        <div className="flex items-center mt-4">
+          <a
+            href="#"
+            className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            {data.fourStar} star
+          </a>
+          <div
+            style={{ width: ` ${data.fourStar}px` }}
+            className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
+          >
+            <div className="h-5 bg-yellow-300 rounded"></div>
+          </div>
+        </div>
+        <div className="flex items-center mt-4">
+          <a
+            href="#"
+            className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            {data.threeStar} star
+          </a>
+          <div
+            style={{ width: ` ${data.threeStar}px` }}
+            className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
+          >
+            <div className="h-5 bg-yellow-300 rounded"></div>
+          </div>
+        </div>
+        <div className="flex items-center mt-4">
+          <a
+            href="#"
+            className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            {data.twoStar} star
+          </a>
+          <div
+            style={{ width: ` ${data.twoStar}px` }}
+            className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
+          >
+            <div className="h-5 bg-yellow-300 rounded"></div>
+          </div>
+        </div>
+        <div className="flex items-center mt-4 pb-8">
+          <a
+            href="#"
+            className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            {data.oneStar} star
+          </a>
+          <div
+            style={{ width: ` ${data.oneStar}px` }}
+            className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
+          >
+            <div className="h-5 bg-yellow-300 rounded"></div>
+          </div>
+        </div>
         {loading ? (
           <TableLoading row={12} col={7} width={160} height={20} />
         ) : error ? (
@@ -72,130 +150,93 @@ const CustomersReviews = () => {
           <TableContainer className="mb-8">
             <div className="grid  md:grid-cols-12 sm:grid-cols-12 gap-3 md:gap-5 xl:gap-6 lg:gap-6 md:mb-6 mb-3 relative">
               {!isDrawerOpen ? (
-                data.data.length >= 0 &&
-                data?.data.map((item, i) => (
-                  <>
-                    <div className="sm:col-span-4" key={i}>
-                      <Card>
-                        <img
-                          className="w-full h-64"
-                          src={item?.productId?.image[0]}
-                        />
-                        <CardBody>
-                          <p className="mb-4 font-semibold text-gray-600 dark:text-gray-300">
-                            {item?.productId?.title?.en}
-                          </p>
-                          <p className=" flex justify-between mb-4 font-semibold text-gray-600 dark:text-gray-300">
-                            <div>
-                              {item?.name}{" "}
-                              <Badge type="success">verified</Badge>
-                            </div>
-                            <div className="flex items-center">
-                              {Array(item?.rating)
-                                .fill(0)
-                                .map(() => (
-                                  <svg
-                                    className="w-4 h-4 text-yellow-300 me-1"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    viewBox="0 0 22 20"
-                                  >
-                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                  </svg>
-                                ))}
-                            </div>
-                          </p>
-                          <p className="mb-4 font-semibold text-gray-400 dark:text-gray-200">
-                            "{item?.reviewTitle}"
-                          </p>
-                          <p className="text-gray-600 dark:text-gray-400">
-                            {item.review}
-                          </p>
-                          <EditDeleteButton
-                            id={item?._id}
-                            // isCheck={isCheck}
-                            handleUpdate={handleUpdate}
-                            handleModalOpen={handleModalOpen}
-                            title={item?.reviewTitle}
+                data.data.length >= 0 ? (
+                  data?.data.map((item, i) => (
+                    <>
+                      <div className="sm:col-span-4" key={i}>
+                        <Card>
+                          <img
+                            className="w-full h-64"
+                            src={item?.productId?.image[0]}
                           />
-                        </CardBody>
-                      </Card>
-                    </div>
-                  </>
-                ))
+                          <CardBody>
+                            <p className="mb-4 font-semibold text-gray-600 dark:text-gray-300">
+                              {item?.productId?.title?.en}
+                            </p>
+                            <p className=" flex justify-between mb-4 font-semibold text-gray-600 dark:text-gray-300">
+                              <div className="flex justify-between gap-2">
+                                <Avatar
+                                  size="small"
+                                  src={item?.user?.image}
+                                  alt="Judith"
+                                />
+                                {item?.name}
+                                {item.emailStatus && (
+                                  <Badge type="success">verified</Badge>
+                                )}
+                              </div>
+                              <div className="flex items-center">
+                                {Array(item?.rating)
+                                  .fill(0)
+                                  .map((el, i) => (
+                                    <>
+                                      <svg
+                                        key={i}
+                                        className="w-4 h-4 text-yellow-300 me-1"
+                                        aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor"
+                                        viewBox="0 0 22 20"
+                                      >
+                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                      </svg>
+                                    </>
+                                  ))}
+                                <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                                  {item?.rating}
+                                </p>
+                                <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                                  out of
+                                </p>
+                                <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                                  5
+                                </p>
+                                {/* <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                                Review ({data.totalReviews})
+                              </p> */}
+                              </div>
+                            </p>
+                            <p className="mb-4 font-semibold text-gray-400 dark:text-gray-200">
+                              "{item?.reviewTitle}"
+                            </p>
+                            <p className="text-gray-600 dark:text-gray-400">
+                              "{item.review}"
+                            </p>
+                            <EditDeleteButton
+                              id={item?._id}
+                              // isCheck={isCheck}
+                              handleUpdate={handleUpdate}
+                              handleModalOpen={handleModalOpen}
+                              title={item?.reviewTitle}
+                            />
+                          </CardBody>
+                        </Card>
+                      </div>
+                    </>
+                  ))
+                ) : (
+                  <NotFound title="Sorry, There are no customers reviews right now." />
+                )
               ) : (
                 <div className="sm:col-span-4">
                   <Card>
                     <CardBody>
-                      <p className=" flex justify-between mb-4 font-semibold text-gray-600 dark:text-gray-300">
-                        <div>
-                          Adarsh Verma <Badge type="success">verified</Badge>
-                        </div>
-                        <div className="flex items-center">
-                          <svg
-                            className="w-4 h-4 text-yellow-300 me-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                          >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                          </svg>
-                          <svg
-                            className="w-4 h-4 text-yellow-300 me-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                          >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                          </svg>
-                          <svg
-                            className="w-4 h-4 text-yellow-300 me-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                          >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                          </svg>
-                          <svg
-                            className="w-4 h-4 text-yellow-300 me-1"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                          >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                          </svg>
-                          <svg
-                            className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor"
-                            viewBox="0 0 22 20"
-                          >
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                          </svg>
-                          <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                            4
-                          </p>
-                          <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                            out of
-                          </p>
-                          <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
-                            5
-                          </p>
-                        </div>
-                      </p>
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="col-span-4">
                           <label className="block md:text-sm md:col-span-1 sm:col-span-2 text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">
                             Review Rating
                           </label>
                           <InputAreaTwo
-                            required
                             register={register}
                             label={t("Review Rating")}
                             name="review_rating"
@@ -264,7 +305,6 @@ const CustomersReviews = () => {
           </TableContainer>
         )}
       </div>
-      <NotFound title="Sorry, There are no customers reviews right now." />
     </>
   );
 };

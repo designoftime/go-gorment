@@ -77,7 +77,7 @@ import ThemeServices from "@/services/themeServices";
         <DeleteModal
           ids={allId}
           setIsCheck={setIsCheck}
-          title="Selected Coupon"
+          title="Selected Theme"
         />
         <BulkActionDrawer ids={allId} title="Theme" />
   
