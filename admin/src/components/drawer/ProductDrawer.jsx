@@ -82,6 +82,8 @@ const ProductDrawer = ({ id }) => {
     setDefaultCategory,
     defaultCategory,
     handleProductSlug,
+    subscriptionsDuration,
+    setSubscriptionsDuration,
     handleSelectLanguage,
     handleIsCombination,
     handleEditVariant,
@@ -388,6 +390,16 @@ const ProductDrawer = ({ id }) => {
                     placeholder={t("ProductTagPlaseholder")}
                     tags={tag}
                     onChange={(newTags) => setTag(newTags)}
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label={t("Subscriptions Duration")} />
+                <div className="col-span-8 sm:col-span-4">
+                  <ReactTagInput
+                    placeholder={t("Subscriptions Duration")}
+                    tags={subscriptionsDuration}
+                    onChange={(newTags) => setSubscriptionsDuration(newTags)}
                   />
                 </div>
               </div>
