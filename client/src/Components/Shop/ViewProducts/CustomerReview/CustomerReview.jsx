@@ -163,7 +163,7 @@ export const CustomerReview = () => {
                 <div className="review-main-container container">
                     {reviewSliderVal.slice(i, i + 5).map((items, id) => {
                         return (
-                            <div>
+                            <div key={id}>
                                 <hr style={{ color: "#412f59", height: "10px", width: "100%" }} />
                                 <div className=" my-1 review-header-container d-flex justify-content-between">
                                     <div className="reviewTitle">
@@ -178,7 +178,7 @@ export const CustomerReview = () => {
 
                                             }
                                             return (
-                                                <span className="reviewcstar">{starArray == index ? <IoIosStar /> : <IoIosStarOutline />}</span>
+                                                <span className="reviewcstar" key={index}>{starArray == index ? <IoIosStar /> : <IoIosStarOutline />}</span>
                                             )
                                         })}
                                     </div>
@@ -202,7 +202,7 @@ export const CustomerReview = () => {
 
 
     return (
-        <div>
+        <>
             <div className="CustomerReview-section">
                 <div className="container">
                     <h1 className="CR-header text-uppercase text-center my-5">Customer Review</h1>
@@ -316,9 +316,9 @@ export const CustomerReview = () => {
                                     </div>
                                     <div className='reviewInputs'>
                                         <label htmlFor="rating" className='reviewlable fw-bolder'>Rating</label><br />
-                                        {[1, 2, 3, 4, 5].map((star) => {
+                                        {[1, 2, 3, 4, 5].map((star,index) => {
                                             return (
-                                                <button key={star} className='starbtn' onClick={clickRatingChange} name={`star${star}`
+                                                <button key={index} className='starbtn' onClick={clickRatingChange} name={`star${star}`
                                                 }>
                                                     {ratingChange[`star${star}`] || hoveredStar >= star ? (<IoIosStar />) : (<IoIosStarOutline />)}
                                                 </button>
@@ -352,7 +352,7 @@ export const CustomerReview = () => {
                     <Pagination.Prev />
                     {Array.from({ length: totalReviewPages }, (_, index) => {
                         return (
-                            <Pagination.Item key={index + 1} active={currentPage === index + 1}
+                            <Pagination.Item key={index+1} active={currentPage === index + 1}
                                 onClick={() => handlePageChange(index + 1)}>
                                 {index + 1}
                             </Pagination.Item>
@@ -362,7 +362,7 @@ export const CustomerReview = () => {
                     <Pagination.Last />
                 </Pagination>
             </div>
-        </div >
+        </>
     )
 }
 

@@ -6,7 +6,24 @@ const CheckoutCarts = () => {
     const [cartData, setCartData] = useState([]);
     const [totalCartVal, setTotalCartVal] = useState(0);
 
+    const user = JSON.parse(localStorage.getItem("user"));
+    
     useEffect(() => {
+        
+        if(!user?.token){
+            const localCarts = JSON.parse(localStorage.getItem("carts"));
+            if(!localCarts){
+                return;
+            }
+            let totalCartAmount = localCarts.reduce((sum, currVal) => {
+                return (sum += currVal.price * currVal.quantity);
+            }, 0);
+
+            setCartData(localCarts);
+            setTotalCartVal(totalCartAmount);
+            return;
+        }
+
         const fetchCarts = async () => {
             const res = await requests.get("/cart");
             let totalCartAmount = res?.carts.reduce((sum, currVal) => {
