@@ -21,7 +21,7 @@ const updateReviews = async (req, res) => {
     const reviewData = {
       rating: dataR.rating,
       reviewTitle: dataR.reviewTitle,
-      review: dataR.reviewTitle,
+      review: dataR.review,
     };
     const data = await Reviews.findByIdAndUpdate(id, reviewData, { new: true });
     res.status(201).send({
