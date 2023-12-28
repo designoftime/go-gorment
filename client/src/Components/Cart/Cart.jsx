@@ -35,11 +35,16 @@ export const Cart = () => {
 
     if(!user?.token){
       const localCarts = JSON.parse(localStorage.getItem("carts"));
-      setCartData(localCarts);
+
+      if(!localCarts){
+        return;
+      }
+      
       let totalCartAmount = localCarts.reduce((sum, currVal) => {
         return sum += (currVal.price * currVal.quantity);
       },0);
-
+      
+      setCartData(localCarts);
       setTotalCartVal(totalCartAmount);
       return;
     }
