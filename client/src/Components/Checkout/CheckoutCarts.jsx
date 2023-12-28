@@ -7,12 +7,11 @@ const CheckoutCarts = () => {
     const [totalCartVal, setTotalCartVal] = useState(0);
 
     const user = JSON.parse(localStorage.getItem("user"));
-    
+
     useEffect(() => {
-        
-        if(!user?.token){
+        if (!user?.token) {
             const localCarts = JSON.parse(localStorage.getItem("carts"));
-            if(!localCarts){
+            if (!localCarts) {
                 return;
             }
             let totalCartAmount = localCarts.reduce((sum, currVal) => {
@@ -68,6 +67,55 @@ const CheckoutCarts = () => {
                       })
                     : null}
             </div>
+            <section className="checkout-footer-section">
+                {/* <div className="hr-black-checkout"></div> */}
+
+                <div className="checkout-total-amount-info">
+                    <div className="checkout-discount-code">
+                        <input type="text" placeholder="Gift or Promo Code" />
+                        <button>Apply</button>
+                    </div>
+
+                    <div className="checkout-subtotal">
+                        <div className="checkout-subtotal-text">
+                            <h2>Subtotal</h2>
+                        </div>
+                        <div className="checkout-subtotal-price">
+                            <span>
+                                $&nbsp;{"subTotal"}
+                                &nbsp;USD
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="checkout-estimated-shipping">
+                        <div className="checkout-subtotal-text">
+                            <h2>Estimated Shipping</h2>
+                        </div>
+                        <div className="checkout-subtotal-price">
+                            <span>
+                                $&nbsp;{"subTotal"}
+                                &nbsp;USD
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="checkout-total">
+                        <div className="checkout-subtotal-text">
+                            <h2>Total</h2>
+                        </div>
+                        <div className="checkout-subtotal-price">
+                            <span>
+                                $&nbsp;{"subTotal"}
+                                &nbsp;USD
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="checkout-checkout-btn">
+                    <button>Place Order</button>
+                </div>
+            </section>
         </div>
     );
 };
