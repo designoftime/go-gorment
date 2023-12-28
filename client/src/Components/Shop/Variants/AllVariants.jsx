@@ -14,7 +14,8 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
     const fetchVariants = async () => {
         const res = await requests.get(`/attributes/show`);
         setVariants(res);
-        if(res?.variants){
+
+        if(product?.variants){
             const firstDifferentVariants = getFirstDifferentVariants(product.variants, setFocusVariants);
             firstDifferentVariants.forEach((eachvariants,idx) => {
               handlePrice(variants, eachvariants,idx, setVariantPrice, setIsQuantityAvailable);
@@ -27,7 +28,7 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
 
   useEffect(() => {
 
-    if(product?.variants){
+    if(product?.variants || variants.length){
       const firstDifferentVariants = getFirstDifferentVariants(product.variants, setFocusVariants);
       firstDifferentVariants.forEach((eachvariants,idx) => {
         handlePrice(variants, eachvariants,idx, setVariantPrice, setIsQuantityAvailable);

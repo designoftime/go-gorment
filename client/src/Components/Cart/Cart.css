@@ -55,7 +55,7 @@
     display: grid;
     grid-template-columns: 5fr 1fr;
 }
-.cartProductName, .cartProductSize, .CartOrder-header, .CartOrder-Price, .ProgressBartext, .Cartheader{
+.cartProductName, .cartProductSize, .CartOrder-header, .ProgressBartext, .Cartheader{
     font-family: bannerhomebtn;
 }
 
@@ -77,6 +77,7 @@
 .cartProductDel{
     color: #4c4294;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 .counterbtn {
     width: 1.8rem;

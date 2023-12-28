@@ -4,13 +4,13 @@ import '../Shop/ViewProducts/ViewProducts.css'
 import Gpayimge from './images/gpay (1).png'
 import Paypalimge from './images/images.png'
 import Shopayimge from './images/download.jpg'
-import Productimage from '../Shop/images/SourCreamHoverimg.jpg'
 import { IoSearchOutline } from "react-icons/io5";
 import { IoAdd } from "react-icons/io5";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { CiMobile2 } from "react-icons/ci";
 import { GoLock } from "react-icons/go";
 import { Link } from 'react-router-dom'
+import CheckoutCarts from './CheckoutCarts'
 const Checkout = () => {
   const [showInput, setShowInput] = useState(false);
   const [shippingType, setShippingType] = useState("standard");
@@ -204,19 +204,7 @@ const Checkout = () => {
               </form>
             </div>
           </div>
-          <div className="Checkout-right my-5 col-sm-12 col-md-xl-6">
-            <div className="Checkout-container w-75">
-              <div className="Product-view row">
-                <div className="col-2">
-                  <div className="image-block">
-                    <img src={Productimage} alt="" />
-                  </div>
-                </div>
-                <div className="col-6"></div>
-                <div className="col-3"></div>
-              </div>
-            </div>
-          </div>
+          <CheckoutCarts />
         </div>
       </div >
     </div >
