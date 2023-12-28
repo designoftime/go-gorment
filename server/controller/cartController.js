@@ -82,6 +82,15 @@ const getCartByUserId = async (req,res) => {
     try {
        
         const cart = await Cart.findOne({user: req.user._id});
+
+        if(!cart){
+          return res.status(404).json({
+            success: false,
+            message: `Cart Not Found !!`,
+            carts: []
+          });
+        }
+
         return res.status(200).json({
             carts: cart.carts,
             success: true,

@@ -3019,6 +3019,9 @@
           "401": {
             "description": "Unauthorized"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -3160,6 +3163,33 @@
         }
       },
       "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
         "description": "",
         "parameters": [
           {
