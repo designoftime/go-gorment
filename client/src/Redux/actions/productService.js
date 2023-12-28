@@ -100,9 +100,8 @@ export const getFirstDifferentVariants = (eachvariants, setFocusVariants) => {
 };
 
 export const handlePrice = (variantData, data, idx, setVariantPrice, setIsQuantityAvailable) => {
-    
-    const checkVariant = variantData._id ? isVariantAvailable(variantData,data) : isVariantAvailableAll(variantData,data);
 
+        const checkVariant = variantData?._id ? isVariantAvailable(variantData,data) : isVariantAvailableAll(variantData,data);
         const productPrice = {
             price: fetchPrice(data),
             subscribePrice: fetchSubscriptionPrice(data),

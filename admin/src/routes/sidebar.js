@@ -60,6 +60,11 @@ const sidebar = [
     name: "Customers",
   },
   {
+    path: "/review",
+    icon:FiSlack,
+    name: "Review",
+  },
+  {
     path: "/orders",
     icon: FiCompass,
     name: "Orders",

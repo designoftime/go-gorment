@@ -50,6 +50,22 @@ const deleteReviews = async (req, res) => {
   }
 };
 
+const getReviewById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) return new Error("Id Not found");
+    const data = await Reviews.findById();
+    res.status(201).send({
+      message: "succes",
+      data,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: `solve the internal ${err}`,
+    });
+  }
+};
+
 const getAllReview = async (req, res) => {
   try {
     const { page, limit } = req.query;
@@ -68,6 +84,7 @@ const getAllReview = async (req, res) => {
     const threeStar = await Reviews.find({ rating: 3 }).count();
     const twoStar = await Reviews.find({ rating: 2 }).count();
     const oneStar = await Reviews.find({ rating: 1 }).count();
+
     res.status(200).send({
       message: "seccess",
       totalReviews,
@@ -90,4 +107,5 @@ module.exports = {
   updateReviews,
   deleteReviews,
   getAllReview,
+  getReviewById,
 };

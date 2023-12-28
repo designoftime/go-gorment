@@ -81,13 +81,24 @@ export const ViewProduct = () => {
             cartData["subscription"] = "7 Days"
         }
 
-        console.log(cartData);
         const AddToCartAPI = async () => {
-            const resData = await requests.post("/cart/add-to-cart", JSON.stringify({ cart: cartData}));
-            console.log(resData);
+            
+            const getCarts = await requests.get("/cart");
+            let findCart = getCarts.carts.find((eachCart) => {
+                return (eachCart.productId === cartData.productId && eachCart.attribute === cartData.attribute)
+            });
+
+            if(findCart){
+                const resData = await requests.put(`cart/${findCart._id}`, {newQuantity: (findCart.quantity + cartData.quantity)});
+                console.log(resData);
+            }
+            else{
+                console.log('not found', findCart);
+                await requests.post("/cart/add-to-cart", { cart: cartData });
+            }
         }
 
-        // AddToCartAPI();
+        AddToCartAPI();
     }
 
     return (
