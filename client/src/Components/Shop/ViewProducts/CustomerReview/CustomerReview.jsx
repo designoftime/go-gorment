@@ -8,6 +8,8 @@ import AccordionBody from 'react-bootstrap/esm/AccordionBody';
 import Card from 'react-bootstrap/Card'
 import { Collapse } from 'react-collapse';
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper/modules';
 export const CustomerReview = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -35,6 +37,108 @@ export const CustomerReview = () => {
     const handleReviewAccordian = () => {
         setIsCollapsed(!isCollapsed);
     }
+    const renderReviewSlide = () => {
+        let slides = [];
+        for (let i = 0; i < reviewSliderVal.length; i += 5) {
+            slides.push(
+                <SwiperSlide key={i}>
+                    {reviewSliderVal.slice(i, i + 5).map((items, id) => {
+                        return (
+                            <div>
+                                <hr style={{ color: "#412f59", height: "10px", width: "90%" }} />
+                                <div className="review-main-container">
+                                    <div className="review-header-container d-flex justify-content-between">
+                                        <div className="reviewTitle">
+                                            {items.verifyc == 'verified' ? <span><span>Verified</span> <span>{items.customername}</span></span> : <span><span>{items.customername}</span> <span>{items.verifyc}</span></span>}
+                                        </div>
+                                        <div className="customerReviewStar">
+                                            {[1, 2, 3, 4, 5].map((index) => {
+                                                return (
+                                                    <span className="reviewcstar">{items.reviewstar ? <IoIosStar /> : <IoIosStarOutline />}</span>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div className="reviewContent">
+                                        <p>{items.review}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </SwiperSlide>
+            )
+        }
+        return slides;
+    }
+    const reviewSliderVal = [
+        {
+            id: 1,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 2,
+            "customername": "Richard ",
+            "verifyc": "verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 3,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 4,
+            "customername": "Richard ",
+            "verifyc": "verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 5,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 6,
+            "customername": "Richard ",
+            "verifyc": "verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 7,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 8,
+            "customername": "Richard ",
+            "verifyc": "verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+
+    ]
+
 
     return (
         <div>
@@ -172,7 +276,7 @@ export const CustomerReview = () => {
                                         <label htmlFor="media" className='reviewlable fw-bolder'>Photo/Video(Optional)</label><br />
                                         <input type="file" accept='video/*,image/*' className='reviewMediaInput'/>
                                     </div> */}
-                                    <p className='my-3 fs-5 fw-bold'>How we use your data: We’ll only contact you about the review you left, and only if necessary. By submitting your review, you agree to Judge.me’s <Link style={{color:"#412f59"}} to='/policies/terms-of-service'> terms and conditions</Link> and  <Link to='/polices/privacy-policy' style={{color:"#412f59"}}>privacy policy</Link>.</p>
+                                    <p className='my-3 fs-5 fw-bold'>How we use your data: We’ll only contact you about the review you left, and only if necessary. By submitting your review, you agree to Judge.me’s <Link style={{ color: "#412f59" }} to='/policies/terms-of-service'> terms and conditions</Link> and  <Link to='/polices/privacy-policy' style={{ color: "#412f59" }}>privacy policy</Link>.</p>
                                     <div className="d-flex justify-content-center">
                                         <button className='reviewsubmitbtn'>Submit review</button>
                                     </div>
@@ -181,6 +285,13 @@ export const CustomerReview = () => {
                         </Collapse>
                     </div>
                 </div>
+                <Swiper
+                    pagination={Pagination}
+                    modules={[Pagination]}
+                    className='mySwiper'
+                >
+                    {renderReviewSlide()}
+                </Swiper>
             </div>
         </div >
     )
