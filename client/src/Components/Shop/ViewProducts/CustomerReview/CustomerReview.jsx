@@ -9,10 +9,126 @@ import Card from 'react-bootstrap/Card'
 import { Collapse } from 'react-collapse';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules';
+import Pagination from 'react-bootstrap/Pagination'
 export const CustomerReview = () => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const reviewSliderVal = [
+        {
+            id: 1,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 2,
+            "customername": "Richard ",
+            "verifyc": `Verified by shop`,
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 3,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 4,
+            "customername": "Richard ",
+            "verifyc": "Verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 5,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 6,
+            "customername": "Richard ",
+            "verifyc": "Verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 7,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 8,
+            "customername": "Richard ",
+            "verifyc": "Verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 9,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 10,
+            "customername": "Richard ",
+            "verifyc": "Verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 11,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 12,
+            "customername": "Richard ",
+            "verifyc": "Verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
+        {
+            id: 13,
+            "customername": "Lozzy",
+            "verifyc": "verified",
+            "reviewtitle": "Delightful",
+            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
+            "reviewstar": '5'
+        },
+        {
+            id: 14,
+            "customername": "Richard ",
+            "verifyc": "Verified by shop",
+            "reviewtitle": "Great",
+            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
+            "reviewstar": '4'
+        },
 
+    ]
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemPerPage = 5;
     const [ratingChange, setRatingChange] = useState({
         "star1": true,
         "star2": true,
@@ -38,106 +154,51 @@ export const CustomerReview = () => {
         setIsCollapsed(!isCollapsed);
     }
     const renderReviewSlide = () => {
+        const startIndex = (currentPage - 1) * itemPerPage;
+        const endIndex = currentPage + itemPerPage;
+        const paginatedReviews = reviewSliderVal.slice(startIndex, endIndex);
         let slides = [];
-        for (let i = 0; i < reviewSliderVal.length; i += 5) {
+        for (let i = 0; i < paginatedReviews.length; i += 5) {
             slides.push(
-                <SwiperSlide key={i}>
+                <div className="review-main-container container">
                     {reviewSliderVal.slice(i, i + 5).map((items, id) => {
                         return (
                             <div>
-                                <hr style={{ color: "#412f59", height: "10px", width: "90%" }} />
-                                <div className="review-main-container">
-                                    <div className="review-header-container d-flex justify-content-between">
-                                        <div className="reviewTitle">
-                                            {items.verifyc == 'verified' ? <span><span>Verified</span> <span>{items.customername}</span></span> : <span><span>{items.customername}</span> <span>{items.verifyc}</span></span>}
-                                        </div>
-                                        <div className="customerReviewStar">
-                                            {[1, 2, 3, 4, 5].map((index) => {
-                                                return (
-                                                    <span className="reviewcstar">{items.reviewstar ? <IoIosStar /> : <IoIosStarOutline />}</span>
-                                                )
-                                            })}
-                                        </div>
+                                <hr style={{ color: "#412f59", height: "10px", width: "100%" }} />
+                                <div className=" my-1 review-header-container d-flex justify-content-between">
+                                    <div className="reviewTitle">
+                                        {items.verifyc == 'verified' ? <span><span className='activeVerified fw-bolder'>Verified</span> <span className='fw-bolder'>{items.customername}</span></span> : <span><span className='fw-bolder'>{items.customername}</span> <span className='shopVerified fw-bolder'>{items.verifyc}</span></span>}
                                     </div>
-                                    <div className="reviewContent">
-                                        <p>{items.review}</p>
+                                    <div className="customerReviewStar">
+                                        {[1, 2, 3, 4, 5].map((index) => {
+                                            let starArray = [];
+                                            let remainArray = [];
+                                            if (items.reviewstar == index) {
+                                                starArray.push([1, 2, 3, 4, 5].slice(index[0], index[items.reviewstar]))
+
+                                            }
+                                            return (
+                                                <span className="reviewcstar">{starArray == index ? <IoIosStar /> : <IoIosStarOutline />}</span>
+                                            )
+                                        })}
                                     </div>
+                                </div>
+                                <div className="reviewContent">
+                                    <p>{items.review}</p>
                                 </div>
                             </div>
                         )
                     })}
-                </SwiperSlide>
+                </div>
             )
         }
         return slides;
     }
-    const reviewSliderVal = [
-        {
-            id: 1,
-            "customername": "Lozzy",
-            "verifyc": "verified",
-            "reviewtitle": "Delightful",
-            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-            "reviewstar": '5'
-        },
-        {
-            id: 2,
-            "customername": "Richard ",
-            "verifyc": "verified by shop",
-            "reviewtitle": "Great",
-            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-            "reviewstar": '4'
-        },
-        {
-            id: 3,
-            "customername": "Lozzy",
-            "verifyc": "verified",
-            "reviewtitle": "Delightful",
-            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-            "reviewstar": '5'
-        },
-        {
-            id: 4,
-            "customername": "Richard ",
-            "verifyc": "verified by shop",
-            "reviewtitle": "Great",
-            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-            "reviewstar": '4'
-        },
-        {
-            id: 5,
-            "customername": "Lozzy",
-            "verifyc": "verified",
-            "reviewtitle": "Delightful",
-            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-            "reviewstar": '5'
-        },
-        {
-            id: 6,
-            "customername": "Richard ",
-            "verifyc": "verified by shop",
-            "reviewtitle": "Great",
-            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-            "reviewstar": '4'
-        },
-        {
-            id: 7,
-            "customername": "Lozzy",
-            "verifyc": "verified",
-            "reviewtitle": "Delightful",
-            "review": "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-            "reviewstar": '5'
-        },
-        {
-            id: 8,
-            "customername": "Richard ",
-            "verifyc": "verified by shop",
-            "reviewtitle": "Great",
-            "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-            "reviewstar": '4'
-        },
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
+    const totalReviewPages = Math.ceil(reviewSliderVal.length / itemPerPage);
 
-    ]
 
 
     return (
@@ -285,13 +346,21 @@ export const CustomerReview = () => {
                         </Collapse>
                     </div>
                 </div>
-                <Swiper
-                    pagination={Pagination}
-                    modules={[Pagination]}
-                    className='mySwiper'
-                >
-                    {renderReviewSlide()}
-                </Swiper>
+                {renderReviewSlide()}
+                <Pagination size='sm' className='justify-content-center'>
+                    <Pagination.First />
+                    <Pagination.Prev />
+                    {Array.from({ length: totalReviewPages }, (_, index) => {
+                        return (
+                            <Pagination.Item key={index + 1} active={currentPage === index + 1}
+                                onClick={() => handlePageChange(index + 1)}>
+                                {index + 1}
+                            </Pagination.Item>
+                        )
+                    })}
+                    <Pagination.Next />
+                    <Pagination.Last />
+                </Pagination>
             </div>
         </div >
     )
