@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 
 //internal import
 import { SidebarContext } from "@/context/SidebarContext";
-import CustomerServices from "@/services/CustomerServices";
 import { notifyError, notifySuccess } from "@/utils/toast";
+import ReviewsServices from "@/services/reviewsServices";
 
 const useCustomerReviewsSubmit = (id) => {
   const [imageUrl, setImageUrl] = useState("");
@@ -16,7 +16,7 @@ const useCustomerReviewsSubmit = (id) => {
     setValue,
     formState: { errors },
   } = useForm();
-
+console.log(id)
   const onSubmit = async (data) => {
     try {
       const reviewData = {
@@ -25,7 +25,7 @@ const useCustomerReviewsSubmit = (id) => {
         review: data.review_description,
       };
       if (id) {
-        const res = await CustomerServices.updateCustomer(id, customerData);
+        const res = await ReviewsServices.updateReviews(id, reviewData);
         setIsUpdate(true);
         notifySuccess(res.message);
         closeDrawer();
@@ -41,12 +41,12 @@ const useCustomerReviewsSubmit = (id) => {
     if (id) {
       (async () => {
         try {
-          const res = await CustomerServices.getCustomerById(id);
+          const res = await ReviewsServices.getReviewById(id);
+          console.log(res,"kjhkj")
           if (res) {
-            setValue("name", res.name);
-            setValue("phone", res.phone);
-            setValue("email", res.email);
-            setValue("address", res.address);
+            setValue("review_rating", res.rating);
+            setValue("review_title", res.reviewTitle);
+            setValue("review_description", res.review);
           }
         } catch (err) {
           notifyError(err ? err?.response?.data?.message : err.message);
