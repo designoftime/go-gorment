@@ -55,6 +55,7 @@ const useProductSubmit = (id) => {
   const [openModal, setOpenModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [slug, setSlug] = useState("");
+  const [subscriptionsDuration, setSubscriptionsDuration] = useState([]);
 
   const { handlerTextTranslateHandler } = useTranslationValue();
   const { showingTranslateValue, getNumber, getNumberTwo } = useUtilsFunction();
@@ -69,7 +70,7 @@ const useProductSubmit = (id) => {
   // );
 
   // handle click
-  
+
   const onCloseModal = () => setOpenModal(false);
   const {
     register,
@@ -145,6 +146,7 @@ const useProductSubmit = (id) => {
         image: imageUrl,
         stock: variants?.length < 1 ? data.stock : Number(totalStock),
         tag: JSON.stringify(tag),
+        subscription_duration: JSON.stringify(subscriptionsDuration),
 
         prices: {
           price: getNumber(data.price),
@@ -193,6 +195,7 @@ const useProductSubmit = (id) => {
           setValue("subscription", res.subscription);
           setValue("stock", res.stock);
           setTag(JSON.parse(res.tag));
+          setSubscriptionsDuration(JSON.parse(res.subscription_duration));
           setImageUrl(res.image);
           setVariants(res.variants);
           setValue("productId", res.productId);
@@ -270,6 +273,7 @@ const useProductSubmit = (id) => {
       setImageUrl([]);
       setSelectTheme([]);
       setTag([]);
+      setSubscriptionsDuration([]);
       setVariants([]);
       setVariant([]);
       setValues({});
@@ -350,6 +354,7 @@ const useProductSubmit = (id) => {
               { name: res?.theme?.theme?.theme_unique_name, _id: res?._id },
             ]);
             setTag(JSON.parse(res.tag));
+            setSubscriptionsDuration(JSON.stringify(res.subscription_duration));
             setImageUrl(res.image);
             setVariants(res.variants);
             setIsCombination(res.isCombination);
@@ -705,6 +710,8 @@ const useProductSubmit = (id) => {
     isSubmitting,
     tapValue,
     setTapValue,
+    setSubscriptionsDuration,
+    subscriptionsDuration,
     resetRefTwo,
     handleSkuBarcode,
     setSelectTheme,

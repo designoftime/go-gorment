@@ -208,6 +208,7 @@ const updateProduct = async (req, res) => {
       product.subscription = req.body.subscription;
       product.image = req.body.image;
       product.tag = req.body.tag;
+      product.subscription_duration = req.body.subscription_duration;
 
       await product.save();
       res.send({ data: product, message: "Product updated successfully!" });
