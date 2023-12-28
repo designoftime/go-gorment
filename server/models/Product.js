@@ -60,6 +60,7 @@ const productSchema = new mongoose.Schema(
     },
 
     tag: [String],
+    subscription_duration: [String],
     prices: {
       originalPrice: {
         type: Number,

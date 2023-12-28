@@ -60,7 +60,7 @@ const useProductSubmit = (id) => {
   const { handlerTextTranslateHandler } = useTranslationValue();
   const { showingTranslateValue, getNumber, getNumberTwo } = useUtilsFunction();
 
-  // console.log("lang", lang);
+  console.log("lang", subscriptionsDuration,tag);
 
   // console.log(
   //   "defaultCategory",
@@ -354,7 +354,7 @@ const useProductSubmit = (id) => {
               { name: res?.theme?.theme?.theme_unique_name, _id: res?._id },
             ]);
             setTag(JSON.parse(res.tag));
-            setSubscriptionsDuration(JSON.stringify(res.subscription_duration));
+            setSubscriptionsDuration(JSON.parse(res.subscription_duration));
             setImageUrl(res.image);
             setVariants(res.variants);
             setIsCombination(res.isCombination);
