@@ -40,13 +40,13 @@ export const CreateAccount = () => {
           <div className="createaccountform container text-center  mx-auto">
             <form onSubmit={handleSubmit}>
             <div className="createaccountfirstname conatiner g-0 mx-auto">
-                <input type="text" name='fullName' className='createaccountinput' placeholder='Full Name'/>
+                <input type="text" name='fullName' className='logininput' placeholder='Full Name'/>
               </div>
               <div className="createaccountemail text-center">
-                <input type="email" name='userEmail' className='createaccountinput' placeholder='Email'/>
+                <input type="email" name='userEmail' className='logininput' placeholder='Email'/>
               </div>
               <div className="createaccountpassword text-center">
-                <input type="password" name='userPassword' className='createaccountinput' placeholder='Password'/>
+                <input type="password" name='userPassword' className='logininput' placeholder='Password'/>
               </div>
         
               <div className="Signupbutton my-3 text-center">

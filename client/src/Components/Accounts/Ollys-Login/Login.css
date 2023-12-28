@@ -16,7 +16,7 @@
 }
 .logininput{
     margin: 10px 0!important;
-    width: 30vw;
+    width: 25rem;
     height: 7vh;
     border: 3px solid #4c4294;
     border-radius: 10px;
@@ -46,6 +46,14 @@
     color: #4c4294;
     text-decoration: none;
     font-weight: 500;
+    font-family: bannerhomebtn;
+}
+.ForgotpasswordandCreateaccount{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .forgotpasswordtext{
     padding: 8px 30px;
@@ -88,8 +96,15 @@
         font-size: 110px;
     }
 }
-@media (max-width:600px){
+
+@media (max-width:468px){
     .LoginHeading{
-        font-size: 16vw;
+        font-size: 26vw;
+    }
+    .logininput{
+        width: 90vw;
+    }
+    .ForgotpasswordandCreateaccount{
+        flex-direction: column;
     }
 }

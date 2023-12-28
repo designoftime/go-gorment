@@ -58,8 +58,8 @@ export const Login = () => {
             <div className="MStextd text-center">
               <Link to="/accounts/manage-subscription" className='mstext'>Manage subscription</Link>
             </div>
-            <div className="Forgotpassword&createaccount text-center my-3">
-              <Link to='/accounts/forgot-password' className='text-decoration-none forgotpasswordtext'>Forgot your password?</Link> <Link to="/accounts/register" className='createacctext'>Create account</Link>
+            <div className="ForgotpasswordandCreateaccount my-3">
+              <Link to='/accounts/forgot-password' className='text-decoration-none forgotpasswordtext'>Forgot your password?</Link> <div><Link to="/accounts/register" className='createacctext'>Create account</Link></div>
             </div>
           </div>
         </div>
