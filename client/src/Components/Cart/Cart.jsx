@@ -15,6 +15,8 @@ import cartProductImg2 from "../Shop/images/DarkChoc-Case_360x.png";
 import Star from "./images/star.svg";
 import requests from "../../Services/httpService";
 import CartQuantity from "./CartQuantity";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCartLocal } from "../../Redux/actions/cartServices";
 export const Cart = () => {
 
   const [showcart, setShowCart] = useState(false);
@@ -27,8 +29,26 @@ export const Cart = () => {
   };
 
   const handleClose = () => setShowCart(false);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const fetchCarts = async () => {
+
+    if(!user?.token){
+      const localCarts = JSON.parse(localStorage.getItem("carts"));
+
+      if(!localCarts){
+        return;
+      }
+      
+      let totalCartAmount = localCarts.reduce((sum, currVal) => {
+        return sum += (currVal.price * currVal.quantity);
+      },0);
+      
+      setCartData(localCarts);
+      setTotalCartVal(totalCartAmount);
+      return;
+    }
+
     const res = await requests.get("/cart");
     console.log(res);
     let totalCartAmount = res?.carts.reduce((sum, currVal) => {
@@ -44,6 +64,13 @@ export const Cart = () => {
   }, [showcart]);
 
   const deleteCartItem = (cartId) => {
+    
+    if(!user?.token){
+      deleteCartLocal(cartId);
+      fetchCarts();
+      return;
+    }
+
     const deleteCartItem = async (cartId) => {
         const res = await requests.delete(`/cart/${cartId}`);
         fetchCarts();
@@ -110,15 +137,16 @@ export const Cart = () => {
                         <div className="cartProductName mt-1">
                           {eachCart?.title}
                         </div>
-                        <div className="cartProductDel ms-2" onClick={() => deleteCartItem(eachCart._id)}>
+                        <div className="cartProductDel ms-2" onClick={() => deleteCartItem(eachCart?._id ? eachCart?._id : {attribute: eachCart.attribute, subscription: eachCart?.subscription})}>
                           <BiSolidTrashAlt />
                         </div>
                       </div>
                       <div className="cartProductSize">
                         {eachCart?.attribute}
                       </div>
+                      <div> {eachCart?.subscription} </div>
                       <div className="cartRemainPart2">
-                        <CartQuantity cartId={eachCart?._id} quantity={eachCart?.quantity} fetchCarts={fetchCarts} />
+                        <CartQuantity cartAttribute={eachCart?.attribute} cartSubscription={eachCart?.subscription} cartId={eachCart?._id} quantity={eachCart?.quantity} fetchCarts={fetchCarts} />
                         <div className="cartProductPrice">
                           <span>&#8377; </span>
                           {eachCart?.price}

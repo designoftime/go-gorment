@@ -8,6 +8,10 @@ body {
     font-family: bannerhomebtn;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 body > iframe {
     display: none;
 }
@@ -37,18 +41,20 @@ body > iframe {
     font-family: rocgrotesk-light;
     src: url("./Components/Fonts/roc-grotesk-new-400.otf");
 }
+
 @font-face {
-    font-family: rocgrotesk-heavy;
-    src: url("./Components/Fonts/Demo_Fonts/Fontspring-DEMO-rocgrotesk-heavy.otf");
+    font-family: rocgrotesk-bold;
+    src: url("./Components/Fonts/Demo_Fonts/Fontspring-DEMO-rocgrotesk-bold.otf");
 }
+
 @font-face {
     font-family: rocgrotesk-extra-bold;
     src: url("./Components/Fonts/Demo_Fonts/Fontspring-DEMO-rocgrotesk-extrabold.otf");
 }
 
 @font-face {
-    font-family: rocgrotesk-bold;
-    src: url("./Components/Fonts/Demo_Fonts/Fontspring-DEMO-rocgrotesk-bold.otf");
+    font-family: rocgrotesk-heavy;
+    src: url("./Components/Fonts/Demo_Fonts/Fontspring-DEMO-rocgrotesk-heavy.otf");
 }
 
 .ReactCollapse--collapse {

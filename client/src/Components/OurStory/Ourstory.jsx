@@ -4,6 +4,7 @@ import ThemeTwo from "./MultipleComponents/ThemeTwo/ThemeTwo";
 import ThemeThree from "./MultipleComponents/ThemeThree/ThemeThree";
 import { getStylesLan, sliderVal } from "../../utils/Constants";
 import { useSelector } from "react-redux";
+import ThemeFour from "./MultipleComponents/ThemeFour/ThemeFour";
 
 const ourStoryComponent = (ourStoryData, val) => {
     const styles = getStylesLan(
@@ -26,17 +27,7 @@ const ourStoryComponent = (ourStoryData, val) => {
             <ThemeTwo ourStoryData={ourStoryData} val={val} styles={styles} />
         ),
         five: (
-            <ThemeThree
-                ourStoryData={ourStoryData}
-                val={val}
-                styles={styles}
-                direction={{
-                    display: "flex",
-                    flexDirection: "row-reverse",
-                    gap: "0",
-                    paddingLeft: "2rem",
-                }}
-            />
+            <ThemeFour ourStoryData={ourStoryData} val={val} styles={styles} />
         ),
     };
 };

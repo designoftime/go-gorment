@@ -2,14 +2,14 @@ import React from "react";
 import "./ThemeThree.css";
 import { Link } from "react-router-dom";
 
-const ThemeThree = ({ ourStoryData, val, styles, direction }) => {
+const ThemeThree = ({ ourStoryData, val, styles }) => {
     if (!ourStoryData[`section_${val}_status`]) {
         return;
     }
 
     return (
         <>
-            <div className="theme-3" style={{ ...styles.fullBg, ...direction }}>
+            <div className="theme-3" style={{ ...styles.fullBg }}>
                 <div className="theme3-img">
                     <img src={ourStoryData[`section_${val}_img`]} alt="" />
                 </div>

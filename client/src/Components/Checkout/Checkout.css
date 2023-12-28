@@ -1,9 +1,11 @@
 .Checkout-Section {
+    position: relative;
+    top: 1.5rem;
     background-color: rgb(211, 181, 197);
 }
 .Checkout-left {
     width: 50%;
-    border: 2px solid rgb(149, 147, 147);
+    border: 1px solid rgb(149, 147, 147);
     border-left: 0;
     border-right: 0;
 }
@@ -50,19 +52,19 @@
 }
 .form-floating .label-form {
     background-color: transparent;
-    border:  1px solid transparent !important;
+    border: 1px solid transparent !important;
 }
 .searchIcon {
     background-color: rgb(211, 181, 197);
     height: auto !important;
-    border-color: rgb(149, 147, 147)!important;
+    border-color: rgb(149, 147, 147) !important;
 }
 
-.shipping-box{
-    border-color: rgb(149, 147, 147)!important;
+.shipping-box {
+    border-color: rgb(149, 147, 147) !important;
 }
-.Shipping-message{
-    border-color: rgb(193, 159, 177)!important;
+.Shipping-message {
+    border-color: rgb(193, 159, 177) !important;
     background-color: rgb(193, 159, 177);
 }
 .Checkout-right {
@@ -70,24 +72,78 @@
     top: 0;
     width: 50%;
     height: 100vh;
-    background-color: rgb(52, 2, 97);
+    background-color: rgb(47, 31, 71);
+    padding: 0 0.5rem;
+    padding-top: 4rem;
 }
 
-.Checkout-container{
-    overflow-y: scroll;
-}
-
-.image-block{
+.Checkout-container {
     width: 100%;
-    img{
-        width: 100%;
-        object-fit: contain;
-    }
+    height: 14rem;
+    border-radius: 0.4rem;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* background-color: rgb(65, 45, 93); */
 }
+
+.checkout-proudct-img {
+    position: relative;
+    width: 5rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-proudct-img span {
+    position: absolute;
+    top: -0.1rem;
+    right: 0.1rem;
+    padding: 0.05rem 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    background-color: rgb(240, 238, 238, 0.65);
+    color: rgb(47, 31, 71);
+    font-weight: 600;
+}
+
+.image-block {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border: 2px solid rgb(86, 65, 115);
+    border-radius: 0.6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-block img {
+    width: 100%;
+    background-position: center;
+    object-fit: contain;
+}
+
+.checkout-proudct-info h3 {
+    font-family: rocgrotesk-light;
+    color: #ffffff;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.checkout-proudct-info p {
+    font-family: rocgrotesk-light;
+    color: #ffffffa8;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
 .Product-view {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     color: white;
 }
