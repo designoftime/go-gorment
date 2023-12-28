@@ -10,11 +10,11 @@ const ReviewsServices = {
   getAllReviews: async () => {
     return requests.get("/reviews/all");
   },
-  //   getThemeById: async (id) => {
-  //     return requests.get(`/theme/${id}`);
-  //   },
-  updateTheme: async (id, body) => {
-    return requests.put(`/theme/${id}`, body);
+  getReviewById: async (id) => {
+    return requests.get(`/reviews/${id}`);
+  },
+  updateReviews: async (id, body) => {
+    return requests.put(`/reviews/${id}`, body);
   },
   //   updateManyThemes: async (body) => {
   //     return requests.patch("/theme/update/many", body);
@@ -22,8 +22,8 @@ const ReviewsServices = {
   //   updateStatus: async (id, body) => {
   //     return requests.put(`/theme/status/${id}`, body);
   //   },
-  deleteTheme: async (id) => {
-    return requests.delete(`/theme/${id}`);
+  deleteReviews: async (id) => {
+    return requests.delete(`/reviews/${id}`);
   },
   //   deleteManyThemes: async (body) => {
   //     return requests.patch(`/theme/delete/many`, body);

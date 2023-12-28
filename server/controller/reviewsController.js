@@ -54,7 +54,7 @@ const getReviewById = async (req, res) => {
   try {
     const id = req.params.id;
     if (!id) return new Error("Id Not found");
-    const data = await Reviews.findById();
+    const data = await Reviews.findById(id);
     res.status(201).send({
       message: "succes",
       data,
