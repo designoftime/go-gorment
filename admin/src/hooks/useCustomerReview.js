@@ -23,11 +23,14 @@ const useCustomerReviewsSubmit = (id) => {
         reviewTitle: data.review_title,
         review: data.review_description,
       };
-      if (id) {
+
+      if (id && reviewData.rating <= 5) {
         const res = await ReviewsServices.updateReviews(id, reviewData);
         setIsUpdate(true);
         notifySuccess(res.message);
         closeDrawer();
+      } else {
+        notifyError("Rating must be less than or equal to 5.");
       }
       setIsSubmitting(false);
     } catch (err) {
@@ -41,7 +44,6 @@ const useCustomerReviewsSubmit = (id) => {
       (async () => {
         try {
           const res = await ReviewsServices.getReviewById(id);
-          console.log(res,"kjhkj")
           if (res) {
             setValue("review_rating", res.data.rating);
             setValue("review_title", res.data.reviewTitle);

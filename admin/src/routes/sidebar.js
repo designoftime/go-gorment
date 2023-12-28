@@ -47,10 +47,6 @@ const sidebar = [
         path: "/theme",
         name: "Theme",
       },
-      {
-        path: "/subscription",
-        name: "Subscription",
-      },
     ],
   },
 
