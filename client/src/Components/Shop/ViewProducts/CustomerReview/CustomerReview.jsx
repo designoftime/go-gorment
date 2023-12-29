@@ -10,7 +10,10 @@ import { Collapse } from "react-collapse";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Pagination from "react-bootstrap/Pagination";
-export const CustomerReview = () => {
+import requests from "../../../../Services/httpService";
+import { toast } from "react-toastify";
+
+export const CustomerReview = ({ productId }) => {
   const reviewSliderVal = [
     {
       id: 1,
@@ -150,6 +153,8 @@ export const CustomerReview = () => {
     star5: true,
   });
   const [hoveredStar, setHoveredStar] = useState(0);
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const clickRatingChange = (clickedStar) => {
     clickedStar.preventDefault();
     setRatingChange(() => {
@@ -249,21 +254,26 @@ export const CustomerReview = () => {
     setCurrentPage(pageNumber);
   };
   const totalReviewPages = Math.ceil(reviewSliderVal.length / itemPerPage);
-
   const handleProductReview = (e) => {
     e.preventDefault();
     const data = {
-      name: e.target.fullName.value,
+      name: e.target.fullname.value,
       email: e.target.email.value,
-      rating:e.target.rating.value,
-      reviewTitle: e.target.review_title,
-      review:e.target.review_descriptions.value,
-      productId,
-      emailStatus,
-      user
+      rating: e.target.rating.value,
+      reviewTitle: e.target.review_title.value,
+      review: e.target.review_descriptions.value,
+      productId: productId,
+      emailStatus: user?.email ? true : false,
+      user: user?._id,
     };
+    const postReviews = async () => {
+      await requests.post("/reviews/add", data);
+      toast("Review Created Successfully !! ");
+      setIsCollapsed(false);
+    };
+    postReviews();
   };
-
+  console.log(user);
   return (
     <>
       <div className="CustomerReview-section">
@@ -467,7 +477,7 @@ export const CustomerReview = () => {
           </div>
           <div className="my-5 reviewAccordian">
             <Collapse isOpened={isCollapsed}>
-              <form on onSubmit={handleProductReview(e)}>
+              <form onSubmit={handleProductReview}>
                 <div className="reviewForm">
                   <div className="reviewInputs">
                     <label htmlFor="name" className="reviewlable fw-bolder">
@@ -488,6 +498,7 @@ export const CustomerReview = () => {
                       className="form-control mt-2 reviewInput"
                       placeholder="Enter Your Name (public)"
                       name="fullname"
+                      value={user ? user?.name : ""}
                     />
                   </div>
                   <div className="reviewInputs">
@@ -499,6 +510,7 @@ export const CustomerReview = () => {
                       className="form-control mt-2 reviewInput"
                       placeholder="Enter Your Email (private)"
                       name="email"
+                      value={user ? user?.email : ""}
                     />
                   </div>
                   <div className="reviewInputs">
