@@ -1,3 +1,4 @@
+const { default: mongoose } = require("mongoose");
 const Reviews = require("../models/Reviews");
 
 const addReviews = async (req, res) => {
@@ -69,17 +70,34 @@ const getReviewByProductId = async (req, res) => {
   try {
     const id = req.params.id;
     if (!id) return new Error("Id Not found");
-    const data = await Reviews.find({ productId: id })
+    const data = await Reviews.find({ productId: mongoose.Types.ObjectId(id) })
       .sort({ updatedAt: -1 })
       .populate({ path: "productId", select: "image title description prices" })
       .populate({ path: "user", select: "name image" });
 
-    const totalReviews = await Reviews.find({ productId: id }).count();
-    const fiveStar = await Reviews.find({ productId: id, rating: 5 }).count();
-    const fourStar = await Reviews.find({ productId: id, rating: 4 }).count();
-    const threeStar = await Reviews.find({ productId: id, rating: 3 }).count();
-    const twoStar = await Reviews.find({ productId: id, rating: 2 }).count();
-    const oneStar = await Reviews.find({ productId: id, rating: 1 }).count();
+    const totalReviews = await Reviews.find({
+      productId: mongoose.Types.ObjectId(id),
+    }).count();
+    const fiveStar = await Reviews.find({
+      productId: mongoose.Types.ObjectId(id),
+      rating: 5,
+    }).count();
+    const fourStar = await Reviews.find({
+      productId: mongoose.Types.ObjectId(id),
+      rating: 4,
+    }).count();
+    const threeStar = await Reviews.find({
+      productId: mongoose.Types.ObjectId(id),
+      rating: 3,
+    }).count();
+    const twoStar = await Reviews.find({
+      productId: mongoose.Types.ObjectId(id),
+      rating: 2,
+    }).count();
+    const oneStar = await Reviews.find({
+      productId: mongoose.Types.ObjectId(id),
+      rating: 1,
+    }).count();
 
     res.status(201).send({
       message: "succes",
