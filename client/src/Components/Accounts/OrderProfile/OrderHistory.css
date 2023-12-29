@@ -1,0 +1,42 @@
+.Order-History-Heading{
+    margin-top: 2rem;
+    font-family: Snacksgifheaderfont;
+    font-size: 8rem;
+    color: #4c4294;
+    text-transform: uppercase;
+}
+.OrderDetails{
+    margin: 3rem auto;
+    width: 40rem;
+    text-align: center; 
+    border: 3px solid #4c4294;
+    border-radius: 1rem;
+}
+.Order-details-header{
+    font-size: 3rem;
+    background-color: #4c4294;
+    border: 3px solid #4c4294;
+    color: white;
+    font-family: Snacksgifheaderfont; 
+}
+.OrderedProductBody{  
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+.OrderedProduct-left{
+    grid-column: 1/2;
+}
+.OrderedProduct-right{
+    grid-column: 2/-1;
+}
+
+.OrderedProductimage{
+    width: 8rem;
+    background-color: #4c4294;
+    border: 0.3rem solid transparent;
+    border-radius: 1.5rem;
+}
+.OrderedProductimage img{
+    width: 100%;
+}
