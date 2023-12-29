@@ -1,20 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsCheck } from 'react-icons/bs'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
 import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 
-export const ProductPrice = ({productPrice, purchaseType, setPurchaseType}) => {
+export const ProductPrice = ({ subscriptionType, setSubscriptionType,product, productPrice, purchaseType, setPurchaseType}) => {
     
-    const [deliveryOption, setDeliveryOption] = useState("Deliver every 7 Days");
+    const [AllsubscriptionType, setAllSubscriptionType] = useState([]);
+
+    useEffect(() => {
+        setAllSubscriptionType(JSON.parse(product?.subscription_duration));
+        handleDelivery(JSON.parse(product?.subscription_duration)[0]);
+    },[]);
+
     const handleDelivery =(selected)=>{
-        setDeliveryOption(selected);
+        setSubscriptionType(selected);
     }
 
     const handlePurchaseType = (purchaseEvent)=>{
         setPurchaseType(purchaseEvent.target.value);
     }
+
     return (
         <div>
             <div className="Product-Price-section animate__animated animate__fadeInDown">
@@ -25,6 +32,7 @@ export const ProductPrice = ({productPrice, purchaseType, setPurchaseType}) => {
                     </div>
                     <div>{productPrice?.price}</div>
                 </div>
+                { AllsubscriptionType.length ?
                 <div className="SubscribeBox mt-3" style={ purchaseType === "subscribe" ? {border:"3px solid #4c4294",borderRadius:"10px"}:{border:"3px solid white"}}>
                     <div className="SubscribeText">
                         <div className='PriceMain'>
@@ -33,16 +41,21 @@ export const ProductPrice = ({productPrice, purchaseType, setPurchaseType}) => {
                         </div>
                         <div>{productPrice?.subscribePrice}</div>
                     </div>
-                    <Dropdown>
+                    
+                        <Dropdown>
                         <DropdownToggle variant='success' id='dropdown-basic'>
-                            {deliveryOption}     
+                            {subscriptionType}     
                         </DropdownToggle>
                         <DropdownMenu>
-                            <DropdownItem onSelect={()=>handleDelivery("Deliver every 7 days")}>Deliver every 7 days</DropdownItem>
+                        {
+                            AllsubscriptionType.length ? AllsubscriptionType.map((eachSubscription, idx) => {
+                                return (<DropdownItem key={idx} onClick={() => handleDelivery(eachSubscription)}>{eachSubscription}</DropdownItem>)
+                            }) : null
+                        }
                         </DropdownMenu>
-                    </Dropdown>
-                    
-                </div>
+                    </Dropdown> 
+                </div> : null
+                } 
             </div>
         </div>
     )
