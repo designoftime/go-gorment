@@ -65,6 +65,39 @@ const getReviewById = async (req, res) => {
     });
   }
 };
+const getReviewByProductId = async (req, res) => {
+  try {
+    s;
+    const id = req.params.id;
+    if (!id) return new Error("Id Not found");
+    const data = await Reviews.find({ productId: id })
+      .sort({ updatedAt: -1 })
+      .populate({ path: "productId", select: "image title description prices" })
+      .populate({ path: "user", select: "name image" });
+
+    const totalReviews = await Reviews.find({ productId: id }).count();
+    const fiveStar = await Reviews.find({ productId: id, rating: 5 }).count();
+    const fourStar = await Reviews.find({ productId: id, rating: 4 }).count();
+    const threeStar = await Reviews.find({ productId: id, rating: 3 }).count();
+    const twoStar = await Reviews.find({ productId: id, rating: 2 }).count();
+    const oneStar = await Reviews.find({ productId: id, rating: 1 }).count();
+
+    res.status(201).send({
+      message: "succes",
+      data,
+      totalReviews,
+      fiveStar,
+      fourStar,
+      threeStar,
+      twoStar,
+      oneStar,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: `solve the internal ${err}`,
+    });
+  }
+};
 
 const getAllReview = async (req, res) => {
   try {
@@ -108,4 +141,5 @@ module.exports = {
   deleteReviews,
   getAllReview,
   getReviewById,
+  getReviewByProductId,
 };

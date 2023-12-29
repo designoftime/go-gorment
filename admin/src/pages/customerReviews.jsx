@@ -167,7 +167,9 @@ const CustomersReviews = () => {
                               <div className="flex justify-between gap-2">
                                 <Avatar
                                   size="small"
-                                  src={item?.user?.image}
+                                  src={
+                                    "https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
+                                  }
                                   alt="Judith"
                                 />
                                 {item?.name}

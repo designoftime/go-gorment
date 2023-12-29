@@ -144,6 +144,7 @@ export const CustomerReview = ({ productId }) => {
   ];
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [responeData, setRespnesData] = useState(1);
   const itemPerPage = 5;
   const [ratingChange, setRatingChange] = useState({
     star1: true,
@@ -174,12 +175,14 @@ export const CustomerReview = ({ productId }) => {
   const renderReviewSlide = () => {
     const startIndex = (currentPage - 1) * itemPerPage;
     const endIndex = currentPage + itemPerPage;
-    const paginatedReviews = reviewSliderVal.slice(startIndex, endIndex);
+    console.log(responeData.data);
+
+    const paginatedReviews = responeData?.data?.slice(startIndex, endIndex);
     let slides = [];
     for (let i = 0; i < paginatedReviews.length; i += 5) {
       slides.push(
         <div className="review-main-container container">
-          {reviewSliderVal.slice(i, i + 5).map((items, id) => {
+          {responeData?.data?.slice(i, i + 5).map((items, id) => {
             return (
               <div key={id}>
                 <hr
@@ -187,18 +190,18 @@ export const CustomerReview = ({ productId }) => {
                 />
                 <div className=" my-1 review-header-container d-flex justify-content-between">
                   <div className="reviewTitle">
-                    {items.verifyc == "verified" ? (
+                    {items.emailStatus == true ? (
                       <span>
                         <span className="activeVerified fw-bolder">
                           Verified
                         </span>{" "}
-                        <span className="fw-bolder">{items.customername}</span>
+                        <span className="fw-bolder">{items.name}</span>
                       </span>
                     ) : (
                       <span>
-                        <span className="fw-bolder">{items.customername}</span>{" "}
+                        <span className="fw-bolder">{items.email}</span>{" "}
                         <span className="shopVerified fw-bolder">
-                          {items.verifyc}
+                          {items.name}
                         </span>
                       </span>
                     )}
@@ -253,6 +256,17 @@ export const CustomerReview = ({ productId }) => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  const isValidData = (data) => {
+    for (let objData in data) {
+      if (
+        (typeof data[objData] == "string" && data[objData].length == 0) ||
+        (typeof data[objData] == "number" && data[objData] == null)
+      ) {
+        return false;
+      }
+    }
+    return true;
+  };
   const totalReviewPages = Math.ceil(reviewSliderVal.length / itemPerPage);
   const handleProductReview = (e) => {
     e.preventDefault();
@@ -266,14 +280,25 @@ export const CustomerReview = ({ productId }) => {
       emailStatus: user?.email ? true : false,
       user: user?._id,
     };
-    const postReviews = async () => {
-      await requests.post("/reviews/add", data);
-      toast("Review Created Successfully !! ");
-      setIsCollapsed(false);
-    };
-    postReviews();
+    if (isValidData(data)) {
+      const postReviews = async () => {
+        await requests.post("/reviews/add", data);
+        toast("Review Created Successfully !! ");
+        setIsCollapsed(false);
+      };
+      postReviews();
+    } else {
+      toast.error("Please Fill All Fields");
+    }
   };
-  console.log(user);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    const respones = async () => {
+      const res = await requests.get("/reviews/all");
+      setRespnesData(res);
+    };
+    respones();
+  }, [setRespnesData]);
   return (
     <>
       <div className="CustomerReview-section">
@@ -518,7 +543,13 @@ export const CustomerReview = ({ productId }) => {
                       Rating
                     </label>
                     <br />
-                    <input type="number" placeholder="rate us" name="rating" />
+                    <input
+                      type="number"
+                      placeholder="rate us"
+                      name="rating"
+                      min={1}
+                      max={5}
+                    />
                   </div>
                   <div className="reviewInputs">
                     <label
