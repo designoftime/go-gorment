@@ -1,35 +1,34 @@
 /* .View-Products-section{
     margin: 10vh 0;
 } */
-.VPCaursel{
+.VPCaursel {
     /* background-color: blue; */
     width: 55%;
-    height: 90%!important;
+    height: 90% !important;
     position: sticky;
     top: 0;
     overflow: hidden;
 }
-.vpcarouselimages{
-    width: 100%!important;
+.vpcarouselimages {
+    width: 100% !important;
 }
-.swiper-button-next{
+.swiper-button-next {
     background-color: transparent;
     color: #412f59;
 }
-.swiper-button-prev{
+.swiper-button-prev {
     background-color: transparent;
     color: #412f59;
 }
-.vpslide-logos{
+.vpslide-logos {
     width: 90%;
     height: 100%;
     display: flex;
     gap: 1vw;
     justify-content: space-between;
     align-items: center;
-
 }
-.vpslide-logos img{
+.vpslide-logos img {
     width: 15%;
     height: 100%;
     object-fit: cover;
@@ -40,149 +39,147 @@
     background-color: #4c4294;
 }
 
-.VPRight{
+.VPRight {
     color: #4c4294;
     width: 45%;
     position: sticky;
 }
-.VPheader{
-    margin-top: 80px!important;
+.VPheader {
+    margin-top: 80px !important;
     font-size: 90px;
-    line-height: 70px!important;
-    letter-spacing: 1px!important;
+    line-height: 70px !important;
+    letter-spacing: 1px !important;
     font-family: Snacksgifheaderfont;
 }
-.VPselect-size{
+.VPselect-size {
     column-gap: 0.3rem;
 }
-.vpselect-size-box{
+.vpselect-size-box {
     width: 8.5rem;
     height: 5rem;
-    border: 0;   
+    border: 0;
     color: #4c4294;
     border-radius: 10px;
-    font-family: ReviewedProductHeaderfont;
-    
+    font-family: rocgrotesk-light;
+    font-weight: 600;
 }
-.vpselect-size-box-focus{
+.vpselect-size-box-focus {
     border: 3px solid #4c4294;
     background-color: white;
 }
-.select-size-header{
+.select-size-header {
     font-size: 15px;
     font-family: bannerhomebtn;
 }
-.PriceText{
+.PriceText {
     display: flex;
     justify-content: space-between;
     padding: 5vh 1vw;
-    border-radius: .5vw;
+    border-radius: 0.5vw;
     background-color: rgb(235, 235, 245);
 }
-.PriceMain{
+.PriceMain {
     display: flex;
     gap: 10px;
 }
-.SubscribeText{
+.SubscribeText {
     display: flex;
     justify-content: space-between;
     padding: 5vh 1vw;
 }
-.notifymebtn{
+.notifymebtn {
     width: 100%;
     border: #4c4294;
     font-size: 18px;
     border-radius: 20px;
     background-color: #4c4294;
     color: white;
-    font-weight: bolder!important;
-    transition: all .5s;
+    font-weight: bolder !important;
+    transition: all 0.5s;
 }
-.notifymebtn:hover{
+.notifymebtn:hover {
     border-radius: 50%;
 }
-.AsSeenandImgLayer{
+.AsSeenandImgLayer {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-
 }
-.inner-end-div{
+.inner-end-div {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-
 }
-.AsSeenLayer{
+.AsSeenLayer {
     width: 70%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 1.5rem;
 }
-.AsSeentext{
-    font-family: ReviewedProductHeaderfont;
+.AsSeentext {
+    font-family: rocgrotesk-light;
     font-size: 15px;
 }
-.LayerImage{
-    width : 8vw;
+.LayerImage {
+    width: 8vw;
 }
-.layerImg{
+.layerImg {
     width: 100%;
 }
-.collapsebutton{
-    transform: rotate(45deg)!important;
-    transition: all 500ms ease-in!important;
+.collapsebutton {
+    transform: rotate(45deg) !important;
+    transition: all 500ms ease-in !important;
 }
-.Collapseborder{
-    background-color: #4c4294!important;
-    color: white!important;
+.Collapseborder {
+    background-color: #4c4294 !important;
+    color: white !important;
     border: 3px solid #4c4294;
     border-radius: 30px;
-    transition: all .5s;
+    transition: all 0.5s;
 }
-.Collapseborder2{
-    background-color: white!important;
-    color: #4c4294!important;
+.Collapseborder2 {
+    background-color: white !important;
+    color: #4c4294 !important;
     border: 3px solid #4c4294;
     border-radius: 30px;
 }
-.Collapseborder:hover{
-    background-color: white!important;
-    color: #4c4294!important;
+.Collapseborder:hover {
+    background-color: white !important;
+    color: #4c4294 !important;
 }
-.linkTitle-content{
+.linkTitle-content {
     color: #4c4294;
     text-decoration: none;
 }
 /* Icons Section */
-.ViewProductIconsSection{
+.ViewProductIconsSection {
     background-color: #f5d0ba;
     color: #4c4294;
 }
-.VPIconsbox{
+.VPIconsbox {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.VPIcon{
-    width: 104px!important;
+.VPIcon {
+    width: 104px !important;
 }
-.vpiconsimge{
-    transition: all .5s ;
+.vpiconsimge {
+    transition: all 0.5s;
 }
-.vpiconsimge:hover{
+.vpiconsimge:hover {
     transform: rotate(360deg);
 }
-.addtocart{
-    margin-top: .3rem;
+.addtocart {
+    margin-top: 0.3rem;
     width: 75%;
 }
-.addtocartbtn{
+.addtocartbtn {
     width: 100%;
     border: 3px solid #4c4294;
     background-color: #4c4294;
@@ -191,123 +188,130 @@
     border-radius: 20px;
     transition: all 0.4s;
 }
-.addtocartbtn:hover{
+.addtocartbtn:hover {
     border-radius: 50%;
 }
+
 /* Product-Hero-Section */
-.Product-Hero-Section{
+.Product-Hero-Section {
     width: 100%;
     color: #e2c7d6;
 }
-.ProductHeroMain{
+.ProductHeroMain {
     width: 100%;
     height: 100%;
     display: flex;
 }
-.ProductHero-left{
+.ProductHero-left {
     width: 50%;
     height: 100%;
 }
-.Product-hero-img{
+.Product-hero-img {
     width: 100%;
     height: 100%;
 }
-.ProductHero-right{
+.ProductHero-right {
     width: 50%;
     background-color: #412f59;
 }
-.PH-header{
+.PH-header {
     font-size: 8vw;
     font-family: Snacksgifheaderfont;
     line-height: 14vh;
 }
-.PH-content{
+.PH-content {
     width: 25rem;
     margin: 0 auto;
 }
-.PH-main{
+.PH-main {
     margin-top: 8vh;
 }
-.PH-sub-header{
+.PH-sub-header {
     font-size: 1.6vw;
-    font-family: bannerhomebtn!important;
+    font-family: bannerhomebtn !important;
 }
-.PH-sub-content{
+.PH-sub-content {
     font-weight: 700;
     font-size: 1.2vw;
     font-family: bannerhomebtn;
 }
-@media (max-width:1000px) {
-    
-    .vpslider-logo{
-        display: none!important;
+
+/* ------------------------- */
+.view-product-inner-container {
+    position: relative;
+    top: 2.5rem;
+    background-color: #16bfbf;
+}
+
+@media (max-width: 1000px) {
+    .vpslider-logo {
+        display: none !important;
     }
-    .VPRight{
+    .VPRight {
         margin: auto;
         width: 90%;
     }
-    .LayerImage{
-        width:10vw;
+    .LayerImage {
+        width: 10vw;
     }
-    .VPIconsbox{
+    .VPIconsbox {
         width: 100%;
         justify-content: center;
         margin: auto;
     }
-    .VPIcon-main{
+    .VPIcon-main {
         padding: 15rem 15vw;
     }
-    .VPIcon-content{
+    .VPIcon-content {
         width: 10vw;
     }
 }
-@media(max-width:990px){
-    .ProductHeroMain{
+@media (max-width: 990px) {
+    .ProductHeroMain {
         flex-direction: column;
     }
-    .ProductHero-left{
+    .ProductHero-left {
         width: 100%;
     }
-    .ProductHero-right{
+    .ProductHero-right {
         width: 100%;
     }
-    .PH-header{
+    .PH-header {
         font-size: 10vw;
     }
-    .PH-sub-header{
+    .PH-sub-header {
         font-size: 2vw;
     }
-    .PH-sub-content{
+    .PH-sub-content {
         font-weight: 700;
         font-size: 1.5vw;
-
     }
 }
-@media ((min-width:500px) and (max-width:770px)){
-    .AsSeenLayer{
+@media ((min-width: 500px) and (max-width:770px)) {
+    .AsSeenLayer {
         width: 60%;
     }
-    .LayerImage{
-        width:15vw;
+    .LayerImage {
+        width: 15vw;
     }
-    .VPIconsbox{
+    .VPIconsbox {
         width: 100%;
     }
-    .VPIcon-main{
+    .VPIcon-main {
         padding: 5rem 10vw;
     }
 }
-@media(max-width:500px){
-    .AsSeenLayer{
+@media (max-width: 500px) {
+    .AsSeenLayer {
         width: 80%;
     }
-    .LayerImage{
+    .LayerImage {
         width: 25vw;
     }
-    .VPIconsbox{
+    .VPIconsbox {
         width: 100%;
     }
-    .VPIcon-main{
+    .VPIcon-main {
         padding: 5rem 8vw;
     }
 }
