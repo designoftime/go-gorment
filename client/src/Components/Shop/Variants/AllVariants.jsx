@@ -9,6 +9,7 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
   const [variants, setVariants] = useState([]);
   const [variantPrice, setVariantPrice] = useState([]);
   const [focusVariants, setFocusVariants] = useState([]);
+  const [AvaialableVariants, setAvaialableVariants] = useState([]);
 
   useEffect(() => {
 
@@ -23,6 +24,7 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
         
         if(product?.variants){
           const firstDifferentVariants = getFirstDifferentVariants(product.variants, setFocusVariants);
+          setAvaialableVariants(firstDifferentVariants);
           firstDifferentVariants.forEach((eachvariants,idx) => {
             handlePrice(res, eachvariants,idx, setVariantPrice, setIsQuantityAvailable);
           });
@@ -54,6 +56,14 @@ const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
     <div className="VPselect-size my-4 fw-normal  row">
         {
             variants.map((variant, idx) => {
+
+                const checkAvailVariant = AvaialableVariants?.find((eachvariants) => {
+                  let parentId = Object.keys(eachvariants)[0];
+                  return (parentId === variant._id);
+                })
+
+                if(!checkAvailVariant) return;
+
                 return (
                     <div className='row' key={idx}>
                         <p className='fw-bolder select-size-header '>{variant?.name?.en}</p>

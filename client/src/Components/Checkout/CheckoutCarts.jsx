@@ -54,13 +54,13 @@ const CheckoutCarts = () => {
                                   </div>
                                   <div className="col-md-7 checkout-proudct-info">
                                       <h3> {eachCart.title} </h3>
-                                      <p> {eachCart.attribute} </p>
-                                      <h4>
+                                      {eachCart.attribute && <p> {eachCart?.attribute} </p>}
+                                      {eachCart?.subscription && <h4>
                                           {`Delivery every ${eachCart?.subscription}`}
-                                      </h4>
-                                      <span>
+                                      </h4>}
+                                      {eachCart?.subscription && <span>
                                           {`${eachCart?.subscription} every days`}
-                                      </span>
+                                      </span>}
                                   </div>
                                   <div className="col-md-2 checkout-proudct-price">
                                       <p>

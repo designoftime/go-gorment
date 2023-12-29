@@ -15,8 +15,6 @@ export const ShopBanner = ({shopData, styles}) => {
     }
   });
 
-  
-
   return (
     <div>
       <section className='Shop-section container-fluid g-0 mx-auto' style={styles.fullBg}>
@@ -24,21 +22,21 @@ export const ShopBanner = ({shopData, styles}) => {
                   <div className={showValue > 1000?"Shop-banner":"Shop-banner d-flex flex-column"}>
                     {showValue < 1000?<div><img className='shopbannerimge' src={shopData.icon} alt="" /></div>: ""}
                   <div className="Shopbanner-left mx-3">
-                    <h1 className='Shopbanner-header mb-3 mx-5' style={styles.color}>{shopData?.name?.en}</h1>
-                    <div className='Shopbanner-para my-3 mx-5' style={styles.color}>{shopData?.description?.en}</div>
+                    {shopData?.name?.en && <h1 className='Shopbanner-header mb-3 mx-5' style={styles.color}>{shopData?.name?.en}</h1>}
+                    {shopData?.description?.en && <div className='Shopbanner-para my-3 mx-5' style={styles.color}>{shopData?.description?.en}</div>}
                     <div className="ShopBiconsmain d-flex mx-5 my-5">
-                      <div className="SBicon">
+                      {shopData?.icon1 && <div className="SBicon">
                         <img src={shopData?.icon1} alt="Image" />
-                      </div>
-                      <div className="SBicon">
+                      </div>}
+                      {shopData?.icon2 && <div className="SBicon">
                         <img src={shopData?.icon2} alt="Image" />
-                      </div>
-                      <div className="SBicon">
+                      </div>}
+                      {shopData?.icon3 && <div className="SBicon">
                         <img src={shopData?.icon3} alt="Image" />
-                      </div>
-                      <div className="SBicon">
+                      </div>}
+                      {shopData?.icon4 && <div className="SBicon">
                         <img src={shopData?.icon4} alt="Image" />
-                      </div>
+                      </div>}
                     </div>
                   </div>
                  {showValue > 1000?<div className="Shopbanner-right" ><img className='shopbannerimge' src={shopData.icon} alt="Image" /></div> : ""} 
