@@ -123,6 +123,14 @@
     border: 1px solid lightgray;
     border-radius: .2rem;
 }
+/* .reviewedStarfilled{
+    color: #412f59;
+    background-color: #412f59;
+}
+.reviewedStarBlank{
+    color: #412f59;
+    background-color: #e2c7d6;
+} */
 .reviewContent p{
     font-family: bannerhomebtn;
 }

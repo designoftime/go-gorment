@@ -7,8 +7,8 @@ export const ManageSubscription = () => {
         <div>
             <Navigation2 />
             <div className="container text-center">
-                <div className="card ManageScard mt-5 mb-5 text-dark bg-light mb-3">
-                    <div className="card-header ManageSheader"><strong>recharge</strong>secured <MdLock /></div>
+                <div className="card ManageScard mb-5 text-dark bg-light mb-3">
+                    <div className="card-header ManageSheader"><i><strong>recharge</strong>secured <MdLock /></i></div>
                     <div className="card-body mt-5 mb-3">
                         <input className="card-title ManageSinput" placeholder='Email' />
                         <div className='mt-5'>

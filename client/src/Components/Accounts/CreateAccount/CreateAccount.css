@@ -8,16 +8,7 @@
 .createaccountform{
     margin: 50px 0 80px 0!important;
 }
-.createaccountinput{
-    margin: 10px 0!important;
-    width: 30vw;
-    height: 7vh;
-    border: 3px solid #4c4294;
-    border-radius: 10px;
-    padding: 0 20px;
-    font-size: 18px;
-    font-weight: 600;
-}
+
 .signupbtn{
     color: #4c4294;
     background-color: white;

@@ -39,6 +39,10 @@ export const fetchSubscriptionPrice = (product) => {
 }
 
 export const findProductAttribute = (product, variants) => {
+    if(!product?.variants?.length){
+        return null;
+    }
+
     let val = Object.values(product?.variants[0])[0];
     const findAttribute = variants ? variants.find((variant) => {
       return (variant._id == val);

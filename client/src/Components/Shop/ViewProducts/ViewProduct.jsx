@@ -28,6 +28,7 @@ export const ViewProduct = () => {
     const [productQuantity, setproductQuantity] = useState(1)
     const [productPrice, setProductPrice] = useState({});
     const [purchaseType, setPurchaseType] = useState("single");
+    const [subscriptionType, setSubscriptionType] = useState();
     const [product, setProduct] = useState({});
 
     const [productTheme, setProductTheme] = useState({});
@@ -52,7 +53,7 @@ export const ViewProduct = () => {
         try {
             const res = await requests.get(`/products/product/${id}`);
             setProduct(res);
-            // console.log(res);
+            console.log(res);
             const productPageRes = await requests.get(`/theme/${res?.theme}`);
             setProductTheme(productPageRes?.theme);
             // console.log(productPageRes);
@@ -81,7 +82,7 @@ export const ViewProduct = () => {
         }
         else{
             cartData["price"] = productPrice?.subscribePrice
-            cartData["subscription"] = "7 Days"
+            cartData["subscription"] = subscriptionType
         }
 
         const AddToCartAPI = async () => {
@@ -169,7 +170,7 @@ export const ViewProduct = () => {
                                     </div>
                                     <AllVariants product={product} setProductPrice={setProductPrice} setIsQuantityAvailable={setIsQuantityAvailable} />
                                     {isQuantityAvailable ? <>
-                                    <ProductPrice purchaseType={purchaseType} setPurchaseType={setPurchaseType} productPrice={productPrice} />
+                                    <ProductPrice subscriptionType={subscriptionType} setSubscriptionType={setSubscriptionType} product={product} purchaseType={purchaseType} setPurchaseType={setPurchaseType} productPrice={productPrice} />
                                     <div className='d-flex gap-3 my-3'>
                                         <div className="cartProductQuantity">
                                             <div>

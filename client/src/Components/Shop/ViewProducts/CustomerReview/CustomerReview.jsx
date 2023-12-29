@@ -172,14 +172,30 @@ export const CustomerReview = () => {
                                     <div className="customerReviewStar">
                                         {[1, 2, 3, 4, 5].map((index) => {
                                             let starArray = [];
-                                            let remainArray = [];
+                                            // let remainArray = [];
                                             if (items.reviewstar == index) {
-                                                starArray.push([1, 2, 3, 4, 5].slice(index[0], index[items.reviewstar]))
-
+                                                starArray.push([1, 2, 3, 4, 5].slice(index[0], index[items.reviewstar - 1]));
+                                                // remainArray.push([1, 2, 3, 4, 5]).slice(index[starArray.length], index[starArray.length+([1,2,3,4,5].length-starArray.length)])
+                                                starArray.map((index)=>{
+                                                    return <span className="reviewcstar" key={index}><IoIosStar /></span>
+                                                })
                                             }
-                                            return (
-                                                <span className="reviewcstar" key={index}>{starArray == index ? <IoIosStar /> : <IoIosStarOutline />}</span>
-                                            )
+
+                                            {
+                                                // if (starArray.length >= 0) {
+                                                //     starArray.map((index) => {
+                                                //         return <span className="reviewcstar" key={index}><IoIosSta className='reviewedStarfilled' /></span>
+                                                //     })
+                                                // }
+                                                // else if (remainArray.length != 0) {
+                                                //     remainArray.map((index) => {
+                                                //         return <span className="reviewcstar" key={index}><IoIosStarOutline className='reviewedStarBlank' /></span>
+                                                //     })
+                                                // }
+                                            }
+
+
+
                                         })}
                                     </div>
                                 </div>
@@ -316,7 +332,7 @@ export const CustomerReview = () => {
                                     </div>
                                     <div className='reviewInputs'>
                                         <label htmlFor="rating" className='reviewlable fw-bolder'>Rating</label><br />
-                                        {[1, 2, 3, 4, 5].map((star,index) => {
+                                        {[1, 2, 3, 4, 5].map((star, index) => {
                                             return (
                                                 <button key={index} className='starbtn' onClick={clickRatingChange} name={`star${star}`
                                                 }>
@@ -352,7 +368,7 @@ export const CustomerReview = () => {
                     <Pagination.Prev />
                     {Array.from({ length: totalReviewPages }, (_, index) => {
                         return (
-                            <Pagination.Item key={index+1} active={currentPage === index + 1}
+                            <Pagination.Item key={index + 1} active={currentPage === index + 1}
                                 onClick={() => handlePageChange(index + 1)}>
                                 {index + 1}
                             </Pagination.Item>
