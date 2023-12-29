@@ -1,3 +1,5 @@
+import requests from "../../Services/httpService";
+
 export function addToCartLocal(cartData){     
     const carts = JSON.parse(localStorage.getItem("carts"));
 
@@ -50,4 +52,16 @@ export function getLocalCarts(){
     }
     
     return null;
+}
+
+export async function updateLocalCartToServer(){
+    const carts = JSON.parse(localStorage.getItem("carts"));
+
+    if(!carts){
+        return;
+    }
+
+    await requests.post("/cart/add-to-cart", { cart: carts });
+
+    localStorage.removeItem("carts");
 }

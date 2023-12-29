@@ -95,7 +95,7 @@ export const ViewProduct = () => {
             try {
                 const getCarts = await requests.get("/cart");
                 let findCart = getCarts.carts.find((eachCart) => {
-                    return (eachCart.productId === cartData.productId && eachCart.attribute === cartData.attribute)
+                    return (eachCart.productId === cartData.productId && eachCart.attribute === cartData.attribute && eachCart.subscription === cartData.subscription);
                 });
 
                 if(findCart){
