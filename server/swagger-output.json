@@ -3253,6 +3253,35 @@
         }
       }
     },
+    "/api/reviews/by-product/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/cloudnary/": {
       "post": {
         "description": "",
@@ -3276,6 +3305,9 @@
           }
         ],
         "responses": {
+          "201": {
+            "description": "Created"
+          },
           "401": {
             "description": "Unauthorized"
           }

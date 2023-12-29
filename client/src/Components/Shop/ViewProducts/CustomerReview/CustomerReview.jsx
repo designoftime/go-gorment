@@ -179,78 +179,78 @@ export const CustomerReview = ({ productId }) => {
 
     const paginatedReviews = responeData?.data?.slice(startIndex, endIndex);
     let slides = [];
-    // for (let i = 0; i < paginatedReviews.length; i += 5) {
-    //   slides.push(
-    //     <div className="review-main-container container">
-    //       {responeData?.data?.slice(i, i + 5).map((items, id) => {
-    //         return (
-    //           <div key={id}>
-    //             <hr
-    //               style={{ color: "#412f59", height: "10px", width: "100%" }}
-    //             />
-    //             <div className=" my-1 review-header-container d-flex justify-content-between">
-    //               <div className="reviewTitle">
-    //                 {items.emailStatus == true ? (
-    //                   <span>
-    //                     <span className="activeVerified fw-bolder">
-    //                       Verified
-    //                     </span>{" "}
-    //                     <span className="fw-bolder">{items.name}</span>
-    //                   </span>
-    //                 ) : (
-    //                   <span>
-    //                     <span className="fw-bolder">{items.email}</span>{" "}
-    //                     <span className="shopVerified fw-bolder">
-    //                       {items.name}
-    //                     </span>
-    //                   </span>
-    //                 )}
-    //               </div>
-    //               <div className="customerReviewStar">
-    //                 {[1, 2, 3, 4, 5].map((index) => {
-    //                   let starArray = [];
-    //                   // let remainArray = [];
-    //                   if (items.reviewstar == index) {
-    //                     starArray.push(
-    //                       [1, 2, 3, 4, 5].slice(
-    //                         index[0],
-    //                         index[items.reviewstar - 1]
-    //                       )
-    //                     );
-    //                     // remainArray.push([1, 2, 3, 4, 5]).slice(index[starArray.length], index[starArray.length+([1,2,3,4,5].length-starArray.length)])
-    //                     starArray.map((index) => {
-    //                       return (
-    //                         <span className="reviewcstar" key={index}>
-    //                           <IoIosStar />
-    //                         </span>
-    //                       );
-    //                     });
-    //                   }
+    for (let i = 0; i < paginatedReviews?.length; i += 5) {
+      slides.push(
+        <div className="review-main-container container">
+          {responeData?.data?.slice(i, i + 5).map((items, id) => {
+            return (
+              <div key={id}>
+                <hr
+                  style={{ color: "#412f59", height: "10px", width: "100%" }}
+                />
+                <div className=" my-1 review-header-container d-flex justify-content-between">
+                  <div className="reviewTitle">
+                    {items.emailStatus == true ? (
+                      <span>
+                        <span className="activeVerified fw-bolder">
+                          Verified
+                        </span>{" "}
+                        <span className="fw-bolder">{items.name}</span>
+                      </span>
+                    ) : (
+                      <span>
+                        <span className="fw-bolder">{items.email}</span>{" "}
+                        <span className="shopVerified fw-bolder">
+                          {items.name}
+                        </span>
+                      </span>
+                    )}
+                  </div>
+                  <div className="customerReviewStar">
+                    {[1, 2, 3, 4, 5].map((index) => {
+                      let starArray = [];
+                      // let remainArray = [];
+                      if (items.reviewstar == index) {
+                        starArray.push(
+                          [1, 2, 3, 4, 5].slice(
+                            index[0],
+                            index[items.reviewstar - 1]
+                          )
+                        );
+                        // remainArray.push([1, 2, 3, 4, 5]).slice(index[starArray.length], index[starArray.length+([1,2,3,4,5].length-starArray.length)])
+                        starArray.map((index) => {
+                          return (
+                            <span className="reviewcstar" key={index}>
+                              <IoIosStar />
+                            </span>
+                          );
+                        });
+                      }
 
-    //                   {
-    //                     // if (starArray.length >= 0) {
-    //                     //     starArray.map((index) => {
-    //                     //         return <span className="reviewcstar" key={index}><IoIosSta className='reviewedStarfilled' /></span>
-    //                     //     })
-    //                     // }
-    //                     // else if (remainArray.length != 0) {
-    //                     //     remainArray.map((index) => {
-    //                     //         return <span className="reviewcstar" key={index}><IoIosStarOutline className='reviewedStarBlank' /></span>
-    //                     //     })
-    //                     // }
-    //                   }
-    //                 })}
-    //               </div>
-    //             </div>
-    //             <div className="reviewContent">
-    //               <p>{items.review}</p>
-    //             </div>
-    //           </div>
-    //         );
-    //       })}
-    //     </div>
-    //   );
-    // }
+                      {
+                        // if (starArray.length >= 0) {
+                        //     starArray.map((index) => {
+                        //         return <span className="reviewcstar" key={index}><IoIosSta className='reviewedStarfilled' /></span>
+                        //     })
+                        // }
+                        // else if (remainArray.length != 0) {
+                        //     remainArray.map((index) => {
+                        //         return <span className="reviewcstar" key={index}><IoIosStarOutline className='reviewedStarBlank' /></span>
+                        //     })
+                        // }
+                      }
+                    })}
+                  </div>
+                </div>
+                <div className="reviewContent">
+                  <p>{items.review}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
     return slides;
   };
   const handlePageChange = (pageNumber) => {
@@ -298,8 +298,8 @@ export const CustomerReview = ({ productId }) => {
       setRespnesData(res);
     };
     respones();
-  }, [setRespnesData]);
-  console.log(responeData)
+  }, [setRespnesData, productId]);
+  console.log(responeData);
   return (
     <>
       <div className="CustomerReview-section">
@@ -331,7 +331,9 @@ export const CustomerReview = ({ productId }) => {
                 </span>{" "}
                 <span />
               </div>
-              <p className="totalReviewText fw-bold">Based on 40 reviews</p>
+              <p className="totalReviewText fw-bold">
+                Based on {responeData?.totalReviews} reviews
+              </p>
             </div>
             <div className="reviewCategory">
               <div className="reviewSubCategory">
@@ -358,11 +360,19 @@ export const CustomerReview = ({ productId }) => {
                   <span />
                 </div>
                 <div className="reviewBar">
-                  <ProgressBar now={88} className="reviewbar" />
+                  <ProgressBar
+                    now={
+                      (responeData?.fiveStar / 100) * responeData?.totalReviews
+                    }
+                    className="reviewbar"
+                  />
                 </div>
                 <div className="RSC-calculate">
-                  <span>88%</span> <span />
-                  <span>(35)</span>
+                  <span>
+                    {(responeData?.fiveStar / 100) * responeData?.totalReviews}%
+                  </span>{" "}
+                  <span />
+                  <span>{responeData?.fiveStar}</span>
                 </div>
               </div>
               <div className="reviewSubCategory">
@@ -389,11 +399,19 @@ export const CustomerReview = ({ productId }) => {
                   <span />
                 </div>
                 <div className="reviewBar">
-                  <ProgressBar now={3} className="reviewbar" />
+                  <ProgressBar
+                    now={
+                      (responeData?.fourStar / 100) * responeData?.totalReviews
+                    }
+                    className="reviewbar"
+                  />
                 </div>
                 <div className="RSC-calculate">
-                  <span>3%</span> <span />
-                  <span>(1)</span>
+                  <span>
+                    {(responeData?.fourStar / 100) * responeData?.totalReviews}%
+                  </span>{" "}
+                  <span />
+                  <span>({responeData?.fourStar})</span>
                 </div>
               </div>
               <div className="reviewSubCategory">
@@ -420,11 +438,20 @@ export const CustomerReview = ({ productId }) => {
                   <span />
                 </div>
                 <div className="reviewBar">
-                  <ProgressBar now={5} className="reviewbar" />
+                  <ProgressBar
+                    now={
+                      (responeData?.threeStar / 100) * responeData?.totalReviews
+                    }
+                    className="reviewbar"
+                  />
                 </div>
                 <div className="RSC-calculate">
-                  <span>5%</span> <span />
-                  <span>(2)</span>
+                  <span>
+                    {(responeData?.threeStar / 100) * responeData?.totalReviews}
+                    %
+                  </span>{" "}
+                  <span />
+                  <span>({responeData?.threeStar})</span>
                 </div>
               </div>
               <div className="reviewSubCategory">
@@ -451,11 +478,19 @@ export const CustomerReview = ({ productId }) => {
                   <span />
                 </div>
                 <div className="reviewBar">
-                  <ProgressBar now={0} className="reviewbar" />
+                  <ProgressBar
+                    now={
+                      (responeData?.twoStar / 100) * responeData?.totalReviews
+                    }
+                    className="reviewbar"
+                  />
                 </div>
                 <div className="RSC-calculate">
-                  <span>0%</span> <span />
-                  <span>(0)</span>
+                  <span>
+                    {(responeData?.twoStar / 100) * responeData?.totalReviews}%
+                  </span>{" "}
+                  <span />
+                  <span>({responeData?.twoStar})</span>
                 </div>
               </div>
               <div className="reviewSubCategory">
@@ -482,11 +517,19 @@ export const CustomerReview = ({ productId }) => {
                   <span />
                 </div>
                 <div className="reviewBar">
-                  <ProgressBar now={5} className="reviewbar" />
+                  <ProgressBar
+                    now={
+                      (responeData?.oneStar / 100) * responeData?.totalReviews
+                    }
+                    className="reviewbar"
+                  />
                 </div>
                 <div className="RSC-calculate">
-                  <span>5%</span> <span />
-                  <span>(2)</span>
+                  <span>
+                    {(responeData?.oneStar / 100) * responeData?.totalReviews}%
+                  </span>{" "}
+                  <span />
+                  <span>({responeData?.oneStar})</span>
                 </div>
               </div>
             </div>
