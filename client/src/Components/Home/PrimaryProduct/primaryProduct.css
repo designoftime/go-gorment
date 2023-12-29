@@ -4,7 +4,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0rem;
 
     .head-container {
         width: 85vw;
@@ -54,6 +53,10 @@
     }
 }
 
+.PrimaryProduct-section {
+    margin: 0rem;
+}
+
 .PPCmainComponent {
     display: flex;
     align-items: center;
@@ -93,7 +96,7 @@
     margin: 0;
 }
 
-@media screen and (max-width: 764px) {
+@media (max-width: 764px) {
     .PPCmainComponent {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -117,5 +120,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .main-primary-pro .PrimaryProduct-section {
+        margin-bottom: 1rem;
     }
 }

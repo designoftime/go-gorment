@@ -15,7 +15,7 @@ import "swiper/css/pagination";
 const categoriesMobile = ({ categoriesData }) => {
     return (
         <div className="main-primary-pro">
-            <div className="PrimaryProduct-section my-5 ">
+            <div className="PrimaryProduct-section">
                 <div className="PPCmainComponent">
                     <Swiper
                         className="main-swiper-home"
