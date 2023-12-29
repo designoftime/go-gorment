@@ -20,7 +20,6 @@
     justify-content: center;
     /* position: absolute;
     top:25px; */
-
 }
 
 .main-swiper-home {
@@ -60,7 +59,6 @@
         gap: 1px;
     }
 }
-
 
 .product-component__rating span {
     font-size: 13px;
@@ -171,7 +169,6 @@
     width: 100%;
     color: #4c4294;
     font-weight: bolder;
-
 }
 
 /* PrimaryProduct-Section */
@@ -232,7 +229,7 @@
     justify-content: center;
 }
 
-.product-overview-item{
+.product-overview-item {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -264,14 +261,14 @@
 .poheader {
     font-weight: bolder;
     font-size: 20px;
-    font-family: 'Olly-bold-thin';
+    font-family: "Olly-bold-thin";
     letter-spacing: 0.5px;
 }
 
 .pocontent {
     font-size: 15px;
     font-weight: 900;
-    font-family: 'Olly-thin';
+    font-family: "Olly-thin";
 }
 
 .pologoimg:hover {
@@ -300,7 +297,7 @@
     border-radius: 50%;
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
     .Banner-section {
         background-size: cover;
         background-position: center;
@@ -334,7 +331,6 @@
     .swiper-button-next {
         bottom: 30px !important;
         top: 91% !important;
-
     }
 
     .bannerpara {
@@ -355,11 +351,9 @@
     .product-overview-item {
         width: 80%;
     }
-
-
 }
 
-@media screen and (max-width:467px) {
+@media screen and (max-width: 467px) {
     .Bannerheader {
         font-size: 5rem;
         line-height: 60px;
@@ -373,5 +367,4 @@
     .bannerpara {
         font-size: 14px;
     }
-
 }

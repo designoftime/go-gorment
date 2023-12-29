@@ -87,27 +87,20 @@
     background-size: cover;
 }
 
-.swiper-wrapper {
-    height: 80vh;
-}
-
 .swiper-slide {
     margin: 0;
 }
 
 @media screen and (max-width: 736px) {
-    .PPCmainComponent {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
     /* .PPCmainComponent {
+        width: 100%;
+    } */
+
+    .PPCmainComponent {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         place-items: center;
-    } */
+    }
 
     .heading {
         font-size: 22px;
