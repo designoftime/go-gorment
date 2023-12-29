@@ -144,6 +144,7 @@ export const CustomerReview = ({ productId }) => {
   ];
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [responeData, setRespnesData] = useState(1);
   const itemPerPage = 5;
   const [ratingChange, setRatingChange] = useState({
     star1: true,
@@ -174,84 +175,97 @@ export const CustomerReview = ({ productId }) => {
   const renderReviewSlide = () => {
     const startIndex = (currentPage - 1) * itemPerPage;
     const endIndex = currentPage + itemPerPage;
-    const paginatedReviews = reviewSliderVal.slice(startIndex, endIndex);
-    let slides = [];
-    for (let i = 0; i < paginatedReviews.length; i += 5) {
-      slides.push(
-        <div className="review-main-container container">
-          {reviewSliderVal.slice(i, i + 5).map((items, id) => {
-            return (
-              <div key={id}>
-                <hr
-                  style={{ color: "#412f59", height: "10px", width: "100%" }}
-                />
-                <div className=" my-1 review-header-container d-flex justify-content-between">
-                  <div className="reviewTitle">
-                    {items.verifyc == "verified" ? (
-                      <span>
-                        <span className="activeVerified fw-bolder">
-                          Verified
-                        </span>{" "}
-                        <span className="fw-bolder">{items.customername}</span>
-                      </span>
-                    ) : (
-                      <span>
-                        <span className="fw-bolder">{items.customername}</span>{" "}
-                        <span className="shopVerified fw-bolder">
-                          {items.verifyc}
-                        </span>
-                      </span>
-                    )}
-                  </div>
-                  <div className="customerReviewStar">
-                    {[1, 2, 3, 4, 5].map((index) => {
-                      let starArray = [];
-                      // let remainArray = [];
-                      if (items.reviewstar == index) {
-                        starArray.push(
-                          [1, 2, 3, 4, 5].slice(
-                            index[0],
-                            index[items.reviewstar - 1]
-                          )
-                        );
-                        // remainArray.push([1, 2, 3, 4, 5]).slice(index[starArray.length], index[starArray.length+([1,2,3,4,5].length-starArray.length)])
-                        starArray.map((index) => {
-                          return (
-                            <span className="reviewcstar" key={index}>
-                              <IoIosStar />
-                            </span>
-                          );
-                        });
-                      }
+    console.log(responeData.data);
 
-                      {
-                        // if (starArray.length >= 0) {
-                        //     starArray.map((index) => {
-                        //         return <span className="reviewcstar" key={index}><IoIosSta className='reviewedStarfilled' /></span>
-                        //     })
-                        // }
-                        // else if (remainArray.length != 0) {
-                        //     remainArray.map((index) => {
-                        //         return <span className="reviewcstar" key={index}><IoIosStarOutline className='reviewedStarBlank' /></span>
-                        //     })
-                        // }
-                      }
-                    })}
-                  </div>
-                </div>
-                <div className="reviewContent">
-                  <p>{items.review}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      );
-    }
+    const paginatedReviews = responeData?.data?.slice(startIndex, endIndex);
+    let slides = [];
+    // for (let i = 0; i < paginatedReviews.length; i += 5) {
+    //   slides.push(
+    //     <div className="review-main-container container">
+    //       {responeData?.data?.slice(i, i + 5).map((items, id) => {
+    //         return (
+    //           <div key={id}>
+    //             <hr
+    //               style={{ color: "#412f59", height: "10px", width: "100%" }}
+    //             />
+    //             <div className=" my-1 review-header-container d-flex justify-content-between">
+    //               <div className="reviewTitle">
+    //                 {items.emailStatus == true ? (
+    //                   <span>
+    //                     <span className="activeVerified fw-bolder">
+    //                       Verified
+    //                     </span>{" "}
+    //                     <span className="fw-bolder">{items.name}</span>
+    //                   </span>
+    //                 ) : (
+    //                   <span>
+    //                     <span className="fw-bolder">{items.email}</span>{" "}
+    //                     <span className="shopVerified fw-bolder">
+    //                       {items.name}
+    //                     </span>
+    //                   </span>
+    //                 )}
+    //               </div>
+    //               <div className="customerReviewStar">
+    //                 {[1, 2, 3, 4, 5].map((index) => {
+    //                   let starArray = [];
+    //                   // let remainArray = [];
+    //                   if (items.reviewstar == index) {
+    //                     starArray.push(
+    //                       [1, 2, 3, 4, 5].slice(
+    //                         index[0],
+    //                         index[items.reviewstar - 1]
+    //                       )
+    //                     );
+    //                     // remainArray.push([1, 2, 3, 4, 5]).slice(index[starArray.length], index[starArray.length+([1,2,3,4,5].length-starArray.length)])
+    //                     starArray.map((index) => {
+    //                       return (
+    //                         <span className="reviewcstar" key={index}>
+    //                           <IoIosStar />
+    //                         </span>
+    //                       );
+    //                     });
+    //                   }
+
+    //                   {
+    //                     // if (starArray.length >= 0) {
+    //                     //     starArray.map((index) => {
+    //                     //         return <span className="reviewcstar" key={index}><IoIosSta className='reviewedStarfilled' /></span>
+    //                     //     })
+    //                     // }
+    //                     // else if (remainArray.length != 0) {
+    //                     //     remainArray.map((index) => {
+    //                     //         return <span className="reviewcstar" key={index}><IoIosStarOutline className='reviewedStarBlank' /></span>
+    //                     //     })
+    //                     // }
+    //                   }
+    //                 })}
+    //               </div>
+    //             </div>
+    //             <div className="reviewContent">
+    //               <p>{items.review}</p>
+    //             </div>
+    //           </div>
+    //         );
+    //       })}
+    //     </div>
+    //   );
+    // }
     return slides;
   };
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+  const isValidData = (data) => {
+    for (let objData in data) {
+      if (
+        (typeof data[objData] == "string" && data[objData].length == 0) ||
+        (typeof data[objData] == "number" && data[objData] == null)
+      ) {
+        return false;
+      }
+    }
+    return true;
   };
   const totalReviewPages = Math.ceil(reviewSliderVal.length / itemPerPage);
   const handleProductReview = (e) => {
@@ -266,14 +280,26 @@ export const CustomerReview = ({ productId }) => {
       emailStatus: user?.email ? true : false,
       user: user?._id,
     };
-    const postReviews = async () => {
-      await requests.post("/reviews/add", data);
-      toast("Review Created Successfully !! ");
-      setIsCollapsed(false);
-    };
-    postReviews();
+    if (isValidData(data)) {
+      const postReviews = async () => {
+        await requests.post("/reviews/add", data);
+        toast("Review Created Successfully !! ");
+        setIsCollapsed(false);
+      };
+      postReviews();
+    } else {
+      toast.error("Please Fill All Fields");
+    }
   };
-  console.log(user);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    const respones = async () => {
+      const res = await requests.get(`/reviews/by-product/${productId}`);
+      setRespnesData(res);
+    };
+    respones();
+  }, [setRespnesData]);
+  console.log(responeData)
   return (
     <>
       <div className="CustomerReview-section">
@@ -518,7 +544,13 @@ export const CustomerReview = ({ productId }) => {
                       Rating
                     </label>
                     <br />
-                    <input type="number" placeholder="rate us" name="rating" />
+                    <input
+                      type="number"
+                      placeholder="rate us"
+                      name="rating"
+                      min={1}
+                      max={5}
+                    />
                   </div>
                   <div className="reviewInputs">
                     <label

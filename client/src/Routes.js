@@ -19,6 +19,7 @@ import { Ourstory } from "./Components/OurStory/Ourstory";
 import { OneFeedsTwo } from "./Components/OneFeedsTwo/OneFeedsTwo";
 import Checkout from "./Components/Checkout/Checkout";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import { OrderHistory} from "./Components/Accounts/OrderProfile/OrderHistory";
 
 const appRouter = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ const appRouter = createBrowserRouter([
                     {
                         path: "reset-password",
                         element: <ResetPassword />
+                    },
+                    {
+                        path: "order-history",
+                        element: <OrderHistory/>
                     }
                 ]
             },
