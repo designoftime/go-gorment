@@ -1,3 +1,5 @@
+import requests from "../../Services/httpService";
+
 export function addToCartLocal(cartData){     
     const carts = JSON.parse(localStorage.getItem("carts"));
 
@@ -35,9 +37,7 @@ export function deleteCartLocal(cartData){
 export function updateCartLocal(cartData){
 
     const carts = JSON.parse(localStorage.getItem("carts"));
-    console.log(cartData);
     const findCart = carts.find((eachCart) => (eachCart.attribute === cartData.attribute && eachCart?.subscription === cartData?.subscription));
-    console.log(findCart);
 
     findCart["quantity"] = cartData.quantity;
 
@@ -52,4 +52,16 @@ export function getLocalCarts(){
     }
     
     return null;
+}
+
+export async function updateLocalCartToServer(){
+    const carts = JSON.parse(localStorage.getItem("carts"));
+
+    if(!carts){
+        return;
+    }
+
+    await requests.post("/cart/add-to-cart", { cart: carts });
+
+    localStorage.removeItem("carts");
 }

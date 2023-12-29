@@ -141,10 +141,12 @@ export const Cart = () => {
                           <BiSolidTrashAlt />
                         </div>
                       </div>
-                      <div className="cartProductSize">
-                        {eachCart?.attribute}
-                      </div>
-                      <div> {eachCart?.subscription} </div>
+                      {
+                        (eachCart?.attribute) ? <div className="cartProductSize">
+                          {eachCart?.attribute}
+                        </div> : null
+                      }
+                      {eachCart?.subscription && <div> {eachCart?.subscription} </div>}
                       <div className="cartRemainPart2">
                         <CartQuantity cartAttribute={eachCart?.attribute} cartSubscription={eachCart?.subscription} cartId={eachCart?._id} quantity={eachCart?.quantity} fetchCarts={fetchCarts} />
                         <div className="cartProductPrice">

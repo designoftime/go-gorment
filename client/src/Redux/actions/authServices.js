@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 import { setUser } from "../reducers/authSlice";
 import requests from '../../Services/httpService';
+import { updateLocalCartToServer } from './cartServices';
 
 export function loginUser(userData, Navigate){
 
@@ -10,7 +11,8 @@ export function loginUser(userData, Navigate){
             const res = await requests.post("/customer/login", userData);
             dispatch(setUser(res));
             localStorage.setItem("user", JSON.stringify(res));
-            localStorage.removeItem("carts");
+
+            await updateLocalCartToServer();
             toast('User Login Successfully !!');
             Navigate("/");
             
@@ -59,6 +61,8 @@ export function verifyEmail(token){
                 token: res.token
             }));
 
+            await updateLocalCartToServer();
+
             toast('User Registration Successfully !!');
 
         } catch (error) {
@@ -76,7 +80,9 @@ export function registerUserByGoogle(token, Navigate){
             const res = await requests.post(`/customer/signup/${token}`);
             dispatch(setUser(res));
             localStorage.setItem("user", JSON.stringify(res));
-            localStorage.removeItem("carts");
+
+            await updateLocalCartToServer();
+
             toast('User Login Successfully !!');
             Navigate("/");
             

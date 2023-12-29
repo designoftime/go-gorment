@@ -18,27 +18,69 @@ import FeaturePromo from "./FeaturePromo/Featurepromo";
 import { getStylesLan } from "../../utils/Constants";
 
 export const Home = () => {
+    const dynamicStoreData = useSelector((store) => store?.storeSettings);
 
-  const dynamicStoreData = useSelector(store => store?.storeSettings);
+    return (
+        <div>
+            <HomeCarousel homeSliderData={dynamicStoreData?.slider} />
+            <div className="container-fluid g-0">
+                <CarouselSection
+                    secondSliderData={dynamicStoreData?.second_slider}
+                />
+                {Array.isArray(dynamicStoreData.categories) &&
+                    dynamicStoreData?.categories[0].children && (
+                        <PrimaryProduct
+                            categoriesData={
+                                dynamicStoreData?.categories[0].children
+                            }
+                        />
+                    )}
+                {dynamicStoreData?.home && (
+                    <SnacksGif
+                        promotionBannarData={dynamicStoreData?.home}
+                        styles={getStylesLan(
+                            dynamicStoreData?.home,
+                            "permotion_background_color",
+                            "permotion_text_color"
+                        )}
+                    />
+                )}
+                {dynamicStoreData?.home && (
+                    <Productoverview
+                        testimonialData={dynamicStoreData?.home}
+                        styles={getStylesLan(
+                            dynamicStoreData.home,
+                            "testimonial_background_color",
+                            "testimonial_text_color"
+                        )}
+                    />
+                )}
 
-  return (
-    <div>
-      <HomeCarousel homeSliderData={dynamicStoreData?.slider} />
-      <div className="container-fluid g-0">
-        <CarouselSection secondSliderData={dynamicStoreData?.second_slider} />
-        {Array.isArray(dynamicStoreData.categories) && dynamicStoreData?.categories[0].children && <PrimaryProduct categoriesData={dynamicStoreData?.categories[0].children} />}
-        {
-          dynamicStoreData?.home && <SnacksGif promotionBannarData={dynamicStoreData?.home} styles={getStylesLan(dynamicStoreData?.home, 'permotion_background_color', 'permotion_text_color')} />
-        }
-        {
-          dynamicStoreData?.home && <Productoverview testimonialData={dynamicStoreData?.home} styles={getStylesLan(dynamicStoreData.home, 'testimonial_background_color', 'testimonial_text_color')} />
-        }
-
-        {Array.isArray(dynamicStoreData.categories) && dynamicStoreData?.categories[0] && <ReviewedProduct categoryId={dynamicStoreData?.categories[0]._id}/>}
-        {dynamicStoreData?.home && <OneFeedsHome bottomPromotionData={dynamicStoreData?.home} styles={getStylesLan(dynamicStoreData.home, 'bottom_permotion_background_color', 'bottom_permotion_text_color')} />}
-        {dynamicStoreData?.bottom_slider && <CustomerCaursel bottomSliderData={dynamicStoreData?.bottom_slider} />}
-        {dynamicStoreData?.home && <FeaturePromo featurePromoData={dynamicStoreData?.home} />}
-      </div>
-    </div>
-  );
+                {Array.isArray(dynamicStoreData.categories) &&
+                    dynamicStoreData?.categories[0] && (
+                        <ReviewedProduct
+                            categoryId={dynamicStoreData?.categories[0]._id}
+                        />
+                    )}
+                {dynamicStoreData?.home && (
+                    <OneFeedsHome
+                        bottomPromotionData={dynamicStoreData?.home}
+                        styles={getStylesLan(
+                            dynamicStoreData.home,
+                            "bottom_permotion_background_color",
+                            "bottom_permotion_text_color"
+                        )}
+                    />
+                )}
+                {dynamicStoreData?.bottom_slider && (
+                    <CustomerCaursel
+                        bottomSliderData={dynamicStoreData?.bottom_slider}
+                    />
+                )}
+                {dynamicStoreData?.home && (
+                    <FeaturePromo featurePromoData={dynamicStoreData?.home} />
+                )}
+            </div>
+        </div>
+    );
 };
