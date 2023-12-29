@@ -63,7 +63,6 @@ export const ViewProduct = () => {
 
     useEffect(() => {
         fetchProductBySlug(productSlug);
-        console.log(productId);
     }, [productSlug]);
 
     const addToCart = () => {
@@ -111,7 +110,6 @@ export const ViewProduct = () => {
 
         AddToCartAPI();
     }
-console.log(productId);
     return (
         <div>
             <section className='View-Products-section'>
@@ -222,7 +220,7 @@ console.log(productId);
                 <ProductSectionTwo data={productTheme?.section_two} />
                 <ProductSectionThree data={productTheme?.section_three} />
                 <ProductSectionFour data={productTheme?.section_four} />
-                <CustomerReview productId={productId}/>
+                <CustomerReview productId={product._id}/>
             </section>
         </div>
     )
