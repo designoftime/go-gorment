@@ -1,4 +1,6 @@
+const { mongoose } = require("mongoose");
 const Reviews = require("../models/Reviews");
+const { ObjectId } = mongoose.Types;
 
 const addReviews = async (req, res) => {
   try {
@@ -65,6 +67,55 @@ const getReviewById = async (req, res) => {
     });
   }
 };
+const getReviewByProductId = async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!id) return new Error("Id Not found");
+    const data = await Reviews.find({ productId: ObjectId(id) })
+      .sort({ updatedAt: -1 })
+      .populate({ path: "productId", select: "image title description prices" })
+      .populate({ path: "user", select: "name image" });
+
+    const totalReviews = await Reviews.find({
+      productId: ObjectId(id),
+    }).count();
+    const fiveStar = await Reviews.find({
+      productId: ObjectId(id),
+      rating: 5,
+    }).count();
+    const fourStar = await Reviews.find({
+      productId: ObjectId(id),
+      rating: 4,
+    }).count();
+    const threeStar = await Reviews.find({
+      productId: ObjectId(id),
+      rating: 3,
+    }).count();
+    const twoStar = await Reviews.find({
+      productId: ObjectId(id),
+      rating: 2,
+    }).count();
+    const oneStar = await Reviews.find({
+      productId: ObjectId(id),
+      rating: 1,
+    }).count();
+
+    res.status(201).send({
+      message: "succes",
+      data,
+      totalReviews,
+      fiveStar,
+      fourStar,
+      threeStar,
+      twoStar,
+      oneStar,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: `solve the internal ${err}`,
+    });
+  }
+};
 
 const getAllReview = async (req, res) => {
   try {
@@ -108,4 +159,5 @@ module.exports = {
   deleteReviews,
   getAllReview,
   getReviewById,
+  getReviewByProductId,
 };

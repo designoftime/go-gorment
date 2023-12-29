@@ -214,6 +214,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 0.5rem;
+    color: white;
 }
 
 .checkout-subtotal,
