@@ -39,14 +39,12 @@ const categoriesMobile = ({ categoriesData }) => {
                                             to={`/collections/all#${dynamicLink}`}
                                             className="primary-product-component-content"
                                         >
-                                            <figure>
-                                                <div className="imagediv">
-                                                    <img
-                                                        className="img-fluid priproductimg"
-                                                        src={eachCategory.cover}
-                                                    />
-                                                </div>
-                                            </figure>
+                                            <div className="imagediv">
+                                                <img
+                                                    className="img-fluid priproductimg"
+                                                    src={eachCategory.cover}
+                                                />
+                                            </div>
                                         </Link>
                                         <div className="head-container">
                                             <Link
