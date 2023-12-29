@@ -35,9 +35,7 @@ export function deleteCartLocal(cartData){
 export function updateCartLocal(cartData){
 
     const carts = JSON.parse(localStorage.getItem("carts"));
-    console.log(cartData);
     const findCart = carts.find((eachCart) => (eachCart.attribute === cartData.attribute && eachCart?.subscription === cartData?.subscription));
-    console.log(findCart);
 
     findCart["quantity"] = cartData.quantity;
 

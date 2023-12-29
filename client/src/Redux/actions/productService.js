@@ -125,3 +125,19 @@ export const handlePrice = (variantData, data, idx, setVariantPrice, setIsQuanti
             setIsQuantityAvailable(true);
         }
 }
+
+export const handlePriceWithoutVariant = (data,setVariantPrice,setIsQuantityAvailable) => {
+    const productPrice = {
+        price: fetchPrice(data.prices),
+        subscribePrice: fetchSubscriptionPrice(data.prices)
+    }
+
+    setVariantPrice([productPrice]);
+
+    if(Number(data?.quantity) <= 0){
+        setIsQuantityAvailable(false);
+    }
+    else{
+        setIsQuantityAvailable(true);
+    }
+}
