@@ -22,7 +22,7 @@ export const ViewProduct = () => {
 
     const showValue = useWindowInnerWidth();
     const dispatch = useDispatch();
-
+    const [productId,setProductId]= useState(null);
     const SwiperfirstImg = useRef();
     const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
     const [productQuantity, setproductQuantity] = useState(1)
@@ -53,6 +53,7 @@ export const ViewProduct = () => {
         try {
             const res = await requests.get(`/products/product/${id}`);
             setProduct(res);
+            setProductId(id)
             console.log(res);
             const productPageRes = await requests.get(`/theme/${res?.theme}`);
             setProductTheme(productPageRes?.theme);
@@ -66,6 +67,7 @@ export const ViewProduct = () => {
 
     useEffect(() => {
         fetchProductBySlug(productSlug);
+        console.log(productId);
     }, [productSlug]);
 
     const addToCart = () => {
@@ -114,7 +116,7 @@ export const ViewProduct = () => {
 
         AddToCartAPI();
     }
-
+console.log(productId);
     return (
         <div>
             <section className='View-Products-section'>
@@ -225,7 +227,7 @@ export const ViewProduct = () => {
                 <ProductSectionTwo data={productTheme?.section_two} />
                 <ProductSectionThree data={productTheme?.section_three} />
                 <ProductSectionFour data={productTheme?.section_four} />
-                <CustomerReview/>
+                <CustomerReview productId={productId}/>
             </section>
         </div>
     )

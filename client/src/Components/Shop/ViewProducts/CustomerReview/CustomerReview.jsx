@@ -10,7 +10,11 @@ import { Collapse } from 'react-collapse';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Pagination from 'react-bootstrap/Pagination'
-export const CustomerReview = () => {
+import axios from 'axios';
+import requests from '../../../../Services/httpService';
+import { toast } from 'react-toastify';
+export const CustomerReview = ({productId}) => {
+    console.log("productId is", productId);
     const reviewSliderVal = [
         {
             id: 1,
@@ -26,7 +30,7 @@ export const CustomerReview = () => {
             "verifyc": `Verified by shop`,
             "reviewtitle": "Great",
             "review": "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-            "reviewstar": '4'
+            "reviewstar": '2'
         },
         {
             id: 3,
@@ -128,6 +132,9 @@ export const CustomerReview = () => {
     ]
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    let getData = JSON.parse(localStorage.getItem('user'));                
+    const [verifyEmail,setVerifyEmail]=useState(getData?.email)
+    console.log(verifyEmail);
     const itemPerPage = 5;
     const [ratingChange, setRatingChange] = useState({
         "star1": true,
@@ -136,7 +143,7 @@ export const CustomerReview = () => {
         "star4": true,
         "star5": true,
     })
-    const [hoveredStar, setHoveredStar] = useState(0)
+    const [reviewInput,setReviewInput]=useState('');
     const clickRatingChange = (clickedStar) => {
         clickedStar.preventDefault();
         setRatingChange(() => {
@@ -147,8 +154,31 @@ export const CustomerReview = () => {
             return newRating;
         });
     };
-    const handleStarHover = (star) => {
-        setHoveredStar(star);
+    
+    const addReview = (event)=>{
+        event.preventDefault();   
+        setReviewInput({
+            name: event.target.name.value,
+            email: event.target.email.value,
+            rating: 5,
+            reviewTitle: event.target.reviewTitle.value,
+            review: event.target.reviewTitle.value,
+            imageUrl:'',
+            productId: productId,
+            emailStatus: verifyEmail == event.target.email.value?true:false,
+        });
+        const addingReview =async()=>{
+            try{
+                console.log(reviewInput);
+                const res = await requests.post('/reviews/add',reviewInput);
+                toast.success('Review Added successfully');
+                console.log(res);
+            }
+            catch(error){
+                toast(error.response.data.message);
+            }
+        }
+        addingReview();
     }
     const handleReviewAccordian = () => {
         setIsCollapsed(!isCollapsed);
@@ -171,31 +201,9 @@ export const CustomerReview = () => {
                                     </div>
                                     <div className="customerReviewStar">
                                         {[1, 2, 3, 4, 5].map((index) => {
-                                            let starArray = [];
-                                            // let remainArray = [];
-                                            if (items.reviewstar == index) {
-                                                starArray.push([1, 2, 3, 4, 5].slice(index[0], index[items.reviewstar - 1]));
-                                                // remainArray.push([1, 2, 3, 4, 5]).slice(index[starArray.length], index[starArray.length+([1,2,3,4,5].length-starArray.length)])
-                                                starArray.map((index)=>{
-                                                    return <span className="reviewcstar" key={index}><IoIosStar /></span>
-                                                })
-                                            }
-
-                                            {
-                                                // if (starArray.length >= 0) {
-                                                //     starArray.map((index) => {
-                                                //         return <span className="reviewcstar" key={index}><IoIosSta className='reviewedStarfilled' /></span>
-                                                //     })
-                                                // }
-                                                // else if (remainArray.length != 0) {
-                                                //     remainArray.map((index) => {
-                                                //         return <span className="reviewcstar" key={index}><IoIosStarOutline className='reviewedStarBlank' /></span>
-                                                //     })
-                                                // }
-                                            }
-
-
-
+                                           return <span className='reviewcstar' key={index}>
+                                            {index <= items.reviewstar?<IoIosStar/>:<IoIosStarOutline/>}
+                                           </span>
                                         })}
                                     </div>
                                 </div>
@@ -313,7 +321,7 @@ export const CustomerReview = () => {
                     </div>
                     <div className="my-5 reviewAccordian">
                         <Collapse isOpened={isCollapsed}>
-                            <form>
+                            <form onSubmit={addReview}>
                                 <div className="reviewForm">
                                     <div className='reviewInputs'>
                                         <label htmlFor="name" className='reviewlable fw-bolder'>Name <span>(displayed publicly like
@@ -324,30 +332,30 @@ export const CustomerReview = () => {
                                                 <option value="Anonymous">Anonymous</option>
                                             </select>)</span>
                                         </label>
-                                        <input type="text" className='form-control mt-2 reviewInput' placeholder='Enter Your Name (public)' />
+                                        <input type="text" name='name' className='form-control mt-2 reviewInput' placeholder='Enter Your Name (public)' />
                                     </div>
                                     <div className='reviewInputs'>
                                         <label htmlFor="email" className='reviewlable fw-bolder'>Email</label>
-                                        <input type="text" className='form-control mt-2 reviewInput' placeholder='Enter Your Email (private)' />
+                                        <input type="email" name='email' className='form-control mt-2 reviewInput' placeholder='Enter Your Email (private)' />
                                     </div>
                                     <div className='reviewInputs'>
                                         <label htmlFor="rating" className='reviewlable fw-bolder'>Rating</label><br />
                                         {[1, 2, 3, 4, 5].map((star, index) => {
                                             return (
-                                                <button key={index} className='starbtn' onClick={clickRatingChange} name={`star${star}`
+                                                <button key={index} type='button' value={5} className='starbtn' onClick={clickRatingChange} name={`star${star}`
                                                 }>
-                                                    {ratingChange[`star${star}`] || hoveredStar >= star ? (<IoIosStar />) : (<IoIosStarOutline />)}
+                                                    {ratingChange[`star${star}`] ? (<IoIosStar />) : (<IoIosStarOutline />)}
                                                 </button>
                                             )
                                         })}
                                     </div>
                                     <div className='reviewInputs'>
-                                        <label htmlFor="reviewtitle" className='reviewlable fw-bolder'>Review Title</label>
-                                        <input type="text" className='form-control mt-2 reviewInput' placeholder='Give Your Review Title' />
+                                        <label htmlFor="reviewTitle" className='reviewlable fw-bolder'>Review Title</label>
+                                        <input type="text" className='form-control mt-2 reviewInput' name='reviewTitle' placeholder='Give Your Review Title' />
                                     </div>
                                     <div className='reviewInputs'>
                                         <label htmlFor="review" className='reviewlable fw-bolder'>Review</label>
-                                        <textarea rows={3} type="text" className='form-control mt-2 reviewInput' placeholder='Write Your Comments here...' />
+                                        <textarea rows={3} type="text" name='review' className='form-control mt-2 reviewInput' placeholder='Write Your Comments here...' />
                                     </div>
                                     {/* <div className='reviewInputs'>
                                         <label htmlFor="media" className='reviewlable fw-bolder'>Photo/Video(Optional)</label><br />
@@ -355,7 +363,7 @@ export const CustomerReview = () => {
                                     </div> */}
                                     <p className='my-3 fs-5 fw-bold'>How we use your data: We’ll only contact you about the review you left, and only if necessary. By submitting your review, you agree to Judge.me’s <Link style={{ color: "#412f59" }} to='/policies/terms-of-service'> terms and conditions</Link> and  <Link to='/polices/privacy-policy' style={{ color: "#412f59" }}>privacy policy</Link>.</p>
                                     <div className="d-flex justify-content-center">
-                                        <button className='reviewsubmitbtn'>Submit review</button>
+                                        <button className='reviewsubmitbtn' type='submit'>Submit review</button>
                                     </div>
                                 </div>
                             </form>
