@@ -20,7 +20,6 @@ import { addToCartLocal } from '../../../Redux/actions/cartServices'
 export const ViewProduct = () => {
 
     const showValue = useWindowInnerWidth();
-
     const SwiperfirstImg = useRef();
     const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
     const [productQuantity, setproductQuantity] = useState(1)
@@ -111,7 +110,6 @@ export const ViewProduct = () => {
 
         AddToCartAPI();
     }
-
     return (
         <div>
             <section className='View-Products-section'>
@@ -222,7 +220,7 @@ export const ViewProduct = () => {
                 <ProductSectionTwo data={productTheme?.section_two} />
                 <ProductSectionThree data={productTheme?.section_three} />
                 <ProductSectionFour data={productTheme?.section_four} />
-                <CustomerReview/>
+                <CustomerReview productId={product._id}/>
             </section>
         </div>
     )

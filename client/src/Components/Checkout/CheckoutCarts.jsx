@@ -40,11 +40,11 @@ const CheckoutCarts = () => {
         <div className="Checkout-right my-5 col-sm-12 col-md-xl-6">
             <div className="Checkout-container">
                 {cartData.length
-                    ? cartData.map((eachCart) => {
+                    ? cartData.map((eachCart,idx) => {
                           return (
                               <div
                                   className="Product-view row"
-                                  key={eachCart._id}
+                                  key={eachCart._id || idx}
                               >
                                   <div className="col-md-2 checkout-proudct-img ">
                                       <div className="image-block">
@@ -54,13 +54,13 @@ const CheckoutCarts = () => {
                                   </div>
                                   <div className="col-md-7 checkout-proudct-info">
                                       <h3> {eachCart.title} </h3>
-                                      <p> {eachCart.attribute} </p>
-                                      <h4>
+                                      {eachCart.attribute && <p> {eachCart?.attribute} </p>}
+                                      {eachCart?.subscription && <h4>
                                           {`Delivery every ${eachCart?.subscription}`}
-                                      </h4>
-                                      <span>
+                                      </h4>}
+                                      {eachCart?.subscription && <span>
                                           {`${eachCart?.subscription} every days`}
-                                      </span>
+                                      </span>}
                                   </div>
                                   <div className="col-md-2 checkout-proudct-price">
                                       <p>
@@ -87,10 +87,7 @@ const CheckoutCarts = () => {
                             <h2>Subtotal</h2>
                         </div>
                         <div className="checkout-subtotal-price">
-                            <span>
-                                ₹&nbsp;{"1500"}
-                                &nbsp;
-                            </span>
+                            <span>&#8377;</span> {totalCartVal}
                         </div>
                     </div>
 
@@ -99,10 +96,7 @@ const CheckoutCarts = () => {
                             <h2>Estimated Shipping</h2>
                         </div>
                         <div className="checkout-subtotal-price">
-                            <span>
-                                ₹&nbsp;{0}
-                                &nbsp;
-                            </span>
+                            <span>- &#8377;</span> 299
                         </div>
                     </div>
                     <div className="checkout-total">
@@ -110,10 +104,7 @@ const CheckoutCarts = () => {
                             <h2>Total</h2>
                         </div>
                         <div className="checkout-subtotal-price">
-                            <span>
-                                ₹&nbsp;{1000}
-                                &nbsp;
-                            </span>
+                            <span>&#8377;</span> {totalCartVal}
                         </div>
                     </div>
                 </div>
