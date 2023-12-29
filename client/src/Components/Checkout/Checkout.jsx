@@ -11,24 +11,29 @@ import { CiMobile2 } from "react-icons/ci";
 import { GoLock } from "react-icons/go";
 import { Link } from 'react-router-dom'
 import CheckoutCarts from './CheckoutCarts'
+import { toast } from 'react-toastify'
 const Checkout = () => {
   const [showInput, setShowInput] = useState(false);
   const [shippingType, setShippingType] = useState("standard");
+  const [cartData, setCartData] = useState([]);
+  const [totalCartVal, setTotalCartVal] = useState(0);
 
   const [showMobile, setShowMobile] = useState(false);
-  // on click of check box phone input value assigning to mobile
-  const handleCNumber = () => {
-    setShowMobile(!showMobile);
-  }
-  
-  const shippingOption = (shippingEvent) => {
-    return setShippingType(shippingEvent.target.value);
-  }
-  // onclick of text apartment input field appear
+  const [errMsg, setErrMsg] = useState(false);
+
   const handleHiddenInput = (event) => {
     event.preventDefault();
     setShowInput(true);
   }
+
+  const isValidData = (data) => {
+    for (let objData in data) {
+      if ((typeof data[objData] == "string" && data[objData].length == 0)) {
+        return false;
+      }
+    }
+    return true;
+  };
 
   const handleCheckout = (e) => {
     e.preventDefault();
@@ -40,15 +45,21 @@ const Checkout = () => {
       country:e.target?.country?.value,
       state:e.target?.state?.value,
       address:e.target?.address?.value,
-      address1:e.target?.apartment?.value,
       city:e.target?.city?.value,
       pincode:e.target?.pincode?.value,
       phone:e.target?.phone?.value,
-      mobile:e.target?.mobile?.value,
       shipping: shippingType,
     }
     
-    console.log(checkoutData);
+    if(!isValidData(checkoutData)){
+      toast.error("Please Fill All Fields");
+      return;
+    };
+    
+    checkoutData["address1"] = e.target?.apartment?.value;
+    checkoutData["mobile"] = e.target?.mobile?.value;
+    
+    console.log(checkoutData, cartData, totalCartVal);
   }
 
   return (
@@ -128,7 +139,7 @@ const Checkout = () => {
                     <div className="col-5 ">
                       <div className="form-floating">
                         <input type="text" id='pincode' name='pincode' className="form-control Checkout-input" placeholder="pincode"  />
-                        <label htmlFor="pincode" className='label-form' >pincode</label>
+                        <label htmlFor="pincode" className='label-form' >Pincode</label>
                       </div>
                     </div>
                   </div>
@@ -139,7 +150,7 @@ const Checkout = () => {
                     </div>
                     <span className='input-group-text border-start-0 Checkout-input'><FaRegQuestionCircle /></span>
                   </div>
-                  <div className="form-checkbox mt-4"><input type="checkbox" checked={showMobile} onChange={handleCNumber} className='checkedBox' />  Text me with news and offers</div>
+                  <div className="form-checkbox mt-4"><input type="checkbox" checked={showMobile} onChange={() => setShowMobile(!showMobile)} className='checkedBox' />  Text me with news and offers</div>
                   {showMobile ? <div className='input-group my-3'>
                     <span className='input-group-text searchIcon border border-end-0'><CiMobile2 /></span>
                     <div className="form-floating">
@@ -159,17 +170,17 @@ const Checkout = () => {
                   {true ? <div className="shipping-container my-2">
                     <div className="shipping-box p-3 rounded-top border border-1 d-flex justify-content-between">
                       <div className='d-flex justify-content-between '>
-                        <input type="radio" value="standard" className='px-1' checked={shippingType === 'standard'} onChange={(shippingEvent) => shippingOption(shippingEvent)} />
+                        <input type="radio" value="standard" className='px-1' checked={shippingType === 'standard'} onChange={(e) => setShippingType(e.target.value)} />
                         <div><span /> <span className='px-2'>Standard Delivery (2-3 Working Days)</span></div>
                       </div>
-                      <div>£2.99</div>
+                      <div>&#8377; 299</div>
                     </div>
                     <div className="shipping-box p-3 border border-1 rounded-bottom d-flex justify-content-between">
                       <div className='d-flex justify-content-between '>
-                        <input type="radio" onChange={(shippingEvent) => shippingOption(shippingEvent)} value="express" checked={shippingType === 'express'} />
+                        <input type="radio" onChange={(e) => setShippingType(e.target.value)} value="express" checked={shippingType === 'express'} />
                         <div><span /> <span className='px-2'>Express Delivery (Next Working Day)</span></div>
                       </div>
-                      <div>£3.99</div>
+                      <div>&#8377; 399</div>
                     </div>
                   </div> : <div className="Shipping-message alert border-2">Enter your shipping address to view available shipping methods.</div>}
                 </div>
@@ -210,7 +221,7 @@ const Checkout = () => {
               </form>
             </div>
           </div>
-          <CheckoutCarts />
+          <CheckoutCarts cartData={cartData} setCartData={setCartData} totalCartVal={totalCartVal} setTotalCartVal={setTotalCartVal} shippingType={shippingType} />
         </div>
       </div >
     </div >
