@@ -23,7 +23,7 @@ const cartSchema = new mongoose.Schema({
         },
         attribute: {
           type: String,
-          required: true
+          required: false
         },
         subscription: {
           type: String,

@@ -431,7 +431,7 @@ const StoreHome = () => {
             </Link>
           </li>
 
-          <li>
+          {/* <li>
             <Link
               to={"/store/customization?storeTab=single-setting"}
               className={`inline-block w-full py-3 px-4 shadow-md ${
@@ -447,7 +447,7 @@ const StoreHome = () => {
                 {"Setting"}
               </span>
             </Link>
-          </li>
+          </li> */}
 
           <li>
             <Link
@@ -485,7 +485,7 @@ const StoreHome = () => {
             </Link>
           </li>
 
-          <li>
+          {/* <li>
             <Link
               to={"/store/customization?storeTab=FAQ-setting"}
               className={`inline-block w-full py-3 px-4 shadow-md ${
@@ -501,7 +501,7 @@ const StoreHome = () => {
                 {t("FAQSetting")}
               </span>
             </Link>
-          </li>
+          </li> */}
 
           <li>
             <Link
@@ -521,7 +521,7 @@ const StoreHome = () => {
             </Link>
           </li>
 
-          <li>
+          {/* <li>
             <Link
               to={"/store/customization?storeTab=contact-us-setting"}
               className={`inline-block w-full py-3 px-4 shadow-md ${
@@ -537,8 +537,8 @@ const StoreHome = () => {
                 Contact
               </span>
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link
               to={"/store/customization?storeTab=checkout-setting"}
               className={`inline-block w-full py-3 px-4 shadow-md ${
@@ -554,8 +554,8 @@ const StoreHome = () => {
                 {t("Checkout")}
               </span>
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link
               to={"/store/customization?storeTab=dashboard-setting"}
               className={`inline-block w-full py-3 px-4 shadow-md ${
@@ -571,7 +571,7 @@ const StoreHome = () => {
                 {t("Dashboard")}
               </span>
             </Link>
-          </li>
+          </li> */}
         </ul>
 
         {/************ TabPanel 1 ************/}

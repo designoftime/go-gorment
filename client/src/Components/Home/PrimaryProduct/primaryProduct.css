@@ -1,55 +1,105 @@
 .main-primary-pro {
-    max-width: 1320px !important;
     width: 100%;
-    margin: 0 auto !important;
+    height: max-content;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem 0rem;
 
     .head-container {
         width: 100%;
-        margin-top: 20px;
         display: flex;
-        flex-direction: column;
-        gap: 5px;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+    }
+
+    .head-container a {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .head-container a:last-child {
+        padding: 0.6rem 2rem;
+        border: 2px solid #4c4294;
+        color: #4c4294;
+        border-radius: 1.5rem;
+        letter-spacing: 0.06rem;
+        font-family: rocgrotesk-light;
+        text-decoration: none;
+        font-weight: 600;
     }
 
     .heading {
         font-family: "Olly-extrabold";
-        font-size: 28px;
+        color: #4c4294;
+        font-size: 2rem;
+        letter-spacing: 0.06rem;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0;
     }
 
     .desc {
         font-family: "Olly-thin";
-        font-size: 15px;
-        font-weight: 0;
+        font-size: 1rem;
         color: #4c4294 !important;
-        margin-top: -15px;
         font-weight: 900;
         text-align: center;
+        padding: 0;
+        margin: 0;
     }
 }
 
-@media screen and (max-width:767px) {
+.PPCmainComponent {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.primary-product-component {
+    position: relative;
+    width: 20rem;
+    height: max-content;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.primary-product-component-content {
+    width: 100%;
+    height: 15rem;
+}
+
+.imagediv {
+    width: 100%;
+    height: 100%;
+}
+
+.imagediv img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-slide {
+    margin: 0;
+}
+
+@media screen and (max-width: 736px) {
+    /* .PPCmainComponent {
+        width: 100%;
+    } */
+
     .PPCmainComponent {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        padding: 20px 0px;
-    }
-
-    .img-fluid {
-        width: 100%;
-        max-width: 400px;
-        height: 250px;
-        object-fit: cover;
-    }
-
-    .imagediv {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        place-items: center;
     }
 
     .heading {
@@ -58,6 +108,27 @@
 
     .desc {
         font-size: 12px;
-        padding-bottom: 50px;
+    }
+
+    .primary-product-component {
+        margin: 1rem 1rem;
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 556px) {
+    .swiper-wrapper {
+        height: 81vh;
+    }
+}
+
+@media (min-width: 556px) and (max-width: 764px) {
+    .swiper-wrapper {
+        height: 81vh;
     }
 }

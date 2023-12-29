@@ -50,11 +50,17 @@ const CheckoutCarts = () => {
                                       <div className="image-block">
                                           <img src={eachCart.image} alt="" />
                                       </div>
-                                      <span>1</span>
+                                      <span>{eachCart.quantity}</span>
                                   </div>
                                   <div className="col-md-7 checkout-proudct-info">
                                       <h3> {eachCart.title} </h3>
                                       <p> {eachCart.attribute} </p>
+                                      <h4>
+                                          {`Delivery every ${eachCart?.subscription}`}
+                                      </h4>
+                                      <span>
+                                          {`${eachCart?.subscription} every days`}
+                                      </span>
                                   </div>
                                   <div className="col-md-2 checkout-proudct-price">
                                       <p>
@@ -72,7 +78,7 @@ const CheckoutCarts = () => {
 
                 <div className="checkout-total-amount-info">
                     <div className="checkout-discount-code">
-                        <input type="text" placeholder="Gift or Promo Code" />
+                        <input type="text" placeholder="Discount Code" />
                         <button>Apply</button>
                     </div>
 
@@ -82,8 +88,8 @@ const CheckoutCarts = () => {
                         </div>
                         <div className="checkout-subtotal-price">
                             <span>
-                                $&nbsp;{"subTotal"}
-                                &nbsp;USD
+                                ₹&nbsp;{"1500"}
+                                &nbsp;
                             </span>
                         </div>
                     </div>
@@ -94,27 +100,26 @@ const CheckoutCarts = () => {
                         </div>
                         <div className="checkout-subtotal-price">
                             <span>
-                                $&nbsp;{"subTotal"}
-                                &nbsp;USD
+                                ₹&nbsp;{0}
+                                &nbsp;
                             </span>
                         </div>
                     </div>
-
                     <div className="checkout-total">
                         <div className="checkout-subtotal-text">
                             <h2>Total</h2>
                         </div>
                         <div className="checkout-subtotal-price">
                             <span>
-                                $&nbsp;{"subTotal"}
-                                &nbsp;USD
+                                ₹&nbsp;{1000}
+                                &nbsp;
                             </span>
                         </div>
                     </div>
                 </div>
-                <div className="checkout-checkout-btn">
+                {/* <div className="checkout-checkout-btn">
                     <button>Place Order</button>
-                </div>
+                </div> */}
             </section>
         </div>
     );

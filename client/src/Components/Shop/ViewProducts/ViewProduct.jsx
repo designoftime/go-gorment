@@ -15,14 +15,11 @@ import ProductSectionThree from './ProductSectionThree'
 import ProductSectionFour from './ProductSectionFour'
 import AllVariants from '../Variants/AllVariants'
 import { CustomerReview } from './CustomerReview/CustomerReview';
-import { useDispatch } from "react-redux";
 import { addToCartLocal } from '../../../Redux/actions/cartServices'
 
 export const ViewProduct = () => {
 
     const showValue = useWindowInnerWidth();
-    const dispatch = useDispatch();
-    const [productId,setProductId]= useState(null);
     const SwiperfirstImg = useRef();
     const [isQuantityAvailable, setIsQuantityAvailable] = useState(false);
     const [productQuantity, setproductQuantity] = useState(1)
@@ -53,8 +50,7 @@ export const ViewProduct = () => {
         try {
             const res = await requests.get(`/products/product/${id}`);
             setProduct(res);
-            setProductId(id)
-            console.log(res);
+            // console.log(res);
             const productPageRes = await requests.get(`/theme/${res?.theme}`);
             setProductTheme(productPageRes?.theme);
             // console.log(productPageRes);
@@ -75,7 +71,7 @@ export const ViewProduct = () => {
             productId: product?.productId,
             image: product?.image[0],
             title: product?.title?.en,
-            attribute: productPrice?.attribute.slice(1),
+            attribute: productPrice?.attribute?.slice(1),
             quantity: productQuantity
         }
 
@@ -92,7 +88,6 @@ export const ViewProduct = () => {
             const user = JSON.parse(localStorage.getItem("user"));
 
             if(!user?.token){
-                console.log('Without Login');
                 addToCartLocal(cartData);
                 return;
             }
@@ -100,7 +95,7 @@ export const ViewProduct = () => {
             try {
                 const getCarts = await requests.get("/cart");
                 let findCart = getCarts.carts.find((eachCart) => {
-                    return (eachCart.productId === cartData.productId && eachCart.attribute === cartData.attribute)
+                    return (eachCart.productId === cartData.productId && eachCart.attribute === cartData.attribute && eachCart.subscription === cartData.subscription);
                 });
 
                 if(findCart){
