@@ -67,7 +67,6 @@ const getReviewById = async (req, res) => {
 };
 const getReviewByProductId = async (req, res) => {
   try {
-    s;
     const id = req.params.id;
     if (!id) return new Error("Id Not found");
     const data = await Reviews.find({ productId: id })

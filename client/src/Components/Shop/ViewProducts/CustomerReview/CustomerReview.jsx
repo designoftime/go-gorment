@@ -294,11 +294,12 @@ export const CustomerReview = ({ productId }) => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
     const respones = async () => {
-      const res = await requests.get("/reviews/all");
+      const res = await requests.get(`/reviews/by-product/${productId}`);
       setRespnesData(res);
     };
     respones();
   }, [setRespnesData]);
+  console.log(responeData)
   return (
     <>
       <div className="CustomerReview-section">
