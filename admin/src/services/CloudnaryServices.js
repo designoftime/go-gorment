@@ -1,8 +1,8 @@
 import requests from "./httpService";
 
 const CloudnaryServices = {
-  deleteImg: async (id) => {
-    return requests.delete(`/cloudnary/${id}`);
+  deleteImg: async (body) => {
+    return requests.post(`/cloudnary`,body);
   },
   
 }; 

@@ -3253,20 +3253,26 @@
         }
       }
     },
-    "/api/cloudnary/{imgUrl}": {
-      "delete": {
+    "/api/cloudnary/": {
+      "post": {
         "description": "",
         "parameters": [
-          {
-            "name": "imgUrl",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "imgUrl": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {

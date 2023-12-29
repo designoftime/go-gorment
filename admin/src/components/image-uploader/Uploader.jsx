@@ -47,6 +47,15 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
     },
   });
 
+  const generateString = (length) => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let result = " ";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  };
   useEffect(() => {
     if (fileRejections) {
       fileRejections.map(({ file, errors }) => (
@@ -89,10 +98,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
 
           if (result) return setLoading(false);
         }
-
-        const name = file.name.replaceAll(/\s/g, "");
-        const public_id = name?.substring(0, name.lastIndexOf("."));
-
+        const public_id = generateString(10);
         const formData = new FormData();
         formData.append("file", file);
         formData.append(
@@ -101,7 +107,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
         );
         formData.append("cloud_name", import.meta.env.VITE_APP_CLOUD_NAME);
         formData.append("folder", folder);
-        formData.append("public_id", public_id);
+        formData.append("public_id", public_id.trim());
 
         axios({
           url: import.meta.env.VITE_APP_CLOUDINARY_URL,
@@ -112,7 +118,7 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
           data: formData,
         })
           .then((res) => {
-            // console.log(res.data)
+            // console.log(res.data);
             notifySuccess("Image Uploaded successfully!");
             setLoading(false);
             if (product) {
@@ -152,13 +158,15 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
 
   const handleRemoveImage = async (img) => {
     try {
-      await CloudnaryServices.deleteImg
-
-
+      const url = img.split("/").pop().split(".")[0];
+      const public_id = `${folder}/${url}`;
+      const res = await CloudnaryServices.deleteImg({ imgUrl: public_id });
       setLoading(false);
-      // notifyError(
-      //   res.result === "ok" ? "Image delete successfully!" : res.result
-      // );
+      notifyError(
+        res.deleteData.result === "ok"
+          ? "Image delete successfully!"
+          : res.deleteData.result
+      );
       notifyError("Image delete successfully!");
       if (product) {
         const result = imageUrl?.filter((i) => i !== img);
@@ -167,7 +175,6 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
         setImageUrl("");
       }
     } catch (err) {
-      console.error("err", err);
       notifyError(err.Message);
       setLoading(false);
     }
