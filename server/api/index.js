@@ -20,7 +20,7 @@ const currencyRoutes = require("../routes/currencyRoutes");
 const languageRoutes = require("../routes/languageRoutes");
 const cartRoutes = require("../routes/cartRoutes");
 const customerReviews = require("../routes/reviewsRoutes")
-
+const cloudneryRoutes = require("../routes/cloudnaryRoutes")
 // Swagger 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocs = require("../swagger-output.json");
@@ -60,6 +60,7 @@ app.use("/api/currency/", isAuth, currencyRoutes);
 app.use("/api/language/", languageRoutes);
 app.use("/api/cart/", isAuth , cartRoutes);
 app.use("/api/reviews/", customerReviews);
+app.use("/api/cloudnary/",cloudneryRoutes)
 
 //if you not use admin dashboard then these two route will not needed.
 app.use("/api/admin/", adminRoutes);

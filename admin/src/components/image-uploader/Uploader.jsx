@@ -12,6 +12,7 @@ import useAsync from "@/hooks/useAsync";
 import SettingServices from "@/services/SettingServices";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import Container from "@/components/image-uploader/Container";
+import CloudnaryServices from "@/services/CloudnaryServices";
 
 // cloudinary?.config({
 //   cloud_name: import.meta.env.VITE_APP_CLOUD_NAME,
@@ -151,11 +152,8 @@ const Uploader = ({ setImageUrl, imageUrl, product, folder }) => {
 
   const handleRemoveImage = async (img) => {
     try {
-      // const url = img.substring(img.length - 25);
-      // const url = img.split("/").pop().split(".")[0];
-      // const public_id = `${folder}/${url}`;
+      await CloudnaryServices.deleteImg
 
-      // const res = await cloudinary.v2.uploader.destroy(public_id);
 
       setLoading(false);
       // notifyError(
