@@ -22,8 +22,8 @@ const {
 } = require("../lib/email-sender/sender");
 
 //verify email
-// router.post("/verify-email", emailVerificationLimit, verifyEmailAddress);
-router.post("/verify-email", verifyEmailAddress);
+router.post("/verify-email", emailVerificationLimit, verifyEmailAddress);
+// router.post("/verify-email", verifyEmailAddress);
 
 //register a user
 router.post("/register/:token", registerCustomer);
@@ -60,8 +60,8 @@ router.put("/:id", updateCustomer);
 router.delete("/:id", deleteCustomer);
 
 //subscription
-router.put("/active", updateSubscriptionActive);
+router.post("/active", updateSubscriptionActive);
 
-router.put("/inactive", updateSubscriptionInactive);
+router.post("/inactive", updateSubscriptionInactive);
 
 module.exports = router;
