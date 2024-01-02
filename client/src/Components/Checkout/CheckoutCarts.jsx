@@ -4,10 +4,8 @@ import requests from "../../Services/httpService";
 import { toast } from "react-toastify";
 import { getTotalAmount } from "../../Redux/actions/cartServices";
 
-const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shippingType}) => {
+const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shippingType,couponVal,setCouponVal,subTotalVal,setSubTotalVal}) => {
     
-    const [subTotalVal, setSubTotalVal] = useState(0);
-    const [couponVal, setCouponVal] = useState(0);
     const user = JSON.parse(localStorage.getItem("user"));
     const [shippingCharges, setShippingCharges] = useState(299);
 
@@ -39,13 +37,12 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
     }, []);
 
     useEffect(() => {
-        
         if(!cartData?.length){
             return;
         }
-
+        
         let totalCartAmount = getTotalAmount(cartData);
-
+        
         if(shippingType==="standard"){
             setShippingCharges(299);
             setTotalCartVal((totalCartAmount + 299) - couponVal);
@@ -177,7 +174,7 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
                     </div>
                     <div className="checkout-estimated-shipping">
                         <div className="checkout-subtotal-text">
-                            <h2>Estimated Shipping</h2>
+                            <h2>Estimated Shipping ({shippingType})</h2>
                         </div>
                         <div className="checkout-subtotal-price">
                             <span>+ &#8377;</span> {shippingCharges}

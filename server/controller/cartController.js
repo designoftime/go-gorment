@@ -110,9 +110,27 @@ const getCartByUserId = async (req,res) => {
     }
 }
 
+const deleteAllCarts = async (req,res) => {
+  try {
+    const user = req.user;
+
+    await Cart.findOneAndDelete({user: user._id});
+
+    res.send({
+      message: `All Carts Deleted Successfully !!`,
+    });
+
+  } catch (err) {
+    res.status(500).send({
+        message: err.message,
+    });
+  }
+}
+
 module.exports = {
     addToCart,
     getCartByUserId,
     updateCartQuantity,
-    deleteCart
+    deleteCart,
+    deleteAllCarts
 }

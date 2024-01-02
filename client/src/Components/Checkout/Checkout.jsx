@@ -11,13 +11,29 @@ import { CiMobile2 } from "react-icons/ci";
 import { GoLock } from "react-icons/go";
 import CheckoutCarts from './CheckoutCarts'
 import { toast } from 'react-toastify'
+import { useNavigate } from "react-router-dom";
+import { deleteUserCarts, updateUserOrder, updateUserSubscription } from '../../Redux/actions/cartServices'
+
 const Checkout = () => {
   const [showInput, setShowInput] = useState(false);
   const [shippingType, setShippingType] = useState("standard");
   const [cartData, setCartData] = useState([]);
   const [totalCartVal, setTotalCartVal] = useState(0);
+  const [subTotalVal, setSubTotalVal] = useState(0);
+  const [couponVal, setCouponVal] = useState(0);
 
   const [showMobile, setShowMobile] = useState(false);
+  const [deliveryAddress, setDeliveryAddress] = useState({});
+  const Navigate = useNavigate();
+
+  useEffect(() => {
+    const localAddress = JSON.parse(localStorage.getItem("delivery-address"));
+    if(localAddress){
+        setDeliveryAddress(localAddress);
+        if(localAddress?.address1) setShowInput(true)
+        if(localAddress?.mobile) setShowMobile(true);
+    }
+  },[]);
 
   const handleHiddenInput = (event) => {
     event.preventDefault();
@@ -57,7 +73,41 @@ const Checkout = () => {
     checkoutData["address1"] = e.target?.apartment?.value;
     checkoutData["mobile"] = e.target?.mobile?.value;
     
-    console.log(checkoutData, cartData, totalCartVal);
+    const localCarts = JSON.parse(localStorage.getItem("carts"));
+    localStorage.setItem("delivery-address", JSON.stringify(checkoutData));
+
+    if(localCarts){
+      toast.error("Please Login First to Continue Purchasing !!");
+      Navigate("/accounts/login");
+      return;
+    }
+    
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const orderData = {
+      user: user._id,
+      cart: cartData,
+      user_info : {
+        name: checkoutData.firstname + " " + checkoutData.lastname,
+        email: checkoutData.email,
+        contact: checkoutData.phone,
+        address: checkoutData.address,
+        city: checkoutData.city,
+        country: checkoutData.country,
+        pincode: checkoutData.pincode
+      },
+      subTotal: subTotalVal,
+      shippingCost: (shippingType==="standard" ? 299 : 399),
+      discount: couponVal,
+      total: totalCartVal,
+      paymentMethod: "Online",
+      status: "Pending"
+    }
+
+    // deleteUserCarts();
+    // updateUserOrder(orderData);
+    // updateUserSubscription(cartData);
+    // console.log(checkoutData, cartData, totalCartVal, couponVal);
   }
 
   return (
@@ -84,7 +134,7 @@ const Checkout = () => {
                     <h1>Conatct</h1>
                   </div>
                   <div className="form-floating my-3">
-                    <input type="text" id='email' name='email' className='form-control Checkout-input' placeholder='Email' />
+                    <input type="text" id='email' name='email' defaultValue={deliveryAddress?.email && deliveryAddress.email} className='form-control Checkout-input' placeholder='Email' />
                     <label htmlFor="email" className='label-form'>Email</label>
                   </div>
                   <div className="from-checkbox mt-4"><input type="checkbox" className='checkedBox' /> Email me with news and offers</div>
@@ -94,13 +144,13 @@ const Checkout = () => {
                   <div className="row justify-content-between my-3">
                     <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" id='firstname'  name='firstname' className="form-control Checkout-input" placeholder="First name(optional)" aria-label="First name" />
+                        <input type="text" id='firstname' name='firstname' className="form-control Checkout-input" placeholder="First name(optional)" defaultValue={deliveryAddress?.firstname && deliveryAddress.firstname} aria-label="First name" />
                         <label htmlFor="firstname" className='label-form' >First Name</label>
                       </div>
                     </div>
                     <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" name='lastname' id='lastname' className="form-control Checkout-input" placeholder="Last name"  aria-label="Last name" />
+                        <input type="text" name='lastname' id='lastname' className="form-control Checkout-input" placeholder="Last name" defaultValue={deliveryAddress?.lastname && deliveryAddress.lastname}  aria-label="Last name" />
                         <label htmlFor="lastname" className='label-form' >Last Name</label>
                       </div>
                     </div>
@@ -112,38 +162,38 @@ const Checkout = () => {
                     <label htmlFor="country" className='label-form' >Country/region</label>
                   </div>
                   <div className="form-floating">
-                      <input type="text"  name='state' className='form-control Checkout-input border-end-0' id='state' aria-label='state' placeholder='State'/>
+                      <input type="text"  name='state' className='form-control Checkout-input border-end-0' id='state' defaultValue={deliveryAddress?.state && deliveryAddress.state} aria-label='state' placeholder='State'/>
                       <label htmlFor="state" className='label-form' >State</label>
                     </div>
                   <div className='input-group my-3'>
                     <div className="form-floating">
-                      <input type="text"  name='address' className='form-control Checkout-input border-end-0' id='address' aria-label='address' placeholder='Address' />
+                      <input type="text"  name='address' className='form-control Checkout-input border-end-0' id='address' aria-label='address' defaultValue={deliveryAddress?.address && deliveryAddress.address} placeholder='Address' />
                       <label htmlFor="address" className='label-form' >Address</label>
                     </div>
                     <span className='input-group-text searchIcon '><IoSearchOutline /></span>
                   </div>
                   <div className={showInput ? "d-none" : "my-2 "}><a href="#" onClick={handleHiddenInput} className='text-decoration-none'><IoAdd /> Add apartment, suite, etc.</a></div>
                   <div className={showInput ? "d-block my-3 form-floating" : "d-none"}>
-                    <input type="text" id='apartment'  name='apartment' className="form-control Checkout-input" placeholder="Apartment, suite, etc." />
+                    <input type="text" id='apartment'  name='apartment' className="form-control Checkout-input" defaultValue={deliveryAddress?.address1 && deliveryAddress.address1} placeholder="Apartment, suite, etc." />
                     <label htmlFor="apartment" className='label-form'>Apartment</label>
                   </div>
                   <div className="row justify-content-between my-3">
                     <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" id='city'  name='city' className="form-control Checkout-input" placeholder="City" aria-label="City" />
+                        <input type="text" id='city'  name='city' className="form-control Checkout-input" defaultValue={deliveryAddress?.city && deliveryAddress.city} placeholder="City" aria-label="City" />
                         <label htmlFor="city" className='label-form'>City</label>
                       </div>
                     </div>
                     <div className="col-5 ">
                       <div className="form-floating">
-                        <input type="text" id='pincode' name='pincode' className="form-control Checkout-input" placeholder="pincode"  />
+                        <input type="text" id='pincode' name='pincode' className="form-control Checkout-input" defaultValue={deliveryAddress?.pincode && deliveryAddress.pincode} placeholder="pincode"  />
                         <label htmlFor="pincode" className='label-form' >Pincode</label>
                       </div>
                     </div>
                   </div>
                   <div className="input-group my-3">
                     <div className='form-floating'>
-                      <input type="text" id='phone'  name='phone' className='form-control Checkout-input' placeholder='Phone' />
+                      <input type="text" id='phone'  name='phone' className='form-control Checkout-input' defaultValue={deliveryAddress?.phone && deliveryAddress.phone} placeholder='Phone' />
                       <label htmlFor="phone" className='label-form border-start-end-0' >Phone</label>
                     </div>
                     <span className='input-group-text border-start-0 Checkout-input'><FaRegQuestionCircle /></span>
@@ -152,7 +202,7 @@ const Checkout = () => {
                   {showMobile ? <div className='input-group my-3'>
                     <span className='input-group-text searchIcon border border-end-0'><CiMobile2 /></span>
                     <div className="form-floating">
-                      <input type="text" name='mobile' id='mobile' className={true ? 'form-control Checkout-input border-start-0 border-end-0' : 'form-control border-start-0 Checkout-input'} placeholder='Mobile number' />
+                      <input type="text" name='mobile' id='mobile' defaultValue={deliveryAddress?.mobile && deliveryAddress.mobile} className={true ? 'form-control Checkout-input border-start-0 border-end-0' : 'form-control border-start-0 Checkout-input'} placeholder='Mobile number' />
                       <label htmlFor="mobile" className='label-form'>Mobile number</label>
                     </div>
                     {5 > 3 ? <span className='input-group-text searchIcon border border-start-0'>
@@ -219,7 +269,7 @@ const Checkout = () => {
               </form>
             </div>
           </div>
-          <CheckoutCarts cartData={cartData} setCartData={setCartData} totalCartVal={totalCartVal} setTotalCartVal={setTotalCartVal} shippingType={shippingType} />
+          <CheckoutCarts cartData={cartData} setCartData={setCartData} totalCartVal={totalCartVal} setTotalCartVal={setTotalCartVal} shippingType={shippingType} couponVal={couponVal} setCouponVal={setCouponVal} subTotalVal={subTotalVal} setSubTotalVal={setSubTotalVal}/>
         </div>
       </div >
     </div >

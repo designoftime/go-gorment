@@ -19,7 +19,8 @@ import { Ourstory } from "./Components/OurStory/Ourstory";
 import { OneFeedsTwo } from "./Components/OneFeedsTwo/OneFeedsTwo";
 import Checkout from "./Components/Checkout/Checkout";
 import ContactUs from "./Components/ContactUs/ContactUs";
-import { OrderHistory} from "./Components/Accounts/OrderProfile/OrderHistory";
+import { OrderHistory } from "./Components/Accounts/OrderHistory/OrderHistory";
+
 
 const appRouter = createBrowserRouter([
     {

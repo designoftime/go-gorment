@@ -1,79 +1,108 @@
-import React, { useEffect } from 'react'
-import requests from '../../../Services/httpService'
-import Variant from './Variant';
-import { useState } from 'react';
-import { getFirstDifferentVariants, handlePrice, handlePriceWithoutVariant } from '../../../Redux/actions/productService';
+import React, { useEffect } from "react";
+import requests from "../../../Services/httpService";
+import Variant from "./Variant";
+import { useState } from "react";
+import {
+    getFirstDifferentVariants,
+    handlePrice,
+    handlePriceWithoutVariant,
+} from "../../../Redux/actions/productService";
 
-const AllVariants = ({product,setProductPrice,setIsQuantityAvailable}) => {
+const AllVariants = ({ product, setProductPrice, setIsQuantityAvailable,focusVariants, setFocusVariants }) => {
+    const [variants, setVariants] = useState([]);
+    const [variantPrice, setVariantPrice] = useState([]);
+    const [AvaialableVariants, setAvaialableVariants] = useState([]);
 
-  const [variants, setVariants] = useState([]);
-  const [variantPrice, setVariantPrice] = useState([]);
-  const [focusVariants, setFocusVariants] = useState([]);
-  const [AvaialableVariants, setAvaialableVariants] = useState([]);
+    useEffect(() => {
+        const fetchVariants = async () => {
+            if (product?.variants?.length === 0) {
+                handlePriceWithoutVariant(
+                    product,
+                    setVariantPrice,
+                    setIsQuantityAvailable
+                );
+                return;
+            }
 
-  useEffect(() => {
+            const res = await requests.get(`/attributes/show`);
+            if (product?.variants) {
+                const firstDifferentVariants = getFirstDifferentVariants(
+                    product.variants,
+                    setFocusVariants
+                );
+                setAvaialableVariants(firstDifferentVariants);
+                firstDifferentVariants.forEach((eachvariants, idx) => {
+                    handlePrice(
+                        res,
+                        eachvariants,
+                        idx,
+                        setVariantPrice,
+                        setIsQuantityAvailable
+                    );
+                });
+            }
 
-    const fetchVariants = async () => {
+            setVariants(res);
+        };
 
-        if(product?.variants?.length === 0){
-          handlePriceWithoutVariant(product,setVariantPrice,setIsQuantityAvailable);
-          return;
-        }
+        fetchVariants();
+    }, [product]);
 
-        const res = await requests.get(`/attributes/show`);
-        
-        if(product?.variants){
-          const firstDifferentVariants = getFirstDifferentVariants(product.variants, setFocusVariants);
-          setAvaialableVariants(firstDifferentVariants);
-          firstDifferentVariants.forEach((eachvariants,idx) => {
-            handlePrice(res, eachvariants,idx, setVariantPrice, setIsQuantityAvailable);
-          });
-        }
+    useEffect(() => {
+        let totalPrice = variantPrice.reduce(
+            (sum, currVal) => sum + currVal.price,
+            0
+        );
+        let subscribeTotalPrice = variantPrice.reduce(
+            (sum, currVal) => sum + currVal.subscribePrice,
+            0
+        );
+        let allAtrributes = variantPrice.reduce((sum, currVal) => {
+            if (currVal?.attribute) {
+                return (sum += "," + currVal.attribute);
+            }
+        }, "");
 
-        setVariants(res);
-    }
+        setProductPrice({
+            price: totalPrice,
+            subscribePrice: subscribeTotalPrice,
+            attribute: allAtrributes,
+        });
+    }, [variantPrice]);
 
-    fetchVariants();
-  },[product]);
+    return (
+        <div className="VPselect-size row d-flex gap-3">
+            {variants.map((variant, idx) => {
+                const checkAvailVariant = AvaialableVariants?.find(
+                    (eachvariants) => {
+                        let parentId = Object.keys(eachvariants)[0];
+                        return parentId === variant._id;
+                    }
+                );
 
-  useEffect(() => {
-    let totalPrice = variantPrice.reduce((sum, currVal) => sum + currVal.price, 0);
-    let subscribeTotalPrice = variantPrice.reduce((sum, currVal) => sum + currVal.subscribePrice, 0);
-    let allAtrributes = variantPrice.reduce((sum, currVal) => {
-      if(currVal?.attribute){
-        return (sum += "," + (currVal.attribute))
-      }
-    }, "");
-    
-    setProductPrice({
-      price: totalPrice,
-      subscribePrice: subscribeTotalPrice,
-      attribute: allAtrributes
-    });
-  }, [variantPrice]);
-
-  return (
-    <div className="VPselect-size my-4 fw-normal  row">
-        {
-            variants.map((variant, idx) => {
-
-                const checkAvailVariant = AvaialableVariants?.find((eachvariants) => {
-                  let parentId = Object.keys(eachvariants)[0];
-                  return (parentId === variant._id);
-                })
-
-                if(!checkAvailVariant) return;
+                if (!checkAvailVariant) return;
 
                 return (
-                    <div className='row' key={idx}>
-                        <p className='fw-bolder select-size-header '>{variant?.name?.en}</p>
-                        <Variant key={idx} index={idx} product={product} variantPrice={variantPrice} variantData={variant} setIsQuantityAvailable={setIsQuantityAvailable} setVariantPrice={setVariantPrice} focusVariants={focusVariants} setFocusVariants={setFocusVariants}/>
+                    <div className="row" key={idx}>
+                        <p className="fw-bolder select-size-header">
+                            {variant?.name?.en}
+                        </p>
+                        <Variant
+                            key={idx}
+                            index={idx}
+                            product={product}
+                            variantPrice={variantPrice}
+                            variantData={variant}
+                            setIsQuantityAvailable={setIsQuantityAvailable}
+                            setVariantPrice={setVariantPrice}
+                            focusVariants={focusVariants}
+                            setFocusVariants={setFocusVariants}
+                        />
                     </div>
-                )
-            })
-        }
-    </div>
-  )
-}
+                );
+            })}
+        </div>
+    );
+};
 
 export default AllVariants;

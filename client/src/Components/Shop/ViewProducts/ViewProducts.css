@@ -1,17 +1,38 @@
-/* .View-Products-section{
-    margin: 10vh 0;
-} */
+.View-Products-section {
+    padding: 8rem 0;
+    background-color: rgb(244, 188, 199);
+}
+
+.view-product-info {
+    /* background-color: rgb(187, 223, 225); */
+}
+
 .VPCaursel {
-    /* background-color: blue; */
-    width: 55%;
-    height: 90% !important;
+    background-color: rgb(194, 191, 191);
+
+    width: 53%;
+    /* height: 90% !important; */
     position: sticky;
     top: 0;
     overflow: hidden;
 }
-.vpcarouselimages {
-    width: 100% !important;
+
+.view-product-swipper-img {
+    background-color: #16bfbf;
+    width: 95%;
+    height: 80vh;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
 }
+
+.vpcarouselimages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
 .swiper-button-next {
     background-color: transparent;
     color: #412f59;
@@ -20,19 +41,31 @@
     background-color: transparent;
     color: #412f59;
 }
+
+.vpslider-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .vpslide-logos {
     width: 90%;
     height: 100%;
     display: flex;
     gap: 1vw;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
+
+.vpslide-logos-fix-div {
+    width: 8vmax;
+    height: 8.5vmax;
+}
+
 .vpslide-logos img {
-    width: 15%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 4/-4;
     cursor: pointer;
     filter: grayscale(1);
     opacity: 0.4;
@@ -40,24 +73,68 @@
 }
 
 .VPRight {
-    color: #4c4294;
-    width: 45%;
+    background-color: #16bfbf;
+
     position: sticky;
+    color: #4c4294;
+    width: 47%;
+    padding: 4rem 0.5rem;
 }
-.VPheader {
-    margin-top: 80px !important;
-    font-size: 90px;
-    line-height: 70px !important;
-    letter-spacing: 1px !important;
-    font-family: Snacksgifheaderfont;
+
+.view-product-text h1 {
+    font-size: 4.5rem;
+    line-height: 4.5rem !important;
+    letter-spacing: 0.06rem !important;
+    font-family: rocgrotesk-extra-bold;
 }
+
+.view-product-text p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+    font-family: rocgrotesk-light;
+    text-transform: uppercase;
+}
+
+.VPreviws {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.VPreviws .stars {
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.VPreviws .reviews {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.4rem;
+
+    font-family: rocgrotesk-light;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
 .VPselect-size {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
     column-gap: 0.3rem;
+    margin: 1rem 0rem;
 }
+
 .vpselect-size-box {
-    width: 8.5rem;
+    width: 9rem;
     height: 5rem;
-    border: 0;
+    border: none;
     color: #4c4294;
     border-radius: 10px;
     font-family: rocgrotesk-light;
@@ -68,24 +145,38 @@
     background-color: white;
 }
 .select-size-header {
+    margin: 0;
     font-size: 15px;
     font-family: bannerhomebtn;
 }
+
 .PriceText {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     padding: 5vh 1vw;
     border-radius: 0.5vw;
     background-color: rgb(235, 235, 245);
 }
 .PriceMain {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
+}
+
+.PriceMain {
 }
 .SubscribeText {
     display: flex;
     justify-content: space-between;
     padding: 5vh 1vw;
+}
+
+cartProductQuantity {
+    display: flex;
+    align-items: center;
 }
 .notifymebtn {
     width: 100%;
@@ -237,11 +328,11 @@
 }
 
 /* ------------------------- */
-.view-product-inner-container {
+/* .view-product-inner-container {
     position: relative;
     top: 2.5rem;
     background-color: #16bfbf;
-}
+} */
 
 @media (max-width: 1000px) {
     .vpslider-logo {

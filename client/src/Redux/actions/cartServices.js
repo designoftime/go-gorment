@@ -73,3 +73,18 @@ export function getTotalAmount (arr){
 
     return totalAmount;
 }
+
+export async function deleteUserCarts(){
+    await requests.post("/cart/delete-all");
+}
+
+export async function updateUserSubscription(carts){
+    console.log(carts);   
+}
+
+export async function updateUserOrder(orderData){
+    console.log(orderData);
+    const res = await requests.post("/order/add", orderData);
+    // const res = await requests.get("/order/65940797a22b0bef9f031485");
+    // console.log(res);
+}
