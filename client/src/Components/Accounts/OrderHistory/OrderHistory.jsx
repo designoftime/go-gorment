@@ -2,6 +2,8 @@ import React from 'react'
 import '../Ollys-Login/Login.css'
 import './OrderHistory.css'
 import { SubHeader } from '../SubHeader/SubHeader'
+import { MdUnsubscribe } from "react-icons/md";
+import { RiFileDownloadFill } from "react-icons/ri";
 import ChocoPretzel from '../../Shop/images/DarkChoc_360x.png'
 import Olives from '../../Shop/images/Olives-Chilli_360x.png'
 export const OrderHistory = () => {
@@ -13,6 +15,7 @@ export const OrderHistory = () => {
             size: 'Regular(35gX50g)',
             productQuantity: '4',
             productImage: ChocoPretzel,
+            subscription: true,
         },
         {
             id: 2,
@@ -21,6 +24,7 @@ export const OrderHistory = () => {
             size: 'Large(100gX150g)',
             productQuantity: '4',
             productImage: Olives,
+            subscription: false,
         },
     ]
     return (
@@ -41,17 +45,20 @@ export const OrderHistory = () => {
                                                     <img src={items.productImage} alt={items.productImage} />
                                                     <div className="orderedQuantity">{items.productQuantity}</div>
                                                 </div>
+
                                             </div>
                                             <div className="OrderedProduct-right">
                                                 <div className="OrderedProduct-content">
                                                     <div className="orderProductName">{items.productName}</div>
                                                     <div className="orderedProductSize">{items.size}</div>
                                                     <div className="orderedProductBottom">
-                                                        <div><button className='cancelSubsbtn'>Cancel Subscription</button></div>
-                                                        <div><button className='Invoicbtn'>Download Invoice</button></div>
-                                                        <div className="OrderedProductPrice">{items.productPrice}</div>
-                                                        
+                                                        <div className="OrderedProductPrice">Price: {items.productPrice}$</div>
+                                                        <div className="d-flex gap-1">
+                                                            {items.subscription ? <div><button type='button' title='Cancle Subscription' className='cancelSubsbtn' style={items.subscription ? { display: 'block' } : { display: "none" }} ><span><MdUnsubscribe /></span></button></div> : ""}
+                                                            <div><button className='Invoicbtn' type='button' title='Download Invoice'><span><RiFileDownloadFill /></span></button></div>
+                                                        </div>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>

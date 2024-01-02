@@ -1,0 +1,106 @@
+.Order-History-Heading{
+    margin-top: 2rem;
+    font-family: Snacksgifheaderfont;
+    font-size: 8rem;
+    color: #4c4294;
+    text-transform: uppercase;
+}
+.OrderDetails{
+    margin: 3rem auto;
+    width: 40rem;
+    border: 3px solid #4c4294;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+.Order-details-header{
+    font-size: 3rem;
+    text-align: center; 
+    background-color: #4c4294;
+    border: 3px solid #4c4294;
+    color: white;
+    font-family: Snacksgifheaderfont; 
+}
+.OrderedProductBody{  
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 25rem;
+    justify-content: center;
+}
+.OrderedProduct-left{
+    grid-column: 1/2;
+}
+.OrderedProduct-right{
+    grid-column: 2/-1;
+}
+.OrderedProduct-content div{
+    margin-top: 0.2rem;
+    color: #4c4294;
+    font-weight: 800;
+}
+.orderedProductBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.OrderedProductimage{
+    width: 8.5rem;
+    background-color: #4c4294;
+    border: 0.3rem solid transparent;   
+    border-radius: 1.5rem;
+    position: relative;
+    text-align: right;
+}
+.OrderedProductimage img{
+    width: 100%;   
+}
+.orderedQuantity{
+    padding: .1rem .6rem;
+    border: 1px solid rgb(218, 217, 217);
+    background-color: rgb(218, 217, 217);
+    color: #4c4294;
+    border-radius: 50%;
+    position: absolute;
+    top: -.5rem;
+    right: -.5rem;
+    
+}
+
+.Invoicbtn{
+    color: #4c4294;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+}
+.cancelSubsbtn{
+   color: rgb(251, 63, 63);
+   border: none;
+   background-color: transparent;
+   font-size: 1.6rem;
+}
+@media(max-width:665px){
+    .OrderDetails{
+        margin: 0 auto;
+        width: 95vw;
+        font-size: 3vw;
+    }
+    .OrderedProductBody{
+        grid-template-columns: 1fr 50vw;
+    }
+    .OrderedProductimage{
+        width: 25vw;
+    }
+    
+    .Invoicbtn{
+        color: #4c4294;
+        border: none;
+        background-color: transparent;
+        font-size: 4vw;
+    }
+    .cancelSubsbtn{
+       color: rgb(251, 63, 63);
+       border: none;
+       background-color: transparent;
+       font-size: 4.5vw;
+    }
+}
