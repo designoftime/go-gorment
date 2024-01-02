@@ -1,15 +1,112 @@
-.CreateAccountPage{
+.CreateAccountPage {
     width: 100%;
+    padding: 11rem 0rem;
+    padding-bottom: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.CreateAccountHeader{
+
+.create-account-contianer {
+    min-width: 22rem;
+    width: 35vmax;
+    height: max-content;
+    padding: 1.5rem 0rem;
+
+    border: 1px solid #4c4294;
+    border-radius: 1rem;
+    /* box-shadow: 0 0.5rem 1rem rgb(158, 158, 158); */
+}
+
+.AccountsHeading {
+    text-align: center;
+    font-family: rocgrotesk-extra-bold;
+    font-size: 6vmax;
+    letter-spacing: 0.06rem;
+    font-weight: 800;
+    color: #4c4294;
+    text-transform: uppercase;
+}
+
+.createaccountform {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1.2rem;
+    gap: 1.1rem;
+}
+
+.createfrom-input-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-input input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+}
+
+.form-input input:focus {
+    color: #4c4294;
+}
+
+.signinbtn {
+    color: #4c4294;
+    background-color: white;
+    border: 2px solid #4c4294;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 8px 30px;
+    font-family: rocgrotesk-light;
+    font-weight: bolder !important;
+
+    transition: 0.4s all;
+}
+
+.signinbtn:hover {
+    border-radius: 50%;
+    color: white;
+    background-color: #4c4294;
+}
+
+.hr-blue-line-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.hr-blue-line-container span {
+    text-wrap: nowrap;
+    font-family: rocgrotesk-light;
+    font-weight: 500;
+    color: #4c4294;
+}
+
+.hr-blue-line-container .hr-blue-line {
+    width: 100%;
+    height: 1px;
+    background-color: #4c4294;
+}
+
+.googleSignUp {
+}
+
+/* .CreateAccountHeader {
     width: 100%;
 }
 
-.createaccountform{
-    margin: 50px 0 80px 0!important;
+.createaccountform {
+    margin: 50px 0 80px 0 !important;
 }
 
-.signupbtn{
+.signupbtn {
     color: #4c4294;
     background-color: white;
     border: 3px solid #4c4294;
@@ -17,29 +114,29 @@
     font-size: 20px;
     padding: 8px 30px;
     font-family: bannerhomebtn;
-    font-weight: bolder!important;
-    transition: .4s all;
+    font-weight: bolder !important;
+    transition: 0.4s all;
 }
-.signupbtn:hover{
+.signupbtn:hover {
     border-radius: 50%;
     color: white;
     background-color: #4c4294;
 }
-.mstext{
+.mstext {
     font-size: 15px;
     color: #4c4294;
     text-decoration: none;
     font-weight: 500;
 }
 
-.Loginacctext{
+.Loginacctext {
     color: #4c4294;
     font-family: bannerhomebtn;
     font-weight: 700;
 }
 
-.googleSignUp{
+.googleSignUp {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */

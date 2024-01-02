@@ -1,76 +1,101 @@
-import React, { useState } from 'react'
-import './CreateAccount.css'
-import '../Accounts.css'
-import { Link, useNavigate } from 'react-router-dom'
-import { Navigation2 } from '../../Navigation/Navigation2'
-import { useDispatch } from 'react-redux';
-import { registerUser, registerUserByGoogle } from '../../../Redux/actions/authServices';
+import React, { useState } from "react";
+import "./CreateAccount.css";
+import "../Accounts.css";
+import { Link, useNavigate } from "react-router-dom";
+import { Navigation2 } from "../../Navigation/Navigation2";
+import { useDispatch } from "react-redux";
+import {
+    registerUser,
+    registerUserByGoogle,
+} from "../../../Redux/actions/authServices";
 
 // Google Login
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from "@react-oauth/google";
 
 export const CreateAccount = () => {
+    const dispatch = useDispatch();
+    const Navigate = useNavigate();
 
-  const dispatch = useDispatch();
-  const Navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let UserData = {
+            name: e.target.fullName.value,
+            email: e.target.userEmail.value,
+            password: e.target.userPassword.value,
+        };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let UserData = {
-      name: e.target.fullName.value,
-      email: e.target.userEmail.value,
-      password: e.target.userPassword.value
+        dispatch(registerUser(UserData, Navigate));
     };
 
-    dispatch(registerUser(UserData, Navigate));
-  }
+    const onGoogleSuccess = (data) => {
+        dispatch(registerUserByGoogle(data.credential, Navigate));
+    };
 
-  const onGoogleSuccess = (data) => {
-    dispatch(registerUserByGoogle(data.credential, Navigate));
-  }
+    return (
+        <div>
+            {/* <Navigation2/> */}
+            <section className="CreateAccountPage">
+                <div className="create-account-contianer">
+                    <h1 className="AccountsHeading">Register</h1>
+                    <div className="createaccountform">
+                        <form
+                            onSubmit={handleSubmit}
+                            className="createfrom-input-group"
+                        >
+                            <div className="form-input">
+                                <input
+                                    type="text"
+                                    name="fullName"
+                                    className="logininput"
+                                    placeholder="Full Name"
+                                />
+                            </div>
+                            <div className="form-input">
+                                <input
+                                    type="email"
+                                    name="userEmail"
+                                    className="logininput"
+                                    placeholder="Email"
+                                />
+                            </div>
+                            <div className="form-input">
+                                <input
+                                    type="password"
+                                    name="userPassword"
+                                    className="logininput"
+                                    placeholder="Password"
+                                />
+                            </div>
 
-  return (
-    <div>
-        {/* <Navigation2/> */}
-      <section className='CreateAccountPage mt-5'>
-        <div className="container-fluid g-0">
-          <div className="CreateAccountHeader mt-5">
-            <h1 className='text-center AccountsHeading'>Register</h1>
-          </div>
-          <div className="createaccountform container text-center  mx-auto">
-            <form onSubmit={handleSubmit}>
-            <div className="createaccountfirstname conatiner g-0 mx-auto">
-                <input type="text" name='fullName' className='logininput' placeholder='Full Name'/>
-              </div>
-              <div className="createaccountemail text-center">
-                <input type="email" name='userEmail' className='logininput' placeholder='Email'/>
-              </div>
-              <div className="createaccountpassword text-center">
-                <input type="password" name='userPassword' className='logininput' placeholder='Password'/>
-              </div>
-        
-              <div className="Signupbutton my-3 text-center">
-                <button type='submit' className='signupbtn'>Sign up</button>
-              </div>
-            </form>
+                            <button type="submit" className="signinbtn">
+                                Sign up
+                            </button>
+                        </form>
 
-            <div className='googleSignUp'>
-              <GoogleLogin
-                onSuccess={onGoogleSuccess}
-                onError={() => {
-                  console.log('Login Failed');
-                }}
-                size='large'
-                theme='filled_black'
-              />
-            </div>
-           
-            <div className="Loginbtntext text-center my-3">
-               <Link to='/accounts/login' className='Loginacctext'>Log in</Link>
-            </div>
-          </div>
+                        <div className="hr-blue-line-container">
+                            <div className="hr-blue-line"></div>
+                            <span>or Signin with</span>
+                            <div className="hr-blue-line"></div>
+                        </div>
+
+                        <div className="googleSignUp">
+                            <GoogleLogin
+                                onSuccess={onGoogleSuccess}
+                                onError={() => {
+                                    console.log("Login Failed");
+                                }}
+                                theme="filled_black"
+                            />
+                        </div>
+
+                        <div className="Loginbtntext" text-center>
+                            <Link to="/accounts/login" className="Loginacctext">
+                                Log in
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </section>
-    </div>
-  )
-}
+    );
+};
