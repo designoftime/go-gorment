@@ -44,6 +44,11 @@ const customerSchema = new mongoose.Schema(
           ref: "Product",
           required: true,
         },
+        attribute: {
+          type: mongoose.Types.ObjectId,
+          ref: "Attribute",
+          required: true,
+        },
         status: {
           type: String,
           enum: ["Active", "Inactive"],

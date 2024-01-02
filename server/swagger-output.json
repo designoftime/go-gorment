@@ -1399,7 +1399,7 @@
       }
     },
     "/api/customer/active": {
-      "put": {
+      "post": {
         "description": "",
         "parameters": [
           {
@@ -1432,7 +1432,7 @@
       }
     },
     "/api/customer/inactive": {
-      "put": {
+      "post": {
         "description": "",
         "parameters": [
           {

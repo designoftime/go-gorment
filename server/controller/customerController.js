@@ -257,6 +257,7 @@ const getAllCustomers = async (req, res) => {
 const getCustomerById = async (req, res) => {
   try {
     const customer = await Customer.findById(req.params.id);
+    // .populate({ path: "product", select: " subscription_duration" })
     res.send(customer);
   } catch (err) {
     res.status(500).send({
@@ -311,7 +312,7 @@ const deleteCustomer = (req, res) => {
 
 const updateSubscriptionActive = async (req, res) => {
   try {
-    let { userId, productId } = req.body;
+    let { userId, productId, product } = req.body;
     if (!userId) throw Error("Id not Found");
     const updatedCustomer = await Customer.findByIdAndUpdate(
       { _id: userId },
