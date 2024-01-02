@@ -3,7 +3,7 @@ import "./Navigation1.css";
 import "./Navigation2.css";
 import Logo from "./images/Logo.svg";
 import { RiAccountCircleLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MobileMenu from "./mobileMenu";
 import { useSelector } from "react-redux";
@@ -15,7 +15,18 @@ export const Navigation1 = () => {
 
     const [showNavigation2, setShowNavigation2] = useState(false);
     const [toggleMenu, setToggleMenu] = useState(false);
+    const [hideCheckOut, setHideCheckout] = useState(true);
     const headerData = useSelector((store) => store?.storeSettings?.navbar);
+    const location = useLocation();
+    
+    useEffect(() => {
+        if(location.pathname === "/checkouts"){
+            setHideCheckout(false);
+        }
+        else{
+            setHideCheckout(true);
+        }
+    },[location]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -155,7 +166,7 @@ export const Navigation1 = () => {
                                 <RiAccountCircleLine className="accountIcon" />
                             </Link>
                         </div>
-                        <div className="nav-item ">
+                        {hideCheckOut && <div className="nav-item ">
                             <a
                                 className="nav-link active bolder"
                                 href=""
@@ -163,7 +174,7 @@ export const Navigation1 = () => {
                             >
                                 <Cart />
                             </a>
-                        </div>
+                        </div>}
                     </div>
                 </div>
             </div>

@@ -9,7 +9,6 @@ import { IoAdd } from "react-icons/io5";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { CiMobile2 } from "react-icons/ci";
 import { GoLock } from "react-icons/go";
-import { Link } from 'react-router-dom'
 import CheckoutCarts from './CheckoutCarts'
 import { toast } from 'react-toastify'
 const Checkout = () => {
@@ -19,7 +18,6 @@ const Checkout = () => {
   const [totalCartVal, setTotalCartVal] = useState(0);
 
   const [showMobile, setShowMobile] = useState(false);
-  const [errMsg, setErrMsg] = useState(false);
 
   const handleHiddenInput = (event) => {
     event.preventDefault();
