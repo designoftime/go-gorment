@@ -65,3 +65,16 @@ export async function updateLocalCartToServer(){
 
     localStorage.removeItem("carts");
 }
+
+export function getTotalAmount (arr){
+    let totalAmount = arr.reduce((sum, currVal) => {
+                return (sum += currVal.price * currVal.quantity);
+    }, 0);
+
+    return totalAmount;
+}
+
+export async function updateUSerSubscription(carts){
+    console.log(carts);
+    
+}

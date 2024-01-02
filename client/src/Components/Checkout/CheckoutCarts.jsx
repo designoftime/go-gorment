@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Productimage from "../Shop/images/SourCreamHoverimg.jpg";
 import requests from "../../Services/httpService";
 import { toast } from "react-toastify";
+import { getTotalAmount } from "../../Redux/actions/cartServices";
 
-const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shippingType}) => {
+const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shippingType,couponVal,setCouponVal}) => {
     
     const [subTotalVal, setSubTotalVal] = useState(0);
-    const [couponVal, setCouponVal] = useState(0);
     const user = JSON.parse(localStorage.getItem("user"));
     const [shippingCharges, setShippingCharges] = useState(299);
 
@@ -17,10 +17,8 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
             if (!localCarts) {
                 return;
             }
-            let totalCartAmount = localCarts.reduce((sum, currVal) => {
-                return (sum += currVal.price * currVal.quantity);
-            }, 0);
 
+            let totalCartAmount = getTotalAmount(localCarts);
 
             setCartData(localCarts);
             setSubTotalVal(totalCartAmount);
@@ -30,30 +28,29 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
 
         const fetchCarts = async () => {
             const res = await requests.get("/cart");
-            let totalCartAmount = res?.carts.reduce((sum, currVal) => {
-                return (sum += currVal.price * currVal.quantity);
-            }, 0);
-
+            let totalCartAmount = getTotalAmount(res?.carts);
             setCartData(res.carts);
-            setTotalCartVal(totalCartAmount);
+            setSubTotalVal(totalCartAmount);
+            setTotalCartVal((totalCartAmount + shippingCharges) - couponVal);
         };
 
         fetchCarts();
     }, []);
 
     useEffect(() => {
-        const localCarts = JSON.parse(localStorage.getItem("carts"));
-        let totalCartAmount = localCarts.reduce((sum, currVal) => {
-            return (sum += currVal.price * currVal.quantity);
-        }, 0);
-
+        if(!cartData?.length){
+            return;
+        }
+        
+        let totalCartAmount = getTotalAmount(cartData);
+        
         if(shippingType==="standard"){
             setShippingCharges(299);
-            setTotalCartVal(totalCartAmount + 299);
+            setTotalCartVal((totalCartAmount + 299) - couponVal);
         }
         else{
             setShippingCharges(399);
-            setTotalCartVal(totalCartAmount + 399);
+            setTotalCartVal((totalCartAmount + 399) - couponVal);
         }
     }, [shippingType]);
 
@@ -70,10 +67,6 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
         }
 
         const fetchCoupon = async () => {
-
-            if(couponVal){
-                return;
-            }
             
             const res = await requests.get("/coupon/show");
             
@@ -83,23 +76,28 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
 
             if(!checkCoupon){
                 toast.error("Coupon Code is Not Vaild");
+                setTotalCartVal(subTotalVal + shippingCharges);
                 setCouponVal(0);
                 return;
             }
+
+            let totalAmount = getTotalAmount(cartData);
+            setTotalCartVal(totalAmount);
+            setSubTotalVal(totalAmount);
 
             toast("Coupon Applied Successfully !!");
 
             if(checkCoupon?.discountType?.type === "percentage"){
                 let percentageVal = Number(checkCoupon?.discountType?.value);
-                let discountedPrice = Math.floor((totalCartVal * percentageVal) / 100);
+                let discountedPrice = Math.floor((totalAmount * percentageVal) / 100);
 
                 if (discountedPrice > checkCoupon.minimumAmount) {
-                    let newTotal = Number(totalCartVal - checkCoupon?.minimumAmount);
+                    let newTotal = Number(totalAmount - checkCoupon?.minimumAmount) + shippingCharges;
                     setTotalCartVal(newTotal);
                     setCouponVal(checkCoupon?.minimumAmount);
                 }
                 else{
-                    let newTotal = Number(totalCartVal - discountedPrice);
+                    let newTotal = Number(totalAmount - discountedPrice) + shippingCharges;
                     setCouponVal(discountedPrice);
                     setTotalCartVal(newTotal);
                 }
@@ -107,12 +105,12 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
             else{
                 let fixedVal = checkCoupon?.discountType?.value;
                 
-                if (totalCartVal <= (fixedVal + 100)) {
+                if (totalAmount <= (fixedVal + 100)) {
                     toast.error(`Cart Price Should be More than Discounted Price`);
                     return;
                 }
                 
-                let newTotal = Number(totalCartVal - fixedVal);
+                let newTotal = Number(totalAmount - fixedVal) + shippingCharges;
                 setTotalCartVal(newTotal);
                 setCouponVal(fixedVal);
             }
@@ -177,7 +175,7 @@ const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shipp
                     </div>
                     <div className="checkout-estimated-shipping">
                         <div className="checkout-subtotal-text">
-                            <h2>Estimated Shipping</h2>
+                            <h2>Estimated Shipping ({shippingType})</h2>
                         </div>
                         <div className="checkout-subtotal-price">
                             <span>+ &#8377;</span> {shippingCharges}

@@ -37,17 +37,25 @@ const customerSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    subscription: {
-      product: {
-        type: mongoose.Types.ObjectId,
-        ref: "Product",
-        reqrequired: false,
+    subscriptionType: [
+      {
+        product: {
+          type: mongoose.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        attribute: {
+          type: mongoose.Types.ObjectId,
+          ref: "Attribute",
+          required: true,
+        },
+        status: {
+          type: String,
+          enum: ["Active", "Inactive"],
+          required: true,
+        },
       },
-      status: {
-        type: String,
-        enum: ["Active", "Inactive"],
-      },
-    },
+    ],
   },
   {
     timestamps: true,

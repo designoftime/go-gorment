@@ -10,13 +10,15 @@ const {
 const {
   forgetPasswordEmailBody,
 } = require("../lib/email-sender/templates/forget-password");
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Types;
 
 const verifyEmailAddress = async (req, res) => {
   const isAdded = await Customer.findOne({ email: req.body.email });
   if (isAdded) {
     return res.status(403).send({
       message: "This Email already Added!",
-    });     
+    });
   } else {
     const token = tokenForVerify(req.body);
     const option = {
@@ -255,6 +257,7 @@ const getAllCustomers = async (req, res) => {
 const getCustomerById = async (req, res) => {
   try {
     const customer = await Customer.findById(req.params.id);
+    // .populate({ path: "product", select: " subscription_duration" })
     res.send(customer);
   } catch (err) {
     res.status(500).send({
@@ -307,6 +310,77 @@ const deleteCustomer = (req, res) => {
   });
 };
 
+const updateSubscriptionActive = async (req, res) => {
+  try {
+    let { userId, productId, product } = req.body;
+    if (!userId) throw Error("Id not Found");
+    const updatedCustomer = await Customer.findByIdAndUpdate(
+      { _id: userId },
+      {
+        $addToSet: {
+          subscriptionType: {
+            status: "Active",
+            product: productId,
+          },
+        },
+      },
+      { new: true }
+    );
+
+    if (!updatedCustomer) {
+      return res.status(404).send({
+        message: "Customer not found",
+      });
+    }
+
+    res.status(200).send({
+      message: "Subscription updated successfully",
+      updatedCustomer,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: "Internal server error: " + err.message,
+    });
+  }
+};
+const updateSubscriptionInactive = async (req, res) => {
+  try {
+    let { productId } = req.body;
+    if (!productId) throw Error("Id not Found");
+
+    const updatedCustomer = await Customer.findOneAndUpdate(
+      {
+        "subscriptionType.product": productId,
+        "subscriptionType.status": "Active",
+      },
+      {
+        $pull: {
+          subscriptionType: {
+            product: productId,
+            status: "Active",
+          },
+        },
+      },
+      { new: true }
+    );
+
+    if (!updatedCustomer) {
+      return res.status(404).send({
+        message: "Customer not found or product is not active",
+      });
+    }
+
+    res.status(200).send({
+      message: "Subscription updated successfully",
+      updatedCustomer,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: "Internal server error: " + err.message,
+    });
+  }
+};
+
 module.exports = {
   loginCustomer,
   registerCustomer,
@@ -320,4 +394,6 @@ module.exports = {
   getCustomerById,
   updateCustomer,
   deleteCustomer,
+  updateSubscriptionActive,
+  updateSubscriptionInactive,
 };

@@ -13,6 +13,8 @@ const {
   updateCustomer,
   deleteCustomer,
   addAllCustomers,
+  updateSubscriptionActive,
+  updateSubscriptionInactive,
 } = require("../controller/customerController");
 const {
   passwordVerificationLimit,
@@ -20,8 +22,8 @@ const {
 } = require("../lib/email-sender/sender");
 
 //verify email
-// router.post("/verify-email", emailVerificationLimit, verifyEmailAddress);
-router.post("/verify-email", verifyEmailAddress);
+router.post("/verify-email", emailVerificationLimit, verifyEmailAddress);
+// router.post("/verify-email", verifyEmailAddress);
 
 //register a user
 router.post("/register/:token", registerCustomer);
@@ -56,5 +58,10 @@ router.put("/:id", updateCustomer);
 
 //delete a user
 router.delete("/:id", deleteCustomer);
+
+//subscription
+router.post("/active", updateSubscriptionActive);
+
+router.post("/inactive", updateSubscriptionInactive);
 
 module.exports = router;
