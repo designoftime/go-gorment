@@ -16,7 +16,7 @@ const verifyEmailAddress = async (req, res) => {
   if (isAdded) {
     return res.status(403).send({
       message: "This Email already Added!",
-    });     
+    });
   } else {
     const token = tokenForVerify(req.body);
     const option = {
@@ -307,6 +307,71 @@ const deleteCustomer = (req, res) => {
   });
 };
 
+const updateSubscriptionActive = async (req, res) => {
+  try {
+    let { userId, productId } = req.body;
+    if (!userId) throw Error("Id not Found");
+
+    const updatedCustomer = await Customer.findByIdAndUpdate(
+      userId,
+      {
+        $addToSet: {
+          "subscriptionType.status": "Active",
+          "subscriptionType.product": productId,
+        },
+      },
+      { new: true }
+    );
+
+    if (!updatedCustomer) {
+      return res.status(404).send({
+        message: "Customer not found",
+      });
+    }
+
+    res.status(200).send({
+      message: "Subscription updated successfully",
+      updatedCustomer,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: "Internal server error: " + err.message,
+    });
+  }
+};
+
+const updateSubscriptionInactive = async (req, res) => {
+  try {
+    let { productId } = req.body;
+    if (!id) throw Error("Id not Found");
+
+    const updatedCustomer = await Customer.findByIdAndUpdate(
+      { "subscriptionType.product": productId },
+      {
+        $set: {
+          "subscriptionType.status": "Inactive",
+        },
+      },
+      { new: true }
+    );
+      
+    if (!updatedCustomer) {
+      return res.status(404).send({
+        message: "Customer not found",
+      });
+    }
+
+    res.status(200).send({
+      message: "Subscription updated successfully",
+      updatedCustomer,
+    });
+  } catch (err) {
+    res.status(500).send({
+      message: "Internal server error: " + err.message,
+    });
+  }
+};
+
 module.exports = {
   loginCustomer,
   registerCustomer,
@@ -320,4 +385,6 @@ module.exports = {
   getCustomerById,
   updateCustomer,
   deleteCustomer,
+  updateSubscriptionActive,
+  updateSubscriptionInactive,
 };

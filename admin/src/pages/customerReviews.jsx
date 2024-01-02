@@ -77,10 +77,10 @@ const CustomersReviews = () => {
             href="#"
             className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
-            {data.fiveStar} star
+          (5)  {data.fiveStar}  star
           </a>
           <div
-            style={{ width: ` ${data.fiveStar}px` }}
+            style={{ width: ` ${data.fiveStar}px`,maxWidth:"1200px" }}
             className={`h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
           >
             <div className="h-5 bg-yellow-300 rounded"></div>
@@ -91,10 +91,10 @@ const CustomersReviews = () => {
             href="#"
             className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
-            {data.fourStar} star
+         (4)   {data.fourStar} star
           </a>
           <div
-            style={{ width: ` ${data.fourStar}px` }}
+            style={{ width: ` ${data.fourStar}px`,maxWidth:"1200px" }}
             className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
           >
             <div className="h-5 bg-yellow-300 rounded"></div>
@@ -105,10 +105,10 @@ const CustomersReviews = () => {
             href="#"
             className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
-            {data.threeStar} star
+          (3)  {data.threeStar} star
           </a>
           <div
-            style={{ width: ` ${data.threeStar}px` }}
+            style={{ width: ` ${data.threeStar}px`,maxWidth:"1200px" }}
             className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
           >
             <div className="h-5 bg-yellow-300 rounded"></div>
@@ -119,10 +119,10 @@ const CustomersReviews = () => {
             href="#"
             className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
-            {data.twoStar} star
+          (2)  {data.twoStar} star
           </a>
           <div
-            style={{ width: ` ${data.twoStar}px` }}
+            style={{ width: ` ${data.twoStar}px`,maxWidth:"1200px"  }}
             className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
           >
             <div className="h-5 bg-yellow-300 rounded"></div>
@@ -133,10 +133,10 @@ const CustomersReviews = () => {
             href="#"
             className="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
-            {data.oneStar} star
+          (1)  {data.oneStar} star
           </a>
           <div
-            style={{ width: ` ${data.oneStar}px` }}
+            style={{ width: ` ${data.oneStar}px`,maxWidth:"1200px" }}
             className={` h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700`}
           >
             <div className="h-5 bg-yellow-300 rounded"></div>

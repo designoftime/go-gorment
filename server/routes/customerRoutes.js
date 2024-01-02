@@ -13,6 +13,8 @@ const {
   updateCustomer,
   deleteCustomer,
   addAllCustomers,
+  updateSubscriptionActive,
+  updateSubscriptionInactive,
 } = require("../controller/customerController");
 const {
   passwordVerificationLimit,
@@ -56,5 +58,10 @@ router.put("/:id", updateCustomer);
 
 //delete a user
 router.delete("/:id", deleteCustomer);
+
+//subscription
+router.put("/active", updateSubscriptionActive);
+
+router.put("/inactive", updateSubscriptionInactive);
 
 module.exports = router;
