@@ -1411,7 +1411,7 @@
                 "userId": {
                   "example": "any"
                 },
-                "productId": {
+                "products": {
                   "example": "any"
                 }
               }
@@ -1441,7 +1441,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "productId": {
+                "subscriptionId": {
                   "example": "any"
                 }
               }

@@ -45,8 +45,11 @@ const customerSchema = new mongoose.Schema(
           required: true,
         },
         attribute: {
-          type: mongoose.Types.ObjectId,
-          ref: "Attribute",
+          type: String,
+          required: true,
+        },
+        subscription: {
+          type: String,
           required: true,
         },
         status: {

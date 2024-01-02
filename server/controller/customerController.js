@@ -312,20 +312,24 @@ const deleteCustomer = (req, res) => {
 
 const updateSubscriptionActive = async (req, res) => {
   try {
-    let { userId, productId, product } = req.body;
+    let { userId, products } = req.body;
     if (!userId) throw Error("Id not Found");
-    const updatedCustomer = await Customer.findByIdAndUpdate(
-      { _id: userId },
-      {
-        $addToSet: {
-          subscriptionType: {
-            status: "Active",
-            product: productId,
+    const updatedCustomer = products.map(async (data) => {
+      return await Customer.findByIdAndUpdate(
+        { _id: userId },
+        {
+          $addToSet: {
+            subscriptionType: {
+              status: "Active",
+              product: data.productId,
+              attribute: data.attribute,
+              subscription: data.subscription,
+            },
           },
         },
-      },
-      { new: true }
-    );
+        { new: true }
+      );
+    });
 
     if (!updatedCustomer) {
       return res.status(404).send({
@@ -345,20 +349,13 @@ const updateSubscriptionActive = async (req, res) => {
 };
 const updateSubscriptionInactive = async (req, res) => {
   try {
-    let { productId } = req.body;
-    if (!productId) throw Error("Id not Found");
-
+    let { subscriptionId } = req.body;
+    if (!subscriptionId) throw Error("Id not Found");
     const updatedCustomer = await Customer.findOneAndUpdate(
+      { "subscriptionType._id": subscriptionId },
       {
-        "subscriptionType.product": productId,
-        "subscriptionType.status": "Active",
-      },
-      {
-        $pull: {
-          subscriptionType: {
-            product: productId,
-            status: "Active",
-          },
+        $set: {
+          "subscriptionType.$.status": "Inactive",
         },
       },
       { new: true }
