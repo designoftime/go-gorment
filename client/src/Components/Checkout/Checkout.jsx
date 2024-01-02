@@ -12,13 +12,14 @@ import { GoLock } from "react-icons/go";
 import CheckoutCarts from './CheckoutCarts'
 import { toast } from 'react-toastify'
 import { useNavigate } from "react-router-dom";
-import { updateUSerSubscription } from '../../Redux/actions/cartServices'
+import { deleteUserCarts, updateUserOrder, updateUserSubscription } from '../../Redux/actions/cartServices'
 
 const Checkout = () => {
   const [showInput, setShowInput] = useState(false);
   const [shippingType, setShippingType] = useState("standard");
   const [cartData, setCartData] = useState([]);
   const [totalCartVal, setTotalCartVal] = useState(0);
+  const [subTotalVal, setSubTotalVal] = useState(0);
   const [couponVal, setCouponVal] = useState(0);
 
   const [showMobile, setShowMobile] = useState(false);
@@ -81,7 +82,31 @@ const Checkout = () => {
       return;
     }
     
-    updateUSerSubscription(cartData);
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const orderData = {
+      user: user._id,
+      cart: cartData,
+      user_info : {
+        name: checkoutData.firstname + " " + checkoutData.lastname,
+        email: checkoutData.email,
+        contact: checkoutData.phone,
+        address: checkoutData.address,
+        city: checkoutData.city,
+        country: checkoutData.country,
+        pincode: checkoutData.pincode
+      },
+      subTotal: subTotalVal,
+      shippingCost: (shippingType==="standard" ? 299 : 399),
+      discount: couponVal,
+      total: totalCartVal,
+      paymentMethod: "Online",
+      status: "Pending"
+    }
+
+    // deleteUserCarts();
+    // updateUserOrder(orderData);
+    // updateUserSubscription(cartData);
     // console.log(checkoutData, cartData, totalCartVal, couponVal);
   }
 
@@ -244,7 +269,7 @@ const Checkout = () => {
               </form>
             </div>
           </div>
-          <CheckoutCarts cartData={cartData} setCartData={setCartData} totalCartVal={totalCartVal} setTotalCartVal={setTotalCartVal} shippingType={shippingType} couponVal={couponVal} setCouponVal={setCouponVal}/>
+          <CheckoutCarts cartData={cartData} setCartData={setCartData} totalCartVal={totalCartVal} setTotalCartVal={setTotalCartVal} shippingType={shippingType} couponVal={couponVal} setCouponVal={setCouponVal} subTotalVal={subTotalVal} setSubTotalVal={setSubTotalVal}/>
         </div>
       </div >
     </div >

@@ -4,9 +4,8 @@ import requests from "../../Services/httpService";
 import { toast } from "react-toastify";
 import { getTotalAmount } from "../../Redux/actions/cartServices";
 
-const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shippingType,couponVal,setCouponVal}) => {
+const CheckoutCarts = ({cartData,setCartData, totalCartVal,setTotalCartVal,shippingType,couponVal,setCouponVal,subTotalVal,setSubTotalVal}) => {
     
-    const [subTotalVal, setSubTotalVal] = useState(0);
     const user = JSON.parse(localStorage.getItem("user"));
     const [shippingCharges, setShippingCharges] = useState(299);
 
