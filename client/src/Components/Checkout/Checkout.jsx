@@ -104,7 +104,7 @@ const Checkout = () => {
       status: "Pending"
     }
 
-    deleteUserCarts();
+    // deleteUserCarts();
     // updateUserOrder(orderData);
     // updateUserSubscription(cartData);
     // console.log(checkoutData, cartData, totalCartVal, couponVal);

@@ -75,8 +75,7 @@ export function getTotalAmount (arr){
 }
 
 export async function deleteUserCarts(){
-    const res = await requests.delete("/cart/delete-all");
-    console.log(res);
+    await requests.post("/cart/delete-all");
 }
 
 export async function updateUserSubscription(carts){
