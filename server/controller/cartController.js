@@ -113,8 +113,8 @@ const getCartByUserId = async (req,res) => {
 const deleteAllCarts = async (req,res) => {
   try {
     const user = req.user;
-    
-    await Cart.deleteOne({user: user._id});
+
+    await Cart.findOneAndDelete({user: user._id});
 
     res.send({
       message: `All Carts Deleted Successfully !!`,
