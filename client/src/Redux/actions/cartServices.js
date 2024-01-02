@@ -73,3 +73,8 @@ export function getTotalAmount (arr){
 
     return totalAmount;
 }
+
+export async function updateUSerSubscription(carts){
+    console.log(carts);
+    
+}

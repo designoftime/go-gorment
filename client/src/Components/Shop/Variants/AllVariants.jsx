@@ -8,10 +8,9 @@ import {
     handlePriceWithoutVariant,
 } from "../../../Redux/actions/productService";
 
-const AllVariants = ({ product, setProductPrice, setIsQuantityAvailable }) => {
+const AllVariants = ({ product, setProductPrice, setIsQuantityAvailable,focusVariants, setFocusVariants }) => {
     const [variants, setVariants] = useState([]);
     const [variantPrice, setVariantPrice] = useState([]);
-    const [focusVariants, setFocusVariants] = useState([]);
     const [AvaialableVariants, setAvaialableVariants] = useState([]);
 
     useEffect(() => {
@@ -26,7 +25,6 @@ const AllVariants = ({ product, setProductPrice, setIsQuantityAvailable }) => {
             }
 
             const res = await requests.get(`/attributes/show`);
-
             if (product?.variants) {
                 const firstDifferentVariants = getFirstDifferentVariants(
                     product.variants,

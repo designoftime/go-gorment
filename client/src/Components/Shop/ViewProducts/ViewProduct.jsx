@@ -26,6 +26,7 @@ export const ViewProduct = () => {
     const [purchaseType, setPurchaseType] = useState("single");
     const [subscriptionType, setSubscriptionType] = useState();
     const [product, setProduct] = useState({});
+    const [focusVariants, setFocusVariants] = useState([]);
 
     const [productTheme, setProductTheme] = useState({});
 
@@ -70,6 +71,7 @@ export const ViewProduct = () => {
             title: product?.title?.en,
             attribute: productPrice?.attribute?.slice(1),
             quantity: productQuantity,
+            attributeId: focusVariants
         };
 
         if (purchaseType === "single") {
@@ -92,8 +94,8 @@ export const ViewProduct = () => {
                 let findCart = getCarts.carts.find((eachCart) => {
                     return (
                         eachCart.productId === cartData.productId &&
-                        eachCart.attribute === cartData.attribute &&
-                        eachCart.subscription === cartData.subscription
+                        eachCart?.attribute === cartData?.attribute &&
+                        eachCart?.subscription === cartData?.subscription
                     );
                 });
 
@@ -113,6 +115,7 @@ export const ViewProduct = () => {
 
         AddToCartAPI();
     };
+    
     return (
         <div>
             <section className="View-Products-section">
@@ -201,6 +204,8 @@ export const ViewProduct = () => {
                                         setIsQuantityAvailable={
                                             setIsQuantityAvailable
                                         }
+                                        setFocusVariants={setFocusVariants}
+                                        focusVariants={focusVariants}
                                     />
                                     {isQuantityAvailable ? (
                                         <>
