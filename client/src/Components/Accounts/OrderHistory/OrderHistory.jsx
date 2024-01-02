@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Ollys-Login/Login.css'
 import './OrderHistory.css'
 import { SubHeader } from '../SubHeader/SubHeader'
@@ -6,7 +6,9 @@ import { MdUnsubscribe } from "react-icons/md";
 import { RiFileDownloadFill } from "react-icons/ri";
 import ChocoPretzel from '../../Shop/images/DarkChoc_360x.png'
 import Olives from '../../Shop/images/Olives-Chilli_360x.png'
+import { Invoice } from '../../Invoice/Invoice';
 export const OrderHistory = () => {
+    const [productInfo,setProductInfo]= useState([]);
     const orderedProducts = [
         {
             id: 1,
@@ -27,6 +29,20 @@ export const OrderHistory = () => {
             subscription: false,
         },
     ]
+    const handleInvoice =(pId,event)=>{
+        event.preventDefault();
+        console.log(pId);
+        let productInvoice = orderedProducts.filter((id)=>{
+            return pId == id;
+        })
+        setProductInfo(productInvoice);
+        
+        // return <Invoice productInfo ={productInfo}/>
+    }
+    console.log(productInfo);
+    useEffect(()=>{
+        console.log(productInfo);
+    },[])
     return (
         <div>
             <div className="container">
@@ -39,7 +55,7 @@ export const OrderHistory = () => {
                             {
                                 orderedProducts.map((items, id) => {
                                     return (
-                                        <div className="OrderedProductBody">
+                                        <div className="OrderedProductBody" key={id}>
                                             <div className="OrderedProduct-left">
                                                 <div className="OrderedProductimage">
                                                     <img src={items.productImage} alt={items.productImage} />
@@ -54,8 +70,8 @@ export const OrderHistory = () => {
                                                     <div className="orderedProductBottom">
                                                         <div className="OrderedProductPrice">Price: {items.productPrice}$</div>
                                                         <div className="d-flex gap-1">
-                                                            {items.subscription ? <div><button type='button' title='Cancle Subscription' className='cancelSubsbtn' style={items.subscription ? { display: 'block' } : { display: "none" }} ><span><MdUnsubscribe /></span></button></div> : ""}
-                                                            <div><button className='Invoicbtn' type='button' title='Download Invoice'><span><RiFileDownloadFill /></span></button></div>
+                                                            {items.subscription ? <div><button  title='Cancle Subscription' className='cancelSubsbtn' style={items.subscription ? { display: 'block' } : { display: "none" }} ><span><MdUnsubscribe /></span></button></div> : ""}
+                                                            <div><button className='Invoicbtn'  onClick={()=>handleInvoice(id,event)} title='Download Invoice'><span><RiFileDownloadFill /></span></button></div>
                                                         </div>
                                                     </div>
 
