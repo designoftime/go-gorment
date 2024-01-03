@@ -94,6 +94,13 @@
     height: 1px;
     background-color: #4c4294;
 }
+
+.S9gUrf-YoZ4jf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .mstext {
     font-size: 15px;
     color: #4c4294;
@@ -148,22 +155,4 @@
     width: max-content;
     margin: 0;
     padding: 0;
-}
-
-@media (max-width: 768px) {
-    .LoginPage {
-        padding: 9rem 0rem;
-        padding-bottom: 3rem;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .forgotpasswordtext {
-        padding: 0.8rem 2.1rem;
-        letter-spacing: 0.06rem;
-        font-size: 0.9rem;
-        transition: 0.4s all;
-    }
 }

@@ -68,7 +68,7 @@ export const CreateAccount = () => {
                             </div>
 
                             <button type="submit" className="signinbtn">
-                                Sign up
+                                Signup
                             </button>
                         </form>
 
@@ -88,9 +88,9 @@ export const CreateAccount = () => {
                             />
                         </div>
 
-                        <div className="Loginbtntext" text-center>
+                        <div className="Loginbtntext">
                             <Link to="/accounts/login" className="Loginacctext">
-                                Log in
+                                Login
                             </Link>
                         </div>
                     </div>
