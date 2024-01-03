@@ -79,7 +79,32 @@ export async function deleteUserCarts(){
 }
 
 export async function updateUserSubscription(carts){
-    console.log(carts);   
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const allSubscriptionCarts = [];
+    carts.forEach((eachCart) => {
+
+        if(!eachCart.subscription){
+            return;
+        }
+
+        const cartsWithSubscription = {
+            productId: eachCart.productId,  
+            attribute: eachCart.attribute,  
+            subscription_duration: eachCart.subscription,  
+            subscription_price: eachCart.price,
+            quantity: eachCart.quantity
+        };
+
+        allSubscriptionCarts.push(cartsWithSubscription);
+    });
+
+    const res = await requests.post("/customer/active", {
+        userId: user._id,
+        products: allSubscriptionCarts
+    });
+
+    console.log(res);
 }
 
 export async function updateUserOrder(orderData){

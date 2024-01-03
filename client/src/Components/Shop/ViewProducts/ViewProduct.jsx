@@ -66,7 +66,7 @@ export const ViewProduct = () => {
 
     const addToCart = () => {
         const cartData = {
-            productId: product?.productId,
+            productId: product?._id,
             image: product?.image[0],
             title: product?.title?.en,
             attribute: productPrice?.attribute?.slice(1),

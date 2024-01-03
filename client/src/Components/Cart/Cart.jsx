@@ -102,7 +102,7 @@ export const Cart = () => {
             <p className="ProgressBartext">
               <img src={Star} alt={Star} />
               <span /> <strong className="ProgressBartext">REWARDS</strong>{" "}
-              Spend another £12.50 to qualify for free shipping
+              Spend another <span>&#8377; </span>12.50 to qualify for free shipping
             </p>
           ) : cartData.length > 1 ? (
             <p className="ProgressBartext">
