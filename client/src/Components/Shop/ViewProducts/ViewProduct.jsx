@@ -119,7 +119,7 @@ export const ViewProduct = () => {
     return (
         <div>
             <section className="View-Products-section">
-                <div className="container-fluid">
+                <div className="container-fluid view-product-relative-container">
                     <div className="container mx-auto g-0">
                         <div className="row justify-content-between view-product-info">
                             <div

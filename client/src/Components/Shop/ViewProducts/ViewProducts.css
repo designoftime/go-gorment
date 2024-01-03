@@ -1,5 +1,6 @@
 .View-Products-section {
-    background-color: rgb(244, 188, 199);
+    position: relative;
+    /* background-color: rgb(244, 188, 199); */
 
     padding: 8rem 0;
 }
@@ -9,10 +10,14 @@
 }
 
 .VPCaursel {
-    background-color: rgb(194, 191, 191);
+    /* background-color: rgb(194, 191, 191); */
     width: 53%;
     /* height: fit-content; */
 }
+
+/* .view-product-relative-container {
+    position: relative;
+} */
 
 .view-product-sticky-div {
     position: sticky;
@@ -22,11 +27,11 @@
     flex-direction: column;
     gap: 2rem;
     padding: 3rem 0.5rem;
-    background-color: red;
+    /* background-color: red; */
 }
 
 .view-product-swipper-img {
-    background-color: #16bfbf;
+    /* background-color: #16bfbf; */
     width: 95%;
     height: 80vh;
     margin: 0 auto;
@@ -82,7 +87,7 @@
 
 .VPRight {
     position: relative;
-    background-color: #16bfbf;
+    /* background-color: #16bfbf; */
     color: #4c4294;
     width: 47%;
     padding: 4rem 0.5rem;
@@ -132,7 +137,6 @@
 .VPselect-size {
     display: flex;
     flex-direction: column;
-    background-color: black;
     column-gap: 0.3rem;
     margin: 1rem 0rem;
 }
