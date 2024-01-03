@@ -20,6 +20,7 @@ import { OneFeedsTwo } from "./Components/OneFeedsTwo/OneFeedsTwo";
 import Checkout from "./Components/Checkout/Checkout";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import { OrderHistory } from "./Components/Accounts/OrderHistory/OrderHistory";
+import { Invoice } from "./Components/Invoice/Invoice";
 
 
 const appRouter = createBrowserRouter([
@@ -68,6 +69,10 @@ const appRouter = createBrowserRouter([
                     {
                         path: "order-history",
                         element: <OrderHistory/>
+                    },
+                    {
+                        path: 'invoice',
+                        element: <Invoice/>
                     }
                 ]
             },
