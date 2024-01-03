@@ -327,6 +327,7 @@ const updateSubscriptionActive = async (req, res) => {
               attribute: data.attribute,
               subscription_duration: data.subscription_duration,
               subscription_price: data.subscription_price,
+              quantity: data.quantity,
             },
           },
         },

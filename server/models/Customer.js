@@ -56,6 +56,10 @@ const customerSchema = new mongoose.Schema(
           type: String,
           required: true,
         },
+        quantity: {
+          type: String,
+          required: true,
+        },
         status: {
           type: String,
           enum: ["Active", "Inactive"],

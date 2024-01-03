@@ -18,7 +18,7 @@ import EditDeleteButton from "@/components/table/EditDeleteButton";
 
 const CustomerTable = ({ customers }) => {
   const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
-
+console.log(customers)
   return (
     <>
       <DeleteModal id={serviceId} title={title} />
