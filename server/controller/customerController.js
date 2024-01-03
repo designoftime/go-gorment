@@ -273,8 +273,13 @@ const updateCustomer = async (req, res) => {
     const customer = await Customer.findById(req.params.id);
     if (customer) {
       customer.name = req.body.name;
-      customer.email = req.body.email;
+      // customer.email = req.body.email;
       customer.address = req.body.address;
+      customer.address1 = req.body.address1;
+      customer.country = req.body.country;
+      customer.state = req.body.state;
+      customer.city = req.body.city;
+      customer.pincode = req.body.pincode;
       customer.phone = req.body.phone;
       customer.image = req.body.image;
       // customer.password = bcrypt.hashSync("12345678");
@@ -286,6 +291,11 @@ const updateCustomer = async (req, res) => {
         name: updatedUser.name,
         email: updatedUser.email,
         address: updatedUser.address,
+        address1: updatedUser.address1,
+        country: updatedUser.country,
+        state: updatedUser.state,
+        city: updatedUser.city,
+        pincode: updatedUser.pincode,
         phone: updatedUser.phone,
         image: updatedUser.image,
         message: "Customer Updated Successfully!",

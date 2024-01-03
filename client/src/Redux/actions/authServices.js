@@ -120,7 +120,7 @@ export function resetPassword(userData, Navigate){
     }
     
 }
-export function updateCustomer(userInfo,Navigate){
+export function updateCustomer(userInfo){
     return async function updateCustomerThunk(dispatch,getstate){
         try{
             const user = JSON.parse(localStorage.getItem("user")) || {};

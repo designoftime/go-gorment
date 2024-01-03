@@ -14,6 +14,10 @@ const customerSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    address1: {
+      type: String,
+      required: false,
+    },
     country: {
       type: String,
       required: false,
@@ -22,7 +26,10 @@ const customerSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-
+    pincode: {
+      type: String,
+      required: false,
+    },
     email: {
       type: String,
       required: true,

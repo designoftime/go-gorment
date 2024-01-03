@@ -16,7 +16,7 @@ export const SubHeader = () => {
                     <div className="mainsubheader d-flex flex-row justify-content-around">
                         <div  className="OandAblock d-flex flex-row justify-content-between mx-auto">
                             <Link to="/accounts/order-history" className='subheader-content px-3 fw-bold' >Orders</Link>
-                            <Link to="#" className='subheader-content px-3 fw-bold' >Address</Link>
+                            <Link to="/accounts/profile" className='subheader-content px-3 fw-bold' >Address</Link>
                         </div>
                         <div className="signoutblock">
                             <Link to="#" onClick={logoutUser} className='subheader-content fw-bold' >SignOut</Link>
