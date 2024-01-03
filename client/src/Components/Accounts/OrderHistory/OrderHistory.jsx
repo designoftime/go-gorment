@@ -32,6 +32,7 @@ export const OrderHistory = () => {
             const user = JSON.parse(localStorage.getItem("user"));
             const subscribeRes = await requests.get(`/customer/${user._id}`);
             setSubscribeProducts(subscribeRes.subscriptionType);
+            console.log(subscribeRes);
             const allSubscribeCarts = [];
             subscribeRes.subscriptionType.forEach((curArr) => {
                 const subscribeCart = {
@@ -41,6 +42,8 @@ export const OrderHistory = () => {
                     price: curArr?.subscription_price,
                     image: curArr?.product?.image?.length > 0 ? curArr?.product?.image[0] : null,
                     duration: curArr?.subscription_duration,
+                    status: curArr?.status,
+                    _id: curArr._id
                 }
 
                 allSubscribeCarts.push(subscribeCart);
