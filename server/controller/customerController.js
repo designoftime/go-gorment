@@ -303,7 +303,7 @@ const updateCustomer = async (req, res) => {
     }
   } catch (err) {
     res.status(404).send({
-      message: "Your email is not valid!",
+      message: err.message,
     });
   }
 };
