@@ -124,7 +124,7 @@ export function updateCustomer(userInfo){
     return async function updateCustomerThunk(dispatch,getstate){
         try{
             const user = JSON.parse(localStorage.getItem("user")) || {};
-            const res = await requests.put(`/customer/${user._id}`,userInfo);
+            const res = await requests.post(`/customer/${user._id}`,userInfo);
             dispatch(setUser(res));
             localStorage.removeItem("user");
             localStorage.setItem("user", JSON.stringify(res));

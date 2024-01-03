@@ -16,10 +16,13 @@ const Profile = () => {
 
     let userInfo = {
       name: e.target.name.value +" "+ e.target.lastName.value,
+      email: e.target.email.value, 
       phone: e.target.phone.value, 
       country: e.target.country.value,
       state: e.target.state.value,
       city: e.target.city.value,
+      address: e.target.address1.value,
+      address1: e.target.address2.value,
       pincode: e.target.pincode.value,
     }
 
@@ -46,7 +49,7 @@ const Profile = () => {
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>Phone Number</label>
-                  <input type="text" name='phone' className='ProfileInput rounded py-2 px-4' placeholder='Add number' />
+                  <input type="text" defaultValue={user?.phone} name='phone' className='ProfileInput rounded py-2 px-4' placeholder='Add number' />
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>E-mail</label>
@@ -56,11 +59,11 @@ const Profile = () => {
                 <h4 className=' fw-bolder my-3 ProfilesubHeading'>Shipping</h4>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>Address1</label>
-                  <input type="text"  name='address1' className=' ProfileInput rounded py-2 px-4' placeholder='Street name, Sector' />
+                  <input defaultValue={user?.address} type="text"  name='address1' className=' ProfileInput rounded py-2 px-4' placeholder='Street name, Sector' />
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>Address2</label>
-                  <input type="text"  name='address2' className=' ProfileInput rounded py-2 px-4' placeholder='House No., Landmark' />
+                  <input defaultValue={user?.address1} type="text"  name='address2' className=' ProfileInput rounded py-2 px-4' placeholder='House No., Landmark' />
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'>Country/Region</label>
@@ -68,14 +71,14 @@ const Profile = () => {
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText'  >State</label>
-                  <input type="text"  name='state' placeholder="State" className=' ProfileInput rounded py-2 px-4'/>
+                  <input defaultValue={user?.state} type="text"  name='state' placeholder="State" className=' ProfileInput rounded py-2 px-4'/>
                 </div>
                 <div className="ProfileInputblock">
                   <label htmlFor="" className='mt-3 ProfileText' >City</label>
-                  <input type="text" name='city' className=' ProfileInput rounded py-2 px-4' placeholder="City"/>
+                  <input defaultValue={user?.city} type="text" name='city' className=' ProfileInput rounded py-2 px-4' placeholder="City"/>
                 </div>
                 <div><label htmlFor="" className='mt-3 ProfileText' placeholder='Pincode'>Postal/PinCode</label></div>
-                <div><input type="number" name='pincode' className='ProfileInput rounded py-2 px-4' placeholder='Add ZIP code' /></div>
+                <div><input defaultValue={user?.pincode} type="number" name='pincode' className='ProfileInput rounded py-2 px-4' placeholder='Add ZIP code' /></div>
                 <div>
                   <button className='py-2 px-4 mx-1 my-4 fs-4 fw-bolder Profilebtn' type='submit'>Update</button>
                   <button className='py-2 px-4 mx-1 my-4 fs-4 fw-bolder Profilebtn'>Cancel</button>

@@ -47,14 +47,13 @@ export const ProductPrice = ({
                 </div>
                 {AllsubscriptionType.length ? (
                     <div
-                        className="SubscribeBox mt-3"
+                        className="SubscribeBox"
                         style={
                             purchaseType === "subscribe"
                                 ? {
-                                      border: "3px solid #4c4294",
-                                      borderRadius: "10px",
+                                      border: "2px solid #4c4294",
                                   }
-                                : { border: "3px solid white" }
+                                : { border: "2px solid white" }
                         }
                     >
                         <div className="SubscribeText">
@@ -78,17 +77,18 @@ export const ProductPrice = ({
 
                         <Dropdown>
                             <DropdownToggle
-                                variant="success"
                                 id="dropdown-basic"
+                                className="drop-down-btn"
                             >
                                 {subscriptionType}
                             </DropdownToggle>
-                            <DropdownMenu>
+                            <DropdownMenu className="dropdown-menu">
                                 {AllsubscriptionType.length
                                     ? AllsubscriptionType.map(
                                           (eachSubscription, idx) => {
                                               return (
                                                   <DropdownItem
+                                                      className="dropdown-items"
                                                       key={idx}
                                                       onClick={() =>
                                                           handleDelivery(

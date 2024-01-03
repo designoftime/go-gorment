@@ -54,14 +54,15 @@ router.get("/", getAllCustomers);
 router.get("/:id", getCustomerById);
 
 //update a user
-router.put("/:id", updateCustomer);
+router.post("/:id", updateCustomer);
 
 //delete a user
 router.delete("/:id", deleteCustomer);
 
-//subscription
-router.post("/active", updateSubscriptionActive);
-
-router.post("/inactive", updateSubscriptionInactive);
 
 module.exports = router;
+
+//subscription
+router.put("/subscription-active", updateSubscriptionActive);
+
+router.put("/subscription-inactive", updateSubscriptionInactive);

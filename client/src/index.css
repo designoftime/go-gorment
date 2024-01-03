@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
@@ -6,7 +5,7 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
 }
 
 ::-webkit-scrollbar {
@@ -37,6 +36,8 @@ body > iframe {
     font-family: barcontenttext;
     src: url("./Components/Fonts/Demo_Fonts/Fontspring-DEMO-rocgroteskcomp-medium.otf");
 }
+
+/* -----------> Use This font <-----------  */
 
 @font-face {
     font-family: rocgrotesk-light;

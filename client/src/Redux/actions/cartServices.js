@@ -99,7 +99,7 @@ export async function updateUserSubscription(carts){
         allSubscriptionCarts.push(cartsWithSubscription);
     });
 
-    const res = await requests.post("/customer/active", {
+    const res = await requests.put("/customer/subscription-active", {
         userId: user._id,
         products: allSubscriptionCarts
     });
@@ -108,8 +108,5 @@ export async function updateUserSubscription(carts){
 }
 
 export async function updateUserOrder(orderData){
-    console.log(orderData);
-    const res = await requests.post("/order/add", orderData);
-    // const res = await requests.get("/order/65940797a22b0bef9f031485");
-    // console.log(res);
+    await requests.post("/order/add", orderData);
 }
