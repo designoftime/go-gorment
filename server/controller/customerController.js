@@ -273,7 +273,7 @@ const updateCustomer = async (req, res) => {
     const customer = await Customer.findById(req.params.id);
     if (customer) {
       customer.name = req.body.name;
-      // customer.email = req.body.email;
+      customer.email = req.body.email;
       customer.address = req.body.address;
       customer.address1 = req.body.address1;
       customer.country = req.body.country;
