@@ -48,7 +48,11 @@ const customerSchema = new mongoose.Schema(
           type: String,
           required: true,
         },
-        subscription: {
+        subscription_duration: {
+          type: String,
+          required: true,
+        },
+        subscription_price: {
           type: String,
           required: true,
         },

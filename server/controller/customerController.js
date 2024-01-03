@@ -258,7 +258,7 @@ const getCustomerById = async (req, res) => {
   try {
     const customer = await Customer.findById(req.params.id).populate({
       path: "subscriptionType.product",
-      // select: "subscription_duration",
+      select: "image title description",
     });
     res.send(customer);
   } catch (err) {
@@ -325,7 +325,8 @@ const updateSubscriptionActive = async (req, res) => {
               status: "Active",
               product: data.productId,
               attribute: data.attribute,
-              subscription: data.subscription,
+              subscription_duration: data.subscription_duration,
+              subscription_price: data.subscription_price,
             },
           },
         },
@@ -341,7 +342,6 @@ const updateSubscriptionActive = async (req, res) => {
 
     res.status(200).send({
       message: "Subscription updated successfully",
-      updatedCustomer,
     });
   } catch (err) {
     res.status(500).send({
