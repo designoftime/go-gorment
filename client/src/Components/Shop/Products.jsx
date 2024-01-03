@@ -64,20 +64,20 @@ export const Products = ({categoryId, variants, styles}) => {
   return (
     <div>
         <div className="ShopProducts-section container-fluid row justify-content-around g-0 pt-5 pb-5" style={styles?.fullBg}>
-        <Swiper
+        {/* <Swiper
                     className='swiper'
                     // ref={first}
                     spaceBetween={0}
                     slidesPerView={4}
-                    onSlideChange={(e) => {
-                        setActiveSlider(e.activeIndex)
-                    }}
-          >
+                    // onSlideChange={(e) => {
+                    //     setActiveSlider(e.activeIndex)
+                    // }}
+          > */}
               {
                 (products.length) ? products.map((product) => {
                   return (
-                    <SwiperSlide>
                     <div className="ShopProducts col-sm-2 container g-0 " key={product._id}>
+                    {/* <SwiperSlide> */}
                       <div className="ShopProducts-content text-center">
                         <ShopProductImage product={product} />
                         <div className="ShopProductsheader" style={styles?.color} >
@@ -99,12 +99,12 @@ export const Products = ({categoryId, variants, styles}) => {
                           <span style={styles?.color} > <span style={styles?.color}>28</span> reviews</span>
                         </div>
                       </div>
+                    {/* </SwiperSlide> */}
                     </div>
-                    </SwiperSlide>
                   )
                 }) : null
               }
-          </Swiper>
+          {/* </Swiper> */}
           </div>
     </div>
   )

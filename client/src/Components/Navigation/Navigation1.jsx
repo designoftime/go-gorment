@@ -44,11 +44,7 @@ export const Navigation1 = () => {
     }
 
     const handleToggleMenu = () => {
-        if (toggleMenu) {
-            setToggleMenu(false);
-        } else {
-            setToggleMenu(true);
-        }
+        setToggleMenu(!toggleMenu);
     };
 
     const styles = getStylesLan(
@@ -115,7 +111,7 @@ export const Navigation1 = () => {
                     )}
                 </div>
                 {headerData?.logo && (
-                    <div className="center">
+                    <div className="center" onClick={() => setToggleMenu(false)}>
                         <Link to="/">
                             <img
                                 src={headerData.logo}
@@ -156,7 +152,7 @@ export const Navigation1 = () => {
                         )}
                     </div>
                     <div className="icons">
-                        <div className="nav-item  avater">
+                        <div className="nav-item  avater" onClick={() => setToggleMenu(false)}>
                             <Link
                                 to="/accounts/profile"
                                 className="nav-link active bolder"
@@ -166,20 +162,20 @@ export const Navigation1 = () => {
                                 <RiAccountCircleLine className="accountIcon" />
                             </Link>
                         </div>
-                        {hideCheckOut && <div className="nav-item ">
-                            <a
+                        {hideCheckOut && <div className="nav-item " onClick={() => setToggleMenu(false)}>
+                            <Link
                                 className="nav-link active bolder"
                                 href=""
                                 style={styles.color}
                             >
-                                <Cart />
-                            </a>
+                            <Cart />
+                            </Link>
                         </div>}
                     </div>
                 </div>
             </div>
             {toggleMenu ? (
-                <MobileMenu headerData={headerData} styles={styles} />
+                <MobileMenu headerData={headerData} styles={styles} handleToggleMenu = {handleToggleMenu} />
             ) : (
                 ""
             )}

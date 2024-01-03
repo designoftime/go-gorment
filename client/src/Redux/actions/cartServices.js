@@ -108,8 +108,5 @@ export async function updateUserSubscription(carts){
 }
 
 export async function updateUserOrder(orderData){
-    console.log(orderData);
-    const res = await requests.post("/order/add", orderData);
-    // const res = await requests.get("/order/65940797a22b0bef9f031485");
-    // console.log(res);
+    await requests.post("/order/add", orderData);
 }

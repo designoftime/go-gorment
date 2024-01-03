@@ -119,65 +119,69 @@ export const ViewProduct = () => {
     return (
         <div>
             <section className="View-Products-section">
-                <div className="container-fluid">
+                <div className="container-fluid view-product-relative-container">
                     <div className="container mx-auto g-0">
                         <div className="row justify-content-between view-product-info">
                             <div
                                 className={
                                     showValue < 1000
-                                        ? "col-12 VPCaursel py-5"
-                                        : "col-8 VPCaursel py-5"
+                                        ? "col-12 VPCaursel"
+                                        : "col-8 VPCaursel "
                                 }
                             >
-                                <Swiper
-                                    className="swiper VpCarousel-content"
-                                    ref={SwiperfirstImg}
-                                    navigation={true}
-                                    spaceBetween={0}
-                                    onSlideChange={(e) => {
-                                        // setActiveSlider(e.activeIndex)
-                                    }}
-                                    modules={[Navigation, Pagination]}
-                                >
-                                    {product?.image &&
-                                        product?.image.map((img, idx) => {
-                                            return (
-                                                <SwiperSlide
-                                                    key={idx}
-                                                    className="slide"
-                                                >
-                                                    <div className="view-product-swipper-img">
-                                                        <img
-                                                            src={img}
-                                                            alt={img}
-                                                            key={idx}
-                                                            className="vpcarouselimages rounded-4"
-                                                        />
-                                                    </div>
-                                                </SwiperSlide>
-                                            );
-                                        })}
-                                </Swiper>
-                                <div className="vpslider-logo">
-                                    <div className="vpslide-logos">
+                                <div className="view-product-sticky-div">
+                                    <Swiper
+                                        className="swiper VpCarousel-content"
+                                        ref={SwiperfirstImg}
+                                        navigation={true}
+                                        spaceBetween={0}
+                                        onSlideChange={(e) => {
+                                            // setActiveSlider(e.activeIndex)
+                                        }}
+                                        modules={[Navigation, Pagination]}
+                                    >
                                         {product?.image &&
                                             product?.image.map((img, idx) => {
                                                 return (
-                                                    <div className="vpslide-logos-fix-div">
-                                                        <img
-                                                            key={idx}
-                                                            src={img}
-                                                            alt={img}
-                                                            className="active-logo rounded-4"
-                                                            onClick={() => {
-                                                                SwiperfirstImg.current.swiper.slideTo(
-                                                                    idx
-                                                                );
-                                                            }}
-                                                        />
-                                                    </div>
+                                                    <SwiperSlide
+                                                        key={idx}
+                                                        className="slide"
+                                                    >
+                                                        <div className="view-product-swipper-img">
+                                                            <img
+                                                                src={img}
+                                                                alt={img}
+                                                                key={idx}
+                                                                className="vpcarouselimages rounded-4"
+                                                            />
+                                                        </div>
+                                                    </SwiperSlide>
                                                 );
                                             })}
+                                    </Swiper>
+                                    <div className="vpslider-logo">
+                                        <div className="vpslide-logos">
+                                            {product?.image &&
+                                                product?.image.map(
+                                                    (img, idx) => {
+                                                        return (
+                                                            <div className="vpslide-logos-fix-div">
+                                                                <img
+                                                                    key={idx}
+                                                                    src={img}
+                                                                    alt={img}
+                                                                    className="active-logo rounded-4"
+                                                                    onClick={() => {
+                                                                        SwiperfirstImg.current.swiper.slideTo(
+                                                                            idx
+                                                                        );
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        );
+                                                    }
+                                                )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -279,11 +283,13 @@ export const ViewProduct = () => {
                                                 One Feeds Two
                                             </span>
                                         </p>
+                                        <ProductSectionOne
+                                            data={productTheme?.section_one}
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <ProductSectionOne data={productTheme?.section_one} />
                     </div>
                 </div>
                 <ProductSectionTwo data={productTheme?.section_two} />
