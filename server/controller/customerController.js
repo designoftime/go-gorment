@@ -256,8 +256,10 @@ const getAllCustomers = async (req, res) => {
 
 const getCustomerById = async (req, res) => {
   try {
-    const customer = await Customer.findById(req.params.id);
-    // .populate({ path: "product", select: " subscription_duration" })
+    const customer = await Customer.findById(req.params.id).populate({
+      path: "subscriptionType.product",
+      // select: "subscription_duration",
+    });
     res.send(customer);
   } catch (err) {
     res.status(500).send({
