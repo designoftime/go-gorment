@@ -49,28 +49,28 @@ const customerSchema = new mongoose.Schema(
         product: {
           type: mongoose.Types.ObjectId,
           ref: "Product",
-          required: true,
+          required: false,
         },
         attribute: {
           type: String,
-          required: true,
+          required: false,
         },
         subscription_duration: {
           type: String,
-          required: true,
+          required: false,
         },
         subscription_price: {
           type: String,
-          required: true,
+          required: false,
         },
         quantity: {
           type: String,
-          required: true,
+          required: false,
         },
         status: {
           type: String,
           enum: ["Active", "Inactive"],
-          required: true,
+          required: false,
         },
       },
     ],
