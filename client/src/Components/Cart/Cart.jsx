@@ -169,9 +169,10 @@ export const Cart = () => {
             </div>
           </div>
           <div className="Cartbtn">
-            <button className="Checkoutbutton">
-              <Link to="/checkouts">Checkout</Link>
+          <Link to="/checkouts"><button className="Checkoutbutton">
+              Checkout
             </button>
+            </Link>
           </div>
         </div>
       </OffCanvas>
