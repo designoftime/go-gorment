@@ -5,7 +5,13 @@ import { BsFillStarFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import NewMobileProduct from './NewMobileProduct'
 import { fetchProductPrice, findProductAttribute } from '../../Redux/actions/productService'
-import requests from '../../Services/httpService'
+import requests from '../../Services/httpService';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const ShopProductImage = ({product}) => {
 
@@ -58,9 +64,19 @@ export const Products = ({categoryId, variants, styles}) => {
   return (
     <div>
         <div className="ShopProducts-section container-fluid row justify-content-around g-0 pt-5 pb-5" style={styles?.fullBg}>
+        <Swiper
+                    className='swiper'
+                    // ref={first}
+                    spaceBetween={0}
+                    slidesPerView={4}
+                    onSlideChange={(e) => {
+                        setActiveSlider(e.activeIndex)
+                    }}
+          >
               {
                 (products.length) ? products.map((product) => {
                   return (
+                    <SwiperSlide>
                     <div className="ShopProducts col-sm-2 container g-0 " key={product._id}>
                       <div className="ShopProducts-content text-center">
                         <ShopProductImage product={product} />
@@ -84,10 +100,12 @@ export const Products = ({categoryId, variants, styles}) => {
                         </div>
                       </div>
                     </div>
+                    </SwiperSlide>
                   )
                 }) : null
               }
-            </div>
+          </Swiper>
+          </div>
     </div>
   )
 }

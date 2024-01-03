@@ -12,44 +12,6 @@ import MultiSeedSesameHover from './images/Sesame-35-Case_450x292a.jpg'
 import { BsFillStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom'
 export const ReviewedProduct = ({categoryId}) => {
-    const BestSellerProducts = [
-        {
-          "id": 1,
-          "productimge1": SourCreamOnion,
-          "imgehover": SourCreamHover,
-          "title": "Sour Cream & Onion Pretzel Thins",
-          "sizeinfo": "Bundle(10x50g)",
-          "price": "12.50",
-          "reviews": "31"
-        },
-        {
-            "id": 2,
-            "productimge1": OllinOneSnacks,
-            "imgehover": OllinOneSnacksHover,
-            "title": "Oll-IN-One Snacks Box ",
-            "sizeinfo": "1 of everything",
-            "price": "18.00",
-            "reviews": "11"
-          },
-        {
-            "id": 3,
-            "productimge1": Bundles,
-            "imgehover": BundlesHover,
-            "title": "Oll-timate Olive Bundle ",
-            "sizeinfo": "Bundle(36x50g)",
-            "price": "45.00",
-            "reviews": "267"
-          },
-        {
-            "id": 4,
-            "productimge1": MultiSeedSesame,
-            "imgehover": MultiSeedSesameHover,
-            "title": "Multi-Seed Sesame Pretzel THins ",
-            "sizeinfo": "Regular(10x35g)",
-            "price": "12.50",
-            "reviews": "121"
-          },
-      ]
          
     return (
         <section className='ReviewedProduct-Section conatiner-fluid g-0'>

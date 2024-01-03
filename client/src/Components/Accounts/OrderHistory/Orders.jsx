@@ -5,7 +5,7 @@ import requests from "../../../Services/httpService";
 import Badge from "react-bootstrap/Badge";
 import Stack from "react-bootstrap/Stack";
 
-const Orders = ({ title, orderProducts, subscription = false }) => {
+const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) => {
   const handleInvoice = (eachItem) => {
     console.log(eachItem);
     // return <Invoice productInfo ={productInfo}/>
@@ -15,6 +15,8 @@ const Orders = ({ title, orderProducts, subscription = false }) => {
     await requests.put("/customer/subscription-inactive", {
       subscriptionId: eachItem._id,
     });
+
+    fetchUserOrder();
   };
 
   const getDeliverdColor = (status) => {
