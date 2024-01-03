@@ -24,9 +24,12 @@ export const OrderHistory = () => {
 
             const allCarts =  [];
             res.orders.forEach((curArr) => {
-                const cartsWithoutSubscription = curArr.cart.filter(cart => !cart?.subscription);
+                const cartsWithoutSubscription = curArr.cart.filter(cart => !cart?.subscription).map((eachCart) => {
+                    return {...eachCart, status: curArr.status}
+                });
                 allCarts.push(...cartsWithoutSubscription);   
             });
+            console.log(allCarts);
             setOrderProducts(allCarts);
 
             const user = JSON.parse(localStorage.getItem("user"));
@@ -60,7 +63,7 @@ export const OrderHistory = () => {
                 <div className="OrderProfile-section">
                     <h1 className='Order-History-Heading text-center'>Order History</h1>
                     <Orders title={"Your Orders"} orderProducts={orderProducts} />
-                    <Orders title={"Subscription Orders"} orderProducts={subscribeProducts} />
+                    <Orders title={"Subscription Orders"} orderProducts={subscribeProducts} subscription={true} />
                 </div>
             </div>
         </div>
