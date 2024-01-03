@@ -31,7 +31,10 @@ export const Footer = () => {
     return (
         <div>
             {scrollerData.scrolling_banner_status && (
-                <FooterScroller scrollerData={scrollerData} />
+                <FooterScroller
+                    scrollerData={scrollerData}
+                    footerData={footerData}
+                />
             )}
             {/* Footer Section */}
 
@@ -42,7 +45,7 @@ export const Footer = () => {
                             <div className="footer-top">
                                 {footerData?.payment_method_status && (
                                     <div className="footer-logo ">
-                                        <Link to="/">
+                                        <Link to="/" className="footer-logo ">
                                             <img
                                                 src={
                                                     footerData?.payment_method_img

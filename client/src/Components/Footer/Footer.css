@@ -186,6 +186,21 @@
     padding-top: 0.5rem;
 }
 
+/* .footer-logo {
+    position: relative;
+    width: 20rem;
+    height: 10rem;
+    border: 1px solid white;
+} */
+
+.footer-logo a img {
+    width: 25rem;
+    height: 100%;
+
+    background-position: center;
+    object-fit: cover;
+}
+
 @media screen and (max-width: 767px) {
     .footer-top {
         flex-direction: column;
