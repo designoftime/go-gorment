@@ -54,7 +54,7 @@ router.get("/", getAllCustomers);
 router.get("/:id", getCustomerById);
 
 //update a user
-router.put("/:id", updateCustomer);
+router.post("/:id", updateCustomer);
 
 //delete a user
 router.delete("/:id", deleteCustomer);

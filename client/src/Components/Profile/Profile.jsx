@@ -16,6 +16,7 @@ const Profile = () => {
 
     let userInfo = {
       name: e.target.name.value +" "+ e.target.lastName.value,
+      email: e.target.email.value, 
       phone: e.target.phone.value, 
       country: e.target.country.value,
       state: e.target.state.value,
