@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsFillStarFill } from "react-icons/bs";
 import bannerimage from "../images/bannerhome.jpg";
 import Greatetaste from "../images/greate_taste.png";
@@ -12,9 +12,22 @@ import "swiper/css/pagination";
 import { getStylesLan, sliderVal } from "../../../utils/Constants";
 import { Link } from "react-router-dom";
 import useWindowInnerWidth from "../../hooks/useWindowInnerWidth";
+import requests from "../../../Services/httpService";
 
 const HomeCarousel = ({ homeSliderData }) => {
     const showValue = useWindowInnerWidth();
+    const [reviews, setReviews] = useState({});
+
+    useEffect(() => {
+
+        const fetchAllReviews = async () => {
+            const res = await requests.get("/reviews/all");
+            setReviews(res);
+            console.log(res);
+        }
+
+        fetchAllReviews();
+    }, []);
 
     if (!homeSliderData) {
         return;
@@ -69,7 +82,7 @@ const HomeCarousel = ({ homeSliderData }) => {
                                                 className="rating-count bold"
                                                 style={styles.color}
                                             >
-                                                489
+                                                {3.2}
                                             </span>
                                             <span />
                                             <span
@@ -101,7 +114,7 @@ const HomeCarousel = ({ homeSliderData }) => {
                                                 className=" bold"
                                                 style={styles.color}
                                             >
-                                                2165 Reviews
+                                                {reviews.totalReviews} Reviews
                                             </span>
                                         </div>
                                         {homeSliderData[`${val}_title`]?.en && (
