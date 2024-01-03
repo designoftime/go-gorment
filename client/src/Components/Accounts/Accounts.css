@@ -1,19 +1,11 @@
-.AccountsHeading{
-    color: #4c4294!important;
+.AccountsHeading {
+    color: #4c4294 !important;
     font-size: 9rem;
-    line-height: 127px;
-    margin: 10px auto 100px!important;
     text-transform: uppercase;
-    font-family: bannerheaderfont; 
+    font-family: bannerheaderfont;
 }
-.subheader-content{
+.subheader-content {
     color: #4c4294;
     font-family: bannerhomebtn;
     font-size: 15px;
-}
-@media (max-width: 500px){
-    .AccountsHeading{
-        font-size: 30vw;
-        line-height: 20vh;
-    }
 }

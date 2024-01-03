@@ -54,7 +54,7 @@ export const Login = () => {
                                     placeholder="Enter Password"
                                 />
                             </div>
-                            <button className="signinbtn">Sign in</button>
+                            <button className="signinbtn">Login</button>
                         </form>
                         <div className="hr-blue-line-container">
                             <div className="hr-blue-line"></div>
@@ -62,15 +62,13 @@ export const Login = () => {
                             <div className="hr-blue-line"></div>
                         </div>
                         <div className="googleSignUp">
-                            <div className="googles-signup-icon">
-                                <GoogleLogin
-                                    onSuccess={onGoogleSuccess}
-                                    onError={() => {
-                                        console.log("Login Failed");
-                                    }}
-                                    theme="filled_black"
-                                />
-                            </div>
+                            <GoogleLogin
+                                onSuccess={onGoogleSuccess}
+                                onError={() => {
+                                    console.log("Login Failed");
+                                }}
+                                theme="filled_black"
+                            />
                         </div>
                         <div className="MStextd text-center">
                             <Link
