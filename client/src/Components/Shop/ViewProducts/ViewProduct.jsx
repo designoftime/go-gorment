@@ -71,7 +71,7 @@ export const ViewProduct = () => {
             title: product?.title?.en,
             attribute: productPrice?.attribute?.slice(1),
             quantity: productQuantity,
-            attributeId: focusVariants
+            attributeId: focusVariants,
         };
 
         if (purchaseType === "single") {
@@ -115,7 +115,7 @@ export const ViewProduct = () => {
 
         AddToCartAPI();
     };
-    
+
     return (
         <div>
             <section className="View-Products-section">
@@ -223,7 +223,7 @@ export const ViewProduct = () => {
                                                 }
                                                 productPrice={productPrice}
                                             />
-                                            <div className="d-flex gap-3 my-3">
+                                            <div className="cart-info-inc-dec-btn">
                                                 <div className="cartProductQuantity">
                                                     <button
                                                         className="counterbtn"
@@ -256,7 +256,7 @@ export const ViewProduct = () => {
                                                         className="addtocartbtn"
                                                         onClick={addToCart}
                                                     >
-                                                        Add to Cart
+                                                        Add To Cart
                                                     </button>
                                                 </div>
                                             </div>
@@ -272,7 +272,7 @@ export const ViewProduct = () => {
                                     )}
 
                                     <div className="afterNotifymetext">
-                                        <p className="fw-bold">
+                                        <p>
                                             You’ll be donating a meal with this
                                             order. Learn more on{" "}
                                             <span className="fw-bolder">
