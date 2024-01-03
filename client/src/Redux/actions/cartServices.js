@@ -99,7 +99,7 @@ export async function updateUserSubscription(carts){
         allSubscriptionCarts.push(cartsWithSubscription);
     });
 
-    const res = await requests.post("/customer/active", {
+    const res = await requests.put("/customer/subscription-active", {
         userId: user._id,
         products: allSubscriptionCarts
     });

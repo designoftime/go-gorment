@@ -12,7 +12,7 @@ const Orders = ({ title, orderProducts, subscription = false }) => {
   };
 
   const handleCancelSubscription = async (eachItem) => {
-    await requests.post("/customer/inactive", {
+    await requests.put("/customer/subscription-inactive", {
       subscriptionId: eachItem._id,
     });
   };
