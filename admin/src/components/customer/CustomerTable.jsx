@@ -4,7 +4,7 @@ import { t } from "i18next";
 import React from "react";
 import { FiZoomIn } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
+import { Badge } from "@windmill/react-ui";
 //internal import
 
 import MainDrawer from "@/components/drawer/MainDrawer";
@@ -13,12 +13,12 @@ import useToggleDrawer from "@/hooks/useToggleDrawer";
 import Tooltip from "@/components/tooltip/Tooltip";
 import CustomerDrawer from "@/components/drawer/CustomerDrawer";
 import EditDeleteButton from "@/components/table/EditDeleteButton";
+import { MdOutlineSubscriptions } from "react-icons/md";
 
 // internal imports
 
 const CustomerTable = ({ customers }) => {
   const { title, serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
-console.log(customers)
   return (
     <>
       <DeleteModal id={serviceId} title={title} />
@@ -48,11 +48,30 @@ console.log(customers)
               <span className="text-sm">{user.email}</span>{" "}
             </TableCell>
             <TableCell>
-              <span className="text-sm font-medium">{user.phone}</span>
+              <span className="text-sm font-medium">
+                <Badge type="success">
+                  {user?.subscriptionType?.find(
+                    (itm) => itm.status === "Active"
+                  )
+                    ? "Subscribed"
+                    : "Unsubscribed"}
+                </Badge>
+              </span>
             </TableCell>
 
             <TableCell>
               <div className="flex justify-end text-right">
+                <div className="p-2 cursor-pointer text-gray-400 hover:text-emerald-600">
+                  {" "}
+                  <Link to={`/customer-subscription-order/${user._id}`}>
+                    <Tooltip
+                      id="view"
+                      Icon={MdOutlineSubscriptions}
+                      title={t("ViewOrder")}
+                      bgColor="#34D399"
+                    />
+                  </Link>
+                </div>
                 <div className="p-2 cursor-pointer text-gray-400 hover:text-emerald-600">
                   {" "}
                   <Link to={`/customer-order/${user._id}`}>

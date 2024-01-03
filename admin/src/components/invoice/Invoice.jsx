@@ -20,6 +20,12 @@ const Invoice = ({ data, currency, getNumberTwo }) => {
               </span>
             </TableCell>
             <TableCell className="px-6 py-1 whitespace-nowrap font-bold text-center">
+              {item.subscription?item.subscription:"One Time Purchase"}{" "}
+            </TableCell>
+            <TableCell className="px-6 py-1 whitespace-nowrap font-bold text-center">
+              {item.attribute ? item.attribute : "-"}{" "}
+            </TableCell>
+            <TableCell className="px-6 py-1 whitespace-nowrap font-bold text-center">
               {item.quantity}{" "}
             </TableCell>
             <TableCell className="px-6 py-1 whitespace-nowrap font-bold text-center">
@@ -29,7 +35,7 @@ const Invoice = ({ data, currency, getNumberTwo }) => {
 
             <TableCell className="px-6 py-1 whitespace-nowrap text-right font-bold text-red-500 dark:text-emerald-500">
               {currency}
-              {getNumberTwo(item.itemTotal)}
+              {getNumberTwo(item.price) * item.quantity}
             </TableCell>
           </TableRow>
         ))}

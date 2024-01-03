@@ -20,8 +20,8 @@ import Status from "@/components/table/Status";
 import OrderServices from "@/services/OrderServices";
 import Invoice from "@/components/invoice/Invoice";
 import Loading from "@/components/preloader/Loading";
-import logoDark from "@/assets/img/logo/logo-dark.svg";
-import logoLight from "@/assets/img/logo/logo-color.svg";
+import logoDark from "@/assets/img/logo/Single_color_render-logo-white.png";
+import logoLight from "@/assets/img/logo/Single_color_render-logo.png";
 import PageTitle from "@/components/Typography/PageTitle";
 import useUtilsFunction from "@/hooks/useUtilsFunction";
 import InvoiceForDownload from "@/components/invoice/InvoiceForDownload";
@@ -128,6 +128,8 @@ const OrderInvoice = () => {
                   <tr>
                     <TableCell>{t("Sr")}</TableCell>
                     <TableCell>Product Title</TableCell>
+                    <TableCell>Subscription Duration</TableCell>
+                    <TableCell className="text-center">Attribute</TableCell>
                     <TableCell className="text-center">
                       {t("Quantity")}
                     </TableCell>

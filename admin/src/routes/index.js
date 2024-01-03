@@ -10,7 +10,7 @@ const Category = lazy(() => import("@/pages/Category"));
 const ChildCategory = lazy(() => import("@/pages/ChildCategory"));
 const Staff = lazy(() => import("@/pages/Staff"));
 const Customers = lazy(() => import("@/pages/Customers"));
-const CustomersReviews = lazy(()=>import("@/pages/customerReviews"))
+const CustomersReviews = lazy(() => import("@/pages/customerReviews"));
 const CustomerOrder = lazy(() => import("@/pages/CustomerOrder"));
 const Orders = lazy(() => import("@/pages/Orders"));
 const OrderInvoice = lazy(() => import("@/pages/OrderInvoice"));
@@ -23,7 +23,10 @@ const Languages = lazy(() => import("@/pages/Languages"));
 const Currencies = lazy(() => import("@/pages/Currencies"));
 const Setting = lazy(() => import("@/pages/Setting"));
 const StoreHome = lazy(() => import("@/pages/StoreHome"));
-const Theme = lazy(()=>import('@/pages/theme'))
+const Theme = lazy(() => import("@/pages/theme"));
+const CustomerSubscriptionOrder = lazy(() =>
+  import("@/pages/CustomerSubscriptionOrder")
+);
 /*
 //  * ⚠ These are internal routes!
 //  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -82,8 +85,8 @@ const routes = [
     component: Customers,
   },
   {
-    path:"/review",
-    component:CustomersReviews
+    path: "/review",
+    component: CustomersReviews,
   },
   {
     path: "/customer-order/:id",
@@ -121,6 +124,10 @@ const routes = [
   {
     path: "/edit-profile",
     component: EditProfile,
+  },
+  {
+    path: "/customer-subscription-order/:id",
+    component: CustomerSubscriptionOrder,
   },
 ];
 

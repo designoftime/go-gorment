@@ -29,7 +29,6 @@ const CustomerOrder = () => {
 
   const { handleChangePage, totalResults, resultsPerPage, dataTable } =
     useFilter(data);
-
   return (
     <>
       <PageTitle>{t("CustomerOrderList")}</PageTitle>
@@ -60,7 +59,6 @@ const CustomerOrder = () => {
                 <TableCell>{t("CustomerOrderMethod")} </TableCell>
                 <TableCell>{t("Amount")}</TableCell>
                 <TableCell className="text-center">
-                  {" "}
                   {t("CustomerOrderStatus")}{" "}
                 </TableCell>
                 <TableCell className="text-center">

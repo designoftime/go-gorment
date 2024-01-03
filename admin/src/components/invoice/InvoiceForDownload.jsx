@@ -552,6 +552,21 @@ const InvoiceForDownload = ({
                         fontFamily: "Open Sans",
                       }}
                     >
+                      {item.attribute}
+                    </Text>
+                  </Text>
+                </View>
+                <View style={styles.tableCol}>
+                  <Text style={styles.tableCellQuantity}>
+                    <Text
+                      style={{
+                        fontSize: 10,
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        alignItems: "center",
+                        fontFamily: "Open Sans",
+                      }}
+                    >
                       {item.quantity}
                     </Text>
                   </Text>

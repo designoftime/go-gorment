@@ -28,6 +28,10 @@ const CustomerServices = {
   deleteCustomer: async (id) => {
     return requests.delete(`/customer/${id}`);
   },
+
+  updateCustomerSub: async (body) => {
+    return requests.put(`/customer/subscription-inactive`, body);
+  },
 };
 
 export default CustomerServices;
