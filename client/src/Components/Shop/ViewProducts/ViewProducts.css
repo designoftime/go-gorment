@@ -9,7 +9,7 @@
 .view-product-info {
     margin-bottom: 1.5rem;
     width: 100%;
-    height: 110vh;
+    /* height: 110vh; */
     display: flex;
     gap: 1rem;
     padding: 0rem 2rem;
@@ -94,7 +94,7 @@
     width: 50%;
     padding: 4rem 0.5rem;
     padding-right: 1rem;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 
 .view-product-text h1 {

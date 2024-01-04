@@ -276,8 +276,8 @@ export const ViewProduct = () => {
                 </div>
                 <ProductSectionTwo data={productTheme?.section_two} />
                 <ProductSectionThree data={productTheme?.section_three} />
-                {/* <ProductSectionFour data={productTheme?.section_four} />
-                <CustomerReview productId={product._id} /> */}
+                <ProductSectionFour data={productTheme?.section_four} />
+                <CustomerReview productId={product._id} />
             </section>
         </div>
     );
