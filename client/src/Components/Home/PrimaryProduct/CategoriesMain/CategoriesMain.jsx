@@ -21,10 +21,7 @@ const CategoriesMain = ({ categoriesData }) => {
                                     className="primary-product-component-content"
                                 >
                                     <div className="imagediv">
-                                        <img
-                                            className="img-fluid priproductimg"
-                                            src={eachCategory.cover}
-                                        />
+                                        <img src={eachCategory.cover} />
                                     </div>
                                 </Link>
                                 <div className="head-container">
