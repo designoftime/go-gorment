@@ -12,6 +12,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import useWindowInnerWidth from '../hooks/useWindowInnerWidth'
 
 const ProductReviews = ({productId, styles}) => {
 
@@ -64,6 +65,7 @@ const ShopProductImage = ({product}) => {
 export const Products = ({categoryId, variants, styles}) => {
   
   const [products, setProducts] = useState([]);
+  const showValue = useWindowInnerWidth();
   
   const fetchProductByCategoryId = async (id) => {
     try {
@@ -83,21 +85,13 @@ export const Products = ({categoryId, variants, styles}) => {
   
   return (
     <div>
+        <Swiper slidesPerView={(showValue > 767 ? ((products?.length<=4) ? products.length : 4) : 1)} spaceBetween={50} scrollbar={{ draggable: true }} pagination={{ dynamicBullets: true }} modules={[Pagination]}>
         <div className="ShopProducts-section container-fluid row justify-content-around g-0 pt-5 pb-5" style={styles?.fullBg}>
-        {/* <Swiper
-                    className='swiper'
-                    // ref={first}
-                    spaceBetween={0}
-                    slidesPerView={4}
-                    // onSlideChange={(e) => {
-                    //     setActiveSlider(e.activeIndex)
-                    // }}
-          > */}
               {
                 (products.length) ? products.map((product) => {
                   return (
+                    <SwiperSlide>
                     <div className="ShopProducts col-sm-2 container g-0 " key={product._id}>
-                    {/* <SwiperSlide> */}
                       <div className="ShopProducts-content text-center">
                         <ShopProductImage product={product} />
                         <div className="ShopProductsheader" style={styles?.color} >
@@ -119,13 +113,13 @@ export const Products = ({categoryId, variants, styles}) => {
                           <ProductReviews productId={product._id} styles={styles} />
                         </div>
                       </div>
-                    {/* </SwiperSlide> */}
                     </div>
+                    </SwiperSlide>
                   )
                 }) : null
               }
-          {/* </Swiper> */}
           </div>
+          </Swiper>
     </div>
   )
 }

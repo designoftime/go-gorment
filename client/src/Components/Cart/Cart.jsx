@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import OffCanvas from "react-bootstrap/Offcanvas";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { MdOutlineShoppingBag } from "react-icons/md";
@@ -17,11 +17,14 @@ import requests from "../../Services/httpService";
 import CartQuantity from "./CartQuantity";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartLocal } from "../../Redux/actions/cartServices";
+import { toast } from "react-toastify";
 export const Cart = () => {
 
   const [showcart, setShowCart] = useState(false);
   const [cartData, setCartData] = useState([]);
   const [totalCartVal, setTotalCartVal] = useState(0);
+
+  const navigate = useNavigate();
 
   const handleShow = (e) => {
     e.preventDefault();
@@ -71,11 +74,20 @@ export const Cart = () => {
     }
 
     const deleteCartItem = async (cartId) => {
-        const res = await requests.delete(`/cart/${cartId}`);
+        await requests.delete(`/cart/${cartId}`);
         fetchCarts();
     }
 
     deleteCartItem(cartId);
+  }
+
+  const handleCheckout = () => {
+    if(!cartData?.length){
+      toast.error("Please add Some item to Cart !!");
+      return;
+    }
+
+    navigate("/checkouts");
   }
 
   return (
@@ -168,10 +180,9 @@ export const Cart = () => {
             </div>
           </div>
           <div className="Cartbtn">
-          <Link to="/checkouts"><button className="Checkoutbutton">
+            <button onClick={handleCheckout} className="Checkoutbutton">
               Checkout
             </button>
-            </Link>
           </div>
         </div>
       </OffCanvas>
