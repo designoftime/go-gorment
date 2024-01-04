@@ -65,6 +65,6 @@ router.put("/subscription-active", updateSubscriptionActive);
 
 router.put("/subscription-inactive", updateSubscriptionInactive);
 
-router.put("/get-subscription-by-id/:id", getSubscriptionrById);
+router.get("/get-subscription-by-id/:id", getSubscriptionrById);
 
 module.exports = router;
