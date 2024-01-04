@@ -277,7 +277,7 @@ const getSubscriptionrById = async (req, res) => {
       path: "subscriptionType.product",
       select: "image title description",
     });
-    res.status(201).send({ message: "ok..", customer });
+    res.status(201).send(customer);
   } catch (err) {
     res.status(500).send({
       message: err.message,
