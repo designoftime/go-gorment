@@ -6,10 +6,12 @@ import { MdLocalPrintshop } from "react-icons/md";
 import './Invoice.css'
 import { jsPDF } from 'jspdf'
 import 'jspdf-autotable';
+import {useLocation, useParams} from 'react-router-dom'
 import PretzelTHins from '../Shop/images/DarkChoc_360x.png'
 
-export const Invoice = ({ }) => {
-
+export const Invoice = ({}) => {
+  const {state} = useParams();
+  console.log(state);
 
   const generatePdf = () => {
     const doc = new jsPDF();
@@ -32,8 +34,8 @@ doc.text('Creation Date: 5 December 2023', 120, 50);
 doc.text('Status: Paid', 120, 60);
 
 // Product Details
-doc.addImage(PretzelTHins, 'PNG', 20, 90, 30, 30); // Adjust the image dimensions
-doc.text('Dark-Chocolate Pretzel Thins', 60, 100);
+doc.addImage(PretzelTHins, 'PNG', 40, 90, 30, 30); // Adjust the image dimensions
+doc.text('Dark-Chocolate Pretzel Thins', 90, 100);
 
 // Table
 const columns = ['Sr.', 'Name', 'Quantity', 'Price', 'Amount'];
@@ -46,9 +48,9 @@ doc.autoTable(columns, data, { startY: 140 });
 doc.text('An Additional Payment Information are here:', 20, 220);
 
 // Total Amount
-doc.text('Sub Total: 900$', 100, 200);
-doc.text('Tax: 15%', 100, 205);
-doc.text('Total Amount: 1100$', 100, 210);
+doc.text('Sub Total: 900$', 140, 225);
+doc.text('Tax: 15%', 140, 230);
+doc.text('Total Amount: 1100$', 140, 235);
 
 // Save the PDF
 doc.save('invoice.pdf');
