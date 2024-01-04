@@ -23,7 +23,6 @@ const HomeCarousel = ({ homeSliderData }) => {
         const fetchAllReviews = async () => {
             const res = await requests.get("/reviews/all");
             setReviews(res);
-            console.log(res);
         }
 
         fetchAllReviews();
@@ -37,6 +36,14 @@ const HomeCarousel = ({ homeSliderData }) => {
         "slider_first_background_color",
         "slider_first_text_color"
     );
+
+    const getRating = (reviews) => {
+        console.log(reviews);
+
+        let finalRating = (((5*reviews?.fiveStar) + (4*reviews?.fourStar) + (3*reviews?.threeStar) + (2*reviews?.twoStar) + (reviews?.oneStar)) / (reviews.fiveStar+reviews?.fourStar+reviews?.threeStar+reviews?.twoStar+reviews?.oneStar)).toFixed(2);
+        
+        return finalRating;
+    }
 
     return !homeSliderData.static_content &&
         !homeSliderData.both_slider &&
@@ -82,7 +89,7 @@ const HomeCarousel = ({ homeSliderData }) => {
                                                 className="rating-count bold"
                                                 style={styles.color}
                                             >
-                                                {3.2}
+                                                {getRating(reviews)}
                                             </span>
                                             <span />
                                             <span
