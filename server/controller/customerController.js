@@ -268,6 +268,20 @@ const getCustomerById = async (req, res) => {
   }
 };
 
+const getSubscriptionrById = async (req, res) => {
+  try {
+    const customer = await Customer.findById(req.params.id,{subscriptionType}).populate({
+      path: "subscriptionType.product",
+      select: "image title description",
+    });
+    res.send(customer);
+  } catch (err) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
+
 const updateCustomer = async (req, res) => {
   try {
     const customer = await Customer.findById(req.params.id);
@@ -406,4 +420,5 @@ module.exports = {
   deleteCustomer,
   updateSubscriptionActive,
   updateSubscriptionInactive,
+  getSubscriptionrById
 };

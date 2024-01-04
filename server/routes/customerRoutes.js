@@ -15,6 +15,7 @@ const {
   addAllCustomers,
   updateSubscriptionActive,
   updateSubscriptionInactive,
+  getSubscriptionrById,
 } = require("../controller/customerController");
 const {
   passwordVerificationLimit,
@@ -59,10 +60,11 @@ router.post("/:id", updateCustomer);
 //delete a user
 router.delete("/:id", deleteCustomer);
 
-
-module.exports = router;
-
 //subscription
 router.put("/subscription-active", updateSubscriptionActive);
 
 router.put("/subscription-inactive", updateSubscriptionInactive);
+
+router.put("/get-subscription-by-id/:id", getSubscriptionrById);
+
+module.exports = router;
