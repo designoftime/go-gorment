@@ -101,6 +101,7 @@ export function forgotPassword(userData, Navigate){
             toast(res.message);
             Navigate("/");
         } catch (error) {
+            toast(error.response.data.message);
             console.log(error);
         }
     }
@@ -115,6 +116,7 @@ export function resetPassword(userData, Navigate){
             toast(res.message);
             Navigate("/accounts/login");
         } catch (error) {
+            toast(error.response.data.message);
             console.log(error);
         }
     }
