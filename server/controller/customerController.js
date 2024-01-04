@@ -270,11 +270,14 @@ const getCustomerById = async (req, res) => {
 
 const getSubscriptionrById = async (req, res) => {
   try {
-    const customer = await Customer.findById(req.params.id,"subscriptionType").populate({
+    const customer = await Customer.findById(
+      req.params.id,
+      "subscriptionType"
+    ).populate({
       path: "subscriptionType.product",
       select: "image title description",
     });
-    res.send(customer);
+    res.status(201).send({ message: "ok..", customer });
   } catch (err) {
     res.status(500).send({
       message: err.message,
@@ -420,5 +423,5 @@ module.exports = {
   deleteCustomer,
   updateSubscriptionActive,
   updateSubscriptionInactive,
-  getSubscriptionrById
+  getSubscriptionrById,
 };
