@@ -25,9 +25,7 @@ const FooterScroller = ({ scrollerData, footerData }) => {
         "nine",
         "ten",
     ];
-
-    console.log("----->", footerData);
-
+    
     return (
         <section className="Blog-sliding-section">
             <div className="Blog-animation-sliding">
