@@ -22,10 +22,11 @@
 .LoginHeading {
     text-align: center;
     font-family: rocgrotesk-extra-bold;
-    font-size: 6vmax;
+    font-size: max(5vw, 2.5rem);
     letter-spacing: 0.06rem;
     font-weight: 800;
     color: #4c4294;
+    line-height: max(5vw, 2.5rem);
     text-transform: uppercase;
 }
 
