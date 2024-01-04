@@ -3,15 +3,15 @@
 }
 .ProfilesubHeading {
     color: #4c4294;
-    font-family: Snacksgifheaderfont !important;
+    font-family: rocgrotesk-extra-bold;
     font-size: 2rem;
     letter-spacing: 1.5px;
 }
-.ProfileText{
-    font-family: bannerhomebtn;
+.ProfileText {
+    font-family: rocgrotesk-light;
     font-weight: bold;
 }
-.ProfileInputblock{
+.ProfileInputblock {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -19,58 +19,59 @@
 
 .ProfileInput {
     width: 30rem;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
     border: 3px solid #4c4294;
-    border-radius: .8rem;
+    border-radius: 0.8rem;
     color: #4c4294;
     font-weight: bold;
 }
-.Profiledropselect{
+.Profiledropselect {
     width: 30rem;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
     border: 3px solid #4c4294;
-    border-radius: .8rem;
+    border-radius: 0.8rem;
     color: #4c4294;
     font-weight: bold;
     /* -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none; */
-
 }
-.Profiledroption{
-    font-family: bannerhomebtn;
+.Profiledroption {
+    font-family: rocgrotesk-light;
     border: 3px solid #4c4294;
-    border-radius: .8rem;
+    border-radius: 0.8rem;
     color: #4c4294;
     font-weight: bold;
     /* height: 20rem; */
 }
-.Profilebtn{
+.Profilebtn {
     border: 3px solid #4c4294;
     color: #4c4294;
     width: 30%;
     border-radius: 2rem;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
     font-weight: bold;
     transition: all 0.5s;
     background-color: white;
 }
-.Profilebtn:hover{
+
+.Profilebtn:hover {
     border-radius: 50%;
     color: white;
     background-color: #4c4294;
 }
-@media (max-width:500px){
+
+@media (max-width: 500px) {
     .ProfileInput {
         width: 100%;
     }
-    .Profiledropselect{
+    .Profiledropselect {
         width: 100%;
     }
-    .ProfilesubHeading{
+    .ProfilesubHeading {
         font-size: 8vw;
     }
-    .Profilebtn{
+    .Profilebtn {
         width: 35vw;
     }
 }
