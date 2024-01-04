@@ -391,5 +391,4 @@ module.exports = {
   deleteManyProducts,
   getShowingStoreProducts,
   getProductByCategory,
-  updateProductreviews,
 };
