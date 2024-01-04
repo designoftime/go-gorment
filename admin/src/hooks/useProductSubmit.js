@@ -60,7 +60,6 @@ const useProductSubmit = (id) => {
   const { handlerTextTranslateHandler } = useTranslationValue();
   const { showingTranslateValue, getNumber, getNumberTwo } = useUtilsFunction();
 
-  console.log("lang", subscriptionsDuration,tag);
 
   // console.log(
   //   "defaultCategory",

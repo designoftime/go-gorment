@@ -8,6 +8,10 @@ body {
     font-family: rocgrotesk-light;
 }
 
+* {
+    font-family: rocgrotesk-light;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
 }

@@ -13,7 +13,7 @@ const Variant = ({
     setFocusVariants,
 }) => {
     return (
-        <div className="d-flex justify-content-start gap-3">
+        <div className="d-flex justify-content-start gap-3 flex-wrap">
             {product?.variants
                 ? product.variants.map((variant, idx) => {
                       const checkVariant = isVariantAvailable(

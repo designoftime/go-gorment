@@ -156,29 +156,20 @@ export const Navigation1 = () => {
                             <Link
                                 to="/accounts/profile"
                                 className="nav-link active bolder"
-                                href="#"
                                 style={styles?.color}
                             >
                                 <RiAccountCircleLine className="accountIcon" />
                             </Link>
                         </div>
                         {hideCheckOut && <div className="nav-item " onClick={() => setToggleMenu(false)}>
-                            <Link
-                                className="nav-link active bolder"
-                                href=""
-                                style={styles.color}
-                            >
                             <Cart />
-                            </Link>
                         </div>}
                     </div>
                 </div>
             </div>
-            {toggleMenu ? (
+            {toggleMenu &&
                 <MobileMenu headerData={headerData} styles={styles} handleToggleMenu = {handleToggleMenu} />
-            ) : (
-                ""
-            )}
+            }
         </div>
     );
 };
