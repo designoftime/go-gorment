@@ -7,11 +7,11 @@
     padding: 8px 15px;
     border: 3px solid white;
 }
-.barbutton:focus{
+.barbutton:focus {
     border-color: #4c4294;
-    border-radius: 15%;  
+    border-radius: 15%;
 }
-.barcontent{
+.barcontent {
     width: 100%;
 }
 
@@ -54,9 +54,9 @@
     width: 100%;
     /* background-color: yellow; */
 }
-.OlivesSection{
+.OlivesSection {
     background-color: #c8e0d4;
-    color: #412f59!important;
+    color: #412f59 !important;
 }
 
 .Shopbanner-right {
@@ -64,7 +64,7 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-.shopbannerimge{
+.shopbannerimge {
     width: 100%;
     height: 100%;
 }
@@ -75,7 +75,6 @@
 /* Shop Products */
 .ShopProducts-section {
     color: #4c4294;
-    
 }
 
 .ShopProductsheader {
@@ -84,14 +83,16 @@
     font-weight: 800;
     text-transform: uppercase;
 }
-.ShopProducts-imge{
-    width: 100%;
+.ShopProducts-imge {
+    width: 21vw;
+    height: 25vw;
     position: relative;
     overflow: hidden;
 }
-.ShopProduct-img1{
+.ShopProduct-img1 {
     margin: 0 auto;
-    width: 23vw;
+    width: 100%;
+    height: 100%;
     position: relative;
     cursor: pointer;
 }
@@ -101,7 +102,6 @@
 }
 
 .SVPbtn {
-
     text-decoration: none;
     color: #4c4294;
     border: 3px solid #4c4294;
@@ -116,69 +116,68 @@
 
 .SVPbtn:hover {
     background-color: #4c4294;
-    color: white!important;
+    color: white !important;
     border-radius: 50%;
 }
 /* Snacks-Bundle-section */
-.Snacks-Bundle-section{
+.Snacks-Bundle-section {
     width: 100%;
     background-color: #e2c7d6;
     padding-bottom: 80px;
     color: #412f59;
 }
-.SnacksBundleheader{
+.SnacksBundleheader {
     font-size: 110px;
     font-family: Snacksgifheaderfont;
 }
 /* Merch Section */
-.Merch-section{
+.Merch-section {
     color: #4c4294;
 }
-.Merchheader{
+.Merchheader {
     font-size: 110px;
     font-family: Snacksgifheaderfont;
 }
 /* View Product Section */
-@media(max-width:1000px){
-    .Shop-banner{
-       flex-direction: column;
+@media (max-width: 1000px) {
+    .Shop-banner {
+        flex-direction: column;
     }
-    .Shopbanner-left{
+    .Shopbanner-left {
         width: 100%;
-        margin: 3rem auto!important;
+        margin: 3rem auto !important;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         margin-top: 2rem;
     }
-    .Shopbanner-header{
-        margin: 3rem auto!important;
+    .Shopbanner-header {
+        margin: 3rem auto !important;
         text-align: center;
         line-height: 5.5rem;
         font-size: 95px;
     }
     .Shopbanner-para {
         width: 90%;
-        margin: 2rem auto!important;
+        margin: 2rem auto !important;
     }
-    .ShopBiconsmain{
-        margin: 3rem auto!important
+    .ShopBiconsmain {
+        margin: 3rem auto !important;
     }
-    .maindropdown{
+    .maindropdown {
         overflow: hidden;
         position: relative;
     }
-    .Dropmenubox{
+    .Dropmenubox {
         width: 100%;
         text-align: center;
         border: 3px solid #412f59;
-        position: absolute;  
+        position: absolute;
         margin: 0 auto;
     }
-    .barbutton{
+    .barbutton {
         width: 80%;
         font-size: larger;
-        border-radius: 0!important;
+        border-radius: 0 !important;
     }
-    
 }
