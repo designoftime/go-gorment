@@ -2,6 +2,7 @@ const Product = require("../models/Product");
 const mongoose = require("mongoose");
 const Category = require("../models/Category");
 const { languageCodes } = require("../utils/data");
+const Reviews = require("../models/Reviews");
 
 const addProduct = async (req, res) => {
   try {
@@ -171,7 +172,17 @@ const getProductById = async (req, res) => {
       .populate({ path: "categories", select: "_id name" })
       .populate({ path: "theme", select: "_id theme.theme_unique_name" });
 
-    res.send(product);
+      const totalReviews = await Reviews.find({
+        productId: ObjectId(req.params.id),
+      }).count();
+
+      const resData = {
+        ...product,
+        totalReviews
+      }
+
+    res.send(resData);
+    
   } catch (err) {
     res.status(500).send({
       message: err.message,
