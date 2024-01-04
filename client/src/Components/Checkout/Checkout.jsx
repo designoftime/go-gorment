@@ -107,7 +107,7 @@ const Checkout = () => {
     deleteUserCarts();
     updateUserOrder(orderData);
     updateUserSubscription(cartData);
-    window.location.reload();
+    // window.location.reload();
     // console.log(checkoutData, cartData, totalCartVal, couponVal);
   }
 
