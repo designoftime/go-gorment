@@ -169,7 +169,8 @@ const getProductById = async (req, res) => {
     const product = await Product.findById(req.params.id)
       .populate({ path: "category", select: "_id, name" })
       .populate({ path: "categories", select: "_id name" })
-      .populate({ path: "theme", select: "_id theme.theme_unique_name" });
+      .populate({ path: "theme", select: "_id theme.theme_unique_name" })
+      .populate({ path: "Reviews", select: "rating reviewTitle review" });
 
     res.send(product);
   } catch (err) {
@@ -359,6 +360,24 @@ const deleteManyProducts = async (req, res) => {
   }
 };
 
+const updateProductreviews = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let { reviewsId } = req.body;
+    if (id) {
+      await Product.findByIdAndUpdate(
+        id,
+        { reviews: reviewsId },
+        { new: true }
+      );
+    }
+  } catch (error) {
+    res.status(500).send({
+      message: err.message,
+    });
+  }
+};
+
 module.exports = {
   addProduct,
   addAllProducts,
@@ -373,4 +392,5 @@ module.exports = {
   deleteManyProducts,
   getShowingStoreProducts,
   getProductByCategory,
+  updateProductreviews,
 };

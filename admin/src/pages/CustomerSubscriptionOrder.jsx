@@ -20,29 +20,18 @@ import CustomerServices from "@/services/CustomerServices";
 import CustomerSubscriptionTable from "@/components/customer/CustomerSubscriptionTable";
 
 const CustomerSubscriptionOrder = () => {
-  const [resData, setResData] = useState([]);
   const { id } = useParams();
   const { t } = useTranslation();
-  useEffect(() => {
-    (async () => {
-      try {
-        if (id) {
-          const res = await CustomerServices.getCustomerById(id);
-          setResData(res.subscriptionType);
-        }
-      } catch (err) {
-        notifyError(err ? err?.response?.data?.message : err.message);
-      }
-    })();
-  }, [id, setResData, CustomerServices]);
-  const { data, loading, error } = useAsync(() =>resData);
+  const { data, loading, error } = useAsync(() =>
+    CustomerServices.getSubscriptionById(id)
+  );
   const { handleChangePage, totalResults, resultsPerPage, dataTable } =
-    useFilter(data);
+    useFilter(data.subscriptionType);
   return (
     <>
       <PageTitle>{t("Customer Subscription List")}</PageTitle>
       {loading && <Loading loading={loading} />}
-      {!error && !loading && dataTable.length === 0 && (
+      {!error && !loading && data.subscriptionType.length === 0 && (
         <div className="w-full bg-white rounded-md dark:bg-gray-800">
           <div className="p-8 text-center">
             <span className="flex justify-center my-30 text-red-500 font-semibold text-6xl">
@@ -55,7 +44,7 @@ const CustomerSubscriptionOrder = () => {
         </div>
       )}
 
-      {data.length > 0 && !error && !loading ? (
+      {data.subscriptionType?.length > 0 && !error && !loading ? (
         <TableContainer className="mb-8">
           <Table>
             <TableHeader>
@@ -75,7 +64,7 @@ const CustomerSubscriptionOrder = () => {
                 </TableCell>
               </tr>
             </TableHeader>
-            <CustomerSubscriptionTable orders={dataTable} />
+            <CustomerSubscriptionTable orders={data.subscriptionType} />
           </Table>
           <TableFooter>
             <Pagination

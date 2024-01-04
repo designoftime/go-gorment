@@ -14,6 +14,7 @@ const {
   deleteManyProducts,
   getShowingStoreProducts,
   getProductByCategory,
+  updateProductreviews
 } = require("../controller/productController");
 
 //add a product
@@ -54,5 +55,8 @@ router.delete("/:id", deleteProduct);
 
 //delete many product
 router.patch("/delete/many", deleteManyProducts);
+
+// product reviews 
+router.put("/update-product-reviews/:id",updateProductreviews)
 
 module.exports = router;

@@ -27,6 +27,11 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    reviews: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Reviews",
+      required: true,
+    },
     categories: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -39,12 +44,11 @@ const productSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
-    theme: 
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Theme",
-        required: true,
-      },
+    theme: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Theme",
+      required: true,
+    },
     image: {
       type: Array,
       required: false,

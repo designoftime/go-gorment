@@ -20,6 +20,9 @@ const CustomerServices = {
   getCustomerById: async (id) => {
     return requests.get(`/customer/${id}`);
   },
+  getSubscriptionById: async (id) => {
+    return requests.get(`/customer/get-subscription-by-id/${id}`);
+  },
 
   updateCustomer: async (id, body) => {
     return requests.put(`/customer/${id}`, body);
