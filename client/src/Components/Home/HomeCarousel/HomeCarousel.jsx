@@ -38,7 +38,6 @@ const HomeCarousel = ({ homeSliderData }) => {
     );
 
     const getRating = (reviews) => {
-        console.log(reviews);
 
         let finalRating = (((5*reviews?.fiveStar) + (4*reviews?.fourStar) + (3*reviews?.threeStar) + (2*reviews?.twoStar) + (reviews?.oneStar)) / (reviews.fiveStar+reviews?.fourStar+reviews?.threeStar+reviews?.twoStar+reviews?.oneStar)).toFixed(2);
         

@@ -1,5 +1,6 @@
 import { addCategories, addStoreSetting } from "../reducers/storeSettings";
 import requests from "../../Services/httpService";
+import { jwtDecode } from "jwt-decode";
 
 export function StoreData(){
 
@@ -35,4 +36,22 @@ return async function StoreCategoriesDataThunk(dispatch, getState){
     }
 }
 
+}
+
+export function checkJWTToken(){
+    try {
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if(!user){
+            return;
+        }
+
+        const decodedData = jwtDecode(user.token);
+        if (decodedData.exp * 1000 < Date.now()) {
+            localStorage.clear();
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
 }

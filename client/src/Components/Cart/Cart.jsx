@@ -50,7 +50,6 @@ export const Cart = () => {
     }
 
     const res = await requests.get("/cart");
-    console.log(res);
     let totalCartAmount = res?.carts.reduce((sum, currVal) => {
         return sum += (currVal.price * currVal.quantity);
     },0);

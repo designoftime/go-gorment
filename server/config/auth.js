@@ -14,7 +14,7 @@ const signInToken = (user) => {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "2d",
+      expiresIn: "30d",
     }
   );
 };

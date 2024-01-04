@@ -175,7 +175,7 @@ export const CustomerReview = ({ productId }) => {
   const renderReviewSlide = () => {
     const startIndex = (currentPage - 1) * itemPerPage;
     const endIndex = currentPage + itemPerPage;
-    console.log(responeData.data);
+    // console.log(responeData.data);
 
     const paginatedReviews = responeData?.data?.slice(startIndex, endIndex);
     let slides = [];
@@ -299,7 +299,7 @@ export const CustomerReview = ({ productId }) => {
     };
     respones();
   }, [setRespnesData, productId]);
-  console.log(responeData);
+  // console.log(responeData);
   return (
     <>
       <div className="CustomerReview-section">

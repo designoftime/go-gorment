@@ -13,6 +13,26 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+const ProductReviews = ({productId, styles}) => {
+
+  const [reviews, setReviews] = useState({});
+  
+  useEffect(() => {
+
+    const fetchReviews = async () => {
+      const res = await requests.get(`/reviews/by-product/${productId}`);
+      setReviews(res);
+    }
+
+    fetchReviews();
+  },[]);
+
+  return (
+    <span style={styles?.color} > <span style={styles?.color}>{reviews?.totalReviews}</span> reviews</span>
+  )
+
+}
+
 const ShopProductImage = ({product}) => {
 
   const [viewProduct, setViewProduct] = useState(false);
@@ -96,7 +116,7 @@ export const Products = ({categoryId, variants, styles}) => {
                             <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
                             <span className="jdgm-star jdgm--on bold" ><BsFillStarFill /></span> <span />
                           </span>
-                          <span style={styles?.color} > <span style={styles?.color}>28</span> reviews</span>
+                          <ProductReviews productId={product._id} styles={styles} />
                         </div>
                       </div>
                     {/* </SwiperSlide> */}
