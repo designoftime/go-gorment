@@ -107,7 +107,7 @@ const Header = () => {
           <span></span>
 
           <ul className="flex justify-end items-center flex-shrink-0 space-x-6">
-            <li className="changeLanguage">
+            {/* <li className="changeLanguage">
               <div className="dropdown">
                 <button className="dropbtn focus:outline-none">
                   {currentLanguageCode === "de" ? (
@@ -141,7 +141,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-            </li>
+            </li> */}
 
             {/* <!-- Theme toggler --> */}
 
@@ -160,7 +160,7 @@ const Header = () => {
             </li>
 
             {/* <!-- Notifications menu --> */}
-            <li className="relative inline-block text-left" ref={nRef}>
+            {/* <li className="relative inline-block text-left" ref={nRef}>
               <button
                 className="relative align-middle rounded-md focus:outline-none"
                 onClick={handleNotificationOpen}
@@ -352,7 +352,7 @@ const Header = () => {
                   </div>
                 </div>
               )}
-            </li>
+            </li> */}
 
             {/* <!-- Profile menu --> */}
             <li className="relative inline-block text-left" ref={pRef}>
