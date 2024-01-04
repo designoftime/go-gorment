@@ -173,7 +173,7 @@ const getProductById = async (req, res) => {
       .populate({ path: "theme", select: "_id theme.theme_unique_name" });
 
       const totalReviews = await Reviews.find({
-        productId: ObjectId(req.params.id),
+        productId: req.params.id,
       }).count();
 
       const resData = {
@@ -182,7 +182,7 @@ const getProductById = async (req, res) => {
       }
 
     res.send(resData);
-    
+
   } catch (err) {
     res.status(500).send({
       message: err.message,
