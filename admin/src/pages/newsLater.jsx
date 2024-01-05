@@ -48,13 +48,13 @@ const NewsLater = () => {
             <TableHeader>
               <tr>
                 <TableCell> {t("Id")} </TableCell>
-                <TableCell> {t("Name/Email")}</TableCell>
+                <TableCell> {t("Email")}</TableCell>
 
-                <TableCell className="text-center">
+                <TableCell >
                   {t("Product Title")}
                 </TableCell>
 
-                <TableCell className="text-center">{t("Attributes")}</TableCell>
+                <TableCell >{t("Attributes")}</TableCell>
               </tr>
             </TableHeader>
 

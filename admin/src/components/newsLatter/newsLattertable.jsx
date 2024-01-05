@@ -12,23 +12,23 @@ const NewsLatterTbale = ({ dataTable }) => {
         {dataTable?.map((itme) => (
           <TableRow>
             <TableCell>
-              <span className="font-semibold uppercase text-xs">
+              <span className="font-semibold  text-xs">
                 {itme?._id?.substring(20, 24)}
               </span>
             </TableCell>
             <TableCell>
-              <span className="font-semibold uppercase text-xs">
-                {itme?.user?.name ? itme?.user?.name : itme?.email}
+              <span className="font-semibold  text-xs">
+                {itme?.user?.email ? itme?.user?.email : itme?.email}
               </span>
             </TableCell>
             <TableCell>
-              <span className="font-semibold uppercase text-xs">
+              <span className="font-semibold  text-xs">
                 {itme?.product?.title?.en}
               </span>
             </TableCell>
 
             <TableCell>
-              <span className="font-semibold uppercase text-xs">
+              <span className="font-semibold  text-xs">
                 {itme?.attribute}
               </span>
             </TableCell>
