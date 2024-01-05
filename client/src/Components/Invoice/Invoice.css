@@ -1,8 +1,56 @@
 .Invoice-container{
     margin: 0 auto;
-    width:800px;
+    width:80%;
+}
+.InvoiceHeader-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.IHeaderContent{
+    display: grid;
+    grid-template-columns: .5fr 1fr 1fr;
+}
+.Taxtext{
+    grid-column: 1/2;
+}
+.Order-details{
+    grid-column: 2/3;
+}
+.Order-details, .Invoice-details{
+    padding: 5px 5px;
+    border: 2px solid rgb(212, 210, 210);
+    border-top: none;
+    border-bottom: none;
+    line-height: 3px;
+    align-items: center;
+}
+.Invoice-details{
+    grid-column: 3/-1;
+    border-left: none;
+}
+.AddressDetails{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .InvoiceMain{
     margin: 0 auto;
     width: 98%;
+}
+.PaymentDetails{
+    border: 1px solid rgb(212, 210, 210);
+}
+.InvoicetableFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(212, 210, 210);
+}
+.totalPrice{
+    line-height: 3px;
+}
+.sellerAddress{
+    margin-top: 20px;
+    line-height: 3px;
 }
