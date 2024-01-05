@@ -14,15 +14,15 @@ const ProductNotificationSchema = new mongoose.Schema(
     product: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Product",
-      required: true,
+      required: false,
     },
-    atttribute: {
+    attribute: {
       type: String,
       required: false,
     },
     status: {
       type: Boolean,
-      required: true,
+      required: false,
       default: false,
     },
   },

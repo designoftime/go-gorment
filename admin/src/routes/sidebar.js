@@ -7,7 +7,9 @@ import {
   FiSlack,
   FiGlobe,
   FiTarget,
+
 } from "react-icons/fi";
+import { TbReport } from "react-icons/tb";
 
 /**
  * ⚠ These are used just to render the Sidebar!
@@ -90,6 +92,11 @@ const sidebar = [
         name: "Currencies",
       },
     ],
+  },
+  {
+    icon: TbReport,
+    path: "/newsletter",
+    name: "Newsletter",
   },
   {
     icon: FiTarget,
