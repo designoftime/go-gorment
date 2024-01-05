@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiFileDownloadFill } from "react-icons/ri";
 import { MdUnsubscribe } from "react-icons/md";
 import requests from "../../../Services/httpService";
 import Badge from "react-bootstrap/Badge";
 import Stack from "react-bootstrap/Stack";
 
+import { ReactDOM } from "react-dom";
+import { Invoice } from "../../Invoice/Invoice";
+import { useNavigate } from "react-router";
+
 const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) => {
-  
-  const handleInvoice = (eachItem) => {
-    console.log(eachItem);
-    // return <Invoice productInfo ={productInfo}/>
+  const [invoiceData, setInvoiceData] = useState(null);
+  const navigate = useNavigate();
+  console.log(orderProducts);
+  const handleInvoice = (idx) => {
+    setInvoiceData(idx);
+    window.open('invoice', '', '_blank',)
   };
 
   const handleCancelSubscription = async (eachItem) => {
@@ -30,6 +36,7 @@ const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) 
 
     return color[status];
   };
+
 
   return (
     <div className="OrderDetails">
@@ -84,7 +91,7 @@ const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) 
                       <div>
                         <button
                           className="Invoicbtn"
-                          onClick={() => handleInvoice(eachItem)}
+                          onClick={() => handleInvoice(idx)}
                           title="Download Invoice"
                         >
                           <span>
@@ -120,6 +127,7 @@ const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) 
       </div>
     </div>
   );
+
 };
 
 export default Orders;
