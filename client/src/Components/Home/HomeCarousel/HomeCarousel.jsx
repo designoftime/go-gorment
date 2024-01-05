@@ -54,13 +54,13 @@ const HomeCarousel = ({ homeSliderData }) => {
                 spaceBetween={50}
                 slidesPerView={1}
                 navigation={
-                    showValue > 767 ? true : false
+                    (showValue > 767) ? true : false
                 }
                 pagination={
                 {dynamicBullets : (showValue < 767)? true : false }}
                 scrollbar={{ draggable: true }}
                 modules={
-                    showValue > 767 ? [Navigation] : [Navigation, Pagination]
+                    (showValue > 767) ? [Navigation] : [Navigation, Pagination]
                 }
             >
                 {sliderVal.map((val) => {
