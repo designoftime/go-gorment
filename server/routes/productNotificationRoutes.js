@@ -7,6 +7,6 @@ const {
 
 //add a product
 router.post("/add", addProductNotification);
-router.post("/", getAllProductNotification);
+router.get("/", getAllProductNotification);
 
 module.exports = router;
