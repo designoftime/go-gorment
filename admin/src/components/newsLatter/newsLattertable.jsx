@@ -18,7 +18,7 @@ const NewsLatterTbale = ({ dataTable }) => {
             </TableCell>
             <TableCell>
               <span className="font-semibold  text-xs">
-                {itme?.user?.email ? itme?.user?.email : itme?.email}
+                {itme?.email}
               </span>
             </TableCell>
             <TableCell>
