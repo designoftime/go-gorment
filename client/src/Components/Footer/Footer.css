@@ -194,7 +194,7 @@
 } */
 
 .footer-logo a img {
-    width: 25rem;
+    width: min(40vmax, 26rem);
     height: 100%;
 
     background-position: center;

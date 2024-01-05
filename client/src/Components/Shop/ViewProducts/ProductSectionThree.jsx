@@ -11,29 +11,17 @@ const ProductSectionThree = ({ data }) => {
         <div className="Product-Hero-Section" style={styles.fullBg}>
             <div className="ProductHeroMain">
                 <div className="ProductHero-left">
-                    <img
-                        className="Product-hero-img"
-                        src={data[`first_img`]}
-                        alt={data[`first_img`]}
-                    />
+                    <img src={data[`first_img`]} alt={data[`first_img`]} />
                 </div>
                 <div className="ProductHero-right" style={styles.fullBg}>
-                    <h1 className="PH-header text-center" style={styles.color}>
-                        {data?.top_header}
-                    </h1>
-
+                    <h1 style={styles.color}>{data?.top_header}</h1>
                     <div className="PH-content">
                         {sliderVal.map((val, idx) => {
                             return (
                                 <div className="PH-main" key={idx}>
-                                    <h5>
-                                        <strong
-                                            className="PH-sub-header"
-                                            style={styles.color}
-                                        >
-                                            {data[`${val}_title`]}
-                                        </strong>
-                                    </h5>
+                                    <h3 style={styles.color}>
+                                        {data[`${val}_title`]}
+                                    </h3>
                                     <p style={styles.color}>
                                         {data[`${val}_description`]}
                                     </p>
