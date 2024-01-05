@@ -14,134 +14,7 @@ import requests from "../../../../Services/httpService";
 import { toast } from "react-toastify";
 
 export const CustomerReview = ({ productId }) => {
-  const reviewSliderVal = [
-    {
-      id: 1,
-      customername: "Lozzy",
-      verifyc: "verified",
-      reviewtitle: "Delightful",
-      review:
-        "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-      reviewstar: "5",
-    },
-    {
-      id: 2,
-      customername: "Richard ",
-      verifyc: `Verified by shop`,
-      reviewtitle: "Great",
-      review:
-        "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-      reviewstar: "4",
-    },
-    {
-      id: 3,
-      customername: "Lozzy",
-      verifyc: "verified",
-      reviewtitle: "Delightful",
-      review:
-        "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-      reviewstar: "5",
-    },
-    {
-      id: 4,
-      customername: "Richard ",
-      verifyc: "Verified by shop",
-      reviewtitle: "Great",
-      review:
-        "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-      reviewstar: "4",
-    },
-    {
-      id: 5,
-      customername: "Lozzy",
-      verifyc: "verified",
-      reviewtitle: "Delightful",
-      review:
-        "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-      reviewstar: "5",
-    },
-    {
-      id: 6,
-      customername: "Richard ",
-      verifyc: "Verified by shop",
-      reviewtitle: "Great",
-      review:
-        "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-      reviewstar: "4",
-    },
-    {
-      id: 7,
-      customername: "Lozzy",
-      verifyc: "verified",
-      reviewtitle: "Delightful",
-      review:
-        "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-      reviewstar: "5",
-    },
-    {
-      id: 8,
-      customername: "Richard ",
-      verifyc: "Verified by shop",
-      reviewtitle: "Great",
-      review:
-        "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-      reviewstar: "4",
-    },
-    {
-      id: 9,
-      customername: "Lozzy",
-      verifyc: "verified",
-      reviewtitle: "Delightful",
-      review:
-        "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-      reviewstar: "5",
-    },
-    {
-      id: 10,
-      customername: "Richard ",
-      verifyc: "Verified by shop",
-      reviewtitle: "Great",
-      review:
-        "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-      reviewstar: "4",
-    },
-    {
-      id: 11,
-      customername: "Lozzy",
-      verifyc: "verified",
-      reviewtitle: "Delightful",
-      review:
-        "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-      reviewstar: "5",
-    },
-    {
-      id: 12,
-      customername: "Richard ",
-      verifyc: "Verified by shop",
-      reviewtitle: "Great",
-      review:
-        "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-      reviewstar: "4",
-    },
-    {
-      id: 13,
-      customername: "Lozzy",
-      verifyc: "verified",
-      reviewtitle: "Delightful",
-      review:
-        "My favourite treat in the whole world. Absolutely delicious, sort of wished they came in a smaller bag to stop the snaccidents but we move ya know they’re just too yummy",
-      reviewstar: "5",
-    },
-    {
-      id: 14,
-      customername: "Richard ",
-      verifyc: "Verified by shop",
-      reviewtitle: "Great",
-      review:
-        "Amazing product, everyone in my house loves these, even my 15 year old girls who are very difficult to please!",
-      reviewstar: "4",
-    },
-  ];
+  
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [responeData, setRespnesData] = useState(1);
@@ -267,7 +140,7 @@ export const CustomerReview = ({ productId }) => {
     }
     return true;
   };
-  const totalReviewPages = Math.ceil(reviewSliderVal.length / itemPerPage);
+  const totalReviewPages = Math.ceil(responeData?.data?.length / itemPerPage);
   const handleProductReview = (e) => {
     e.preventDefault();
     const data = {
@@ -293,6 +166,10 @@ export const CustomerReview = ({ productId }) => {
   };
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    if(!productId){
+      return;
+    }
+    
     const respones = async () => {
       const res = await requests.get(`/reviews/by-product/${productId}`);
       setRespnesData(res);
@@ -567,7 +444,7 @@ export const CustomerReview = ({ productId }) => {
                       className="form-control mt-2 reviewInput"
                       placeholder="Enter Your Name (public)"
                       name="fullname"
-                      value={user ? user?.name : ""}
+                      defaultValue={user ? user?.name : ""}
                     />
                   </div>
                   <div className="reviewInputs">
@@ -579,7 +456,7 @@ export const CustomerReview = ({ productId }) => {
                       className="form-control mt-2 reviewInput"
                       placeholder="Enter Your Email (private)"
                       name="email"
-                      value={user ? user?.email : ""}
+                      defaultValue={user ? user?.email : ""}
                     />
                   </div>
                   <div className="reviewInputs">
