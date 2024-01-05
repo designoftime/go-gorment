@@ -78,27 +78,27 @@ const getReviewByProductId = async (req, res) => {
 
     const totalReviews = await Reviews.find({
       productId: ObjectId(id),
-    }).count();
+    }).countDocuments();
     const fiveStar = await Reviews.find({
       productId: ObjectId(id),
       rating: 5,
-    }).count();
+    }).countDocuments();
     const fourStar = await Reviews.find({
       productId: ObjectId(id),
       rating: 4,
-    }).count();
+    }).countDocuments();
     const threeStar = await Reviews.find({
       productId: ObjectId(id),
       rating: 3,
-    }).count();
+    }).countDocuments();
     const twoStar = await Reviews.find({
       productId: ObjectId(id),
       rating: 2,
-    }).count();
+    }).countDocuments();
     const oneStar = await Reviews.find({
       productId: ObjectId(id),
       rating: 1,
-    }).count();
+    }).countDocuments();
 
     res.status(201).send({
       message: "succes",
@@ -129,12 +129,12 @@ const getAllReview = async (req, res) => {
       .populate({ path: "user", select: "name image" })
       .limit(limits)
       .skip(skip);
-    const totalReviews = await Reviews.find().count();
-    const fiveStar = await Reviews.find({ rating: 5 }).count();
-    const fourStar = await Reviews.find({ rating: 4 }).count();
-    const threeStar = await Reviews.find({ rating: 3 }).count();
-    const twoStar = await Reviews.find({ rating: 2 }).count();
-    const oneStar = await Reviews.find({ rating: 1 }).count();
+    const totalReviews = await Reviews.find().countDocuments();
+    const fiveStar = await Reviews.find({ rating: 5 }).countDocuments();
+    const fourStar = await Reviews.find({ rating: 4 }).countDocuments();
+    const threeStar = await Reviews.find({ rating: 3 }).countDocuments();
+    const twoStar = await Reviews.find({ rating: 2 }).countDocuments();
+    const oneStar = await Reviews.find({ rating: 1 }).countDocuments();
 
     res.status(200).send({
       message: "seccess",

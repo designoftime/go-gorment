@@ -1,126 +1,181 @@
-.CustomerReview-section{
+.CustomerReview-section {
     background-color: #e2c7d6;
-    color:#412f59;
-    
+    color: #412f59;
+    padding: 4vmax 10vmax;
 }
-.CR-header{
-    font-family : Snacksgifheaderfont;
-    font-size: 110px;
+.Customer-review-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    /* background-color: aquamarine; */
 }
-.reviewAccordian{
+
+.Customer-review-container > h1 {
+    font-family: rocgrotesk-extra-bold;
+    /* font-size: max(6.5vmax, 3rem); */
+    font-size: 5rem;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.reviewAccordian {
     margin: 0 auto;
-    width: 50%;
+    width: 55%;
+    min-width: 45rem;
 }
-.ReviewInfo{
+.ReviewInfo {
     display: grid;
-    grid-template-columns: 10.5rem 20rem auto;  
+    grid-template-columns: 10.5rem 20rem auto;
 }
-.totalReview{
+.totalReview {
     grid-column: 1/2;
 }
-.reviewCategory{
+.reviewCategory {
     grid-column: 2/3;
     border-left: 3px solid #412f59;
     border-right: 3px solid #412f59;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
 }
-.writeReview{
+.writeReview {
     grid-column: 3/-1;
-
 }
 
-.reviewaccordionbtn{
-    border: 3px solid #412f59;
+.reviewaccordionbtn {
+    border: 0.1rem solid #412f59;
     color: #412f59;
     font-size: 1rem;
     font-weight: bold;
     background-color: transparent;
     border-radius: 20px;
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     float: right;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
 }
-.reviewSubCategory{
+.reviewSubCategory {
     display: grid;
-    padding: .5rem .8rem;
+    padding: 0.5rem 0.8rem;
     grid-template-columns: 4fr 3fr 2fr;
-    column-gap: .5rem;
+    column-gap: 0.5rem;
     align-items: center;
-    font-family: bannerhomebtn;
-   
+    font-family: rocgrotesk-light;
 }
-.reviewForm{
+.reviewForm {
     background-color: #e2c7d6;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
-.reviewInputs{
+
+.reviewForm p {
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "rocgrotesk-light";
+    margin: 0;
+    text-align: justify;
+    letter-spacing: 0.03rem;
+    word-spacing: 0.7px;
+
+    a {
+        color: blue;
+        font-weight: 600;
+        font-size: 1rem;
+        font-family: "rocgrotesk-light";
+        letter-spacing: 0.03rem;
+        word-spacing: 0.7px;
+    }
+}
+
+.reviewInputs {
     color: #412f59;
-    margin-top: 1.5rem;
+    background-color: transparent;
+    margin: 0;
 }
-.reviewlable{
+
+.reviewInputs span {
     color: #412f59;
-    font-family: bannerhomebtn;
+    background-color: transparent;
+
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "rocgrotesk-light";
+    letter-spacing: 0.03rem;
+    word-spacing: 0.7px;
 }
-#namedisplayed{
+
+.reviewlable {
+    color: #412f59;
+    font-family: rocgrotesk-light;
+}
+#namedisplayed {
     border: none;
     color: #412f59;
     background-color: #e2c7d6;
     outline: none;
     text-decoration: underline;
-    font-family: bannerhomebtn;
+    font-family: rocgrotesk-light;
 }
-#namedisplayed option{
-    font-family: bannerhomebtn;
+#namedisplayed option {
+    font-family: rocgrotesk-light;
 }
-.reviewInput, .reviewInput:focus{
+.reviewInput,
+.reviewInput:focus {
     background-color: transparent;
-    outline: none!important;
-    border: 2px solid #412f59;  
+    outline: none !important;
+    border: 2px solid #412f59;
     box-shadow: none;
+    padding: 0.6rem 1.3rem;
+    margin: 0;
 }
-.starbtn{
+
+::placeholder {
+    font-family: rocgrotesk-light;
+}
+.starbtn {
     color: #412f59;
     background-color: transparent;
     padding: 0;
     border: none;
 }
-.reviewsubmitbtn{
-   
-    border: 3px solid #412f59;
+.reviewsubmitbtn {
+    width: fit-content;
+    border: 2px solid #412f59;
     color: #412f59;
-    font-size: 1.5rem;
+    font-size: 18px;
     font-weight: bold;
     background-color: transparent;
     border-radius: 20px;
-    padding: .5rem 2rem;
+    padding: 0.5rem 2rem;
+    margin-bottom: 2rem;
     transition: all 0.5s;
 }
-.reviewsubmitbtn:hover{
+.reviewsubmitbtn:hover {
     background-color: #412f59;
     color: #e2c7d6;
     border-radius: 50%;
 }
-.review-main-container{
-    width: 90vw;
-    font-family: bannerhomebtn;
+.review-main-container {
+    font-family: rocgrotesk-light;
 }
-.reviewTitle span{
-    font-family: bannerhomebtn;
+.reviewTitle span {
+    font-family: rocgrotesk-light;
 }
-.activeVerified{
+.activeVerified {
     background-color: #412f59;
     color: #e2c7d6;
-    padding: .4rem;
+    padding: 0.4rem;
     font-size: small;
-    border-radius: .2rem;
-  
+    border-radius: 0.2rem;
 }
-.shopVerified{
+.shopVerified {
     background-color: rgb(248, 219, 165);
     font-size: small;
-    padding: .4rem;
+    padding: 0.4rem;
     border: 1px solid lightgray;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
 }
 /* .reviewedStarfilled{
     color: #412f59;
@@ -130,18 +185,18 @@
     color: #412f59;
     background-color: #e2c7d6;
 } */
-.reviewContent p{
-    font-family: bannerhomebtn;
+.reviewContent p {
+    font-family: rocgrotesk-light;
 }
-.page-link{
+.page-link {
     color: #412f59;
     background-color: #e2c7d6;
     border-color: transparent;
     --bs-pagination-active-color: #e2c7d6;
     --bs-pagination-active-bg: #412f59;
-    --bs-pagination-active-border-color:var(--bs-pagination-active-bg);
+    --bs-pagination-active-border-color: var(--bs-pagination-active-bg);
 }
-.page-link:hover{
+.page-link:hover {
     color: #e2c7d6;
     background-color: #412f59;
     border-color: transparent;
@@ -151,3 +206,17 @@
     --bs-pagination-focus-color: var(--bs-pagination-active-color);
     --bs-pagination-focus-bg: var(--bs-pagination-active-bg);
 }
+
+.ReactCollapse--content {
+    background-color: transparent;
+}
+
+/* input[placeholder="rate us"] {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    width: 100%;
+} */
+
+/* input {
+    background-color: transparent;
+} */

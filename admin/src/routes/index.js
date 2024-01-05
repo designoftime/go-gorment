@@ -27,6 +27,7 @@ const Theme = lazy(() => import("@/pages/theme"));
 const CustomerSubscriptionOrder = lazy(() =>
   import("@/pages/CustomerSubscriptionOrder")
 );
+const NewsLater = lazy(() => import("@/pages/newsLater"));
 /*
 //  * ⚠ These are internal routes!
 //  * They will be rendered inside the app, using the default `containers/Layout`.
@@ -129,6 +130,7 @@ const routes = [
     path: "/customer-subscription-order/:id",
     component: CustomerSubscriptionOrder,
   },
+  { path: "/newsletter", component: NewsLater },
 ];
 
 export default routes;
