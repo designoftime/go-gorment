@@ -117,168 +117,162 @@ export const ViewProduct = () => {
     };
 
     return (
-        <div>
-            <section className="View-Products-section">
-                <div className="view-product-info">
-                    <div
-                        className={
-                            showValue < 1000
-                                ? "col-12 VPCaursel"
-                                : "col-8 VPCaursel "
-                        }
-                    >
-                        <div className="view-product-sticky-div">
-                            <Swiper
-                                className="swiper VpCarousel-content"
-                                ref={SwiperfirstImg}
-                                navigation={true}
-                                spaceBetween={0}
-                                onSlideChange={(e) => {
-                                    // setActiveSlider(e.activeIndex)
-                                }}
-                                modules={[Navigation, Pagination]}
-                            >
+        <section className="View-Products-section">
+            <div className="view-product-info">
+                <div
+                    className={
+                        showValue < 1000
+                            ? "col-12 VPCaursel"
+                            : "col-8 VPCaursel"
+                    }
+                >
+                    <div className="view-product-sticky-div">
+                        <Swiper
+                            className="swiper VpCarousel-content"
+                            ref={SwiperfirstImg}
+                            navigation={true}
+                            spaceBetween={0}
+                            onSlideChange={(e) => {
+                                // setActiveSlider(e.activeIndex)
+                            }}
+                            modules={[Navigation, Pagination]}
+                        >
+                            {product?.image &&
+                                product?.image.map((img, idx) => {
+                                    return (
+                                        <SwiperSlide
+                                            key={idx}
+                                            className="slide"
+                                        >
+                                            <div className="view-product-swipper-img">
+                                                <img
+                                                    src={img}
+                                                    alt={img}
+                                                    key={idx}
+                                                    className="vpcarouselimages rounded-4"
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    );
+                                })}
+                        </Swiper>
+                        <div className="vpslider-logo">
+                            <div className="vpslide-logos">
                                 {product?.image &&
                                     product?.image.map((img, idx) => {
                                         return (
-                                            <SwiperSlide
-                                                key={idx}
-                                                className="slide"
-                                            >
-                                                <div className="view-product-swipper-img">
-                                                    <img
-                                                        src={img}
-                                                        alt={img}
-                                                        key={idx}
-                                                        className="vpcarouselimages rounded-4"
-                                                    />
-                                                </div>
-                                            </SwiperSlide>
+                                            <div className="vpslide-logos-fix-div">
+                                                <img
+                                                    key={idx}
+                                                    src={img}
+                                                    alt={img}
+                                                    className="active-logo rounded-4"
+                                                    onClick={() => {
+                                                        SwiperfirstImg.current.swiper.slideTo(
+                                                            idx
+                                                        );
+                                                    }}
+                                                />
+                                            </div>
                                         );
                                     })}
-                            </Swiper>
-                            <div className="vpslider-logo">
-                                <div className="vpslide-logos">
-                                    {product?.image &&
-                                        product?.image.map((img, idx) => {
-                                            return (
-                                                <div className="vpslide-logos-fix-div">
-                                                    <img
-                                                        key={idx}
-                                                        src={img}
-                                                        alt={img}
-                                                        className="active-logo rounded-4"
-                                                        onClick={() => {
-                                                            SwiperfirstImg.current.swiper.slideTo(
-                                                                idx
-                                                            );
-                                                        }}
-                                                    />
-                                                </div>
-                                            );
-                                        })}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 VPRight">
-                        <div className="view-product-text">
-                            <h1>{product?.title?.en}</h1>
-                            <p>{product?.description?.en}</p>
-                            <div className="VPreviws">
-                                <div className="stars">
-                                    <BsFillStarFill />
-                                    <BsFillStarFill />
-                                    <BsFillStarFill />
-                                    <BsFillStarFill />
-                                    <BsFillStarFill />
-                                </div>
-                                <div className="reviews">
-                                    <span> 490</span>
-                                    <span>reviews</span>
-                                </div>
-                            </div>
-                            <AllVariants
-                                product={product}
-                                setProductPrice={setProductPrice}
-                                setIsQuantityAvailable={setIsQuantityAvailable}
-                                setFocusVariants={setFocusVariants}
-                                focusVariants={focusVariants}
-                            />
-                            {isQuantityAvailable ? (
-                                <>
-                                    <ProductPrice
-                                        subscriptionType={subscriptionType}
-                                        setSubscriptionType={
-                                            setSubscriptionType
-                                        }
-                                        product={product}
-                                        purchaseType={purchaseType}
-                                        setPurchaseType={setPurchaseType}
-                                        productPrice={productPrice}
-                                    />
-                                    <div className="cart-info-inc-dec-btn">
-                                        <div className="cartProductQuantity">
-                                            <button
-                                                className="counterbtn"
-                                                onClick={decreaseProduct}
-                                            >
-                                                <strong>-</strong>
-                                            </button>
-
-                                            <input
-                                                type="text"
-                                                onChange={updateproductQuantity}
-                                                value={productQuantity}
-                                                className=" counterinput"
-                                            />
-                                            <button
-                                                className="counterbtn"
-                                                onClick={increaseProduct}
-                                            >
-                                                <strong>+</strong>
-                                            </button>
-                                        </div>
-                                        <div className="addtocart">
-                                            <button
-                                                className="addtocartbtn"
-                                                onClick={addToCart}
-                                            >
-                                                Add To Cart
-                                            </button>
-                                        </div>
-                                    </div>
-                                </>
-                            ) : (
-                                <div className="VPNotifymebutton text-center my-2">
-                                    <button className="py-3 notifymebtn">
-                                        <h5 className="text-uppercase">
-                                            Notify me when back in stock
-                                        </h5>
-                                    </button>
-                                </div>
-                            )}
-
-                            <div className="afterNotifymetext">
-                                <p>
-                                    You’ll be donating a meal with this order.
-                                    Learn more on{" "}
-                                    <span className="fw-bolder">
-                                        One Feeds Two
-                                    </span>
-                                </p>
-                                <ProductSectionOne
-                                    data={productTheme?.section_one}
-                                />
                             </div>
                         </div>
                     </div>
                 </div>
-                <ProductSectionTwo data={productTheme?.section_two} />
-                <ProductSectionThree data={productTheme?.section_three} />
-                <ProductSectionFour data={productTheme?.section_four} />
-                <CustomerReview productId={product._id} />
-            </section>
-        </div>
+                <div className="col-sm-6 VPRight">
+                    <div className="view-product-text">
+                        <h1>{product?.title?.en}</h1>
+                        <p>{product?.description?.en}</p>
+                        <div className="VPreviws">
+                            <div className="stars">
+                                <BsFillStarFill />
+                                <BsFillStarFill />
+                                <BsFillStarFill />
+                                <BsFillStarFill />
+                                <BsFillStarFill />
+                            </div>
+                            <div className="reviews">
+                                <span> 490</span>
+                                <span>reviews</span>
+                            </div>
+                        </div>
+                        <AllVariants
+                            product={product}
+                            setProductPrice={setProductPrice}
+                            setIsQuantityAvailable={setIsQuantityAvailable}
+                            setFocusVariants={setFocusVariants}
+                            focusVariants={focusVariants}
+                        />
+                        {isQuantityAvailable ? (
+                            <>
+                                <ProductPrice
+                                    subscriptionType={subscriptionType}
+                                    setSubscriptionType={setSubscriptionType}
+                                    product={product}
+                                    purchaseType={purchaseType}
+                                    setPurchaseType={setPurchaseType}
+                                    productPrice={productPrice}
+                                />
+                                <div className="cart-info-inc-dec-btn">
+                                    <div className="cartProductQuantity">
+                                        <button
+                                            className="counterbtn"
+                                            onClick={decreaseProduct}
+                                        >
+                                            <strong>-</strong>
+                                        </button>
+
+                                        <input
+                                            type="text"
+                                            onChange={updateproductQuantity}
+                                            value={productQuantity}
+                                            className=" counterinput"
+                                        />
+                                        <button
+                                            className="counterbtn"
+                                            onClick={increaseProduct}
+                                        >
+                                            <strong>+</strong>
+                                        </button>
+                                    </div>
+                                    <div className="addtocart">
+                                        <button
+                                            className="addtocartbtn"
+                                            onClick={addToCart}
+                                        >
+                                            Add To Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="VPNotifymebutton text-center my-2">
+                                <button className="py-3 notifymebtn">
+                                    <h5 className="text-uppercase">
+                                        Notify me when back in stock
+                                    </h5>
+                                </button>
+                            </div>
+                        )}
+
+                        <div className="afterNotifymetext">
+                            <p>
+                                You’ll be donating a meal with this order. Learn
+                                more on{" "}
+                                <span className="fw-bolder">One Feeds Two</span>
+                            </p>
+                            <ProductSectionOne
+                                data={productTheme?.section_one}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ProductSectionTwo data={productTheme?.section_two} />
+            <ProductSectionThree data={productTheme?.section_three} />
+            <ProductSectionFour data={productTheme?.section_four} />
+            <CustomerReview productId={product._id} />
+        </section>
     );
 };

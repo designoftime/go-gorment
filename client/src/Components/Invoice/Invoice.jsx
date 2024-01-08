@@ -6,131 +6,181 @@ import { MdLocalPrintshop } from "react-icons/md";
 import './Invoice.css'
 import { jsPDF } from 'jspdf'
 import 'jspdf-autotable';
-import {useLocation, useParams} from 'react-router-dom'
-import PretzelTHins from '../Shop/images/DarkChoc_360x.png'
+import { useLocation, useParams } from 'react-router-dom'
 
-export const Invoice = ({}) => {
-  const {state} = useParams();
+export const Invoice = ({ }) => {
+  const doc = jsPDF();
+  const maxWidth = 60;
+  const positioningJspdf = ()=>{
+    
+
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+
+    // Add header content
+    doc.text('Tax Invoice', 20, 20);
+    doc.text('Order Id: OODDD16516654154644411', 20, 30);
+    doc.text('Order Date: 29-11-2023, 5:10 PM', 20, 40);
+    doc.text('Invoice No: SADSDA653515445466', 120, 30);
+    doc.text('Invoice Date: 30-11-2023, 7:10 AM', 120, 40);
+
+    // Add seller details
+    doc.text('Sold by', 20, 60);
+    doc.text('GO Gourmet.Pvt.Lmt', 20, 70);
+    doc.text(
+      `Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum labore facilis libero non inventore sequi earum. Explicabo rem aperiam, facilis cum esse perspiciatis illum ut, dolor excepturi itaque accusamus laboriosam.`,
+      20,
+      80,{maxWidth}
+    );
+
+    // Add shipping address
+    doc.text('Shipping Address', 80, 60);
+    doc.text('Nand Ji', 80, 70);
+    doc.text('LIG Square\nNear New Palasia\nIndore-452002,IN-MP', 80, 80);
+
+    // Add billing address
+    doc.text('Billing Address', 150, 60);
+    doc.text('Nand Ji', 150, 70);
+    doc.text('LIG Square\nNear New Palasia\nIndore-452002,IN-MP', 150, 80);
+
+    // Add payment details
+    const columns = ['Product', 'Description', 'Qty', 'Gross Amount', 'Discount', 'Taxable Value', 'Total'];
+    const data = [
+      ['Dark-Choco-Pretzel Thins (Regular (50gX30g))', 'GST:18%\nShipping and Handling Charges', 1, '300$', '-0.00', '27.12', '350$'],
+      ['Dark-Choco-Pretzel Thins (Regular (50gX30g))', 'GST:18%\nShipping and Handling Charges', 1, '300$', '-0.00', '27.12', '350$'],
+    ];
+
+    doc.autoTable({
+      startY: 130,
+      head: [columns],
+      body: data,
+    });
+
+    // Add table footer
+    doc.text('TOTAL QTY: 2', 15, doc.autoTable.previous.finalY+5);
+    doc.text('TOTAL PRICE: 700$', 150, doc.autoTable.previous.finalY + 5);
+    doc.text('All Values are in INR', 150, doc.autoTable.previous.finalY + 10);
+
+    // Add seller address
+    doc.text('Seller Registered Address: Go Gourmet Pvt.Lmt,', 20, doc.autoTable.previous.finalY + 40);
+    doc.text('Go Gourmet Pvt Lmt,Scheme No.78,Vijay Nagar,Indore-452015', 20, doc.autoTable.previous.finalY + 50);
+
+    // Add declaration
+    doc.text('Declaration', 20, doc.autoTable.previous.finalY + 70);
+    doc.text('The goods sold are intended for end user consumption and not for resale', 20, doc.autoTable.previous.finalY + 80);
+
+  }
+  const { state } = useParams();
   console.log(state);
-
+  // To Download Pdf
   const generatePdf = () => {
-    const doc = new jsPDF();
-// Invoice ID
-doc.setFontSize(14);
-doc.text('Invoice ID: 165411154154', 20, 20);
 
-// Buyer Details
-doc.setFontSize(12);
-doc.text('To: Nand Ji', 20, 30);
-doc.text('LIG Square,Vijay Nagar,', 20, 40);
-doc.text('Indore,', 20, 50);
-doc.text('Madhya Pradesh, India', 20, 60);
-doc.text('Mobile: 644412121', 20, 70);
+    positioningJspdf();
 
-// Purchase Details
-doc.text('Invoice', 120, 30);
-doc.text('ID: 165411154154', 120, 40);
-doc.text('Creation Date: 5 December 2023', 120, 50);
-doc.text('Status: Paid', 120, 60);
-
-// Product Details
-doc.addImage(PretzelTHins, 'PNG', 40, 90, 30, 30); // Adjust the image dimensions
-doc.text('Dark-Chocolate Pretzel Thins', 90, 100);
-
-// Table
-const columns = ['Sr.', 'Name', 'Quantity', 'Price', 'Amount'];
-const data = [
-  [1, 'Dark-Choco-Pretzel Thins', 3, '300$', '900$'],
-];
-doc.autoTable(columns, data, { startY: 140 });
-
-// Additional Payment Information
-doc.text('An Additional Payment Information are here:', 20, 220);
-
-// Total Amount
-doc.text('Sub Total: 900$', 140, 225);
-doc.text('Tax: 15%', 140, 230);
-doc.text('Total Amount: 1100$', 140, 235);
-
-// Save the PDF
-doc.save('invoice.pdf');
+    // Save the PDF
+    doc.save('invoice.pdf');
 
 
   }
+  // To Print Invoice
+  const printInvoice = () => {
+    positioningJspdf();
+    // Save the PDF
+    doc.autoPrint();
+    window.open(doc.output('bloburl'), '_blank');
 
+  }
   return (
-    <div className="Invoice-container mx-auto">
-      <div className="InvoiceHeader d-flex justify-content-between align-items-center">
+    <div className="Invoice-container mt-5 mx-auto">
+      <div className="InvoiceHeader-section">
         <div className="IHeaderContent">
-          <h3>Invoice ID: <span>165411154154</span></h3>
+          <h3 className='Taxtext'>Tax Invoice</h3>
+          <div className="Order-details">
+            <p className=''>Order Id: OODDD16516654154644411</p>
+            <p>Order Date: 29-11-2023,5:10 PM</p>
+          </div>
+          <div className="Invoice-details">
+            <p className=''>Invoice No: SADSDA653515445466</p>
+            <p>Invoice Date: 30-11-2023, 7:10 AM</p>
+          </div>
         </div>
         <div className="IHeaderButton">
           <button className='Invoicbtn ' onClick={generatePdf}>< FaFileDownload /> </button> <span />
-          <button className='Invoicbtn '><MdLocalPrintshop /></button>
+          <button className='Invoicbtn ' onClick={printInvoice}><MdLocalPrintshop /></button>
         </div>
       </div>
       <hr className='border-2' />
-      <h1 className='text-dark text-center fw-boler'><span className='p-2 rounded-circle bg-danger'>GO</span> Gourmet</h1>
-      <div className="InvoiceMain mt-5">
-        <div className="InvoiceDetails d-flex justify-content-between">
-          <div className="BuyerDetails ">
-            <ul>
-              <li><h5>To: Nand Ji</h5></li>
-              <li className='street'>LIG Square,Vijay Nagar,</li>
-              <li className='city'>Indore,</li>
-              <li className='stateAndCountry'>Madhya Pradesh, India</li>
-              <li className='mobile'>644412121</li>
-            </ul>
+      <div className="InvoiceMain ">
+        <div className="AddressDetails">
+          <div className="SellerDetails">
+            <h6 className='fw-bold'>Sold by</h6>
+            <p>GO Gourmet.Pvt.Lmt</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum labore facilis libero non inventore sequi earum. Explicabo rem aperiam, facilis cum esse perspiciatis illum ut, dolor excepturi itaque accusamus laboriosam.
+            </p>
           </div>
-          <div className="PurchaseDetails">
-            <ul>
-              <li><h5>Invoice</h5></li>
-              <li><strong>ID:</strong><span>165411154154</span></li>
-              <li><strong>Creation Date :</strong><span>5 December 2023</span></li>
-              <li><strong>Status :</strong><span>Paid</span></li>
-            </ul>
+          <div className="ShippingAddr ">
+            <h6 className='fw-bold'>Shipping Address</h6>
+            <p>Nand Ji</p>
+            <p>LIG Square <br />Near New Palasia <br />Indore-452002,IN-MP</p>
           </div>
-        </div>
-        <div className="InvoiceProduct d-flex justify-content-evenly mt-4 align-items-center">
-          <div className="OrderedProductimage"><img src={PretzelTHins} alt={PretzelTHins} /></div>
-          <div className='IProductName'>Dark-Chocolate Pretzel Thins</div>
+          <div className="Billing Addr">
+            <h6 className='fw-bold'>Billing Address</h6>
+            <p>Nand Ji</p>
+            <p>LIG Square <br />Near New Palasia <br />Indore-452002,IN-MP</p>
+          </div>
         </div>
         <div className="PaymentDetails mt-5">
           <Table className='border-2'>
-            <thead>
+            <thead className=''>
               <tr>
-                <th>Sr.</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Amount</th>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Gross<br /> Amount</th>
+                <th>Discount</th>
+                <th>Taxable<br /> Value</th>
+                <th>Total</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td>Dark-Choco-Pretzel Thins <br />(Regular (50gX30g))</td>
+                <td>GST:18%<br /><strong>Shipping and Handling Charges</strong></td>
                 <td>1</td>
-                <td>Dark-Choco-Pretzel THins</td>
-                <td>3</td>
                 <td>300$</td>
-                <td>900$</td>
+                <td>-0.00</td>
+                <td>27.12</td>
+                <td>350$</td>
+              </tr>
+              <tr>
+                <td>Dark-Choco-Pretzel Thins<br />(Regular (50gX30g))</td>
+                <td>GST:18%<br /><strong>Shipping and Handling Charges</strong></td>
+                <td>1</td>
+                <td>300$</td>
+                <td>-0.00</td>
+                <td>27.12</td>
+                <td>350$</td>
               </tr>
             </tbody>
           </Table>
-          <div className="Invoice-Bottom mt-5 d-flex justify-content-between align-items-center">
-            <div className="Invoice-Bottomtext">
-              An Additional Payment Information are here:
+          <div className="InvoicetableFooter">
+            <div className="totalQty">TOTAL QTY: 2</div>
+            <div className="totalPrice px-2">
+              <p>TOTAL PRICE: 700$</p>
+              <p>All Values are in INR</p>
             </div>
-            <div className="Invoice-Bottom-List">
-              <ul>
-                <li><strong>Sub Total: </strong> <span>900$</span></li>
-                <li><strong>Tax: </strong> <span>15%</span></li>
-                <li><strong>Total <br />Amount: </strong> <span>1100$</span></li>
-              </ul>
-            </div>
-            <button className='Invoicbtn ' onClick={generatePdf}>< FaFileDownload /> </button> <span />
           </div>
         </div>
       </div>
+      <div className="sellerAddress mx-auto">
+        <p><strong>Seller Registered Address: </strong>Go Gourmet Pvt.Lmt,</p>
+        <p>Go Gourmet Pvt Lmt,Scheme No.78,Vijay Nagar,Indore-452015</p>
+        <p><strong>Declaration</strong></p>
+        <p>The goods sold are intended for end user consumption and not for resale</p>
+      </div>
+      <button className='Invoicbtn ' onClick={generatePdf}><FaFileDownload /> </button> <span />
+      <button className='Invoicbtn ' onClick={printInvoice}><MdLocalPrintshop /></button>
     </div>
 
   )
