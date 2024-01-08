@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { footerVal, getStylesLan } from "../../utils/Constants";
 import FooterScroller from "./FooterScroller";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 export const Footer = () => {
     const footerData = useSelector((store) => store.storeSettings?.footer);
@@ -155,6 +156,14 @@ export const Footer = () => {
                                     </>
                                 ) : null}
                             </div>
+                            <div
+                                style={{
+                                    backgroundColor: "white",
+                                    width: "100%",
+                                    height: "2px",
+                                    marginTop: "1.8rem",
+                                }}
+                            ></div>
                             <div className="footer-widget-wrap ">
                                 <div className="links-wrapper">
                                     {footerData &&
@@ -269,13 +278,13 @@ export const Footer = () => {
                                                         id="k_id_email"
                                                         placeholder="Your email"
                                                     />
-                                                    <span
+                                                    <button
                                                         className="input-field-icon"
                                                         style={styles.color}
                                                     >
-                                                        Sign Up
-                                                        <IoIosArrowRoundForward className="fs-3" />
-                                                    </span>
+                                                        Sign Up{" "}
+                                                        <FaArrowRightLong />
+                                                    </button>
                                                 </div>
                                             </form>
                                         </div>

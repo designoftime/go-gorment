@@ -28,100 +28,100 @@ const appRouter = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [{
-                path: "/",
-                element: <Home /> 
-            },
-            {
-                path: "/collections/all",
-                element: <Shop />
-            },
-            {
-                path: "/accounts",
-                children: [
-                    {
-                        path: "profile",
-                        element: <PrivateRoute Component={Profile} />
-                    },                    
-                    {
-                        path: "login",
-                        element: <Login />
-                    },
-                    {
-                        path: "register",
-                        element: <CreateAccount />
-                    },
-                    {
-                        path: "forgot-password",
-                        element: <ForgotPassword />
-                    },
-                    {
-                        path: "email-verification",
-                        element: <EmailVerification />
-                    },
-                    {
-                        path: "manage-subscription",
-                        element: <ManageSubscription />
-                    },
-                    {
-                        path: "reset-password",
-                        element: <ResetPassword />
-                    },
-                    {
-                        path: "order-history",
-                        element: <OrderHistory/>
-                    },
-                    {
-                        path: 'invoice',
-                        element: <Invoice/>
-                    }
-                ]
-            },
-            {
-                path: "/policies",
-                children: [
-                    {
-                        path: "privacy-policy",
-                        element: <Privacypolicy />
-                    },
-                    {
-                        path: "terms-of-service",
-                        element: <TermsofServices />
-                    },
-                    {
-                        path: "refund-policy",
-                        element: <Refundpolicy />
-                    }
-                ]
-            },
-            {
-                path: "/products/:productSlug",
-                element: <ViewProduct />
-            },
-            {
-                path: "/pages",
-                children: [
-                    {
-                        path: "our-story",
-                        element: <Ourstory />
-                    },
-                    {
-                        path: "one-feeds-two",
-                        element: <OneFeedsTwo />
-                    },
-                    {
-                        path: "store-locator",
-                        element: <ContactUs />
-                    }
-                ]
-            },
-            {
-                path: "/checkouts",
-                element: <Checkout />
-            },
-            {
-                path: "*",
-                element: <NotFound />
-            }
+            path: "/",
+            element: <Home />
+        },
+        {
+            path: "/collections/all",
+            element: <Shop />
+        },
+        {
+            path: "/accounts",
+            children: [
+                {
+                    path: "profile",
+                    element: <PrivateRoute Component={Profile} />
+                },
+                {
+                    path: "login",
+                    element: <Login />
+                },
+                {
+                    path: "register",
+                    element: <CreateAccount />
+                },
+                {
+                    path: "forgot-password",
+                    element: <ForgotPassword />
+                },
+                {
+                    path: "email-verification",
+                    element: <EmailVerification />
+                },
+                {
+                    path: "manage-subscription",
+                    element: <ManageSubscription />
+                },
+                {
+                    path: "reset-password",
+                    element: <ResetPassword />
+                },
+                {
+                    path: "order-history",
+                    element: <OrderHistory />
+                },
+                {
+                    path: 'invoice',
+                    element: <Invoice />
+                }
+            ]
+        },
+        {
+            path: "/policies",
+            children: [
+                {
+                    path: "privacy-policy",
+                    element: <Privacypolicy />
+                },
+                {
+                    path: "terms-of-service",
+                    element: <TermsofServices />
+                },
+                {
+                    path: "refund-policy",
+                    element: <Refundpolicy />
+                }
+            ]
+        },
+        {
+            path: "/products/:productSlug",
+            element: <ViewProduct />
+        },
+        {
+            path: "/pages",
+            children: [
+                {
+                    path: "our-story",
+                    element: <Ourstory />
+                },
+                {
+                    path: "one-feeds-two",
+                    element: <OneFeedsTwo />
+                },
+                {
+                    path: "store-locator",
+                    element: <ContactUs />
+                }
+            ]
+        },
+        {
+            path: "/checkouts",
+            element: <Checkout />
+        },
+        {
+            path: "*",
+            element: <NotFound />
+        }
         ]
     }
 ]);

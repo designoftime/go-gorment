@@ -48,20 +48,20 @@
     }
 
     .main-heading {
-        width: 100vw;
+        width: 70vw;
 
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 12vw;
-
+        line-height: 10vw;
         font-family: "Olly-Condensed-bold";
         text-transform: uppercase;
         color: #fff;
     }
 
     .desc {
-        width: 55vw;
+        width: 45vw;
         color: #fff;
         font-family: "Olly-thin";
         font-size: 20px;
