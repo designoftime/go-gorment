@@ -1,15 +1,17 @@
 .Invoice-container{
     margin: 0 auto;
-    width:80%;
+    width:100%;
 }
 .InvoiceHeader-section{
+    padding: 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .IHeaderContent{
+    width: 80%;
     display: grid;
-    grid-template-columns: .5fr 1fr 1fr;
+    grid-template-columns: 15vw 30vw 30vw;
 }
 .Taxtext{
     grid-column: 1/2;
@@ -38,6 +40,7 @@
     width: 98%;
 }
 .PaymentDetails{
+    width: 100%;
     border: 1px solid rgb(212, 210, 210);
 }
 .InvoicetableFooter{

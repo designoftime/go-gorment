@@ -71,7 +71,7 @@ const appRouter = createBrowserRouter([
                         element: <OrderHistory/>
                     },
                     {
-                        path: 'invoice',
+                        path: `invoice/:id`,
                         element: <Invoice/>
                     }
                 ]

@@ -8,16 +8,18 @@ import Stack from "react-bootstrap/Stack";
 import { ReactDOM } from "react-dom";
 import { Invoice } from "../../Invoice/Invoice";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) => {
   const [invoiceData, setInvoiceData] = useState(null);
   const navigate = useNavigate();
   console.log(orderProducts);
-  const handleInvoice = (idx) => {
-    setInvoiceData(idx);
-    window.open('invoice', '', '_blank',)
-  };
+  const handleInvoice = (eachItem) => {
+    setInvoiceData(eachItem);
+    console.log(invoiceData)
 
+
+  };
   const handleCancelSubscription = async (eachItem) => {
     await requests.put("/customer/subscription-inactive", {
       subscriptionId: eachItem._id,
@@ -91,12 +93,13 @@ const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) 
                       <div>
                         <button
                           className="Invoicbtn"
-                          onClick={() => handleInvoice(idx)}
+                          onClick={() => handleInvoice(eachItem)}
                           title="Download Invoice"
                         >
                           <span>
-                            <RiFileDownloadFill />
+                            <Link to={`/accounts/invoice/${eachItem._id}`} target="_blank"><RiFileDownloadFill /></Link>
                           </span>
+                          
                         </button>
                       </div>
                       <Stack direction="horizontal" gap={2}>
@@ -126,6 +129,8 @@ const Orders = ({ title, orderProducts, subscription = false, fetchUserOrder }) 
         })}
       </div>
     </div>
+
+
   );
 
 };
