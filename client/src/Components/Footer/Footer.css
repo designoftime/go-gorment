@@ -1,6 +1,6 @@
 /* Footer Section */
 .footer-Section {
-    /* padding-bottom: 45px; */
+    padding-bottom: 45px;
     background-color: #4c4294;
     color: white;
     width: 100%;
@@ -26,7 +26,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #fff;
+    /* border-bottom: 1px solid #fff; */
     gap: 60px;
     /* padding: 30px 0px 30px 0px; */
 }
@@ -86,6 +86,9 @@
 .sign-up-input {
     width: 100%;
     background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .sign-up-input-field {
@@ -109,6 +112,9 @@
     cursor: pointer;
     padding-left: 10px;
     height: 25px;
+    border: none;
+    display: inline;
+    background-color: #fff;
 }
 
 .FSignupbtn {
@@ -245,7 +251,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 10px;
+        gap: 1.5rem;
     }
 
     .sign-up {
@@ -284,7 +290,9 @@
     .footer-bottom-text .feel-good {
         width: 300px;
     }
-    .footer-logo img {
-        width: 70px;
+
+    .footer-logo a img {
+        width: 60vw;
+        height: 100%;
     }
 }
